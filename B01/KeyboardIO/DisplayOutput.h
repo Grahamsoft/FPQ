@@ -8,15 +8,28 @@ typedef enum
 	e_Active,
 	e_Green,
 	e_Red,
+	e_InQ1,
+	e_InQ2,
+}t_ButtonSequence;
+
+typedef enum
+{
+	e_Off,
+	e_InQ,
+	e_QHead,
 }t_ButtonState;
 
 
 struct AKey
 {
-	int				Id;
-	t_ButtonState	Sequence;
-	char			Displaying;
-	time_t			NextAction;
+	int					Id;
+	t_ButtonState		State;
+	t_ButtonSequence	Sequence;
+	char				Displaying;
+	time_t				NextAction;
+	time_t				TimeInState;
+	int					ScreenPosition;
+	bool				FireUpdate;
 };
 
 
@@ -37,4 +50,5 @@ class DisplayOutput
 		void GetNextSequence( AKey* theKey );
 		char GetActivateColour( void );
 		char GetInActivateColour( void );
+		void SetState( AKey* theKey, t_ButtonState theState );
 };
