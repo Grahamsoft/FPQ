@@ -14,11 +14,11 @@ typedef enum
 
 typedef enum
 {
+	e_Unallocated,
 	e_Off,
 	e_InQ,
 	e_QHead,
 }t_ButtonState;
-
 
 struct AKey
 {
@@ -30,6 +30,8 @@ struct AKey
 	time_t				TimeInState;
 	int					ScreenPosition;
 	bool				FireUpdate;
+	int					BeingServedBy;
+
 };
 
 
@@ -39,11 +41,12 @@ class DisplayOutput
 		DisplayOutput(void);
 		void Update();
 		bool Activate( int theKey );
-		void Next( int theKeyId );
+		void Next( int theKeyId, int theStaffId );
+		int GetButtonId( void );
 	public:
 		~DisplayOutput(void);
 	private:
-		AKey m_Key[4];
+		AKey m_Key[8];
 		bool m_Updated;
 //		char GetNextDisplay( char theCurrentDisplay );
 //		time_t GetNextAction( char theCurrentDisplay );

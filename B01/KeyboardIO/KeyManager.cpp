@@ -3,7 +3,7 @@
 
 const double m_DelayInSeconds = 0.1;
 
-KeyManager::KeyManager( DisplayOutput* theDisplayOutput, char theKeyMonitoring, Queue* theQueue )
+KeyManager::KeyManager( t_ButtonUse theKeyUse, DisplayOutput* theDisplayOutput, char theKeyMonitoring, Queue* theQueue )
 {
 	m_KeyActive		= false;
 	Pressed			= 0;
@@ -14,6 +14,14 @@ KeyManager::KeyManager( DisplayOutput* theDisplayOutput, char theKeyMonitoring, 
 	m_Display		= theDisplayOutput;
 	m_Key			= theKeyMonitoring;
 	m_Queue			= theQueue;
+	m_KeyUse = theKeyUse;
+
+
+//	if ( m_KeyUse == e_Customer )
+//	{
+		m_DisplayMapping = theDisplayOutput->GetButtonId();
+//	}
+
 }
 
 KeyManager::~KeyManager(void)
@@ -24,11 +32,21 @@ void KeyManager::KeyPress( char theKeyPressed )
 {
 	if( theKeyPressed == m_Key )
 	{
-		KeyUpTimer = NotSet;	// The key is not up so cancel and timers.
-
-		if ( KeyDownTimer == NotSet )
+		switch( m_KeyUse )
 		{
-			KeyDownTimer = clock () + ( m_DelayInSeconds * CLOCKS_PER_SEC );
+			case e_Customer:
+
+					KeyUpTimer = NotSet;	// The key is not up so cancel and timers.
+
+					if ( KeyDownTimer == NotSet )
+					{
+						KeyDownTimer = clock () + ( m_DelayInSeconds * CLOCKS_PER_SEC );
+					}
+
+				break;
+			case e_Staff:
+				m_Display->Next( m_Queue->Next(), m_DisplayMapping );
+				break;
 		}
 	}
 }
@@ -55,40 +73,17 @@ void KeyManager::KeyNotPressed()
 
 void KeyManager::CheckTimers()
 {
-		// CHECK TIMERS
-		if ( KeyDownTimer != NotSet )
-		{
-			if ( clock() >= KeyDownTimer )
-			{	
-				switch( KeyManager::m_Key )
-				{
-					case '1':
-						if ( m_Display->Activate( 0 ) )
-						{
-							m_Queue->Add( 0 );
-						}
-						break;
-					case '2':
-						if ( m_Display->Activate( 1 ) )
-						{
-							m_Queue->Add( 1 );
-						}
-						break;
-					case '3':
-						if ( m_Display->Activate( 2 ) )
-						{
-							m_Queue->Add( 2 );
-						}
-						break;
-					case '4':
-						if ( m_Display->Activate( 3 ) )
-						{
-							m_Queue->Add( 3 );
-						}
-						break;
-				}
-				KeyDownTimer = NotSet;
+	// CHECK TIMERS
+	if ( KeyDownTimer != NotSet )
+	{
+		if ( clock() >= KeyDownTimer )
+		{	
+			if ( m_Display->Activate( m_DisplayMapping ) )
+			{
+				m_Queue->Add( m_DisplayMapping );
 			}
+			KeyDownTimer = NotSet;
 		}
+	}
 }
 

@@ -4,10 +4,16 @@
 #include "DisplayOutput.h"
 #include "Queue.h"
 
+typedef enum
+{
+	e_Customer,
+	e_Staff,
+}t_ButtonUse;
+
 class KeyManager
 {
 public:
-	KeyManager( DisplayOutput* theDisplayOutput, char theKeyMonitoring, Queue* theQueue );
+	KeyManager( t_ButtonUse theKeyUse, DisplayOutput* theDisplayOutput, char theKeyMonitoring, Queue* theQueue );
 	void KeyPress( char theKeyPressed );
 	void KeyNotPressed( void );
 	void CheckTimers( void );
@@ -24,4 +30,7 @@ private:
 	Queue* m_Queue;
 	bool	m_KeyActive;
 	char	m_Key;
+	int m_DisplayMapping;
+	t_ButtonUse m_KeyUse;
+
 };

@@ -15,10 +15,15 @@ int main( int argc, char *argv[] )
 
 	Queue *QueueSys = new Queue();
 
-	KeyManager *KM_A = new KeyManager( Display, '1', QueueSys );
-	KeyManager *KM_B = new KeyManager( Display, '2', QueueSys );
-	KeyManager *KM_C = new KeyManager( Display, '3', QueueSys );
-	KeyManager *KM_D = new KeyManager( Display, '4', QueueSys );
+	KeyManager *KM_A = new KeyManager( e_Customer, Display, '1', QueueSys );
+	KeyManager *KM_B = new KeyManager( e_Customer, Display, '2', QueueSys );
+	KeyManager *KM_C = new KeyManager( e_Customer, Display, '3', QueueSys );
+	KeyManager *KM_D = new KeyManager( e_Customer, Display, '4', QueueSys );
+
+	KeyManager *KM_E = new KeyManager( e_Staff, Display, 'q', QueueSys );
+	KeyManager *KM_F = new KeyManager( e_Staff, Display, 'w', QueueSys );
+	KeyManager *KM_G = new KeyManager( e_Staff, Display, 'e', QueueSys );
+	KeyManager *KM_H = new KeyManager( e_Staff, Display, 'r', QueueSys );
 
 	while ( 1 )
 	{
@@ -35,10 +40,15 @@ int main( int argc, char *argv[] )
 			KM_C->KeyPress( KeyPressed );
 			KM_D->KeyPress( KeyPressed );
 
-			if ( KeyPressed == ' ' )
-			{
-				Display->Next( QueueSys->Next() );
-			}
+			KM_E->KeyPress( KeyPressed );
+			KM_F->KeyPress( KeyPressed );
+			KM_G->KeyPress( KeyPressed );
+			KM_H->KeyPress( KeyPressed );
+
+			//if ( KeyPressed == ' ' )
+			//{
+			//	Display->Next( QueueSys->Next() );
+			//}
         }
 		else
 		{
