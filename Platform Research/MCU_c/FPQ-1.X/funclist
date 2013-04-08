@@ -1,7 +1,10 @@
-_ConfigureOscillator: CODE, 292 0 2
-_main: CODE, 270 0 14
+_DataCommsTask: CODE, 312 0 2
+_ConfigureOscillator: CODE, 310 0 2
+_main: CODE, 270 0 20
 _high_isr: CODE, 8 0 262
-_InitApp: CODE, 290 0 2
-__initialization: CODE, 284 0 0
+_InitApp: CODE, 308 0 2
+__initialization: CODE, 302 0 0
+_TaskManager: CODE, 290 0 12
+_TimerTask: CODE, 314 0 2
 _low_isr: CODE, 24 0 138
-Total: 418
+Total: 440

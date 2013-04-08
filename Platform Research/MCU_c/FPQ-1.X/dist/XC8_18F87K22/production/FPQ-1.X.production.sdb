@@ -2,7 +2,7 @@
 [d version 1.1 ]
 [d edition pro ]
 [d chip 18F2585 ]
-"36 interrupts.c
+"36 source/Interrupts.c
 [v F16220 `(v  1 t 0 ]
 "75
 [v F16223 `(v  1 t 0 ]
@@ -128,32 +128,53 @@
 [v ___tmul `(um  1 e 3 0 ]
 "3 /Applications/microchip/xc8/v1.12/sources/wmul.c
 [v ___wmul `(ui  1 e 2 0 ]
-"36 interrupts.c
+"13 source/DataCommsTask.c
+[v _DataCommsTask `(i  1 e 2 0 ]
+"36 source/Interrupts.c
 [v _high_isr `II(v  1 e 0 0 ]
 "75
 [v _low_isr `IIL(v  1 e 0 0 ]
-"34 main.c
+"28 source/Main.c
 [v _main `(v  1 e 0 0 ]
-"25 system.c
+"25 source/Mystem.c
 [v _ConfigureOscillator `(v  1 e 0 0 ]
-"29 user.c
+"15 source/TaskManager.c
+[v _TaskManager `(i  1 e 2 0 ]
+"13 source/TimerTask.c
+[v _TimerTask `(i  1 e 2 0 ]
+"29 source/User.c
 [v _InitApp `(v  1 e 0 0 ]
-"34 main.c
+"28 source/Main.c
 [v _main `(v  1 e 0 0 ]
 {
-"48
+"36
 } 0
-"29 user.c
+"29 source/User.c
 [v _InitApp `(v  1 e 0 0 ]
 {
 "39
 } 0
-"25 system.c
+"25 source/Mystem.c
 [v _ConfigureOscillator `(v  1 e 0 0 ]
 {
 "31
 } 0
-"75 interrupts.c
+"15 source/TaskManager.c
+[v _TaskManager `(i  1 e 2 0 ]
+{
+"19
+} 0
+"13 source/DataCommsTask.c
+[v _DataCommsTask `(i  1 e 2 0 ]
+{
+"15
+} 0
+"13 source/TimerTask.c
+[v _TimerTask `(i  1 e 2 0 ]
+{
+"16
+} 0
+"75 source/Interrupts.c
 [v _low_isr `IIL(v  1 e 0 0 ]
 {
 "102
