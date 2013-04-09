@@ -8,16 +8,6 @@
 #ifndef DATACOMMSTASK_H
 #define	DATACOMMSTASK_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-
-
-
-#ifdef	__cplusplus
-}
-#endif
+int DataCommsTask( void );
 
 #endif	/* DATACOMMSTASK_H */
-

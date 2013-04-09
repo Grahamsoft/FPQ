@@ -1,17 +1,21 @@
 __CFG_XINST$OFF 0 0 ABS 0
 __S0 30000E 0 ABS 0
-__S1 20 0 ABS 0
+__S1 22 0 ABS 0
 __Hintentry 0 0 ABS 0
 __CFG_PWRT$OFF 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 __size_of_low_isr 0 0 ABS 0
-__end_of_DataCommsTask 13A 0 CODE 0
-_main 10E 0 CODE 0
+__end_of_DataCommsTask 172 0 CODE 0
+_main 130 0 CODE 0
 start A2 0 CODE 0
+_TMR0H FD7 0 ABS 0
+_TMR0L FD6 0 ABS 0
 __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
 __HRAM 0 0 ABS 0
 __LRAM 1 0 ABS 0
+_T0CON FD5 0 ABS 0
+OpenTimer0@config 20 0 COMRAM 1
 __CFG_WDTPS$32768 0 0 ABS 0
 __Hconfig 30000E 0 CONFIG 0
 __Lconfig 300000 0 CONFIG 0
@@ -54,18 +58,19 @@ __Lintcode 8 0 CODE 0
 __Hfardata 0 0 FARRAM 0
 __Lfardata 0 0 FARRAM 0
 __pintcode 8 0 CODE 0
+_OSCCON FD3 0 ABS 0
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
 __CFG_EBTR0$OFF 0 0 ABS 0
 __size_of_TimerTask 0 0 ABS 0
 __CFG_EBTR1$OFF 0 0 ABS 0
 __CFG_PBADEN$OFF 0 0 ABS 0
-_TaskManager 122 0 CODE 0
+_TaskManager 158 0 CODE 0
 __CFG_EBTR2$OFF 0 0 ABS 0
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
-_TimerTask 13A 0 CODE 0
-__end_of_ConfigureOscillator 138 0 CODE 0
+_TimerTask 172 0 CODE 0
+__end_of_ConfigureOscillator 170 0 CODE 0
 __Htemp 0 0 COMRAM 1
 __Ltemp 0 0 COMRAM 1
 __Hrbit 0 0 COMRAM 1
@@ -75,12 +80,14 @@ __Linit A2 0 CODE 0
 __Hintcodelo A2 0 CODE 0
 __Lintcodelo 18 0 CODE 0
 __Hrbss 0 0 COMRAM 1
-__end_of_main 122 0 CODE 0
+__end_of_main 148 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __pintcodelo 18 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
-end_of_initialization 12E 0 CODE 0
+end_of_initialization 164 0 CODE 0
+_OpenTimer0 10E 0 CODE 0
+_T0CONbits FD5 0 ABS 0
 __end_of_high_isr 10E 0 CODE 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
@@ -92,6 +99,7 @@ __Hbank1 0 0 ABS 0
 __Lbank1 0 0 ABS 0
 __Hbank2 0 0 ABS 0
 __Lbank2 0 0 ABS 0
+__size_of_OpenTimer0 0 0 ABS 0
 __Hbank3 0 0 ABS 0
 __Lbank3 0 0 ABS 0
 __Hbank4 0 0 ABS 0
@@ -112,25 +120,31 @@ __Hbank9 0 0 ABS 0
 __Lbank9 0 0 ABS 0
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
-__ptext0 10E 0 CODE 0
+__ptext0 130 0 CODE 0
 __Htext2 0 0 ABS 0
 __Ltext2 0 0 ABS 0
-__ptext1 134 0 CODE 0
+__ptext1 158 0 CODE 0
 __Htext3 0 0 ABS 0
 __Ltext3 0 0 ABS 0
-__ptext2 136 0 CODE 0
+__ptext2 170 0 CODE 0
 __Htext4 0 0 ABS 0
 __Ltext4 0 0 ABS 0
-__ptext3 122 0 CODE 0
+__ptext3 172 0 CODE 0
 __Htext5 0 0 ABS 0
 __Ltext5 0 0 ABS 0
-__ptext4 138 0 CODE 0
-__ptext5 13A 0 CODE 0
+__ptext4 16A 0 CODE 0
+__Htext6 0 0 ABS 0
+__Ltext6 0 0 ABS 0
+__ptext5 148 0 CODE 0
+__Htext7 0 0 ABS 0
+__Ltext7 0 0 ABS 0
+__ptext6 174 0 CODE 0
+__ptext7 10E 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
-__end_of_InitApp 136 0 CODE 0
-__end_of__initialization 12E 0 CODE 0
-__end_of_TaskManager 12E 0 CODE 0
+__end_of_InitApp 176 0 CODE 0
+__end_of__initialization 164 0 CODE 0
+__end_of_TaskManager 164 0 CODE 0
 __CFG_BBSIZ$1024 0 0 ABS 0
 __Hidata 0 0 CODE 0
 __Lidata 0 0 CODE 0
@@ -145,15 +159,16 @@ __Hparam 0 0 ABS 0
 __Lparam 0 0 ABS 0
 __HcstackCOMRAM 0 0 ABS 0
 __LcstackCOMRAM 0 0 ABS 0
-_InitApp 134 0 CODE 0
+_InitApp 174 0 CODE 0
 __pcstackCOMRAM 1 0 COMRAM 1
+_ConfigureTimer 148 0 CODE 0
 __Hsmallconst 0 0 SMALLCONST 0
 __Lsmallconst 0 0 SMALLCONST 0
 __Hnvbit 0 0 COMRAM 1
 __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
-__pcinit 12E 0 CODE 0
+__pcinit 164 0 CODE 0
 __CFG_EBTRB$OFF 0 0 ABS 0
 __size_of_ConfigureOscillator 0 0 ABS 0
 __ramtop D00 0 RAM 0
@@ -163,7 +178,7 @@ __size_of_main 0 0 ABS 0
 __Hconst 0 0 CODE 0
 __Lconst 0 0 CODE 0
 __CFG_MCLRE$OFF 0 0 ABS 0
-_DataCommsTask 138 0 CODE 0
+_DataCommsTask 170 0 CODE 0
 __CFG_WRT0$OFF 0 0 ABS 0
 __CFG_WRT1$OFF 0 0 ABS 0
 __CFG_WRT2$OFF 0 0 ABS 0
@@ -174,9 +189,12 @@ __Lbank11 0 0 ABS 0
 __CFG_FCMEN$OFF 0 0 ABS 0
 __Hbank12 0 0 ABS 0
 __Lbank12 0 0 ABS 0
+__end_of_OpenTimer0 130 0 CODE 0
 __size_of_TaskManager 0 0 ABS 0
 __CFG_BOREN$BOHW 0 0 ABS 0
+?_OpenTimer0 20 0 COMRAM 1
 __CFG_BORV$3 0 0 ABS 0
+_INTCONbits FF2 0 ABS 0
 __Hend_init A6 0 CODE 0
 __Lend_init A2 0 CODE 0
 __CFG_CP0$OFF 0 0 ABS 0
@@ -193,57 +211,75 @@ intlevel0 0 0 CODE 0
 __size_of_InitApp 0 0 ABS 0
 intlevel1 0 0 CODE 0
 __CFG_WRTB$OFF 0 0 ABS 0
-__end_of_TimerTask 13C 0 CODE 0
+__end_of_TimerTask 174 0 CODE 0
 intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
 __CFG_WRTC$OFF 0 0 ABS 0
 __CFG_WRTD$OFF 0 0 ABS 0
 __CFG_CPB$OFF 0 0 ABS 0
 __CFG_CPD$OFF 0 0 ABS 0
-start_initialization 12E 0 CODE 0
+start_initialization 164 0 CODE 0
+__size_of_ConfigureTimer 0 0 ABS 0
 __CFG_IESO$OFF 0 0 ABS 0
 __CFG_OSC$IRCIO67 0 0 ABS 0
+__end_of_ConfigureTimer 158 0 CODE 0
 __end_of_low_isr A2 0 CODE 0
-__initialization 12E 0 CODE 0
+__initialization 164 0 CODE 0
 __CFG_LPT1OSC$OFF 0 0 ABS 0
 __activetblptr 0 0 ABS 0
 __CFG_WDT$OFF 0 0 ABS 0
 __CFG_LVP$OFF 0 0 ABS 0
-_ConfigureOscillator 136 0 CODE 0
+_ConfigureOscillator 16A 0 CODE 0
 %segments
 reset_vec 0 3 CODE 0 0
 intcode 8 17 CODE 8 0
-intcodelo 18 13B CODE 18 0
+intcodelo 18 175 CODE 18 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
-cstackCOMRAM 1 1F COMRAM 1 1
+cstackCOMRAM 1 21 COMRAM 1 1
 %locals
 dist/XC8_18F87K22/production/FPQ-1.X.production.obj
-/tmp/cgtqOBsah
-/tmp/cgtqOBsah
+/tmp/cgtMlPZ7C
+/tmp/cgtMlPZ7C
 source/Interrupts.c
 102 5C 0 CODE 0
-/tmp/cgtqOBsah
-4190 12E 0 CODE 0
-4191 130 0 CODE 0
+/tmp/cgtMlPZ7C
+5002 164 0 CODE 0
+5003 166 0 CODE 0
 source/Main.c
-29 10E 0 CODE 0
-30 112 0 CODE 0
-34 116 0 CODE 0
-32 11C 0 CODE 0
-36 11E 0 CODE 0
-source/User.c
-39 134 0 CODE 0
-source/Mystem.c
-31 136 0 CODE 0
+29 130 0 CODE 0
+30 134 0 CODE 0
+31 138 0 CODE 0
+35 13C 0 CODE 0
+33 142 0 CODE 0
+37 144 0 CODE 0
 source/TaskManager.c
-16 122 0 CODE 0
-17 126 0 CODE 0
-19 12C 0 CODE 0
+16 158 0 CODE 0
+17 15C 0 CODE 0
+19 162 0 CODE 0
 source/DataCommsTask.c
-15 138 0 CODE 0
+15 170 0 CODE 0
 source/TimerTask.c
-16 13A 0 CODE 0
+30 172 0 CODE 0
+source/SystemSetup.c
+25 16A 0 CODE 0
+26 16E 0 CODE 0
+source/SystemSetup.c
+33 148 0 CODE 0
+35 154 0 CODE 0
+36 156 0 CODE 0
+source/User.c
+39 174 0 CODE 0
+plib/Timers/t0open.c
+20 10E 0 CODE 0
+21 114 0 CODE 0
+22 118 0 CODE 0
+23 11C 0 CODE 0
+25 11E 0 CODE 0
+26 126 0 CODE 0
+28 12A 0 CODE 0
+30 12C 0 CODE 0
+31 12E 0 CODE 0
 source/Interrupts.c
 source/Interrupts.c
 36 A6 0 CODE 0

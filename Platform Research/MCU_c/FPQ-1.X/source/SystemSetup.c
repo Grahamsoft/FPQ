@@ -14,18 +14,23 @@
 
 #include <stdint.h>         /* For uint8_t definition */
 #include <stdbool.h>        /* For true/false definition */
+#include "timers.h"
 
 #endif
 
-#include "system.h"
+#include "SystemSetup.h"
 
-/* Refer to the device datasheet for information about available
-oscillator configurations. */
-void ConfigureOscillator(void)
+void ConfigureOscillator()
 {
-    /* TODO Add clock switching code if appropriate.  */
+    OSCCON = 0b01111110;
+}
 
-    /* Typical actions in this function are to tweak the oscillator tuning
-    register, select new clock sources, and to wait until new clock sources
-    are stable before resuming execution of the main project. */
+void ConfigureTimer( void )
+{
+    OpenTimer0( TIMER_INT_ON &//Should be ON
+    T0_8BIT &
+    T0_SOURCE_INT &
+    T0_PS_1_256 );
+
+    ei();
 }

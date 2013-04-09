@@ -83,6 +83,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;DataCommsTask.h: 11: int DataCommsTask( void );
 "13 source/DataCommsTask.c
 [v _DataCommsTask `(i ~T0 @X0 1 ef ]
 {

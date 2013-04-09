@@ -17,19 +17,20 @@
 
 #endif
 
-#include "System.h"        /* System funct/params, like osc/peripheral config */
-#include "User.h"          /* User funct/params, such as InitApp */
+#include "SystemSetup.h"
+#include "User.h"
 #include "TaskManager.h"
 
 /******************************************************************************/
 /* Main Program                                                               */
 /******************************************************************************/
-void main(void)
+void main()
 {
     ConfigureOscillator();
+    ConfigureTimer();    
     InitApp();
 
-    while(1)
+    while( 1 )
     {
         TaskManager();
     }

@@ -8,18 +8,9 @@
 #ifndef TIMERTASK_H
 #define	TIMERTASK_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-
-
-
-#ifdef	__cplusplus
-}
-#endif
+int TimerTask( void );
 
 #endif	/* TIMERTASK_H */
 
-int TimerTask( void );
+
 

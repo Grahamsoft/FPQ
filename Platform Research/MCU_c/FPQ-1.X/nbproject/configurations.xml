@@ -5,10 +5,10 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>source/headers/TaskManager.h</itemPath>
-      <itemPath>source/headers/system.h</itemPath>
       <itemPath>source/headers/user.h</itemPath>
       <itemPath>source/headers/DataCommsTask.h</itemPath>
       <itemPath>source/headers/TimerTask.h</itemPath>
+      <itemPath>source/headers/SystemSetup.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -25,10 +25,10 @@
       <itemPath>source/ConfigurationBits.c</itemPath>
       <itemPath>source/Interrupts.c</itemPath>
       <itemPath>source/Main.c</itemPath>
-      <itemPath>source/Mystem.c</itemPath>
       <itemPath>source/User.c</itemPath>
       <itemPath>source/DataCommsTask.c</itemPath>
       <itemPath>source/TimerTask.c</itemPath>
+      <itemPath>source/SystemSetup.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -73,7 +73,7 @@
       <HI-TECH-COMP>
         <property key="define-macros" value=""/>
         <property key="extra-include-directories"
-                  value="/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers"/>
+                  value="/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers;/Applications/microchip/xc8/v1.12/include/plib"/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="free"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>

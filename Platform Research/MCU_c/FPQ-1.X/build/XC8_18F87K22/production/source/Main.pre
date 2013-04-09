@@ -18693,8 +18693,9 @@ typedef uint16_t uintptr_t;
 # 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
 typedef unsigned char bool;
 
-# 19 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/System.h"
-void ConfigureOscillator(void);
+# 15 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/SystemSetup.h"
+void ConfigureOscillator( void );
+void ConfigureTimer( void );
 
 # 13 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/User.h"
 void InitApp(void);
@@ -18703,12 +18704,13 @@ void InitApp(void);
 int TaskManager( void );
 
 # 27 "source/Main.c"
-void main(void)
+void main()
 {
 ConfigureOscillator();
+ConfigureTimer();
 InitApp();
 
-while(1)
+while( 1 )
 {
 TaskManager();
 }

@@ -137,6 +137,9 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
+# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/DataCommsTask.h"
+int DataCommsTask( void );
+
 # 12 "source/DataCommsTask.c"
 int DataCommsTask()
 {

@@ -1,5 +1,5 @@
 
-# 1 "user.c"
+# 1 "source/SystemSetup.c"
 
 # 44 "/Applications/microchip/xc8/v1.12/include/pic18f2585.h"
 extern volatile unsigned char RXF6SIDH @ 0xD60;
@@ -18693,13 +18693,22 @@ typedef uint16_t uintptr_t;
 # 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
 typedef unsigned char bool;
 
-# 13 "user.h"
-void InitApp(void);
+# 15 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/SystemSetup.h"
+void ConfigureOscillator( void );
+void ConfigureTimer( void );
 
-# 28 "user.c"
-void InitApp(void)
+# 23 "source/SystemSetup.c"
+void ConfigureOscillator()
 {
-
-# 39
+OSCCON = 0b01111110;
 }
 
+void ConfigureTimer( void )
+{
+OpenTimer0( 0b11111111 &
+0b11111111 &
+0b11011111 &
+0b11110111 );
+
+(INTCONbits.GIE = 1);
+}

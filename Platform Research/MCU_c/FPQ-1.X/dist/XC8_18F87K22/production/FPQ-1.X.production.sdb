@@ -6,8 +6,111 @@
 [v F16220 `(v  1 t 0 ]
 "75
 [v F16223 `(v  1 t 0 ]
-"5 /Applications/microchip/xc8/v1.12/sources/abdiv.c
-[v ___abdiv `(c  1 e 1 0 ]
+"118 /Applications/microchip/xc8/v1.12/include/plib/timers.h
+[s S57 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+[s S66 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S75 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[s S84 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S93 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S97 . 1 `S57 1 . 1 0 `S66 1 . 1 0 `S75 1 . 1 0 `S84 1 . 1 0 `S93 1 . 1 0 ]
+"33095 /Volumes/build/bamboo/xml-data/build-dir/XC8-RELEASE-JOB1/nz/build/dist/osx/include/pic18f2585.h
+[s S157 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"33095
+[s S166 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"33095
+[s S175 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+"33095
+[s S184 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"33095
+[s S193 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+"33095
+[u S197 . 1 `S57 1 . 1 0 `S66 1 . 1 0 `S75 1 . 1 0 `S84 1 . 1 0 `S93 1 . 1 0 ]
+"33560
+[s S204 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"33560
+[s S211 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+`uc 1 T0PS3 1 0 :1:3 
+]
+"33560
+[u S216 . 1 `S204 1 . 1 0 `S211 1 . 1 0 ]
 "5 ../common/asfladd.c
 [v ___asfladd `(d  1 e 3 0 ]
 "5 ../common/asfldiv.c
@@ -26,6 +129,8 @@
 [v ___asftsub `(f  1 e 3 0 ]
 "5 ../common/aslmul.c
 [v ___aslmul `(ul  1 e 4 0 ]
+"5 /Applications/microchip/xc8/v1.12/sources/abdiv.c
+[v ___abdiv `(c  1 e 1 0 ]
 "5 /Applications/microchip/xc8/v1.12/sources/abmod.c
 [v ___abmod `(c  1 e 1 0 ]
 "32 /Applications/microchip/xc8/v1.12/sources/abtofl.c
@@ -128,6 +233,8 @@
 [v ___tmul `(um  1 e 3 0 ]
 "3 /Applications/microchip/xc8/v1.12/sources/wmul.c
 [v ___wmul `(ui  1 e 2 0 ]
+"19 plib/Timers/t0open.c
+[v _OpenTimer0 `(v  1 e 0 0 ]
 "13 source/DataCommsTask.c
 [v _DataCommsTask `(i  1 e 2 0 ]
 "36 source/Interrupts.c
@@ -136,28 +243,95 @@
 [v _low_isr `IIL(v  1 e 0 0 ]
 "28 source/Main.c
 [v _main `(v  1 e 0 0 ]
-"25 source/Mystem.c
+"24 source/SystemSetup.c
 [v _ConfigureOscillator `(v  1 e 0 0 ]
+"29
+[v _ConfigureTimer `(v  1 e 0 0 ]
 "15 source/TaskManager.c
 [v _TaskManager `(i  1 e 2 0 ]
-"13 source/TimerTask.c
+"27 source/TimerTask.c
 [v _TimerTask `(i  1 e 2 0 ]
 "29 source/User.c
 [v _InitApp `(v  1 e 0 0 ]
+"32938 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[v _OSCCON `VEuc  1 e 1 @4051 ]
+[s S57 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"33560
+[s S66 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"33560
+[s S75 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+"33560
+[s S84 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"33560
+[s S93 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+"33560
+[u S97 . 1 `S57 1 . 1 0 `S66 1 . 1 0 `S75 1 . 1 0 `S84 1 . 1 0 `S93 1 . 1 0 ]
+"33560
+"33560
+[v _INTCONbits `VES97  1 e 1 @4082 ]
+"33014 /Volumes/build/bamboo/xml-data/build-dir/XC8-RELEASE-JOB1/nz/build/dist/osx/include/pic18f2585.h
+[v _T0CON `VEuc  1 e 1 @4053 ]
+[s S204 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"33035
+[s S211 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+`uc 1 T0PS3 1 0 :1:3 
+]
+"33035
+[u S216 . 1 `S204 1 . 1 0 `S211 1 . 1 0 ]
+"33035
+"33035
+[v _T0CONbits `VES216  1 e 1 @4053 ]
+"33095
+[v _TMR0L `VEuc  1 e 1 @4054 ]
+"33101
+[v _TMR0H `VEuc  1 e 1 @4055 ]
 "28 source/Main.c
 [v _main `(v  1 e 0 0 ]
 {
-"36
-} 0
-"29 source/User.c
-[v _InitApp `(v  1 e 0 0 ]
-{
-"39
-} 0
-"25 source/Mystem.c
-[v _ConfigureOscillator `(v  1 e 0 0 ]
-{
-"31
+"37
 } 0
 "15 source/TaskManager.c
 [v _TaskManager `(i  1 e 2 0 ]
@@ -169,10 +343,31 @@
 {
 "15
 } 0
-"13 source/TimerTask.c
+"27 source/TimerTask.c
 [v _TimerTask `(i  1 e 2 0 ]
 {
-"16
+"30
+} 0
+"24 source/SystemSetup.c
+[v _ConfigureOscillator `(v  1 e 0 0 ]
+{
+"26
+} 0
+"29
+[v _ConfigureTimer `(v  1 e 0 0 ]
+{
+"36
+} 0
+"29 source/User.c
+[v _InitApp `(v  1 e 0 0 ]
+{
+"39
+} 0
+"19 plib/Timers/t0open.c
+[v _OpenTimer0 `(v  1 e 0 0 ]
+{
+[v OpenTimer0@config `uc  1 p 1 31 ]
+"31
 } 0
 "75 source/Interrupts.c
 [v _low_isr `IIL(v  1 e 0 0 ]

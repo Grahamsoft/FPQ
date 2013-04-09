@@ -140,7 +140,10 @@ extern char * ftoa(float f, int * status);
 # 24 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TaskManager.h"
 int TaskManager( void );
 
-# 24 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h"
+# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/DataCommsTask.h"
+int DataCommsTask( void );
+
+# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h"
 int TimerTask( void );
 
 # 14 "source/TaskManager.c"
