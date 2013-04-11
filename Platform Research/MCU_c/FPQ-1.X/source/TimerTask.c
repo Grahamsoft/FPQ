@@ -23,6 +23,10 @@
 
 #include "TimerTask.h"
 
+static unsigned int m_HalfSeconds = 0;
+
+
+
 int TimerTask()
 {
 
