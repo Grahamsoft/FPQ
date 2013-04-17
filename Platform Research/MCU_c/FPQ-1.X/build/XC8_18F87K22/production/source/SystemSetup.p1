@@ -14734,37 +14734,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;SystemSetup.h: 15: void ConfigureOscillator( void );
 [; ;SystemSetup.h: 16: void ConfigureTimer( void );
-"24 source/SystemSetup.c
+"45 source/SystemSetup.c
 [v _ConfigureOscillator `(v ~T0 @X0 1 ef ]
 {
-[; ;SystemSetup.c: 23: void ConfigureOscillator()
-[; ;SystemSetup.c: 24: {
+[; ;SystemSetup.c: 44: void ConfigureOscillator()
+[; ;SystemSetup.c: 45: {
 [e :U _ConfigureOscillator ]
 [f ]
-[; ;SystemSetup.c: 25: OSCCON = 0b01111110;
-"25
+[; ;SystemSetup.c: 46: OSCCON = 0b01111110;
+"46
 [e = _OSCCON -> -> 126 `i `uc ]
-[; ;SystemSetup.c: 26: }
-"26
+[; ;SystemSetup.c: 47: }
+"47
 [e :UE 2082 ]
 }
-"29
+"50
 [v _ConfigureTimer `(v ~T0 @X0 1 ef ]
 {
-[; ;SystemSetup.c: 28: void ConfigureTimer( void )
-[; ;SystemSetup.c: 29: {
+[; ;SystemSetup.c: 49: void ConfigureTimer( void )
+[; ;SystemSetup.c: 50: {
 [e :U _ConfigureTimer ]
 [f ]
-[; ;SystemSetup.c: 30: OpenTimer0( 0b11111111 &
-[; ;SystemSetup.c: 31: 0b11111111 &
-[; ;SystemSetup.c: 32: 0b11011111 &
-[; ;SystemSetup.c: 33: 0b11110111 );
-"33
+[; ;SystemSetup.c: 51: OpenTimer0( 0b11111111 &
+[; ;SystemSetup.c: 52: 0b11111111 &
+[; ;SystemSetup.c: 53: 0b11011111 &
+[; ;SystemSetup.c: 54: 0b11110111 );
+"54
 [e ( _OpenTimer0 (1 -> & & & -> 255 `i -> 255 `i -> 223 `i -> 247 `i `uc ]
-[; ;SystemSetup.c: 35: (INTCONbits.GIE = 1);
-"35
+[; ;SystemSetup.c: 56: (INTCONbits.GIE = 1);
+"56
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;SystemSetup.c: 36: }
-"36
+[; ;SystemSetup.c: 57: }
+"57
 [e :UE 2083 ]
 }

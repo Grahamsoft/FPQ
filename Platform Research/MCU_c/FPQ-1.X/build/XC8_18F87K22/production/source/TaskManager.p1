@@ -1,8 +1,12 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"39 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+[v _InitKeys `(v ~T0 @X0 0 ef ]
 "11 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/DataCommsTask.h
 [v _DataCommsTask `(i ~T0 @X0 0 ef ]
-"11 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h
-[v _TimerTask `(i ~T0 @X0 0 ef ]
+"13 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/InputTask.h
+[v _InputTask `(v ~T0 @X0 0 ef ]
+"22 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputTask.h
+[v _OutputTask `(v ~T0 @X0 0 ef ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
 [; ;stdio.h: 10: typedef unsigned short wchar_t;
@@ -89,25 +93,125 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
 [; ;TaskManager.h: 24: int TaskManager( void );
 [; ;DataCommsTask.h: 11: int DataCommsTask( void );
-[; ;TimerTask.h: 11: int TimerTask( void );
-"15 source/TaskManager.c
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;InputTask.h: 13: void InputTask( void );
+[; ;InputTask.h: 14: void MonitorButton( int theId );
+[; ;InputTask.h: 15: bool ButtonBeingPressed( int theId );
+[; ;OutputTask.h: 22: void OutputTask( void );
+[; ;OutputSequences.h: 11: typedef enum
+[; ;OutputSequences.h: 12: {
+[; ;OutputSequences.h: 13: e_Off,
+[; ;OutputSequences.h: 14: e_ColourA,
+[; ;OutputSequences.h: 15: e_ColourB
+[; ;OutputSequences.h: 16: }t_ButtonColour;
+[; ;OutputSequences.h: 18: typedef struct SequencePhaseStruct
+[; ;OutputSequences.h: 19: {
+[; ;OutputSequences.h: 20: int NextActionTime;
+[; ;OutputSequences.h: 21: t_ButtonColour CurrentColour;
+[; ;OutputSequences.h: 22: }SequencePhase;
+[; ;OutputSequences.h: 24: typedef struct ASequenceStruct
+[; ;OutputSequences.h: 25: {
+[; ;OutputSequences.h: 26: SequencePhase *Sequence;
+[; ;OutputSequences.h: 27: int Size;
+[; ;OutputSequences.h: 28: int Current;
+[; ;OutputSequences.h: 29: }ASequence;
+[; ;OutputSequences.h: 31: void InitSequences( void );
+[; ;OutputSequences.h: 32: ASequence* GetSequencePointer( int theId );
+[; ;TimerTask.h: 13: typedef struct ATimerStruct
+[; ;TimerTask.h: 14: {
+[; ;TimerTask.h: 15: int Matured;
+[; ;TimerTask.h: 16: int FutureTime;
+[; ;TimerTask.h: 18: }ATimer;
+[; ;TimerTask.h: 20: int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
+[; ;TimerTask.h: 21: void ClearTimer( ATimer *theTimer );
+[; ;TimerTask.h: 22: bool MaturedTimer( ATimer *theTimer );
+[; ;TimerTask.h: 23: ATimer* GetNewTimerPointer( void );
+[; ;Model.h: 14: typedef enum
+[; ;Model.h: 15: {
+[; ;Model.h: 16: e_PressedNo,
+[; ;Model.h: 17: e_PressedYes,
+[; ;Model.h: 18: e_BeingServedNo,
+[; ;Model.h: 19: e_BeingServedYes
+[; ;Model.h: 20: }t_ButtonState;
+[; ;Model.h: 22: typedef struct AKeyStruct
+[; ;Model.h: 23: {
+[; ;Model.h: 24: int Id;
+[; ;Model.h: 25: t_ButtonState State;
+[; ;Model.h: 26: ASequence* Sequence;
+[; ;Model.h: 27: ATimer* Timer;
+[; ;Model.h: 35: }AKey;
+"37 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+[v _KeyCount `Ci ~T0 @X0 1 e ]
+[i _KeyCount
+-> 5 `i
+]
+[; ;Model.h: 37: const int KeyCount = 5;
+[; ;Model.h: 39: void InitKeys( void );
+[; ;Model.h: 40: void SetKeyState( int theKeyId, t_ButtonState theState );
+[; ;Model.h: 41: t_ButtonState GetKeyState( int theKeyId );
+[; ;Model.h: 42: ATimer* GetKeyTimer( int theKeyId );
+"16 source/TaskManager.c
+[v _Operation `i ~T0 @X0 1 s ]
+[i _Operation
+-> 0 `i
+]
+[; ;TaskManager.c: 16: static int Operation = 0;
+"19
 [v _TaskManager `(i ~T0 @X0 1 ef ]
 {
-[; ;TaskManager.c: 14: int TaskManager()
-[; ;TaskManager.c: 15: {
+[; ;TaskManager.c: 18: int TaskManager()
+[; ;TaskManager.c: 19: {
 [e :U _TaskManager ]
 [f ]
-[; ;TaskManager.c: 16: DataCommsTask();
-"16
+[; ;TaskManager.c: 20: switch( Operation )
+"20
+[e $U 12  ]
+[; ;TaskManager.c: 21: {
+"21
+{
+[; ;TaskManager.c: 22: case 0:
+"22
+[e :U 13 ]
+[; ;TaskManager.c: 23: InitKeys();
+"23
+[e ( _InitKeys ..  ]
+[; ;TaskManager.c: 24: Operation = 1;
+"24
+[e = _Operation -> 1 `i ]
+[; ;TaskManager.c: 25: break;
+"25
+[e $U 11  ]
+[; ;TaskManager.c: 27: case 1:
+"27
+[e :U 14 ]
+[; ;TaskManager.c: 28: DataCommsTask();
+"28
 [e ( _DataCommsTask ..  ]
-[; ;TaskManager.c: 17: TimerTask();
-"17
-[e ( _TimerTask ..  ]
-[; ;TaskManager.c: 18: return ( 0 );
-"18
+[; ;TaskManager.c: 29: InputTask();
+"29
+[e ( _InputTask ..  ]
+[; ;TaskManager.c: 30: OutputTask();
+"30
+[e ( _OutputTask ..  ]
+[; ;TaskManager.c: 31: break;
+"31
+[e $U 11  ]
+"32
+}
+[; ;TaskManager.c: 32: }
+[e $U 11  ]
+"20
+[e :U 12 ]
+[e [\ _Operation , $ -> 0 `i 13
+ , $ -> 1 `i 14
+ 11 ]
+"32
+[e :U 11 ]
+[; ;TaskManager.c: 34: return ( 0 );
+"34
 [e ) -> 0 `i ]
-[e $UE 6  ]
-[; ;TaskManager.c: 19: }
-"19
-[e :UE 6 ]
+[e $UE 10  ]
+[; ;TaskManager.c: 35: }
+"35
+[e :UE 10 ]
 }

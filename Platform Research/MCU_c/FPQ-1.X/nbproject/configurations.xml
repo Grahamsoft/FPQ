@@ -9,6 +9,10 @@
       <itemPath>source/headers/DataCommsTask.h</itemPath>
       <itemPath>source/headers/TimerTask.h</itemPath>
       <itemPath>source/headers/SystemSetup.h</itemPath>
+      <itemPath>source/headers/InputTask.h</itemPath>
+      <itemPath>source/headers/OutputTask.h</itemPath>
+      <itemPath>source/headers/Model.h</itemPath>
+      <itemPath>source/headers/OutputSequences.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -29,6 +33,10 @@
       <itemPath>source/DataCommsTask.c</itemPath>
       <itemPath>source/TimerTask.c</itemPath>
       <itemPath>source/SystemSetup.c</itemPath>
+      <itemPath>source/InputTask.c</itemPath>
+      <itemPath>source/OutputTask.c</itemPath>
+      <itemPath>source/Model.c</itemPath>
+      <itemPath>source/OutputSequences.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

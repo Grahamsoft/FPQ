@@ -8,9 +8,18 @@
 #ifndef TIMERTASK_H
 #define	TIMERTASK_H
 
-int TimerTask( void );
+#include <stdbool.h>       /* For true/false definition */
+
+typedef struct ATimerStruct
+{
+    int     Matured;
+    int     FutureTime;
+
+}ATimer;
+
+int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
+void ClearTimer( ATimer *theTimer );
+bool MaturedTimer( ATimer *theTimer );
+ATimer* GetNewTimerPointer( void );
 
 #endif	/* TIMERTASK_H */
-
-
-

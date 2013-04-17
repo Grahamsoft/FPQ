@@ -9,12 +9,28 @@
 
 #include "TaskManager.h"
 #include "DataCommsTask.h"
-#include "TimerTask.h"
+#include "InputTask.h"
+#include "OutputTask.h"
+#include "Model.h"
+
+static int Operation = 0;
 
 int TaskManager()
 {
-    DataCommsTask();
-    TimerTask();
+    switch( Operation )
+    {
+        case 0:
+            InitKeys();          
+            Operation = 1;
+            break;
+        
+        case 1:
+            DataCommsTask();
+            InputTask();
+            OutputTask();
+            break;
+    }
+
     return ( EXIT_SUCCESS );
 }
 

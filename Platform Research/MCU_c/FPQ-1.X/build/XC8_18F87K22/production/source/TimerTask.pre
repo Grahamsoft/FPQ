@@ -18824,13 +18824,59 @@ typedef uint16_t uintptr_t;
 # 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
 typedef unsigned char bool;
 
-# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h"
-int TimerTask( void );
+# 13 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h"
+typedef struct ATimerStruct
+{
+int Matured;
+int FutureTime;
+
+}ATimer;
+
+int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
+void ClearTimer( ATimer *theTimer );
+bool MaturedTimer( ATimer *theTimer );
+ATimer* GetNewTimerPointer( void );
 
 # 26 "source/TimerTask.c"
-int TimerTask()
-{
+static const int TimersCount = 10;
+ATimer Timers[ 10 ];
 
-return ( 0 );
+
+static unsigned int m_HalfSeconds = 0;
+
+ATimer* GetNewTimerPointer( void )
+{
+static int TimersAllocated = 0;
+
+ATimer *TimerPointer;
+
+if ( TimersAllocated < TimersCount )
+{
+TimerPointer = &Timers[ TimersAllocated ];
+TimersAllocated++;
 }
 
+return TimerPointer;
+}
+
+int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds )
+{
+int FutureTime = theHalfSeconds;
+FutureTime =+ ( theSeconds * 2 );
+FutureTime =+ ( theMinutes * ( 60 * 2 ) );
+FutureTime =+ ( theHours * ( 60 * ( 60 * 2 ) ) );
+
+theTimer->FutureTime = FutureTime;
+theTimer->Matured = 0;
+}
+
+void ClearTimer( ATimer *theTimer )
+{
+theTimer->FutureTime = 0;
+theTimer->Matured = 0;
+}
+
+bool MaturedTimer( ATimer *theTimer )
+{
+return theTimer->Matured;
+}

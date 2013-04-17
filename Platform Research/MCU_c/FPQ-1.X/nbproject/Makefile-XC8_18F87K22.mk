@@ -45,11 +45,11 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/source/TaskManager.p1 ${OBJECTDIR}/source/ConfigurationBits.p1 ${OBJECTDIR}/source/Interrupts.p1 ${OBJECTDIR}/source/Main.p1 ${OBJECTDIR}/source/User.p1 ${OBJECTDIR}/source/DataCommsTask.p1 ${OBJECTDIR}/source/TimerTask.p1 ${OBJECTDIR}/source/SystemSetup.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/source/TaskManager.p1.d ${OBJECTDIR}/source/ConfigurationBits.p1.d ${OBJECTDIR}/source/Interrupts.p1.d ${OBJECTDIR}/source/Main.p1.d ${OBJECTDIR}/source/User.p1.d ${OBJECTDIR}/source/DataCommsTask.p1.d ${OBJECTDIR}/source/TimerTask.p1.d ${OBJECTDIR}/source/SystemSetup.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/source/TaskManager.p1 ${OBJECTDIR}/source/ConfigurationBits.p1 ${OBJECTDIR}/source/Interrupts.p1 ${OBJECTDIR}/source/Main.p1 ${OBJECTDIR}/source/User.p1 ${OBJECTDIR}/source/DataCommsTask.p1 ${OBJECTDIR}/source/TimerTask.p1 ${OBJECTDIR}/source/SystemSetup.p1 ${OBJECTDIR}/source/InputTask.p1 ${OBJECTDIR}/source/OutputTask.p1 ${OBJECTDIR}/source/Model.p1 ${OBJECTDIR}/source/OutputSequences.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/source/TaskManager.p1.d ${OBJECTDIR}/source/ConfigurationBits.p1.d ${OBJECTDIR}/source/Interrupts.p1.d ${OBJECTDIR}/source/Main.p1.d ${OBJECTDIR}/source/User.p1.d ${OBJECTDIR}/source/DataCommsTask.p1.d ${OBJECTDIR}/source/TimerTask.p1.d ${OBJECTDIR}/source/SystemSetup.p1.d ${OBJECTDIR}/source/InputTask.p1.d ${OBJECTDIR}/source/OutputTask.p1.d ${OBJECTDIR}/source/Model.p1.d ${OBJECTDIR}/source/OutputSequences.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/source/TaskManager.p1 ${OBJECTDIR}/source/ConfigurationBits.p1 ${OBJECTDIR}/source/Interrupts.p1 ${OBJECTDIR}/source/Main.p1 ${OBJECTDIR}/source/User.p1 ${OBJECTDIR}/source/DataCommsTask.p1 ${OBJECTDIR}/source/TimerTask.p1 ${OBJECTDIR}/source/SystemSetup.p1
+OBJECTFILES=${OBJECTDIR}/source/TaskManager.p1 ${OBJECTDIR}/source/ConfigurationBits.p1 ${OBJECTDIR}/source/Interrupts.p1 ${OBJECTDIR}/source/Main.p1 ${OBJECTDIR}/source/User.p1 ${OBJECTDIR}/source/DataCommsTask.p1 ${OBJECTDIR}/source/TimerTask.p1 ${OBJECTDIR}/source/SystemSetup.p1 ${OBJECTDIR}/source/InputTask.p1 ${OBJECTDIR}/source/OutputTask.p1 ${OBJECTDIR}/source/Model.p1 ${OBJECTDIR}/source/OutputSequences.p1
 
 
 CFLAGS=
@@ -128,6 +128,34 @@ ${OBJECTDIR}/source/SystemSetup.p1: source/SystemSetup.c  nbproject/Makefile-${C
 	@-${MV} ${OBJECTDIR}/source/SystemSetup.d ${OBJECTDIR}/source/SystemSetup.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/source/SystemSetup.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/source/InputTask.p1: source/InputTask.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/source 
+	@${RM} ${OBJECTDIR}/source/InputTask.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G --asmlist  -D__DEBUG=1 --debugger=pickit2  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug,9 --addrqual=ignore --mode=free -P -N255 -I"/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers" -I"/Applications/microchip/xc8/v1.12/include/plib" --warn=0 --summary=default,-psect,-class,+mem,-hex,-file --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib "--errformat=%f:%l: error: %s" "--warnformat=%f:%l: warning: %s" "--msgformat=%f:%l: advisory: %s"  -o${OBJECTDIR}/source/InputTask.p1  source/InputTask.c 
+	@-${MV} ${OBJECTDIR}/source/InputTask.d ${OBJECTDIR}/source/InputTask.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/source/InputTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/source/OutputTask.p1: source/OutputTask.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/source 
+	@${RM} ${OBJECTDIR}/source/OutputTask.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G --asmlist  -D__DEBUG=1 --debugger=pickit2  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug,9 --addrqual=ignore --mode=free -P -N255 -I"/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers" -I"/Applications/microchip/xc8/v1.12/include/plib" --warn=0 --summary=default,-psect,-class,+mem,-hex,-file --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib "--errformat=%f:%l: error: %s" "--warnformat=%f:%l: warning: %s" "--msgformat=%f:%l: advisory: %s"  -o${OBJECTDIR}/source/OutputTask.p1  source/OutputTask.c 
+	@-${MV} ${OBJECTDIR}/source/OutputTask.d ${OBJECTDIR}/source/OutputTask.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/source/OutputTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/source/Model.p1: source/Model.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/source 
+	@${RM} ${OBJECTDIR}/source/Model.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G --asmlist  -D__DEBUG=1 --debugger=pickit2  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug,9 --addrqual=ignore --mode=free -P -N255 -I"/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers" -I"/Applications/microchip/xc8/v1.12/include/plib" --warn=0 --summary=default,-psect,-class,+mem,-hex,-file --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib "--errformat=%f:%l: error: %s" "--warnformat=%f:%l: warning: %s" "--msgformat=%f:%l: advisory: %s"  -o${OBJECTDIR}/source/Model.p1  source/Model.c 
+	@-${MV} ${OBJECTDIR}/source/Model.d ${OBJECTDIR}/source/Model.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/source/Model.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/source/OutputSequences.p1: source/OutputSequences.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/source 
+	@${RM} ${OBJECTDIR}/source/OutputSequences.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G --asmlist  -D__DEBUG=1 --debugger=pickit2  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug,9 --addrqual=ignore --mode=free -P -N255 -I"/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers" -I"/Applications/microchip/xc8/v1.12/include/plib" --warn=0 --summary=default,-psect,-class,+mem,-hex,-file --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib "--errformat=%f:%l: error: %s" "--warnformat=%f:%l: warning: %s" "--msgformat=%f:%l: advisory: %s"  -o${OBJECTDIR}/source/OutputSequences.p1  source/OutputSequences.c 
+	@-${MV} ${OBJECTDIR}/source/OutputSequences.d ${OBJECTDIR}/source/OutputSequences.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/source/OutputSequences.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/source/TaskManager.p1: source/TaskManager.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/source 
@@ -184,6 +212,34 @@ ${OBJECTDIR}/source/SystemSetup.p1: source/SystemSetup.c  nbproject/Makefile-${C
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G --asmlist  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug,9 --addrqual=ignore --mode=free -P -N255 -I"/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers" -I"/Applications/microchip/xc8/v1.12/include/plib" --warn=0 --summary=default,-psect,-class,+mem,-hex,-file --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib "--errformat=%f:%l: error: %s" "--warnformat=%f:%l: warning: %s" "--msgformat=%f:%l: advisory: %s"  -o${OBJECTDIR}/source/SystemSetup.p1  source/SystemSetup.c 
 	@-${MV} ${OBJECTDIR}/source/SystemSetup.d ${OBJECTDIR}/source/SystemSetup.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/source/SystemSetup.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/source/InputTask.p1: source/InputTask.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/source 
+	@${RM} ${OBJECTDIR}/source/InputTask.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G --asmlist  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug,9 --addrqual=ignore --mode=free -P -N255 -I"/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers" -I"/Applications/microchip/xc8/v1.12/include/plib" --warn=0 --summary=default,-psect,-class,+mem,-hex,-file --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib "--errformat=%f:%l: error: %s" "--warnformat=%f:%l: warning: %s" "--msgformat=%f:%l: advisory: %s"  -o${OBJECTDIR}/source/InputTask.p1  source/InputTask.c 
+	@-${MV} ${OBJECTDIR}/source/InputTask.d ${OBJECTDIR}/source/InputTask.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/source/InputTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/source/OutputTask.p1: source/OutputTask.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/source 
+	@${RM} ${OBJECTDIR}/source/OutputTask.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G --asmlist  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug,9 --addrqual=ignore --mode=free -P -N255 -I"/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers" -I"/Applications/microchip/xc8/v1.12/include/plib" --warn=0 --summary=default,-psect,-class,+mem,-hex,-file --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib "--errformat=%f:%l: error: %s" "--warnformat=%f:%l: warning: %s" "--msgformat=%f:%l: advisory: %s"  -o${OBJECTDIR}/source/OutputTask.p1  source/OutputTask.c 
+	@-${MV} ${OBJECTDIR}/source/OutputTask.d ${OBJECTDIR}/source/OutputTask.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/source/OutputTask.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/source/Model.p1: source/Model.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/source 
+	@${RM} ${OBJECTDIR}/source/Model.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G --asmlist  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug,9 --addrqual=ignore --mode=free -P -N255 -I"/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers" -I"/Applications/microchip/xc8/v1.12/include/plib" --warn=0 --summary=default,-psect,-class,+mem,-hex,-file --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib "--errformat=%f:%l: error: %s" "--warnformat=%f:%l: warning: %s" "--msgformat=%f:%l: advisory: %s"  -o${OBJECTDIR}/source/Model.p1  source/Model.c 
+	@-${MV} ${OBJECTDIR}/source/Model.d ${OBJECTDIR}/source/Model.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/source/Model.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/source/OutputSequences.p1: source/OutputSequences.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/source 
+	@${RM} ${OBJECTDIR}/source/OutputSequences.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G --asmlist  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug,9 --addrqual=ignore --mode=free -P -N255 -I"/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers" -I"/Applications/microchip/xc8/v1.12/include/plib" --warn=0 --summary=default,-psect,-class,+mem,-hex,-file --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib "--errformat=%f:%l: error: %s" "--warnformat=%f:%l: warning: %s" "--msgformat=%f:%l: advisory: %s"  -o${OBJECTDIR}/source/OutputSequences.p1  source/OutputSequences.c 
+	@-${MV} ${OBJECTDIR}/source/OutputSequences.d ${OBJECTDIR}/source/OutputSequences.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/source/OutputSequences.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

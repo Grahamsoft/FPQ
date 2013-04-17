@@ -1,4 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
+[s S2087 `i 1 `i 1 ]
+[n S2087 ATimerStruct Matured FutureTime ]
 [; ;pic18f2585.h: 44: extern volatile unsigned char RXF6SIDH @ 0xD60;
 "46 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
 [; ;pic18f2585.h: 46: asm("RXF6SIDH equ 0D60h");
@@ -14795,19 +14797,136 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;TimerTask.h: 11: int TimerTask( void );
-"27 source/TimerTask.c
-[v _TimerTask `(i ~T0 @X0 1 ef ]
-{
-[; ;TimerTask.c: 26: int TimerTask()
-[; ;TimerTask.c: 27: {
-[e :U _TimerTask ]
-[f ]
-[; ;TimerTask.c: 29: return ( 0 );
-"29
-[e ) -> 0 `i ]
-[e $UE 2087  ]
-[; ;TimerTask.c: 30: }
+[; ;TimerTask.h: 13: typedef struct ATimerStruct
+[; ;TimerTask.h: 14: {
+[; ;TimerTask.h: 15: int Matured;
+[; ;TimerTask.h: 16: int FutureTime;
+[; ;TimerTask.h: 18: }ATimer;
+[; ;TimerTask.h: 20: int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
+[; ;TimerTask.h: 21: void ClearTimer( ATimer *theTimer );
+[; ;TimerTask.h: 22: bool MaturedTimer( ATimer *theTimer );
+[; ;TimerTask.h: 23: ATimer* GetNewTimerPointer( void );
+"26 source/TimerTask.c
+[v _TimersCount `Ci ~T0 @X0 1 s ]
+[i _TimersCount
+-> 10 `i
+]
+[; ;TimerTask.c: 26: static const int TimersCount = 10;
+"27
+[v _Timers `S2087 ~T0 @X0 -> 10 `i e ]
+[; ;TimerTask.c: 27: ATimer Timers[ 10 ];
 "30
-[e :UE 2087 ]
+[v _m_HalfSeconds `ui ~T0 @X0 1 s ]
+[i _m_HalfSeconds
+-> -> 0 `i `ui
+]
+[; ;TimerTask.c: 30: static unsigned int m_HalfSeconds = 0;
+"33
+[v _GetNewTimerPointer `(*S2087 ~T0 @X0 1 ef ]
+{
+[; ;TimerTask.c: 32: ATimer* GetNewTimerPointer( void )
+[; ;TimerTask.c: 33: {
+[e :U _GetNewTimerPointer ]
+[f ]
+"34
+[v F16420 `i ~T0 @X0 1 s TimersAllocated ]
+[i F16420
+-> 0 `i
+]
+"36
+[v _TimerPointer `*S2087 ~T0 @X0 1 a ]
+[; ;TimerTask.c: 34: static int TimersAllocated = 0;
+[; ;TimerTask.c: 36: ATimer *TimerPointer;
+[; ;TimerTask.c: 38: if ( TimersAllocated < TimersCount )
+"38
+[e $ ! < F16420 _TimersCount 2089  ]
+[; ;TimerTask.c: 39: {
+"39
+{
+[; ;TimerTask.c: 40: TimerPointer = &Timers[ TimersAllocated ];
+"40
+[e = _TimerPointer &U *U + &U _Timers * -> -> F16420 `ui `ux -> -> # *U &U _Timers `ui `ux ]
+[; ;TimerTask.c: 41: TimersAllocated++;
+"41
+[e ++ F16420 -> 1 `i ]
+"42
+}
+[e :U 2089 ]
+[; ;TimerTask.c: 42: }
+[; ;TimerTask.c: 44: return TimerPointer;
+"44
+[e ) _TimerPointer ]
+[e $UE 2088  ]
+[; ;TimerTask.c: 45: }
+"45
+[e :UE 2088 ]
+}
+"48
+[v _SetTimer `(i ~T0 @X0 1 ef5`*S2087`i`i`i`i ]
+{
+[; ;TimerTask.c: 47: int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds )
+[; ;TimerTask.c: 48: {
+[e :U _SetTimer ]
+[v _theTimer `*S2087 ~T0 @X0 1 r1 ]
+[v _theHours `i ~T0 @X0 1 r2 ]
+[v _theMinutes `i ~T0 @X0 1 r3 ]
+[v _theSeconds `i ~T0 @X0 1 r4 ]
+[v _theHalfSeconds `i ~T0 @X0 1 r5 ]
+[f ]
+"49
+[v _FutureTime `i ~T0 @X0 1 a ]
+[; ;TimerTask.c: 49: int FutureTime = theHalfSeconds;
+[e = _FutureTime _theHalfSeconds ]
+[; ;TimerTask.c: 50: FutureTime =+ ( theSeconds * 2 );
+"50
+[e = _FutureTime * _theSeconds -> 2 `i ]
+[; ;TimerTask.c: 51: FutureTime =+ ( theMinutes * ( 60 * 2 ) );
+"51
+[e = _FutureTime * _theMinutes * -> 60 `i -> 2 `i ]
+[; ;TimerTask.c: 52: FutureTime =+ ( theHours * ( 60 * ( 60 * 2 ) ) );
+"52
+[e = _FutureTime * _theHours * -> 60 `i * -> 60 `i -> 2 `i ]
+[; ;TimerTask.c: 54: theTimer->FutureTime = FutureTime;
+"54
+[e = . *U _theTimer 1 _FutureTime ]
+[; ;TimerTask.c: 55: theTimer->Matured = 0;
+"55
+[e = . *U _theTimer 0 -> 0 `i ]
+[; ;TimerTask.c: 56: }
+"56
+[e :UE 2090 ]
+}
+"59
+[v _ClearTimer `(v ~T0 @X0 1 ef1`*S2087 ]
+{
+[; ;TimerTask.c: 58: void ClearTimer( ATimer *theTimer )
+[; ;TimerTask.c: 59: {
+[e :U _ClearTimer ]
+[v _theTimer `*S2087 ~T0 @X0 1 r1 ]
+[f ]
+[; ;TimerTask.c: 60: theTimer->FutureTime = 0;
+"60
+[e = . *U _theTimer 1 -> 0 `i ]
+[; ;TimerTask.c: 61: theTimer->Matured = 0;
+"61
+[e = . *U _theTimer 0 -> 0 `i ]
+[; ;TimerTask.c: 62: }
+"62
+[e :UE 2091 ]
+}
+"65
+[v _MaturedTimer `(uc ~T0 @X0 1 ef1`*S2087 ]
+{
+[; ;TimerTask.c: 64: bool MaturedTimer( ATimer *theTimer )
+[; ;TimerTask.c: 65: {
+[e :U _MaturedTimer ]
+[v _theTimer `*S2087 ~T0 @X0 1 r1 ]
+[f ]
+[; ;TimerTask.c: 66: return theTimer->Matured;
+"66
+[e ) -> . *U _theTimer 0 `uc ]
+[e $UE 2092  ]
+[; ;TimerTask.c: 67: }
+"67
+[e :UE 2092 ]
 }

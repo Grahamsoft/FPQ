@@ -143,14 +143,99 @@ int TaskManager( void );
 # 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/DataCommsTask.h"
 int DataCommsTask( void );
 
-# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h"
-int TimerTask( void );
+# 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
+typedef unsigned char bool;
 
-# 14 "source/TaskManager.c"
+# 13 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/InputTask.h"
+void InputTask( void );
+void MonitorButton( int theId );
+bool ButtonBeingPressed( int theId );
+
+# 22 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputTask.h"
+void OutputTask( void );
+
+# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputSequences.h"
+typedef enum
+{
+e_Off,
+e_ColourA,
+e_ColourB
+}t_ButtonColour;
+
+typedef struct SequencePhaseStruct
+{
+int NextActionTime;
+t_ButtonColour CurrentColour;
+}SequencePhase;
+
+typedef struct ASequenceStruct
+{
+SequencePhase *Sequence;
+int Size;
+int Current;
+}ASequence;
+
+void InitSequences( void );
+ASequence* GetSequencePointer( int theId );
+
+# 13 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h"
+typedef struct ATimerStruct
+{
+int Matured;
+int FutureTime;
+
+}ATimer;
+
+int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
+void ClearTimer( ATimer *theTimer );
+bool MaturedTimer( ATimer *theTimer );
+ATimer* GetNewTimerPointer( void );
+
+# 14 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h"
+typedef enum
+{
+e_PressedNo,
+e_PressedYes,
+e_BeingServedNo,
+e_BeingServedYes
+}t_ButtonState;
+
+typedef struct AKeyStruct
+{
+int Id;
+t_ButtonState State;
+ASequence* Sequence;
+ATimer* Timer;
+
+# 35
+}AKey;
+
+const int KeyCount = 5;
+
+void InitKeys( void );
+void SetKeyState( int theKeyId, t_ButtonState theState );
+t_ButtonState GetKeyState( int theKeyId );
+ATimer* GetKeyTimer( int theKeyId );
+
+# 16 "source/TaskManager.c"
+static int Operation = 0;
+
 int TaskManager()
 {
+switch( Operation )
+{
+case 0:
+InitKeys();
+Operation = 1;
+break;
+
+case 1:
 DataCommsTask();
-TimerTask();
+InputTask();
+OutputTask();
+break;
+}
+
 return ( 0 );
 }
 

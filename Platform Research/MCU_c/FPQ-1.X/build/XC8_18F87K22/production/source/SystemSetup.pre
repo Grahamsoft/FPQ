@@ -18697,7 +18697,7 @@ typedef unsigned char bool;
 void ConfigureOscillator( void );
 void ConfigureTimer( void );
 
-# 23 "source/SystemSetup.c"
+# 44 "source/SystemSetup.c"
 void ConfigureOscillator()
 {
 OSCCON = 0b01111110;

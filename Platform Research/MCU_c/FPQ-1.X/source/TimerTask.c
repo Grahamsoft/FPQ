@@ -23,14 +23,45 @@
 
 #include "TimerTask.h"
 
+static const int TimersCount = 10;
+ATimer Timers[ 10 ];
+
+
 static unsigned int m_HalfSeconds = 0;
 
-
-
-int TimerTask()
+ATimer* GetNewTimerPointer( void )
 {
+    static int TimersAllocated = 0;
 
-    return ( EXIT_SUCCESS );
+    ATimer *TimerPointer;
+
+    if ( TimersAllocated < TimersCount )
+    {
+        TimerPointer = &Timers[ TimersAllocated ];
+        TimersAllocated++;
+    }
+
+    return TimerPointer;
 }
 
+int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds )
+{
+    int FutureTime = theHalfSeconds;
+    FutureTime =+ ( theSeconds * 2 );
+    FutureTime =+ ( theMinutes * ( 60 * 2 ) );
+    FutureTime =+ ( theHours * ( 60 * ( 60 * 2 ) ) );
 
+    theTimer->FutureTime = FutureTime;
+    theTimer->Matured = false;
+}
+
+void ClearTimer( ATimer *theTimer )
+{
+    theTimer->FutureTime = 0;
+    theTimer->Matured = false;
+}
+
+bool MaturedTimer( ATimer *theTimer )
+{
+    return theTimer->Matured;
+}
