@@ -91,13 +91,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
-[; ;TaskManager.h: 24: int TaskManager( void );
+[; ;TaskManager.h: 24: void TaskManager( void );
 [; ;DataCommsTask.h: 11: int DataCommsTask( void );
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;InputTask.h: 13: void InputTask( void );
 [; ;InputTask.h: 14: void MonitorButton( int theId );
 [; ;InputTask.h: 15: bool ButtonBeingPressed( int theId );
 [; ;OutputTask.h: 22: void OutputTask( void );
+[; ;OutputTask.h: 23: void IlluminateButton( int theId );
+[; ;OutputTask.h: 24: void ColourA( int theId );
+[; ;OutputTask.h: 25: void ColourB( int theId );
+[; ;OutputTask.h: 26: void ColourNone( int theId );
 [; ;OutputSequences.h: 11: typedef enum
 [; ;OutputSequences.h: 12: {
 [; ;OutputSequences.h: 13: e_Off,
@@ -150,19 +154,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Model.h: 40: void SetKeyState( int theKeyId, t_ButtonState theState );
 [; ;Model.h: 41: t_ButtonState GetKeyState( int theKeyId );
 [; ;Model.h: 42: ATimer* GetKeyTimer( int theKeyId );
-"16 source/TaskManager.c
-[v _Operation `i ~T0 @X0 1 s ]
-[i _Operation
--> 0 `i
-]
-[; ;TaskManager.c: 16: static int Operation = 0;
-"19
-[v _TaskManager `(i ~T0 @X0 1 ef ]
+"17 source/TaskManager.c
+[v _TaskManager `(v ~T0 @X0 1 ef ]
 {
-[; ;TaskManager.c: 18: int TaskManager()
-[; ;TaskManager.c: 19: {
+[; ;TaskManager.c: 16: void TaskManager()
+[; ;TaskManager.c: 17: {
 [e :U _TaskManager ]
 [f ]
+"18
+[v F264 `i ~T0 @X0 1 s Operation ]
+[i F264
+-> 0 `i
+]
+[; ;TaskManager.c: 18: static int Operation = 0;
 [; ;TaskManager.c: 20: switch( Operation )
 "20
 [e $U 12  ]
@@ -177,7 +181,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _InitKeys ..  ]
 [; ;TaskManager.c: 24: Operation = 1;
 "24
-[e = _Operation -> 1 `i ]
+[e = F264 -> 1 `i ]
 [; ;TaskManager.c: 25: break;
 "25
 [e $U 11  ]
@@ -202,16 +206,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 11  ]
 "20
 [e :U 12 ]
-[e [\ _Operation , $ -> 0 `i 13
+[e [\ F264 , $ -> 0 `i 13
  , $ -> 1 `i 14
  11 ]
 "32
 [e :U 11 ]
-[; ;TaskManager.c: 34: return ( 0 );
-"34
-[e ) -> 0 `i ]
-[e $UE 10  ]
-[; ;TaskManager.c: 35: }
-"35
+[; ;TaskManager.c: 33: }
+"33
 [e :UE 10 ]
 }

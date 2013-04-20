@@ -1,5 +1,12 @@
 
-# 1 "source/TimerTask.c"
+# 1 "source/OutputTask.c"
+
+# 22 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputTask.h"
+void OutputTask( void );
+void IlluminateButton( int theId );
+void ColourA( int theId );
+void ColourB( int theId );
+void ColourNone( int theId );
 
 # 44 "/Applications/microchip/xc8/v1.12/include/pic18f2585.h"
 extern volatile unsigned char RXF6SIDH @ 0xD60;
@@ -18600,226 +18607,41 @@ extern void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern void _delay3(unsigned char);
 
-# 7 "/Applications/microchip/xc8/v1.12/include/stdarg.h"
-typedef void * va_list[1];
+# 18 "/Applications/microchip/xc8/v1.12/include/delays.h"
+void Delay10TCYx(unsigned char);
 
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
+# 24
+void Delay100TCYx(unsigned char);
 
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 23 "/Applications/microchip/xc8/v1.12/include/stdio.h"
-extern int errno;
-
-# 54
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 17 "/Applications/microchip/xc8/v1.12/include/conio.h"
-extern int errno;
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 31
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 99 "/Applications/microchip/xc8/v1.12/include/stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 191
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...);
-extern int sscanf(const char *, const char *, ...);
-extern int vprintf(const char *, va_list);
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap);
-extern int vsscanf(const char *, const char *, va_list);
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 27 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
-typedef struct {
-int rem;
-int quot;
-} div_t;
-typedef struct {
-unsigned rem;
-unsigned quot;
-} udiv_t;
-typedef struct {
-long quot;
-long rem;
-} ldiv_t;
-typedef struct {
-unsigned long quot;
-unsigned long rem;
-} uldiv_t;
-
-# 65
-extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-extern long strtol(const char *, char **, int);
-
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
-
-
-
-
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
-
-extern void abort(void);
-extern void exit(int);
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
-
-
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-
-
-
-
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
-
-extern char * ftoa(float f, int * status);
-
-# 13 "/Applications/microchip/xc8/v1.12/include/stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
+# 30
+void Delay1KTCYx(unsigned char);
 
 # 36
-typedef signed long int int32_t;
+void Delay10KTCYx(unsigned char);
 
-# 43
-typedef unsigned char uint8_t;
+# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputSequences.h"
+typedef enum
+{
+e_Off,
+e_ColourA,
+e_ColourB
+}t_ButtonColour;
 
-# 49
-typedef unsigned int uint16_t;
+typedef struct SequencePhaseStruct
+{
+int NextActionTime;
+t_ButtonColour CurrentColour;
+}SequencePhase;
 
-# 56
-typedef unsigned short long int uint24_t;
+typedef struct ASequenceStruct
+{
+SequencePhase *Sequence;
+int Size;
+int Current;
+}ASequence;
 
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
+void InitSequences( void );
+ASequence* GetSequencePointer( int theId );
 
 # 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
 typedef unsigned char bool;
@@ -18837,74 +18659,139 @@ void ClearTimer( ATimer *theTimer );
 bool MaturedTimer( ATimer *theTimer );
 ATimer* GetNewTimerPointer( void );
 
-# 27 "source/TimerTask.c"
-static const int TimersCount = 10;
-ATimer Timers[ 10 ];
-
-
-static unsigned int m_HalfSeconds = 0;
-
-void Increment_Timer( void )
+# 14 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h"
+typedef enum
 {
-if ( m_HalfSeconds == 72000 )
+e_PressedNo,
+e_PressedYes,
+e_BeingServedNo,
+e_BeingServedYes
+}t_ButtonState;
+
+typedef struct AKeyStruct
 {
-m_HalfSeconds = 0;
+int Id;
+t_ButtonState State;
+ASequence* Sequence;
+ATimer* Timer;
+
+# 35
+}AKey;
+
+const int KeyCount = 5;
+
+void InitKeys( void );
+void SetKeyState( int theKeyId, t_ButtonState theState );
+t_ButtonState GetKeyState( int theKeyId );
+ATimer* GetKeyTimer( int theKeyId );
+
+# 14 "source/OutputTask.c"
+void OutputTask()
+{
+for( int i = 0; i < KeyCount; i++ )
+{
+IlluminateButton( i );
 }
-else
-{
-m_HalfSeconds++;
-}
-}
-
-ATimer* GetNewTimerPointer( void )
-{
-static int TimersAllocated = 0;
-
-ATimer *TimerPointer;
-
-if ( TimersAllocated < TimersCount )
-{
-TimerPointer = &Timers[ TimersAllocated ];
-TimersAllocated++;
-}
-
-return TimerPointer;
-}
-
-int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds )
-{
-int FutureTime = theHalfSeconds;
-FutureTime =+ ( theSeconds * 2 );
-FutureTime =+ ( theMinutes * ( 60 * 2 ) );
-FutureTime =+ ( theHours * ( 60 * ( 60 * 2 ) ) );
-
-theTimer->FutureTime = FutureTime;
-theTimer->Matured = 0;
 }
 
-void ClearTimer( ATimer *theTimer )
+void IlluminateButton( int theId )
 {
-theTimer->FutureTime = 0;
-theTimer->Matured = 0;
+switch ( GetKeyState( theId ) )
+{
+case e_PressedNo:
+ColourA( theId );
+break;
+
+case e_PressedYes:
+ColourB( theId );
+break;
+
+case e_BeingServedNo:
+ColourB( theId );
+break;
+
+case e_BeingServedYes:
+break;
+}
 }
 
-bool MaturedTimer( ATimer *theTimer )
+void ColourA( int theId )
 {
-return theTimer->Matured;
+switch ( theId )
+{
+case 0:
+PORTAbits.RA1 = 0;
+PORTAbits.RA2 = 1;
+break;
+
+case 1:
+PORTAbits.RA4 = 0;
+PORTAbits.RA5 = 1;
+break;
+
+case 2:
+PORTAbits.RA6 = 0;
+PORTCbits.RC0 = 1;
+break;
+
+case 3:
+break;
+
+case 4:
+break;
+}
 }
 
-void interrupt ISR (void)
+void ColourB( int theId )
 {
-if(TMR0IE && TMR0IF)
+switch ( theId )
 {
-INTCONbits.TMR0IF = 0;
-Increment_Timer();
-WriteTimer0( 0 );
-PORTBbits.RB1 = 1;
+case 0:
+PORTAbits.RA1 = 1;
+PORTAbits.RA2 = 0;
+break;
 
+case 1:
+PORTAbits.RA4 = 1;
+PORTAbits.RA5 = 0;
+break;
+
+case 2:
+PORTAbits.RA6 = 1;
+PORTCbits.RC0 = 0;
+break;
+
+case 3:
+break;
+
+case 4:
+break;
 }
-else
+}
+
+void ColourNone( int theId )
 {
-PORTBbits.RB3 = 1;
+switch ( theId )
+{
+case 0:
+PORTAbits.RA1 = 0;
+PORTAbits.RA2 = 0;
+break;
+
+case 1:
+PORTAbits.RA4 = 0;
+PORTAbits.RA5 = 0;
+break;
+
+case 2:
+PORTAbits.RA6 = 0;
+PORTCbits.RC0 = 0;
+break;
+
+case 3:
+break;
+
+case 4:
+break;
 }
 }

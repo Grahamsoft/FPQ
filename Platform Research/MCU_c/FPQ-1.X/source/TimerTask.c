@@ -18,6 +18,7 @@
 #include <stdlib.h>
 #include <stdint.h>        /* For uint8_t definition */
 #include <stdbool.h>       /* For true/false definition */
+#include "timers.h"
 
 #endif
 
@@ -28,6 +29,18 @@ ATimer Timers[ 10 ];
 
 
 static unsigned int m_HalfSeconds = 0;
+
+void Increment_Timer( void )
+{
+    if ( m_HalfSeconds == 72000 )	//Hour achived
+    {
+        m_HalfSeconds = 0;
+    }
+    else
+    {
+        m_HalfSeconds++;
+    }
+}
 
 ATimer* GetNewTimerPointer( void )
 {
@@ -64,4 +77,20 @@ void ClearTimer( ATimer *theTimer )
 bool MaturedTimer( ATimer *theTimer )
 {
     return theTimer->Matured;
+}
+
+void interrupt ISR (void)
+{
+    if(TMR0IE && TMR0IF)
+    {
+        INTCONbits.TMR0IF = 0;	// Resets the flag
+        Increment_Timer();	// Saves the time
+        WriteTimer0( 0 );	// Resets the Timer
+        PORTBbits.RB1 = 1;
+
+    }
+    else
+    {
+        PORTBbits.RB3 = 1;
+    }
 }

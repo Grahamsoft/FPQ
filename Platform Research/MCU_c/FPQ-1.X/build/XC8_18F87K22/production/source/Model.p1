@@ -1,0 +1,179 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[c E36 0 1 2 3 .. ]
+[n E36 . e_PressedNo e_PressedYes e_BeingServedNo e_BeingServedYes  ]
+[c E1 0 1 2 .. ]
+[n E1 . e_Off e_ColourA e_ColourB  ]
+[s S1 `i 1 `E1 1 ]
+[n S1 SequencePhaseStruct NextActionTime CurrentColour ]
+[s S2 `*S1 1 `i 1 `i 1 ]
+[n S2 ASequenceStruct Sequence Size Current ]
+[s S3 `i 1 `i 1 ]
+[n S3 ATimerStruct Matured FutureTime ]
+[s S4 `i 1 `E36 1 `*S2 1 `*S3 1 ]
+[n S4 AKeyStruct Id State Sequence Timer ]
+"31 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputSequences.h
+[v _InitSequences `(v ~T0 @X0 0 ef ]
+"32
+[v _GetSequencePointer `(*S2 ~T0 @X0 0 ef1`i ]
+"23 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h
+[v _GetNewTimerPointer `(*S3 ~T0 @X0 0 ef ]
+[; ;OutputSequences.h: 11: typedef enum
+[; ;OutputSequences.h: 12: {
+[; ;OutputSequences.h: 13: e_Off,
+[; ;OutputSequences.h: 14: e_ColourA,
+[; ;OutputSequences.h: 15: e_ColourB
+[; ;OutputSequences.h: 16: }t_ButtonColour;
+[; ;OutputSequences.h: 18: typedef struct SequencePhaseStruct
+[; ;OutputSequences.h: 19: {
+[; ;OutputSequences.h: 20: int NextActionTime;
+[; ;OutputSequences.h: 21: t_ButtonColour CurrentColour;
+[; ;OutputSequences.h: 22: }SequencePhase;
+[; ;OutputSequences.h: 24: typedef struct ASequenceStruct
+[; ;OutputSequences.h: 25: {
+[; ;OutputSequences.h: 26: SequencePhase *Sequence;
+[; ;OutputSequences.h: 27: int Size;
+[; ;OutputSequences.h: 28: int Current;
+[; ;OutputSequences.h: 29: }ASequence;
+[; ;OutputSequences.h: 31: void InitSequences( void );
+[; ;OutputSequences.h: 32: ASequence* GetSequencePointer( int theId );
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;TimerTask.h: 13: typedef struct ATimerStruct
+[; ;TimerTask.h: 14: {
+[; ;TimerTask.h: 15: int Matured;
+[; ;TimerTask.h: 16: int FutureTime;
+[; ;TimerTask.h: 18: }ATimer;
+[; ;TimerTask.h: 20: int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
+[; ;TimerTask.h: 21: void ClearTimer( ATimer *theTimer );
+[; ;TimerTask.h: 22: bool MaturedTimer( ATimer *theTimer );
+[; ;TimerTask.h: 23: ATimer* GetNewTimerPointer( void );
+[; ;Model.h: 14: typedef enum
+[; ;Model.h: 15: {
+[; ;Model.h: 16: e_PressedNo,
+[; ;Model.h: 17: e_PressedYes,
+[; ;Model.h: 18: e_BeingServedNo,
+[; ;Model.h: 19: e_BeingServedYes
+[; ;Model.h: 20: }t_ButtonState;
+[; ;Model.h: 22: typedef struct AKeyStruct
+[; ;Model.h: 23: {
+[; ;Model.h: 24: int Id;
+[; ;Model.h: 25: t_ButtonState State;
+[; ;Model.h: 26: ASequence* Sequence;
+[; ;Model.h: 27: ATimer* Timer;
+[; ;Model.h: 35: }AKey;
+"37 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+[v _KeyCount `Ci ~T0 @X0 1 e ]
+[i _KeyCount
+-> 5 `i
+]
+[; ;Model.h: 37: const int KeyCount = 5;
+[; ;Model.h: 39: void InitKeys( void );
+[; ;Model.h: 40: void SetKeyState( int theKeyId, t_ButtonState theState );
+[; ;Model.h: 41: t_ButtonState GetKeyState( int theKeyId );
+[; ;Model.h: 42: ATimer* GetKeyTimer( int theKeyId );
+"3 source/Model.c
+[v _m_Keys `S4 ~T0 @X0 -> 5 `i e ]
+[; ;Model.c: 3: AKey m_Keys[ 5 ];
+"6
+[v _SetKeyState `(v ~T0 @X0 1 ef2`i`E36 ]
+{
+[; ;Model.c: 5: void SetKeyState( int theKeyId, t_ButtonState theState )
+[; ;Model.c: 6: {
+[e :U _SetKeyState ]
+[v _theKeyId `i ~T0 @X0 1 r1 ]
+[v _theState `E36 ~T0 @X0 1 r2 ]
+[f ]
+[; ;Model.c: 7: m_Keys[ theKeyId ].State = theState;
+"7
+[e = . *U + &U _m_Keys * -> -> _theKeyId `ui `ux -> -> # *U &U _m_Keys `ui `ux 1 _theState ]
+[; ;Model.c: 8: }
+"8
+[e :UE 5 ]
+}
+"11
+[v _GetKeyState `(E36 ~T0 @X0 1 ef1`i ]
+{
+[; ;Model.c: 10: t_ButtonState GetKeyState( int theKeyId )
+[; ;Model.c: 11: {
+[e :U _GetKeyState ]
+[v _theKeyId `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;Model.c: 12: return m_Keys[ theKeyId ].State;
+"12
+[e ) . *U + &U _m_Keys * -> -> _theKeyId `ui `ux -> -> # *U &U _m_Keys `ui `ux 1 ]
+[e $UE 6  ]
+[; ;Model.c: 13: }
+"13
+[e :UE 6 ]
+}
+"16
+[v _GetKeyTimer `(*S3 ~T0 @X0 1 ef1`i ]
+{
+[; ;Model.c: 15: ATimer* GetKeyTimer( int theKeyId )
+[; ;Model.c: 16: {
+[e :U _GetKeyTimer ]
+[v _theKeyId `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;Model.c: 17: return m_Keys[ theKeyId ].Timer;
+"17
+[e ) . *U + &U _m_Keys * -> -> _theKeyId `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 ]
+[e $UE 7  ]
+[; ;Model.c: 18: }
+"18
+[e :UE 7 ]
+}
+"21
+[v _InitKeys `(v ~T0 @X0 1 ef ]
+{
+[; ;Model.c: 20: void InitKeys()
+[; ;Model.c: 21: {
+[e :U _InitKeys ]
+[f ]
+[; ;Model.c: 22: InitSequences();
+"22
+[e ( _InitSequences ..  ]
+"24
+[v _SequencePointer `*S2 ~T0 @X0 1 a ]
+[; ;Model.c: 24: ASequence *SequencePointer = GetSequencePointer( 0 );
+[e = _SequencePointer ( _GetSequencePointer (1 -> 0 `i ]
+[; ;Model.c: 26: for( int i = 0; i < KeyCount; i++ )
+"26
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i _KeyCount 9  ]
+[e $U 10  ]
+"27
+[e :U 9 ]
+[; ;Model.c: 27: {
+{
+[; ;Model.c: 29: m_Keys[ i ].State = e_PressedNo;
+"29
+[e = . *U + &U _m_Keys * -> -> _i `ui `ux -> -> # *U &U _m_Keys `ui `ux 1 -> . `E36 0 `E36 ]
+"30
+}
+"26
+[e ++ _i -> 1 `i ]
+[e $ < _i _KeyCount 9  ]
+[e :U 10 ]
+"30
+}
+[; ;Model.c: 30: }
+[; ;Model.c: 32: m_Keys [ 0 ].Timer = GetNewTimerPointer();
+"32
+[e = . *U + &U _m_Keys * -> -> -> 0 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 ( _GetNewTimerPointer ..  ]
+[; ;Model.c: 33: m_Keys [ 1 ].Timer = GetNewTimerPointer();
+"33
+[e = . *U + &U _m_Keys * -> -> -> 1 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 ( _GetNewTimerPointer ..  ]
+[; ;Model.c: 34: m_Keys [ 2 ].Timer = GetNewTimerPointer();
+"34
+[e = . *U + &U _m_Keys * -> -> -> 2 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 ( _GetNewTimerPointer ..  ]
+[; ;Model.c: 35: m_Keys [ 3 ].Timer = GetNewTimerPointer();
+"35
+[e = . *U + &U _m_Keys * -> -> -> 3 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 ( _GetNewTimerPointer ..  ]
+[; ;Model.c: 36: m_Keys [ 4 ].Timer = GetNewTimerPointer();
+"36
+[e = . *U + &U _m_Keys * -> -> -> 4 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 ( _GetNewTimerPointer ..  ]
+[; ;Model.c: 37: }
+"37
+[e :UE 8 ]
+}

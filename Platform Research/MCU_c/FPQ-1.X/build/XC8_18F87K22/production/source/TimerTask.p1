@@ -1,6 +1,40 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [s S2087 `i 1 `i 1 ]
 [n S2087 ATimerStruct Matured FutureTime ]
+"38048 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[v _TMR0IE `Vb ~T0 @X0 0 e@32661 ]
+"38050
+[v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
+[s S2038 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2038 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+[s S2039 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2039 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
+[s S2040 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2040 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE GIEL GIEH ]
+[s S2041 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2041 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+[s S2042 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2042 . . GIEL GIEH ]
+[u S2037 `S2038 1 `S2039 1 `S2040 1 `S2041 1 `S2042 1 ]
+[n S2037 . . . . . . ]
+"33560
+[v _INTCONbits `VS2037 ~T0 @X0 0 e@4082 ]
+"121 /Applications/microchip/xc8/v1.12/include/plib/timers.h
+[v _WriteTimer0 `(v ~T0 @X0 0 ef1`ui ]
+[s S1762 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1762 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+[s S1763 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1763 . INT0 INT1 INT2 CANRX KBI0 KBI1 KBI2 KBI3 ]
+[s S1764 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1764 . AN10 AN8 CANTX . AN9 PGM PGC PGD ]
+[s S1765 :1 `uc 1 ]
+[n S1765 . FLT0 ]
+[s S1766 :3 `uc 1 :1 `uc 1 ]
+[n S1766 . . CCP2_PA2 ]
+[u S1761 `S1762 1 `S1763 1 `S1764 1 `S1765 1 `S1766 1 ]
+[n S1761 . . . . . . ]
+"28246 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[v _PORTBbits `VS1761 ~T0 @X0 0 e@3969 ]
 [; ;pic18f2585.h: 44: extern volatile unsigned char RXF6SIDH @ 0xD60;
 "46 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
 [; ;pic18f2585.h: 46: asm("RXF6SIDH equ 0D60h");
@@ -14806,66 +14840,103 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TimerTask.h: 21: void ClearTimer( ATimer *theTimer );
 [; ;TimerTask.h: 22: bool MaturedTimer( ATimer *theTimer );
 [; ;TimerTask.h: 23: ATimer* GetNewTimerPointer( void );
-"26 source/TimerTask.c
+"27 source/TimerTask.c
 [v _TimersCount `Ci ~T0 @X0 1 s ]
 [i _TimersCount
 -> 10 `i
 ]
-[; ;TimerTask.c: 26: static const int TimersCount = 10;
-"27
+[; ;TimerTask.c: 27: static const int TimersCount = 10;
+"28
 [v _Timers `S2087 ~T0 @X0 -> 10 `i e ]
-[; ;TimerTask.c: 27: ATimer Timers[ 10 ];
-"30
+[; ;TimerTask.c: 28: ATimer Timers[ 10 ];
+"31
 [v _m_HalfSeconds `ui ~T0 @X0 1 s ]
 [i _m_HalfSeconds
 -> -> 0 `i `ui
 ]
-[; ;TimerTask.c: 30: static unsigned int m_HalfSeconds = 0;
-"33
-[v _GetNewTimerPointer `(*S2087 ~T0 @X0 1 ef ]
-{
-[; ;TimerTask.c: 32: ATimer* GetNewTimerPointer( void )
-[; ;TimerTask.c: 33: {
-[e :U _GetNewTimerPointer ]
-[f ]
+[; ;TimerTask.c: 31: static unsigned int m_HalfSeconds = 0;
 "34
-[v F16420 `i ~T0 @X0 1 s TimersAllocated ]
-[i F16420
--> 0 `i
-]
-"36
-[v _TimerPointer `*S2087 ~T0 @X0 1 a ]
-[; ;TimerTask.c: 34: static int TimersAllocated = 0;
-[; ;TimerTask.c: 36: ATimer *TimerPointer;
-[; ;TimerTask.c: 38: if ( TimersAllocated < TimersCount )
-"38
-[e $ ! < F16420 _TimersCount 2089  ]
-[; ;TimerTask.c: 39: {
-"39
+[v _Increment_Timer `(v ~T0 @X0 1 ef ]
 {
-[; ;TimerTask.c: 40: TimerPointer = &Timers[ TimersAllocated ];
+[; ;TimerTask.c: 33: void Increment_Timer( void )
+[; ;TimerTask.c: 34: {
+[e :U _Increment_Timer ]
+[f ]
+[; ;TimerTask.c: 35: if ( m_HalfSeconds == 72000 )
+"35
+[e $ ! == -> _m_HalfSeconds `l -> 72000 `l 2089  ]
+[; ;TimerTask.c: 36: {
+"36
+{
+[; ;TimerTask.c: 37: m_HalfSeconds = 0;
+"37
+[e = _m_HalfSeconds -> -> 0 `i `ui ]
+"38
+}
+[; ;TimerTask.c: 38: }
+[e $U 2090  ]
+"39
+[e :U 2089 ]
+[; ;TimerTask.c: 39: else
+[; ;TimerTask.c: 40: {
 "40
-[e = _TimerPointer &U *U + &U _Timers * -> -> F16420 `ui `ux -> -> # *U &U _Timers `ui `ux ]
-[; ;TimerTask.c: 41: TimersAllocated++;
+{
+[; ;TimerTask.c: 41: m_HalfSeconds++;
 "41
-[e ++ F16420 -> 1 `i ]
+[e ++ _m_HalfSeconds -> -> 1 `i `ui ]
 "42
 }
-[e :U 2089 ]
+[e :U 2090 ]
 [; ;TimerTask.c: 42: }
-[; ;TimerTask.c: 44: return TimerPointer;
-"44
-[e ) _TimerPointer ]
-[e $UE 2088  ]
-[; ;TimerTask.c: 45: }
-"45
+[; ;TimerTask.c: 43: }
+"43
 [e :UE 2088 ]
 }
-"48
+"46
+[v _GetNewTimerPointer `(*S2087 ~T0 @X0 1 ef ]
+{
+[; ;TimerTask.c: 45: ATimer* GetNewTimerPointer( void )
+[; ;TimerTask.c: 46: {
+[e :U _GetNewTimerPointer ]
+[f ]
+"47
+[v F16422 `i ~T0 @X0 1 s TimersAllocated ]
+[i F16422
+-> 0 `i
+]
+"49
+[v _TimerPointer `*S2087 ~T0 @X0 1 a ]
+[; ;TimerTask.c: 47: static int TimersAllocated = 0;
+[; ;TimerTask.c: 49: ATimer *TimerPointer;
+[; ;TimerTask.c: 51: if ( TimersAllocated < TimersCount )
+"51
+[e $ ! < F16422 _TimersCount 2092  ]
+[; ;TimerTask.c: 52: {
+"52
+{
+[; ;TimerTask.c: 53: TimerPointer = &Timers[ TimersAllocated ];
+"53
+[e = _TimerPointer &U *U + &U _Timers * -> -> F16422 `ui `ux -> -> # *U &U _Timers `ui `ux ]
+[; ;TimerTask.c: 54: TimersAllocated++;
+"54
+[e ++ F16422 -> 1 `i ]
+"55
+}
+[e :U 2092 ]
+[; ;TimerTask.c: 55: }
+[; ;TimerTask.c: 57: return TimerPointer;
+"57
+[e ) _TimerPointer ]
+[e $UE 2091  ]
+[; ;TimerTask.c: 58: }
+"58
+[e :UE 2091 ]
+}
+"61
 [v _SetTimer `(i ~T0 @X0 1 ef5`*S2087`i`i`i`i ]
 {
-[; ;TimerTask.c: 47: int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds )
-[; ;TimerTask.c: 48: {
+[; ;TimerTask.c: 60: int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds )
+[; ;TimerTask.c: 61: {
 [e :U _SetTimer ]
 [v _theTimer `*S2087 ~T0 @X0 1 r1 ]
 [v _theHours `i ~T0 @X0 1 r2 ]
@@ -14873,60 +14944,107 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _theSeconds `i ~T0 @X0 1 r4 ]
 [v _theHalfSeconds `i ~T0 @X0 1 r5 ]
 [f ]
-"49
+"62
 [v _FutureTime `i ~T0 @X0 1 a ]
-[; ;TimerTask.c: 49: int FutureTime = theHalfSeconds;
+[; ;TimerTask.c: 62: int FutureTime = theHalfSeconds;
 [e = _FutureTime _theHalfSeconds ]
-[; ;TimerTask.c: 50: FutureTime =+ ( theSeconds * 2 );
-"50
+[; ;TimerTask.c: 63: FutureTime =+ ( theSeconds * 2 );
+"63
 [e = _FutureTime * _theSeconds -> 2 `i ]
-[; ;TimerTask.c: 51: FutureTime =+ ( theMinutes * ( 60 * 2 ) );
-"51
+[; ;TimerTask.c: 64: FutureTime =+ ( theMinutes * ( 60 * 2 ) );
+"64
 [e = _FutureTime * _theMinutes * -> 60 `i -> 2 `i ]
-[; ;TimerTask.c: 52: FutureTime =+ ( theHours * ( 60 * ( 60 * 2 ) ) );
-"52
+[; ;TimerTask.c: 65: FutureTime =+ ( theHours * ( 60 * ( 60 * 2 ) ) );
+"65
 [e = _FutureTime * _theHours * -> 60 `i * -> 60 `i -> 2 `i ]
-[; ;TimerTask.c: 54: theTimer->FutureTime = FutureTime;
-"54
+[; ;TimerTask.c: 67: theTimer->FutureTime = FutureTime;
+"67
 [e = . *U _theTimer 1 _FutureTime ]
-[; ;TimerTask.c: 55: theTimer->Matured = 0;
-"55
+[; ;TimerTask.c: 68: theTimer->Matured = 0;
+"68
 [e = . *U _theTimer 0 -> 0 `i ]
-[; ;TimerTask.c: 56: }
-"56
-[e :UE 2090 ]
+[; ;TimerTask.c: 69: }
+"69
+[e :UE 2093 ]
 }
-"59
+"72
 [v _ClearTimer `(v ~T0 @X0 1 ef1`*S2087 ]
 {
-[; ;TimerTask.c: 58: void ClearTimer( ATimer *theTimer )
-[; ;TimerTask.c: 59: {
+[; ;TimerTask.c: 71: void ClearTimer( ATimer *theTimer )
+[; ;TimerTask.c: 72: {
 [e :U _ClearTimer ]
 [v _theTimer `*S2087 ~T0 @X0 1 r1 ]
 [f ]
-[; ;TimerTask.c: 60: theTimer->FutureTime = 0;
-"60
+[; ;TimerTask.c: 73: theTimer->FutureTime = 0;
+"73
 [e = . *U _theTimer 1 -> 0 `i ]
-[; ;TimerTask.c: 61: theTimer->Matured = 0;
-"61
+[; ;TimerTask.c: 74: theTimer->Matured = 0;
+"74
 [e = . *U _theTimer 0 -> 0 `i ]
-[; ;TimerTask.c: 62: }
-"62
-[e :UE 2091 ]
+[; ;TimerTask.c: 75: }
+"75
+[e :UE 2094 ]
 }
-"65
+"78
 [v _MaturedTimer `(uc ~T0 @X0 1 ef1`*S2087 ]
 {
-[; ;TimerTask.c: 64: bool MaturedTimer( ATimer *theTimer )
-[; ;TimerTask.c: 65: {
+[; ;TimerTask.c: 77: bool MaturedTimer( ATimer *theTimer )
+[; ;TimerTask.c: 78: {
 [e :U _MaturedTimer ]
 [v _theTimer `*S2087 ~T0 @X0 1 r1 ]
 [f ]
-[; ;TimerTask.c: 66: return theTimer->Matured;
-"66
+[; ;TimerTask.c: 79: return theTimer->Matured;
+"79
 [e ) -> . *U _theTimer 0 `uc ]
-[e $UE 2092  ]
-[; ;TimerTask.c: 67: }
-"67
-[e :UE 2092 ]
+[e $UE 2095  ]
+[; ;TimerTask.c: 80: }
+"80
+[e :UE 2095 ]
+}
+"83
+[v F16434 `(v ~T0 @X0 1 tf ]
+[v _ISR `IF16434 ~T0 @X0 1 e ]
+{
+[; ;TimerTask.c: 82: void interrupt ISR (void)
+[; ;TimerTask.c: 83: {
+[e :U _ISR ]
+[f ]
+[; ;TimerTask.c: 84: if(TMR0IE && TMR0IF)
+"84
+[e $ ! && _TMR0IE _TMR0IF 2097  ]
+[; ;TimerTask.c: 85: {
+"85
+{
+[; ;TimerTask.c: 86: INTCONbits.TMR0IF = 0;
+"86
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;TimerTask.c: 87: Increment_Timer();
+"87
+[e ( _Increment_Timer ..  ]
+[; ;TimerTask.c: 88: WriteTimer0( 0 );
+"88
+[e ( _WriteTimer0 (1 -> -> 0 `i `ui ]
+[; ;TimerTask.c: 89: PORTBbits.RB1 = 1;
+"89
+[e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
+"91
+}
+[; ;TimerTask.c: 91: }
+[e $U 2098  ]
+"92
+[e :U 2097 ]
+[; ;TimerTask.c: 92: else
+[; ;TimerTask.c: 93: {
+"93
+{
+[; ;TimerTask.c: 94: PORTBbits.RB3 = 1;
+"94
+[e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
+"95
+}
+[e :U 2098 ]
+[; ;TimerTask.c: 95: }
+[; ;TimerTask.c: 96: }
+"96
+[e :UE 2096 ]
 }

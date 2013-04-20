@@ -25,7 +25,7 @@ void InitKeys()
 
     for( int i = 0; i < KeyCount; i++ )
     {
-        m_Keys[ i ].Sequence    = SequencePointer;
+        //m_Keys[ i ].Sequence    = SequencePointer;
         m_Keys[ i ].State       = e_PressedNo;
     }
 

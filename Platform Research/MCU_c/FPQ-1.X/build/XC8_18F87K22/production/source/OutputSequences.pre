@@ -1,0 +1,58 @@
+
+# 1 "source/OutputSequences.c"
+
+# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputSequences.h"
+typedef enum
+{
+e_Off,
+e_ColourA,
+e_ColourB
+}t_ButtonColour;
+
+typedef struct SequencePhaseStruct
+{
+int NextActionTime;
+t_ButtonColour CurrentColour;
+}SequencePhase;
+
+typedef struct ASequenceStruct
+{
+SequencePhase *Sequence;
+int Size;
+int Current;
+}ASequence;
+
+void InitSequences( void );
+ASequence* GetSequencePointer( int theId );
+
+# 3 "source/OutputSequences.c"
+const int SequencesCount = 5;
+ASequence Sequences[ 5 ];
+
+const int RedGreenPhases = 2;
+SequencePhase RedGreenSequence[ 2 ];
+
+
+void InitSequences()
+{
+RedGreenSequence[ 0 ].CurrentColour = e_ColourA;
+RedGreenSequence[ 0 ].NextActionTime = 10;
+RedGreenSequence[ 1 ].CurrentColour = e_ColourB;
+RedGreenSequence[ 1 ].NextActionTime = 10;
+
+Sequences[ 0 ].Sequence = &RedGreenSequence[ 0 ];
+Sequences[ 0 ].Size = RedGreenPhases;
+Sequences[ 0 ].Current = 0;
+}
+
+ASequence* GetSequencePointer( int theId )
+{
+ASequence *SequencePointer;
+
+if ( ( theId >= 0 ) && ( theId <= SequencesCount ) )
+{
+SequencePointer = &Sequences[ theId ];
+}
+
+return SequencePointer;
+}

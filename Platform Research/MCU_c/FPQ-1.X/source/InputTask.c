@@ -26,28 +26,38 @@ void MonitorButton( int theId )
             if ( ButtonBeingPressed( theId ) )
             {
                 SetKeyState( theId, e_PressedYes );
-                SetTimer( GetKeyTimer( theId ), 0, 0, 1, 0 );
+           //     SetTimer( GetKeyTimer( theId ), 0, 0, 1, 0 );
             }
             break;
 
         case e_PressedYes:
             if ( ! ButtonBeingPressed( theId ) )
             {
-                SetKeyState( theId, e_PressedNo );
-                ClearTimer( GetKeyTimer( theId ) );
-            }
-            else if( MaturedTimer( GetKeyTimer( theId ) ) )
-            {
                 SetKeyState( theId, e_BeingServedNo );
-                ClearTimer( GetKeyTimer( theId ) );
+          //      ClearTimer( GetKeyTimer( theId ) );
             }
+      //      else if( MaturedTimer( GetKeyTimer( theId ) ) )
+      //      {
+      //          SetKeyState( theId, e_BeingServedNo );
+      //          ClearTimer( GetKeyTimer( theId ) );
+        //    }
 
             break;
 
         case e_BeingServedNo:
+            if ( ButtonBeingPressed( theId ) )
+            {
+                SetKeyState( theId, e_BeingServedYes );
+           //     SetTimer( GetKeyTimer( theId ), 0, 0, 1, 0 );
+            }
             break;
             
         case e_BeingServedYes:
+                        if ( ! ButtonBeingPressed( theId ) )
+            {
+                SetKeyState( theId, e_PressedNo );
+          //      ClearTimer( GetKeyTimer( theId ) );
+            }
             break;
     }
 }
@@ -59,23 +69,38 @@ bool ButtonBeingPressed( int theId )
     switch ( theId )
     {
         case 0:
-            BeingPressed = PORTAbits.RA0;
+            if ( PORTAbits.RA0 == 0 )
+            {
+                BeingPressed = true;
+            }
             break;
 
         case 1:
-            BeingPressed = PORTAbits.RA3;
+            if ( PORTAbits.RA3 == 0 )
+            {
+                BeingPressed = true;
+            }
             break;
 
         case 2:
-            BeingPressed = PORTAbits.RA7;
+            if ( PORTAbits.RA7 == 0 )
+            {
+                BeingPressed = true;
+            }
             break;
 
         case 3:
-            BeingPressed = PORTCbits.RC1;
+//            if ( PORTCbits.RC1 == 0 )
+//            {
+//                BeingPressed = true;
+//            }
             break;
 
         case 4:
-            BeingPressed = PORTBbits.RB4;
+//            if ( PORTBbits.RB4 == 0 )
+//            {
+//                BeingPressed = true;
+//            }
             break;
     }
     

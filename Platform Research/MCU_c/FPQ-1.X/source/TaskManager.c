@@ -13,14 +13,14 @@
 #include "OutputTask.h"
 #include "Model.h"
 
-static int Operation = 0;
-
-int TaskManager()
+void TaskManager()
 {
+    static int Operation = 0;
+    
     switch( Operation )
     {
         case 0:
-            InitKeys();          
+            InitKeys();
             Operation = 1;
             break;
         
@@ -30,7 +30,5 @@ int TaskManager()
             OutputTask();
             break;
     }
-
-    return ( EXIT_SUCCESS );
 }
 

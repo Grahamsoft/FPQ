@@ -20,6 +20,10 @@ extern "C" {
 #endif
 
 void OutputTask( void );
+void IlluminateButton( int theId );
+void ColourA( int theId );
+void ColourB( int theId );
+void ColourNone( int theId );
 
 #endif	/* OUTPUTTASK_H */
 

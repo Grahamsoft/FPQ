@@ -1,0 +1,105 @@
+
+# 1 "source/Model.c"
+
+# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputSequences.h"
+typedef enum
+{
+e_Off,
+e_ColourA,
+e_ColourB
+}t_ButtonColour;
+
+typedef struct SequencePhaseStruct
+{
+int NextActionTime;
+t_ButtonColour CurrentColour;
+}SequencePhase;
+
+typedef struct ASequenceStruct
+{
+SequencePhase *Sequence;
+int Size;
+int Current;
+}ASequence;
+
+void InitSequences( void );
+ASequence* GetSequencePointer( int theId );
+
+# 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
+typedef unsigned char bool;
+
+# 13 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h"
+typedef struct ATimerStruct
+{
+int Matured;
+int FutureTime;
+
+}ATimer;
+
+int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
+void ClearTimer( ATimer *theTimer );
+bool MaturedTimer( ATimer *theTimer );
+ATimer* GetNewTimerPointer( void );
+
+# 14 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h"
+typedef enum
+{
+e_PressedNo,
+e_PressedYes,
+e_BeingServedNo,
+e_BeingServedYes
+}t_ButtonState;
+
+typedef struct AKeyStruct
+{
+int Id;
+t_ButtonState State;
+ASequence* Sequence;
+ATimer* Timer;
+
+# 35
+}AKey;
+
+const int KeyCount = 5;
+
+void InitKeys( void );
+void SetKeyState( int theKeyId, t_ButtonState theState );
+t_ButtonState GetKeyState( int theKeyId );
+ATimer* GetKeyTimer( int theKeyId );
+
+# 3 "source/Model.c"
+AKey m_Keys[ 5 ];
+
+void SetKeyState( int theKeyId, t_ButtonState theState )
+{
+m_Keys[ theKeyId ].State = theState;
+}
+
+t_ButtonState GetKeyState( int theKeyId )
+{
+return m_Keys[ theKeyId ].State;
+}
+
+ATimer* GetKeyTimer( int theKeyId )
+{
+return m_Keys[ theKeyId ].Timer;
+}
+
+void InitKeys()
+{
+InitSequences();
+
+ASequence *SequencePointer = GetSequencePointer( 0 );
+
+for( int i = 0; i < KeyCount; i++ )
+{
+
+m_Keys[ i ].State = e_PressedNo;
+}
+
+m_Keys [ 0 ].Timer = GetNewTimerPointer();
+m_Keys [ 1 ].Timer = GetNewTimerPointer();
+m_Keys [ 2 ].Timer = GetNewTimerPointer();
+m_Keys [ 3 ].Timer = GetNewTimerPointer();
+m_Keys [ 4 ].Timer = GetNewTimerPointer();
+}

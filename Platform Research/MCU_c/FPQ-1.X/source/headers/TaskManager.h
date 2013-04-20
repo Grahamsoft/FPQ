@@ -21,4 +21,4 @@ extern "C" {
 
 #endif	/* TASKMANAGER_H */
 
-int TaskManager( void );
+void TaskManager( void );

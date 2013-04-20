@@ -8,8 +8,8 @@
 [v F16223 `(v  1 t 0 ]
 "15 source/DataCommsTask.c
 [s S60 ATimerStruct 4 `i 1 Matured 2 0 `i 1 FutureTime 2 2 ]
-"118 /Applications/microchip/xc8/v1.12/include/plib/timers.h
-[s S93 . 1 `uc 1 RBIF 1 0 :1:0 
+"38050 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[s S65 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -18,7 +18,8 @@
 `uc 1 PEIE_GIEL 1 0 :1:6 
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
-[s S102 . 1 `uc 1 RBIF 1 0 :1:0 
+"38050
+[s S74 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -27,7 +28,8 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S111 . 1 `uc 1 RBIF 1 0 :1:0 
+"38050
+[s S83 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -36,7 +38,8 @@
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[s S120 . 1 `uc 1 . 1 0 :1:0 
+"38050
+[s S92 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -45,105 +48,15 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S129 . 1 `uc 1 . 1 0 :6:0 
+"38050
+[s S101 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S133 . 1 `S93 1 . 1 0 `S102 1 . 1 0 `S111 1 . 1 0 `S120 1 . 1 0 `S129 1 . 1 0 ]
-"15 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/InputTask.h
-[e E42 . `uc
-e_PressedNo 0
-e_PressedYes 1
-e_BeingServedNo 2
-e_BeingServedYes 3
-]
-"40 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
-[s S211 ATimerStruct 4 `i 1 Matured 2 0 `i 1 FutureTime 2 2 ]
-"41
-[s S227 . 1 `uc 1 RA0 1 0 :1:0 
-`uc 1 RA1 1 0 :1:1 
-`uc 1 RA2 1 0 :1:2 
-`uc 1 RA3 1 0 :1:3 
-`uc 1 RA4 1 0 :1:4 
-`uc 1 RA5 1 0 :1:5 
-`uc 1 RA6 1 0 :1:6 
-`uc 1 RA7 1 0 :1:7 
-]
-[s S236 . 1 `uc 1 AN0 1 0 :1:0 
-`uc 1 AN1 1 0 :1:1 
-`uc 1 AN2 1 0 :1:2 
-`uc 1 AN3 1 0 :1:3 
-`uc 1 T0CKI 1 0 :1:4 
-`uc 1 AN4 1 0 :1:5 
-`uc 1 OSC2 1 0 :1:6 
-`uc 1 OSC1 1 0 :1:7 
-]
-[s S245 . 1 `uc 1 CVREF 1 0 :1:0 
-`uc 1 . 1 0 :1:1 
-`uc 1 VREFM 1 0 :1:2 
-`uc 1 VREFP 1 0 :1:3 
-`uc 1 . 1 0 :1:4 
-`uc 1 HLVDIN 1 0 :1:5 
-`uc 1 CLKO 1 0 :1:6 
-`uc 1 CLKI 1 0 :1:7 
-]
-[s S254 . 1 `uc 1 . 1 0 :5:0 
-`uc 1 LVDIN 1 0 :1:5 
-]
-[s S257 . 1 `uc 1 . 1 0 :5:0 
-`uc 1 SS 1 0 :1:5 
-]
-[s S260 . 1 `uc 1 . 1 0 :5:0 
-`uc 1 NOT_SS 1 0 :1:5 
-]
-[s S263 . 1 `uc 1 . 1 0 :5:0 
-`uc 1 nSS 1 0 :1:5 
-]
-[s S266 . 1 `uc 1 . 1 0 :7:0 
-`uc 1 RJPU 1 0 :1:7 
-]
-[s S269 . 1 `uc 1 ULPWUIN 1 0 :1:0 
-]
-[u S271 . 1 `S227 1 . 1 0 `S236 1 . 1 0 `S245 1 . 1 0 `S254 1 . 1 0 `S257 1 . 1 0 `S260 1 . 1 0 `S263 1 . 1 0 `S266 1 . 1 0 `S269 1 . 1 0 ]
-"28058 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
-[s S326 . 1 `uc 1 RC0 1 0 :1:0 
-`uc 1 RC1 1 0 :1:1 
-`uc 1 RC2 1 0 :1:2 
-`uc 1 RC3 1 0 :1:3 
-`uc 1 RC4 1 0 :1:4 
-`uc 1 RC5 1 0 :1:5 
-`uc 1 RC6 1 0 :1:6 
-`uc 1 RC7 1 0 :1:7 
-]
-[s S335 . 1 `uc 1 T1OSO 1 0 :1:0 
-`uc 1 T1OSI 1 0 :1:1 
-`uc 1 CCP1 1 0 :1:2 
-`uc 1 SCK 1 0 :1:3 
-`uc 1 SDI 1 0 :1:4 
-`uc 1 SDO 1 0 :1:5 
-`uc 1 TX 1 0 :1:6 
-`uc 1 RX 1 0 :1:7 
-]
-[s S344 . 1 `uc 1 T13CKI 1 0 :1:0 
-`uc 1 . 1 0 :2:1 
-`uc 1 SCL 1 0 :1:3 
-`uc 1 SDA 1 0 :1:4 
-`uc 1 . 1 0 :1:5 
-`uc 1 CK 1 0 :1:6 
-`uc 1 DT 1 0 :1:7 
-]
-[s S352 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 CCP2 1 0 :1:1 
-]
-[s S355 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 PA1 1 0 :1:2 
-]
-[s S358 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 PA2 1 0 :1:1 
-]
-[u S361 . 1 `S326 1 . 1 0 `S335 1 . 1 0 `S344 1 . 1 0 `S352 1 . 1 0 `S355 1 . 1 0 `S358 1 . 1 0 ]
-"28423
-[s S404 . 1 `uc 1 RB0 1 0 :1:0 
+"38050
+[u S105 . 1 `S65 1 . 1 0 `S74 1 . 1 0 `S83 1 . 1 0 `S92 1 . 1 0 `S101 1 . 1 0 ]
+"121 /Applications/microchip/xc8/v1.12/include/plib/timers.h
+[s S157 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -152,7 +65,7 @@ e_BeingServedYes 3
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[s S413 . 1 `uc 1 INT0 1 0 :1:0 
+[s S166 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 CANRX 1 0 :1:3 
@@ -161,7 +74,7 @@ e_BeingServedYes 3
 `uc 1 KBI2 1 0 :1:6 
 `uc 1 KBI3 1 0 :1:7 
 ]
-[s S422 . 1 `uc 1 AN10 1 0 :1:0 
+[s S175 . 1 `uc 1 AN10 1 0 :1:0 
 `uc 1 AN8 1 0 :1:1 
 `uc 1 CANTX 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -170,13 +83,200 @@ e_BeingServedYes 3
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S431 . 1 `uc 1 FLT0 1 0 :1:0 
+[s S184 . 1 `uc 1 FLT0 1 0 :1:0 
 ]
-[s S433 . 1 `uc 1 . 1 0 :3:0 
+[s S186 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S436 . 1 `S404 1 . 1 0 `S413 1 . 1 0 `S422 1 . 1 0 `S431 1 . 1 0 `S433 1 . 1 0 ]
-"6 source/OutputTask.c
+[u S189 . 1 `S157 1 . 1 0 `S166 1 . 1 0 `S175 1 . 1 0 `S184 1 . 1 0 `S186 1 . 1 0 ]
+"83 source/TimerTask.c
+[v F16434 `(v  1 t 0 ]
+"118 /Applications/microchip/xc8/v1.12/include/plib/timers.h
+[s S278 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+[s S287 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S296 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[s S305 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S314 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S318 . 1 `S65 1 . 1 0 `S74 1 . 1 0 `S83 1 . 1 0 `S92 1 . 1 0 `S101 1 . 1 0 ]
+"15 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/InputTask.h
+[e E42 . `uc
+e_PressedNo 0
+e_PressedYes 1
+e_BeingServedNo 2
+e_BeingServedYes 3
+]
+"41 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+[s S369 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+[s S378 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+`uc 1 OSC1 1 0 :1:7 
+]
+[s S387 . 1 `uc 1 CVREF 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 VREFM 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 HLVDIN 1 0 :1:5 
+`uc 1 CLKO 1 0 :1:6 
+`uc 1 CLKI 1 0 :1:7 
+]
+[s S396 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S399 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SS 1 0 :1:5 
+]
+[s S402 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_SS 1 0 :1:5 
+]
+[s S405 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 nSS 1 0 :1:5 
+]
+[s S408 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RJPU 1 0 :1:7 
+]
+[s S411 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+]
+[u S413 . 1 `S369 1 . 1 0 `S378 1 . 1 0 `S387 1 . 1 0 `S396 1 . 1 0 `S399 1 . 1 0 `S402 1 . 1 0 `S405 1 . 1 0 `S408 1 . 1 0 `S411 1 . 1 0 ]
+"25 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputTask.h
+[e E16242 . `uc
+e_PressedNo 0
+e_PressedYes 1
+e_BeingServedNo 2
+e_BeingServedYes 3
+]
+"41 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+[s S505 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+[s S514 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+`uc 1 OSC1 1 0 :1:7 
+]
+[s S523 . 1 `uc 1 CVREF 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 VREFM 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 HLVDIN 1 0 :1:5 
+`uc 1 CLKO 1 0 :1:6 
+`uc 1 CLKI 1 0 :1:7 
+]
+[s S532 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S535 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SS 1 0 :1:5 
+]
+[s S538 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_SS 1 0 :1:5 
+]
+[s S541 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 nSS 1 0 :1:5 
+]
+[s S544 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RJPU 1 0 :1:7 
+]
+[s S547 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+]
+[u S549 . 1 `S369 1 . 1 0 `S378 1 . 1 0 `S387 1 . 1 0 `S396 1 . 1 0 `S399 1 . 1 0 `S402 1 . 1 0 `S405 1 . 1 0 `S408 1 . 1 0 `S411 1 . 1 0 ]
+"28058 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[s S560 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[s S569 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S578 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 . 1 0 :2:1 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S586 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+]
+[s S589 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S592 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S595 . 1 `S560 1 . 1 0 `S569 1 . 1 0 `S578 1 . 1 0 `S586 1 . 1 0 `S589 1 . 1 0 `S592 1 . 1 0 ]
+"122 source/OutputTask.c
 [e E36 . `uc
 e_PressedNo 0
 e_PressedYes 1
@@ -188,20 +288,20 @@ e_Off 0
 e_ColourA 1
 e_ColourB 2
 ]
-[s S517 SequencePhaseStruct 3 `i 1 NextActionTime 2 0 `E1 1 CurrentColour 1 2 ]
-[s S520 ASequenceStruct 7 `*.MS517 1 Sequence 3 0 `i 1 Size 2 3 `i 1 Current 2 5 ]
-[s S524 ATimerStruct 4 `i 1 Matured 2 0 `i 1 FutureTime 2 2 ]
-[s S527 AKeyStruct 9 `i 1 Id 2 0 `E36 1 State 1 2 `*.MS520 1 Sequence 3 3 `*.MS60 1 Timer 3 6 ]
+[s S666 SequencePhaseStruct 3 `i 1 NextActionTime 2 0 `E1 1 CurrentColour 1 2 ]
+[s S669 ASequenceStruct 7 `*.MS666 1 Sequence 3 0 `i 1 Size 2 3 `i 1 Current 2 5 ]
+[s S673 ATimerStruct 4 `i 1 Matured 2 0 `i 1 FutureTime 2 2 ]
+[s S676 AKeyStruct 9 `i 1 Id 2 0 `E36 1 State 1 2 `*.MS669 1 Sequence 3 3 `*.MS60 1 Timer 3 6 ]
 "37 source/Model.c
 [e E1 . `uc
 e_Off 0
 e_ColourA 1
 e_ColourB 2
 ]
-[s S562 SequencePhaseStruct 3 `i 1 NextActionTime 2 0 `E1 1 CurrentColour 1 2 ]
-[s S565 ASequenceStruct 7 `*.MS517 1 Sequence 3 0 `i 1 Size 2 3 `i 1 Current 2 5 ]
+[s S712 SequencePhaseStruct 3 `i 1 NextActionTime 2 0 `E1 1 CurrentColour 1 2 ]
+[s S715 ASequenceStruct 7 `*.MS666 1 Sequence 3 0 `i 1 Size 2 3 `i 1 Current 2 5 ]
 "33095 /Volumes/build/bamboo/xml-data/build-dir/XC8-RELEASE-JOB1/nz/build/dist/osx/include/pic18f2585.h
-[s S585 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S735 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -211,7 +311,7 @@ e_ColourB 2
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "33095
-[s S594 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S744 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -221,7 +321,7 @@ e_ColourB 2
 `uc 1 GIE 1 0 :1:7 
 ]
 "33095
-[s S603 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S753 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -231,7 +331,7 @@ e_ColourB 2
 `uc 1 GIEH 1 0 :1:7 
 ]
 "33095
-[s S612 . 1 `uc 1 . 1 0 :1:0 
+[s S762 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -241,14 +341,14 @@ e_ColourB 2
 `uc 1 GIE 1 0 :1:7 
 ]
 "33095
-[s S621 . 1 `uc 1 . 1 0 :6:0 
+[s S771 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "33095
-[u S625 . 1 `S93 1 . 1 0 `S102 1 . 1 0 `S111 1 . 1 0 `S120 1 . 1 0 `S129 1 . 1 0 ]
+[u S775 . 1 `S65 1 . 1 0 `S74 1 . 1 0 `S83 1 . 1 0 `S92 1 . 1 0 `S101 1 . 1 0 ]
 "33560
-[s S632 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S782 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -256,13 +356,15 @@ e_ColourB 2
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "33560
-[s S639 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S789 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
 "33560
-[u S644 . 1 `S632 1 . 1 0 `S639 1 . 1 0 ]
+[u S794 . 1 `S782 1 . 1 0 `S789 1 . 1 0 ]
+"31 plib/Timers/t0open.c
+[u S818 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
 "5 ../common/asfladd.c
 [v ___asfladd `(d  1 e 3 0 ]
 "5 ../common/asfldiv.c
@@ -387,19 +489,21 @@ e_ColourB 2
 [v ___wmul `(ui  1 e 2 0 ]
 "19 plib/Timers/t0open.c
 [v _OpenTimer0 `(v  1 e 0 0 ]
+"17 plib/Timers/t0write.c
+[v _WriteTimer0 `(v  1 e 0 0 ]
 "13 source/DataCommsTask.c
 [v _DataCommsTask `(i  1 e 2 0 ]
 "14 source/InputTask.c
 [v _InputTask `(v  1 e 0 0 ]
 "22
 [v _MonitorButton `(v  1 e 0 0 ]
-"56
+"66
 [v _ButtonBeingPressed `(uc  1 e 1 0 ]
 "36 source/Interrupts.c
 [v _high_isr `II(v  1 e 0 0 ]
 "75
 [v _low_isr `IIL(v  1 e 0 0 ]
-"28 source/Main.c
+"30 source/Main.c
 [v _main `(v  1 e 0 0 ]
 "6 source/Model.c
 [v _SetKeyState `(v  1 e 0 0 ]
@@ -412,29 +516,45 @@ e_ColourB 2
 [v _InitKeys `(v  1 e 0 0 ]
 "11 source/OutputSequences.c
 [v _InitSequences `(v  1 e 0 0 ]
-[s S517 SequencePhaseStruct 3 `i 1 NextActionTime 2 0 `E1 1 CurrentColour 1 2 ]
+[s S666 SequencePhaseStruct 3 `i 1 NextActionTime 2 0 `E1 1 CurrentColour 1 2 ]
 "23
-[s S520 ASequenceStruct 6 `*.aS517 1 Sequence 2 0 `i 1 Size 2 2 `i 1 Current 2 4 ]
-[v _GetSequencePointer `(*.MS520  1 e 2 0 ]
-"4 source/OutputTask.c
+[s S669 ASequenceStruct 6 `*.aS666 1 Sequence 2 0 `i 1 Size 2 2 `i 1 Current 2 4 ]
+[v _GetSequencePointer `(*.MS669  1 e 2 0 ]
+"15 source/OutputTask.c
 [v _OutputTask `(v  1 e 0 0 ]
+"23
+[v _IlluminateButton `(v  1 e 0 0 ]
+"44
+[v _ColourA `(v  1 e 0 0 ]
+"71
+[v _ColourB `(v  1 e 0 0 ]
+"98
+[v _ColourNone `(v  1 e 0 0 ]
 "45 source/SystemSetup.c
 [v _ConfigureOscillator `(v  1 e 0 0 ]
 "50
 [v _ConfigureTimer `(v  1 e 0 0 ]
-"19 source/TaskManager.c
-[v _TaskManager `(i  1 e 2 0 ]
-"33 source/TimerTask.c
+"62
+[v _ConfigurePorts `(v  1 e 0 0 ]
+"17 source/TaskManager.c
+[v _TaskManager `(v  1 e 0 0 ]
+"34 source/TimerTask.c
+[v _Increment_Timer `(v  1 e 0 0 ]
+"46
 [v _GetNewTimerPointer `(*.MS60  1 e 2 0 ]
-"48
+"61
 [v _SetTimer `(i  1 e 2 0 ]
-"59
+"72
 [v _ClearTimer `(v  1 e 0 0 ]
-"65
+"78
 [v _MaturedTimer `(uc  1 e 1 0 ]
+"83
+[v _ISR `II(v  1 e 0 0 ]
 "29 source/User.c
 [v _InitApp `(v  1 e 0 0 ]
-[s S227 . 1 `uc 1 RA0 1 0 :1:0 
+"27998 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[v _PORTA `VEuc  1 e 1 @3968 ]
+[s S369 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -443,8 +563,8 @@ e_ColourB 2
 `uc 1 RA6 1 0 :1:6 
 `uc 1 RA7 1 0 :1:7 
 ]
-"28058 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
-[s S236 . 1 `uc 1 AN0 1 0 :1:0 
+"28058
+[s S378 . 1 `uc 1 AN0 1 0 :1:0 
 `uc 1 AN1 1 0 :1:1 
 `uc 1 AN2 1 0 :1:2 
 `uc 1 AN3 1 0 :1:3 
@@ -453,7 +573,7 @@ e_ColourB 2
 `uc 1 OSC2 1 0 :1:6 
 `uc 1 OSC1 1 0 :1:7 
 ]
-[s S245 . 1 `uc 1 CVREF 1 0 :1:0 
+[s S387 . 1 `uc 1 CVREF 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 VREFM 1 0 :1:2 
 `uc 1 VREFP 1 0 :1:3 
@@ -462,26 +582,28 @@ e_ColourB 2
 `uc 1 CLKO 1 0 :1:6 
 `uc 1 CLKI 1 0 :1:7 
 ]
-[s S254 . 1 `uc 1 . 1 0 :5:0 
+[s S396 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LVDIN 1 0 :1:5 
 ]
-[s S257 . 1 `uc 1 . 1 0 :5:0 
+[s S399 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SS 1 0 :1:5 
 ]
-[s S260 . 1 `uc 1 . 1 0 :5:0 
+[s S402 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_SS 1 0 :1:5 
 ]
-[s S263 . 1 `uc 1 . 1 0 :5:0 
+[s S405 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 nSS 1 0 :1:5 
 ]
-[s S266 . 1 `uc 1 . 1 0 :7:0 
+[s S408 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[s S269 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S411 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 ]
-[u S271 . 1 `S227 1 . 1 0 `S236 1 . 1 0 `S245 1 . 1 0 `S254 1 . 1 0 `S257 1 . 1 0 `S260 1 . 1 0 `S263 1 . 1 0 `S266 1 . 1 0 `S269 1 . 1 0 ]
-[v _PORTAbits `VES271  1 e 1 @3968 ]
-[s S404 . 1 `uc 1 RB0 1 0 :1:0 
+[u S413 . 1 `S369 1 . 1 0 `S378 1 . 1 0 `S387 1 . 1 0 `S396 1 . 1 0 `S399 1 . 1 0 `S402 1 . 1 0 `S405 1 . 1 0 `S408 1 . 1 0 `S411 1 . 1 0 ]
+[v _PORTAbits `VES413  1 e 1 @3968 ]
+"28202
+[v _PORTB `VEuc  1 e 1 @3969 ]
+[s S157 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -491,7 +613,7 @@ e_ColourB 2
 `uc 1 RB7 1 0 :1:7 
 ]
 "28246
-[s S413 . 1 `uc 1 INT0 1 0 :1:0 
+[s S166 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 CANRX 1 0 :1:3 
@@ -500,7 +622,7 @@ e_ColourB 2
 `uc 1 KBI2 1 0 :1:6 
 `uc 1 KBI3 1 0 :1:7 
 ]
-[s S422 . 1 `uc 1 AN10 1 0 :1:0 
+[s S175 . 1 `uc 1 AN10 1 0 :1:0 
 `uc 1 AN8 1 0 :1:1 
 `uc 1 CANTX 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -509,14 +631,16 @@ e_ColourB 2
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S431 . 1 `uc 1 FLT0 1 0 :1:0 
+[s S184 . 1 `uc 1 FLT0 1 0 :1:0 
 ]
-[s S433 . 1 `uc 1 . 1 0 :3:0 
+[s S186 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S436 . 1 `S404 1 . 1 0 `S413 1 . 1 0 `S422 1 . 1 0 `S431 1 . 1 0 `S433 1 . 1 0 ]
-[v _PORTBbits `VES436  1 e 1 @3969 ]
-[s S326 . 1 `uc 1 RC0 1 0 :1:0 
+[u S189 . 1 `S157 1 . 1 0 `S166 1 . 1 0 `S175 1 . 1 0 `S184 1 . 1 0 `S186 1 . 1 0 ]
+[v _PORTBbits `VES189  1 e 1 @3969 ]
+"28375
+[v _PORTC `VEuc  1 e 1 @3970 ]
+[s S560 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -526,7 +650,7 @@ e_ColourB 2
 `uc 1 RC7 1 0 :1:7 
 ]
 "28423
-[s S335 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S569 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -535,7 +659,7 @@ e_ColourB 2
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S344 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S578 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 . 1 0 :2:1 
 `uc 1 SCL 1 0 :1:3 
 `uc 1 SDA 1 0 :1:4 
@@ -543,20 +667,28 @@ e_ColourB 2
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S352 . 1 `uc 1 . 1 0 :1:0 
+[s S586 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 ]
-[s S355 . 1 `uc 1 . 1 0 :2:0 
+[s S589 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PA1 1 0 :1:2 
 ]
-[s S358 . 1 `uc 1 . 1 0 :1:0 
+[s S592 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 ]
-[u S361 . 1 `S326 1 . 1 0 `S335 1 . 1 0 `S344 1 . 1 0 `S352 1 . 1 0 `S355 1 . 1 0 `S358 1 . 1 0 ]
-[v _PORTCbits `VES361  1 e 1 @3970 ]
+[u S595 . 1 `S560 1 . 1 0 `S569 1 . 1 0 `S578 1 . 1 0 `S586 1 . 1 0 `S589 1 . 1 0 `S592 1 . 1 0 ]
+[v _PORTCbits `VES595  1 e 1 @3970 ]
+"29176
+[v _TRISA `VEuc  1 e 1 @3986 ]
+"29397
+[v _TRISB `VEuc  1 e 1 @3987 ]
+"29618
+[v _TRISC `VEuc  1 e 1 @3988 ]
+"31618
+[v _ADCON1 `VEuc  1 e 1 @4033 ]
 "32938
 [v _OSCCON `VEuc  1 e 1 @4051 ]
-[s S93 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S65 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -566,7 +698,7 @@ e_ColourB 2
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "33560
-[s S102 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S74 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -576,7 +708,7 @@ e_ColourB 2
 `uc 1 GIE 1 0 :1:7 
 ]
 "33560
-[s S111 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S83 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -586,7 +718,7 @@ e_ColourB 2
 `uc 1 GIEH 1 0 :1:7 
 ]
 "33560
-[s S120 . 1 `uc 1 . 1 0 :1:0 
+[s S92 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -596,20 +728,26 @@ e_ColourB 2
 `uc 1 GIE 1 0 :1:7 
 ]
 "33560
-[s S129 . 1 `uc 1 . 1 0 :6:0 
+[s S101 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "33560
-[u S133 . 1 `S93 1 . 1 0 `S102 1 . 1 0 `S111 1 . 1 0 `S120 1 . 1 0 `S129 1 . 1 0 ]
+[u S105 . 1 `S65 1 . 1 0 `S74 1 . 1 0 `S83 1 . 1 0 `S92 1 . 1 0 `S101 1 . 1 0 ]
 "33560
 "33560
-[v _INTCONbits `VES133  1 e 1 @4082 ]
+[v _INTCONbits `VES105  1 e 1 @4082 ]
+"35854
+[v _IPEN `VEb  1 e 0 @32391 ]
+"38048
+[v _TMR0IE `VEb  1 e 0 @32661 ]
+"38050
+[v _TMR0IF `VEb  1 e 0 @32658 ]
 "37 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
 [v _KeyCount `Ci  1 e 2 0 ]
 "33014 /Volumes/build/bamboo/xml-data/build-dir/XC8-RELEASE-JOB1/nz/build/dist/osx/include/pic18f2585.h
 [v _T0CON `VEuc  1 e 1 @4053 ]
-[s S632 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S782 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -617,70 +755,55 @@ e_ColourB 2
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "33035
-[s S639 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S789 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
 "33035
-[u S644 . 1 `S632 1 . 1 0 `S639 1 . 1 0 ]
+[u S794 . 1 `S782 1 . 1 0 `S789 1 . 1 0 ]
 "33035
 "33035
-[v _T0CONbits `VES644  1 e 1 @4053 ]
+[v _T0CONbits `VES794  1 e 1 @4053 ]
 "33095
 [v _TMR0L `VEuc  1 e 1 @4054 ]
 "33101
 [v _TMR0H `VEuc  1 e 1 @4055 ]
 "3 source/Model.c
-[v _m_Keys `[5]S527  1 e 35 0 ]
+[v _m_Keys `[5]S676  1 e 40 0 ]
 "3 source/OutputSequences.c
 [v _SequencesCount `Ci  1 e 2 0 ]
 "4
-[v _Sequences `[5]S520  1 e 30 0 ]
+[v _Sequences `[5]S669  1 e 30 0 ]
 "6
 [v _RedGreenPhases `Ci  1 e 2 0 ]
 "7
-[v _RedGreenSequence `[2]S517  1 e 6 0 ]
-"16 source/TaskManager.c
-[v _Operation `i  1 s 2 Operation ]
-"26 source/TimerTask.c
+[v _RedGreenSequence `[2]S666  1 e 6 0 ]
+"27 source/TimerTask.c
 [v _TimersCount `Ci  1 s 2 TimersCount ]
-"27
+"28
 [v _Timers `[10]S60  1 e 40 0 ]
-"30
+"31
 [v _m_HalfSeconds `ui  1 s 2 m_HalfSeconds ]
-"28 source/Main.c
+"30 source/Main.c
 [v _main `(v  1 e 0 0 ]
 {
-"37
+"42
 } 0
-"29 source/User.c
-[v _InitApp `(v  1 e 0 0 ]
+"17 source/TaskManager.c
+[v _TaskManager `(v  1 e 0 0 ]
 {
-"39
-} 0
-"50 source/SystemSetup.c
-[v _ConfigureTimer `(v  1 e 0 0 ]
-{
-"57
-} 0
-"45
-[v _ConfigureOscillator `(v  1 e 0 0 ]
-{
-"47
-} 0
-"19 source/TaskManager.c
-[v _TaskManager `(i  1 e 2 0 ]
-{
-"35
+"18
+[v TaskManager@Operation `i  1 s 2 Operation ]
+"33
 } 0
 "21 source/Model.c
 [v _InitKeys `(v  1 e 0 0 ]
 {
 "26
-[v InitKeys@i `i  1 a 2 49 ]
+[v InitKeys@i `i  1 a 2 18 ]
 "24
-[v InitKeys@SequencePointer `*.0S520  1 a 2 47 ]
+[v InitKeys@SequencePointer `*.0S669  1 a 2 16 ]
 "37
 } 0
 "13 source/DataCommsTask.c
@@ -692,110 +815,108 @@ e_ColourB 2
 [v _InputTask `(v  1 e 0 0 ]
 {
 "15
-[v InputTask@i `i  1 a 2 5 ]
+[v InputTask@i `i  1 a 2 11 ]
 "19
 } 0
-"4 source/OutputTask.c
+"15 source/OutputTask.c
 [v _OutputTask `(v  1 e 0 0 ]
 {
-"6
-} 0
-"23 source/OutputSequences.c
-[v _GetSequencePointer `(*.MS520  1 e 2 0 ]
-{
-"24
-[v GetSequencePointer@SequencePointer `*.0S520  1 a 2 42 ]
-"23
-[v GetSequencePointer@theId `i  1 p 2 37 ]
-"32
-} 0
-"11
-[v _InitSequences `(v  1 e 0 0 ]
-{
+"16
+[v OutputTask@i `i  1 a 2 9 ]
 "20
 } 0
-"33 source/TimerTask.c
+"45 source/SystemSetup.c
+[v _ConfigureOscillator `(v  1 e 0 0 ]
+{
+"47
+} 0
+"62
+[v _ConfigurePorts `(v  1 e 0 0 ]
+{
+"71
+} 0
+"29 source/User.c
+[v _InitApp `(v  1 e 0 0 ]
+{
+"39
+} 0
+"46 source/TimerTask.c
 [v _GetNewTimerPointer `(*.MS60  1 e 2 0 ]
 {
-"36
-[v GetNewTimerPointer@TimerPointer `*.0S60  1 a 2 36 ]
-"34
+"49
+[v GetNewTimerPointer@TimerPointer `*.0S60  1 a 2 5 ]
+"47
 [v GetNewTimerPointer@TimersAllocated `i  1 s 2 TimersAllocated ]
-"45
-} 0
-"19 plib/Timers/t0open.c
-[v _OpenTimer0 `(v  1 e 0 0 ]
-{
-[v OpenTimer0@config `uc  1 p 1 31 ]
-"31
+"58
 } 0
 "22 source/InputTask.c
 [v _MonitorButton `(v  1 e 0 0 ]
 {
-[v MonitorButton@theId `i  1 p 2 0 ]
-"53
+[v MonitorButton@theId `i  1 p 2 5 ]
+"63
+} 0
+"66
+[v _ButtonBeingPressed `(uc  1 e 1 0 ]
+{
+"67
+[v ButtonBeingPressed@BeingPressed `uc  1 a 1 4 ]
+"66
+[v ButtonBeingPressed@theId `i  1 p 2 0 ]
+"108
+} 0
+"6 source/Model.c
+[v _SetKeyState `(v  1 e 0 0 ]
+{
+[v SetKeyState@theKeyId `i  1 p 2 0 ]
+[v SetKeyState@theState `E36  1 p 1 2 ]
+"8
+} 0
+"23 source/OutputTask.c
+[v _IlluminateButton `(v  1 e 0 0 ]
+{
+[v IlluminateButton@theId `i  1 p 2 4 ]
+"41
 } 0
 "11 source/Model.c
 [v _GetKeyState `(E42  1 e 1 0 ]
 {
-[v GetKeyState@theKeyId `i  1 p 2 37 ]
+[v GetKeyState@theKeyId `i  1 p 2 0 ]
 "13
 } 0
-"16
-[v _GetKeyTimer `(*.MS60  1 e 2 0 ]
+"44 source/OutputTask.c
+[v _ColourA `(v  1 e 0 0 ]
 {
-[v GetKeyTimer@theKeyId `i  1 p 2 37 ]
-"18
+[v ColourA@theId `i  1 p 2 0 ]
+"68
 } 0
-"6
-[v _SetKeyState `(v  1 e 0 0 ]
+"71
+[v _ColourB `(v  1 e 0 0 ]
 {
-[v SetKeyState@theKeyId `i  1 p 2 37 ]
-[v SetKeyState@theState `E36  1 p 1 39 ]
-"8
+[v ColourB@theId `i  1 p 2 0 ]
+"95
 } 0
-"56 source/InputTask.c
-[v _ButtonBeingPressed `(uc  1 e 1 0 ]
+"11 source/OutputSequences.c
+[v _InitSequences `(v  1 e 0 0 ]
 {
-"57
-[v ButtonBeingPressed@BeingPressed `uc  1 a 1 35 ]
-"56
-[v ButtonBeingPressed@theId `i  1 p 2 31 ]
-"83
+"20
 } 0
-"48 source/TimerTask.c
-[v _SetTimer `(i  1 e 2 0 ]
+"23
+[v _GetSequencePointer `(*.MS669  1 e 2 0 ]
 {
-"49
-[v SetTimer@FutureTime `i  1 a 2 49 ]
-"48
-[v SetTimer@theTimer `*.0S60  1 p 2 39 ]
-[v SetTimer@theHours `i  1 p 2 41 ]
-[v SetTimer@theMinutes `i  1 p 2 43 ]
-[v SetTimer@theSeconds `i  1 p 2 45 ]
-[v SetTimer@theHalfSeconds `i  1 p 2 47 ]
-"56
-} 0
-"59
-[v _ClearTimer `(v  1 e 0 0 ]
-{
-[v ClearTimer@theTimer `*.0S60  1 p 2 39 ]
-"62
-} 0
-"65
-[v _MaturedTimer `(uc  1 e 1 0 ]
-{
-[v MaturedTimer@theTimer `*.0S60  1 p 2 39 ]
-"67
+"24
+[v GetSequencePointer@SequencePointer `*.0S669  1 a 2 11 ]
+"23
+[v GetSequencePointer@theId `i  1 p 2 6 ]
+"32
 } 0
 "3 /Applications/microchip/xc8/v1.12/sources/wmul.c
 [v ___wmul `(ui  1 e 2 0 ]
 {
 "4
-[v ___wmul@product `ui  1 a 2 35 ]
+[v ___wmul@product `ui  1 a 2 4 ]
 "3
-[v ___wmul@multiplier `ui  1 p 2 31 ]
-[v ___wmul@multiplicand `ui  1 p 2 33 ]
+[v ___wmul@multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand `ui  1 p 2 2 ]
 "13
 } 0
 "75 source/Interrupts.c
@@ -807,4 +928,24 @@ e_ColourB 2
 [v _high_isr `II(v  1 e 0 0 ]
 {
 "63
+} 0
+"83 source/TimerTask.c
+[v _ISR `II(v  1 e 0 0 ]
+{
+"96
+} 0
+"34
+[v _Increment_Timer `(v  1 e 0 0 ]
+{
+"43
+} 0
+"17 plib/Timers/t0write.c
+[v _WriteTimer0 `(v  1 e 0 0 ]
+{
+[u S818 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+"18
+[v WriteTimer0@timer `S818  1 a 2 33 ]
+"17
+[v WriteTimer0@timer0 `ui  1 p 2 31 ]
+"24
 } 0

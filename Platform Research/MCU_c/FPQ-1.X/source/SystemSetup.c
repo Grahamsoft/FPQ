@@ -48,10 +48,24 @@ void ConfigureOscillator()
 
 void ConfigureTimer( void )
 {
+    IPEN = 1;
+
     OpenTimer0( TIMER_INT_ON &//Should be ON
     T0_8BIT &
     T0_SOURCE_INT &
     T0_PS_1_256 );
 
     ei();
+}
+
+void ConfigurePorts( void )
+{
+    ADCON1 = 0b00001111;
+    TRISA = 0b10001001;
+    TRISB = 0b00000000;
+    TRISC = 0b00000010;
+
+    PORTA = 0;
+    PORTB = 0;
+    PORTC = 0;
 }

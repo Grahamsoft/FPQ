@@ -21,17 +21,22 @@
 #include "User.h"
 #include "TaskManager.h"
 
+#include "delays.h"
+
 /******************************************************************************/
 /* Main Program                                                               */
 /******************************************************************************/
 void main()
 {
     ConfigureOscillator();
-    ConfigureTimer();    
-    InitApp();
+    //ConfigureTimer();
+    ConfigurePorts();
 
+    InitApp();
+    
     while( 1 )
     {
         TaskManager();
     }
+
 }
