@@ -13,10 +13,10 @@
 #include "OutputTask.h"
 #include "Model.h"
 
+static int Operation = 0;
+
 void TaskManager()
 {
-    static int Operation = 0;
-    
     switch( Operation )
     {
         case 0:

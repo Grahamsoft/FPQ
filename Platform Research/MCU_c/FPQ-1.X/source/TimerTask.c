@@ -46,7 +46,7 @@ ATimer* GetNewTimerPointer( void )
 {
     static int TimersAllocated = 0;
 
-    ATimer *TimerPointer;
+    ATimer *TimerPointer = 0;
 
     if ( TimersAllocated < TimersCount )
     {

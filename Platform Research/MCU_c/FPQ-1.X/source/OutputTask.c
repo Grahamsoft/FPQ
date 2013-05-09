@@ -1,41 +1,45 @@
 #include "OutputTask.h"
-
-#if defined(__XC)
-    #include <xc.h>        /* XC8 General Include File */
-#elif defined(HI_TECH_C)
-    #include <htc.h>       /* HiTech General Include File */
-#elif defined(__18CXX)
-    #include <p18cxxx.h>   /* C18 General Include File */
-#endif
-
 #include "delays.h"
 #include "Model.h"
+#include <xc.h>        /* XC8 General Include File */
+
+#include "OutputSequences.h"
+
+// Private Function Signatures ----------------------
+void IlluminateButton( int theId );
+void ColourA( int theId );
+void ColourB( int theId );
+void ColourNone( int theId );
+// --------------------------------------------------
 
 void OutputTask()
 {
-    for( int i = 0; i < KeyCount; i++ )
+    static int i;
+    
+    for( i = 0; i < KeyCount; i++ )
     {
         IlluminateButton( i );
     }
+
+    i = 0;
 }
 
 void IlluminateButton( int theId )
 {
-    switch ( GetKeyState( theId ) )
+    t_Sequences dave = GetSequence( theId );
+
+    switch ( GetColour( dave, GetSequenceState( theId ), GetTimer( theId ) ) )
     {
-        case e_PressedNo:
+        case e_Off:
+            ColourNone( theId );
+            break;
+
+        case e_ColourA:
             ColourA( theId );
             break;
 
-        case e_PressedYes:
+        case e_ColourB:
             ColourB( theId );
-            break;
-
-        case e_BeingServedNo:
-            ColourB( theId );
-            break;
-
-        case e_BeingServedYes:
             break;
     }
 }
@@ -74,6 +78,13 @@ void ColourB( int theId )
         case 0:
             PORTAbits.RA1 = 1;
             PORTAbits.RA2 = 0;
+
+            Delay1KTCYx( 1500 );
+
+            PORTAbits.RA1 = 0;
+            PORTAbits.RA2 = 1;
+
+            Delay1KTCYx( 1500 );
             break;
 
         case 1:

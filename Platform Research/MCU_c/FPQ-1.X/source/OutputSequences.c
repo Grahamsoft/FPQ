@@ -1,32 +1,46 @@
 #include "OutputSequences.h"
 
-const int SequencesCount = 5;
-ASequence Sequences[ /*SequencesCount*/ 5  ];
+// ---- Private Sigs
+t_ButtonColour RedGreenFlash( int *theState, int *theTimer );
 
-const int RedGreenPhases = 2;
-SequencePhase RedGreenSequence[ /*RedGreenPhases*/ 2 ];
-
-
-void InitSequences()
+t_ButtonColour GetColour( t_Sequences theSequences, int *theState, int *theTimer )
 {
-    RedGreenSequence[ 0 ].CurrentColour = e_ColourA;
-    RedGreenSequence[ 0 ].NextActionTime = 10;
-    RedGreenSequence[ 1 ].CurrentColour = e_ColourB;
-    RedGreenSequence[ 1 ].NextActionTime = 10;
+    t_ButtonColour ReturnColour;
 
-    Sequences[ 0 ].Sequence = &RedGreenSequence[ 0 ];
-    Sequences[ 0 ].Size = RedGreenPhases;
-    Sequences[ 0 ].Current = 0;
-}
-
-ASequence* GetSequencePointer( int theId )
-{
-    ASequence *SequencePointer;
-
-    if ( ( theId >= 0 ) && ( theId <= SequencesCount ) )
+    switch ( theSequences )
     {
-        SequencePointer = &Sequences[ theId ];
+        case e_AllOff:
+            ReturnColour = e_Off;
+            break;
+
+        case e_Steady:
+            ReturnColour = e_ColourA;
+            break;
+
+        case e_RedGreenFlash:
+            ReturnColour = RedGreenFlash( theState, theTimer );
+            break;
     }
 
-    return SequencePointer;
+    return ReturnColour;
+}
+
+t_ButtonColour RedGreenFlash( int *theState, int *theTimer )
+{
+    t_ButtonColour ReturnColour;
+
+    switch( *theState )
+    {
+        case 0:
+            ReturnColour    = e_ColourA;
+            *theState       = 1;
+            *theTimer       = 0;
+            break;
+        case 1:
+            ReturnColour    = e_ColourB;
+            *theState       = 0;
+            *theTimer       = 0;
+            break;
+    }
+    return ReturnColour;
 }

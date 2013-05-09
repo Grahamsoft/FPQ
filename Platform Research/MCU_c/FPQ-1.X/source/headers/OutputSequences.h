@@ -15,20 +15,13 @@ typedef enum
     e_ColourB
 }t_ButtonColour;
 
-typedef struct SequencePhaseStruct
+typedef enum
 {
-    int             NextActionTime;
-    t_ButtonColour  CurrentColour;
-}SequencePhase;
+    e_AllOff,
+    e_Steady,
+    e_RedGreenFlash
+}t_Sequences;
 
-typedef struct ASequenceStruct
-{
-    SequencePhase	*Sequence; // Array of
-    int                 Size;
-    int                 Current;
-}ASequence;
-
-void InitSequences( void );
-ASequence* GetSequencePointer( int theId );
+t_ButtonColour GetColour( t_Sequences theSequences, int *theState, int *theTimer );
 
 #endif	/* OUTPUTSEQUENCES_H */

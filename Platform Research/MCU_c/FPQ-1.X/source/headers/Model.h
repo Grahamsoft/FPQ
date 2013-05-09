@@ -4,12 +4,11 @@
  *
  * Created on April 13, 2013, 5:24 PM
  */
+#include "OutputSequences.h"
+#include "TimerTask.h"
 
 #ifndef MODEL_H
 #define	MODEL_H
-
-#include "OutputSequences.h"
-#include "TimerTask.h"
 
 typedef enum
 {
@@ -21,10 +20,13 @@ typedef enum
 
 typedef struct AKeyStruct
 {
-    int                 Id;
-    t_ButtonState	State;
-    ASequence*          Sequence;
-    ATimer*             Timer;
+    t_ButtonState   ButtonState;
+    int             Timer;
+    t_Sequences     SequenceIdPressedNo;
+    t_Sequences     SequenceIdPressedYes;
+    t_Sequences     SequenceIdBeingServedNo;
+    t_Sequences     SequenceIdBeingServedYes;
+    int             SequenceState;
 //  char                Displaying;
 //  time_t              NextAction;
 //  time_t              TimeInState;
@@ -37,9 +39,14 @@ typedef struct AKeyStruct
 const int KeyCount = 5;
 
 void InitKeys( void );
+
+t_Sequences GetSequence( int theKeyId );
+int* GetSequenceState( int theKeyId );
+int* GetTimer( int theKeyId );
+
+
 void SetKeyState( int theKeyId, t_ButtonState theState );
 t_ButtonState GetKeyState( int theKeyId );
-ATimer* GetKeyTimer( int theKeyId );
 
 #endif	/* MODEL_H */
 
