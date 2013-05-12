@@ -59,11 +59,11 @@ void MonitorButton( int theId )
             break;
             
         case e_BeingServedYes:
-         //   if ( ! ButtonBeingPressed( theId ) )
-         //   {
-         //       SetKeyState( theId, e_PressedNo );
+            if ( ! ButtonBeingPressed( theId ) )
+            {
+                SetKeyState( theId, e_PressedNo );
           //      ClearTimer( GetKeyTimer( theId ) );
-         //   }
+            }
             break;
     }
 }

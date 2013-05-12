@@ -32,7 +32,8 @@ static unsigned int m_HalfSeconds = 0;
 
 void Increment_Timer( void )
 {
-    if ( m_HalfSeconds == 72000 )	//Hour achived
+    const unsigned int AHour = 72000;
+    if ( m_HalfSeconds == AHour )	//Hour achived
     {
         m_HalfSeconds = 0;
     }
@@ -40,6 +41,12 @@ void Increment_Timer( void )
     {
         m_HalfSeconds++;
     }
+}
+
+uint8_t CalculateFutureTime( uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds )
+{
+
+    return 0;
 }
 
 ATimer* GetNewTimerPointer( void )

@@ -13,18 +13,18 @@
 #include "OutputTask.h"
 #include "Model.h"
 
-static int Operation = 0;
-
 void TaskManager()
 {
+    static int Operation = 1;
+    
     switch( Operation )
     {
-        case 0:
+        case 1:
             InitKeys();
-            Operation = 1;
+            Operation = 2;
             break;
         
-        case 1:
+        case 2:
             DataCommsTask();
             InputTask();
             OutputTask();

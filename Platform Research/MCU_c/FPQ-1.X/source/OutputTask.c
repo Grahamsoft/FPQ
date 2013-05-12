@@ -26,9 +26,9 @@ void OutputTask()
 
 void IlluminateButton( int theId )
 {
-    t_Sequences dave = GetSequence( theId );
+    volatile t_Sequences dave = GetSequence( theId );
 
-    switch ( GetColour( dave, GetSequenceState( theId ), GetTimer( theId ) ) )
+    switch ( GetColour( dave, GetSequenceState( theId ), GetKeyTimer( theId ) ) )
     {
         case e_Off:
             ColourNone( theId );
@@ -78,13 +78,6 @@ void ColourB( int theId )
         case 0:
             PORTAbits.RA1 = 1;
             PORTAbits.RA2 = 0;
-
-            Delay1KTCYx( 1500 );
-
-            PORTAbits.RA1 = 0;
-            PORTAbits.RA2 = 1;
-
-            Delay1KTCYx( 1500 );
             break;
 
         case 1:

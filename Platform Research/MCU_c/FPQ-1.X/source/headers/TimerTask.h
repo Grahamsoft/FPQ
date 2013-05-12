@@ -21,5 +21,6 @@ int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, in
 void ClearTimer( ATimer *theTimer );
 bool MaturedTimer( ATimer *theTimer );
 ATimer* GetNewTimerPointer( void );
+uint8_t CalculateFutureTime( uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
 
 #endif	/* TIMERTASK_H */
