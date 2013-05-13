@@ -56,7 +56,7 @@ t_Sequences GetSequence( uint8_t theKeyId )
 void InitKeys()
 {
     m_Keys[ 0 ].ButtonState                 = e_PressedNo;
-    m_Keys[ 0 ].SequenceIdPressedNo         = e_Steady;
+    m_Keys[ 0 ].SequenceIdPressedNo         = e_AllOff;
     m_Keys[ 0 ].SequenceIdPressedYes        = e_AllOff;
     m_Keys[ 0 ].SequenceIdBeingServedNo     = e_Steady;
     m_Keys[ 0 ].SequenceIdBeingServedYes    = e_RedGreenFlash;
@@ -64,10 +64,10 @@ void InitKeys()
     m_Keys[ 0 ].NextActionTimer                       = 0;
 
     m_Keys[ 1 ].ButtonState                 = e_PressedNo;
-    m_Keys[ 1 ].SequenceIdPressedNo         = e_RedGreenFlash;
+    m_Keys[ 1 ].SequenceIdPressedNo         = e_AllOff;
     m_Keys[ 1 ].SequenceIdPressedYes        = e_AllOff;
     m_Keys[ 1 ].SequenceIdBeingServedNo     = e_Steady;
-    m_Keys[ 1 ].SequenceIdBeingServedYes    = e_AllOff;
+    m_Keys[ 1 ].SequenceIdBeingServedYes    = e_RedGreenFlash;
     m_Keys[ 1 ].SequenceState               = 1;
     m_Keys[ 1 ].NextActionTimer                       = 0;
 

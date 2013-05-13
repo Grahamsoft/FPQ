@@ -30,17 +30,18 @@ t_ButtonColour RedGreenFlash( volatile uint8_t *theState, volatile uint8_t *theT
 {
     t_ButtonColour ReturnColour = e_Unknown;
 
+
     switch( *theState )
     {
         case 1:
             ReturnColour    = e_ColourA;
-            *theState       = 2;
             *theTimer       = CalculateFutureTime( 0, 1, 0 );
+            *theState       = 2;
             break;
         case 2:
             ReturnColour    = e_ColourB;
+            *theTimer       = CalculateFutureTime( 0, 1, 0 );
             *theState       = 1;
-            *theTimer       = 0;
             break;
     }
     return ReturnColour;

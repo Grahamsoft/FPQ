@@ -26,21 +26,27 @@ void OutputTask()
 
 void IlluminateButton( int theId )
 {
-    volatile t_Sequences dave = GetSequence( theId );
-
-    switch ( GetColour( dave, GetSequenceState( theId ), GetKeyTimer( theId ) ) )
+    volatile uint8_t* KeyTimer = GetKeyTimer( theId );
+    volatile uint8_t* SequenceState = GetSequenceState( theId );
+    volatile t_Sequences Sequence = GetSequence( theId );    
+    
+    if ( GetCurrentTime() > *KeyTimer )
     {
-        case e_Off:
-            ColourNone( theId );
-            break;
+        
+        switch ( GetColour( Sequence, SequenceState, KeyTimer ) )
+        {
+            case e_Off:
+                ColourNone( theId );
+                break;
 
-        case e_ColourA:
-            ColourA( theId );
-            break;
+            case e_ColourA:
+                ColourA( theId );
+                break;
 
-        case e_ColourB:
-            ColourB( theId );
-            break;
+            case e_ColourB:
+                ColourB( theId );
+                break;
+        }
     }
 }
 

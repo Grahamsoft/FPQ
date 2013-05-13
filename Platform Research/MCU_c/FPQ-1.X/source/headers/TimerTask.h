@@ -22,5 +22,7 @@ void ClearTimer( ATimer *theTimer );
 bool MaturedTimer( ATimer *theTimer );
 ATimer* GetNewTimerPointer( void );
 uint8_t CalculateFutureTime( uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
+void Increment_Timer( void );
+uint8_t GetCurrentTime( void );
 
 #endif	/* TIMERTASK_H */

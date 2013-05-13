@@ -8,17 +8,7 @@
 #ifndef TASKMANAGER_H
 #define	TASKMANAGER_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-
-
-
-#ifdef	__cplusplus
-}
-#endif
+void TaskManager( void );
 
 #endif	/* TASKMANAGER_H */
 
-void TaskManager( void );

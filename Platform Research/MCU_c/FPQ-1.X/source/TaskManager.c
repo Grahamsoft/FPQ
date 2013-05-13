@@ -15,7 +15,7 @@
 
 void TaskManager()
 {
-    static int Operation = 1;
+    static uint8_t Operation = 1;
     
     switch( Operation )
     {
@@ -25,8 +25,10 @@ void TaskManager()
             break;
         
         case 2:
-            DataCommsTask();
+            Increment_Timer();
+            //DataCommsTask();
             InputTask();
+            Increment_Timer();
             OutputTask();
             break;
     }

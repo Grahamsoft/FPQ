@@ -59,7 +59,7 @@ void MonitorButton( int theId )
             break;
             
         case e_BeingServedYes:
-            if ( ! ButtonBeingPressed( theId ) )
+            if ( PORTCbits.RC1 == 0 )
             {
                 SetKeyState( theId, e_PressedNo );
           //      ClearTimer( GetKeyTimer( theId ) );
