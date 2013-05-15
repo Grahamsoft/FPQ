@@ -6,27 +6,23 @@
 #include "OutputSequences.h"
 
 // Private Function Signatures ----------------------
-void IlluminateButton( int theId );
-void ColourA( int theId );
-void ColourB( int theId );
-void ColourNone( int theId );
+void IlluminateButton( uint8_t theId );
+void ColourA( uint8_t theId );
+void ColourB( uint8_t theId );
+void ColourNone( uint8_t theId );
 // --------------------------------------------------
 
 void OutputTask()
 {
-    static int i;
-    
-    for( i = 0; i < KeyCount; i++ )
+    for( uint8_t i = 0; i < KeyCount; i++ )
     {
         IlluminateButton( i );
     }
-
-    i = 0;
 }
 
-void IlluminateButton( int theId )
+void IlluminateButton( uint8_t theId )
 {
-    volatile uint8_t* KeyTimer = GetKeyTimer( theId );
+    volatile uint24_t* KeyTimer = GetKeyTimer( theId );
     volatile uint8_t* SequenceState = GetSequenceState( theId );
     volatile t_Sequences Sequence = GetSequence( theId );    
     
@@ -50,7 +46,7 @@ void IlluminateButton( int theId )
     }
 }
 
-void ColourA( int theId )
+void ColourA( uint8_t theId )
 {
     switch ( theId )
     {
@@ -77,7 +73,7 @@ void ColourA( int theId )
     }
 }
 
-void ColourB( int theId )
+void ColourB( uint8_t theId )
 {
     switch ( theId )
     {
@@ -104,7 +100,7 @@ void ColourB( int theId )
     }
 }
 
-void ColourNone( int theId )
+void ColourNone( uint8_t theId )
 {
     switch ( theId )
     {

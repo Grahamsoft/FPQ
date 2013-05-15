@@ -2,9 +2,9 @@
 #include "TimerTask.h"
 
 // ---- Private Sigs
-t_ButtonColour RedGreenFlash( volatile uint8_t *theState, volatile uint8_t *theTimer );
+t_ButtonColour RedGreenFlash( volatile uint8_t *theState, volatile uint24_t *theTimer );
 
-t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile uint8_t *theTimer )
+t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile uint24_t *theTimer )
 {
     t_ButtonColour ReturnColour;
 
@@ -26,7 +26,7 @@ t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, 
     return ReturnColour;
 }
 
-t_ButtonColour RedGreenFlash( volatile uint8_t *theState, volatile uint8_t *theTimer )
+t_ButtonColour RedGreenFlash( volatile uint8_t *theState, volatile uint24_t *theTimer )
 {
     t_ButtonColour ReturnColour = e_Unknown;
 
@@ -35,12 +35,12 @@ t_ButtonColour RedGreenFlash( volatile uint8_t *theState, volatile uint8_t *theT
     {
         case 1:
             ReturnColour    = e_ColourA;
-            *theTimer       = CalculateFutureTime( 0, 1, 0 );
+            *theTimer       = CalculateFutureTime( 0, 10, 0 );
             *theState       = 2;
             break;
         case 2:
             ReturnColour    = e_ColourB;
-            *theTimer       = CalculateFutureTime( 0, 1, 0 );
+            *theTimer       = CalculateFutureTime( 0, 10, 0 );
             *theState       = 1;
             break;
     }

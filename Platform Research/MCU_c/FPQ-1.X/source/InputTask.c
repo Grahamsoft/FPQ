@@ -12,20 +12,20 @@
 
 void InputTask( void )
 {
-    for( int i = 0; i < KeyCount; i++ )
+    for( uint8_t i = 0; i < KeyCount; i++ )
     {
         MonitorButton( i );
     }
 }
 
-void MonitorButton( int theId )
+void MonitorButton( uint8_t theId )
 {
     switch ( GetKeyState( theId ) )
     {
         case e_PressedNo:
             if ( ButtonBeingPressed( theId ) )
             {
-                SetKeyState( theId, e_PressedYes );
+                SetKeyState( theId, e_BeingServedYes );
            //     SetTimer( GetKeyTimer( theId ), 0, 0, 1, 0 );
             }
             break;
@@ -68,7 +68,7 @@ void MonitorButton( int theId )
     }
 }
 
-bool ButtonBeingPressed( int theId )
+bool ButtonBeingPressed( uint8_t theId )
 {
     bool BeingPressed = false;
 

@@ -26,6 +26,6 @@ typedef enum
     e_RedGreenFlash
 }t_Sequences;
 
-t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile uint8_t *theTimer );
+t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile uint24_t *theTimer );
 
 #endif	/* OUTPUTSEQUENCES_H */

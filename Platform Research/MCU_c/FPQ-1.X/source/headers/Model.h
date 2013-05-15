@@ -24,7 +24,7 @@ typedef enum
 typedef struct AKeyStruct
 {
     volatile t_ButtonState  ButtonState;
-    volatile uint8_t        NextActionTimer;
+    volatile uint24_t        NextActionTimer;
     volatile t_Sequences    SequenceIdPressedNo;
     volatile t_Sequences    SequenceIdPressedYes;
     volatile t_Sequences    SequenceIdBeingServedNo;
@@ -39,13 +39,13 @@ typedef struct AKeyStruct
 
 }AKey;
 
-const int KeyCount = 5;
+const uint8_t KeyCount = 5;
 
 void InitKeys( void );
 
 t_Sequences GetSequence( uint8_t theKeyId );
 volatile uint8_t* GetSequenceState( uint8_t theKeyId );
-volatile uint8_t* GetKeyTimer( uint8_t theKeyId );
+volatile uint24_t* GetKeyTimer( uint8_t theKeyId );
 
 
 void SetKeyState( uint8_t theKeyId, t_ButtonState theState );

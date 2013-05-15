@@ -6,6 +6,12 @@ AKey m_Keys[ /*KeyCount*/ 5 ];
 void SetKeyState( uint8_t theKeyId, t_ButtonState theState  )
 {
     m_Keys[ theKeyId ].ButtonState = theState;
+
+    if ( theState == e_PressedNo )
+    {
+        m_Keys[ theKeyId ].NextActionTimer = 0;
+        m_Keys[ theKeyId ].ButtonState = 1;
+    }
 }
 
 t_ButtonState GetKeyState( uint8_t theKeyId )
@@ -13,7 +19,7 @@ t_ButtonState GetKeyState( uint8_t theKeyId )
     return m_Keys[ theKeyId ].ButtonState;
 }
 
-volatile uint8_t* GetKeyTimer( uint8_t theKeyId )
+volatile uint24_t* GetKeyTimer( uint8_t theKeyId )
 {
     return &m_Keys[ theKeyId ].NextActionTimer;
 }

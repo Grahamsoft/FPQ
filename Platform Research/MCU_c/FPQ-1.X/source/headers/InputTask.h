@@ -9,10 +9,11 @@
 #define	INPUTTASK_H
 
 #include <stdbool.h>       /* For true/false definition */
+#include <stdint.h>        /* For uint8_t definition */
 
 void InputTask( void );
-void MonitorButton( int theId );
-bool ButtonBeingPressed( int theId );
+void MonitorButton( uint8_t theId );
+bool ButtonBeingPressed( uint8_t theId );
 
 #endif	/* INPUTTASK_H */
 
