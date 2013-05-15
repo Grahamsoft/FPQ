@@ -13,4 +13,3 @@ int DataCommsTask()
 {
     return ( EXIT_SUCCESS );
 }
-

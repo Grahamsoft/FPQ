@@ -57,13 +57,7 @@ void ConfigureTimer( void )
     T0_SOURCE_INT &
     T0_PS_1_256 );
 
-//	RCONbits.IPEN 		= 1;	//Enable Interrupt Priorities
-//	INTCONbits.GIEL 	= 1; 	//Enable Low Priority Interrupt
-//	INTCON2bits.TMR0IP	= 0;	//TMR0 set to Low Priority Interrupt
-//	INTCONbits.GIE 		= 1; 	//Enable GlobalInterrupt
-	INTCONbits.TMR0IE 	= 0;	//Enable Timer0 Interrupt
-
-        //T0CONbits.TMR0ON = 1; //Start Timer0
+    INTCONbits.TMR0IE 	= 0;	//Enable Timer0 Interrupt
 }
 
 void ConfigurePorts( void )

@@ -29,7 +29,6 @@
 //void Increment_Timer( void );
 
 static const uint8_t TimersCount = 10;
-ATimer Timers[ 10 ];
 static volatile uint24_t m_HalfSeconds = 0;
 const uint24_t AHourOfHalfSeconds = 72000;
 
@@ -75,46 +74,16 @@ uint24_t CalculateFutureTime( uint8_t theMinutes, uint8_t theSeconds, uint8_t th
     return FutureTime;
 }
 
-uint8_t GetCurrentTime( void )
+bool MaturedTimer( volatile uint24_t *theTimer )
 {
-    return m_HalfSeconds;
-}
+    volatile bool ToReturn = false;
 
-ATimer* GetNewTimerPointer( void )
-{
-    static int TimersAllocated = 0;
-
-    ATimer *TimerPointer = 0;
-
-    if ( TimersAllocated < TimersCount )
+    if ( m_HalfSeconds > *theTimer )
     {
-        TimerPointer = &Timers[ TimersAllocated ];
-        TimersAllocated++;
+        ToReturn = true;
     }
 
-    return TimerPointer;
-}
-
-int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds )
-{
-    int FutureTime = theHalfSeconds;
-    FutureTime =+ ( theSeconds * 2 );
-    FutureTime =+ ( theMinutes * ( 60 * 2 ) );
-    FutureTime =+ ( theHours * ( 60 * ( 60 * 2 ) ) );
-
-    theTimer->FutureTime = FutureTime;
-    theTimer->Matured = false;
-}
-
-void ClearTimer( ATimer *theTimer )
-{
-    theTimer->FutureTime = 0;
-    theTimer->Matured = false;
-}
-
-bool MaturedTimer( ATimer *theTimer )
-{
-    return theTimer->Matured;
+    return ToReturn;
 }
 
 void interrupt low_priority LowPriorityISR( void )

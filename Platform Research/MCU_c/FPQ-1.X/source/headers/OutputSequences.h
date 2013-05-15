@@ -22,7 +22,8 @@ typedef enum
 {
     e_NotSet,
     e_AllOff,
-    e_Steady,
+    e_SteadyColourA,
+    e_SteadyColourB,
     e_RedGreenFlash
 }t_Sequences;
 
