@@ -22,7 +22,7 @@ void OutputTask()
 
 void IlluminateButton( uint8_t theId )
 {
-    volatile uint24_t* KeyTimer = GetKeyTimer( theId );
+    volatile t_ATime* KeyTimer = GetKeyTimer( theId );
     volatile uint8_t* SequenceState = GetSequenceState( theId );
     volatile t_Sequences Sequence = GetSequence( theId );    
     

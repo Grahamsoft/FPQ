@@ -13,8 +13,18 @@
 #ifndef TIMERTASK_H
 #define	TIMERTASK_H
 
-bool MaturedTimer( volatile uint24_t *theTimer );
-uint24_t CalculateFutureTime( uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
+typedef struct ATimeStruct
+{
+    volatile uint8_t Millisecond;
+    volatile uint8_t Second;
+    volatile uint8_t Minute;
+    volatile uint8_t Hour;
+    volatile uint8_t Day;
+}t_ATime;
+
+void InitTime( void );
+bool MaturedTimer( volatile t_ATime *theTimer );
+void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
 void Increment_Timer( void );
 
 #endif	/* TIMERTASK_H */

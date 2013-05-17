@@ -9,6 +9,7 @@
 #define	OUTPUTSEQUENCES_H
 
 #include <stdint.h>        /* For uint8_t definition */
+#include "TimerTask.h"
 
 typedef enum
 {
@@ -27,6 +28,6 @@ typedef enum
     e_RedGreenFlash
 }t_Sequences;
 
-t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile uint24_t *theTimer );
+t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );
 
 #endif	/* OUTPUTSEQUENCES_H */

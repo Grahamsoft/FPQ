@@ -20,7 +20,7 @@ void InputTask( void )
 
 void MonitorButton( uint8_t theId )
 {
-    volatile uint24_t* KeyTimer = GetKeyInputTimer( theId );
+    volatile t_ATime* KeyTimer = GetKeyInputTimer( theId );
 
     switch ( GetKeyState( theId ) )
     {
@@ -28,7 +28,7 @@ void MonitorButton( uint8_t theId )
             if ( ButtonBeingPressed( theId ) )
             {
                 SetKeyState( theId, e_PressedYes );
-                *KeyTimer = CalculateFutureTime( 0, 2, 0 );
+                CalculateFutureTime( KeyTimer, 0, 2, 0 );
             }
             break;
 
@@ -42,7 +42,7 @@ void MonitorButton( uint8_t theId )
             }
             else
             {
-                *KeyTimer = CalculateFutureTime( 0, 0, 0 );
+                CalculateFutureTime( KeyTimer, 0, 0, 0 );
                 SetKeyState( theId, e_PressedNo );
             }
             break;

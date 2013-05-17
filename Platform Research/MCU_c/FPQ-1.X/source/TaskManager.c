@@ -20,6 +20,7 @@ void TaskManager()
     switch( Operation )
     {
         case 1:
+            InitTime();
             InitKeys();
             Operation = 2;
             break;
