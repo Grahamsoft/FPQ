@@ -140,7 +140,7 @@ void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_
 
     if( ( m_CurrentTime.Hour + CarryOver ) < c_NoHrInDay )
     {
-        theTimer->Hour = m_CurrentTime.Minute + CarryOver;
+        theTimer->Hour = m_CurrentTime.Hour + CarryOver;
         CarryOver = 0;
     }
     else
