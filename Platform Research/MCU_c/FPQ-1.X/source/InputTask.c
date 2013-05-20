@@ -28,7 +28,7 @@ void MonitorButton( uint8_t theId )
             if ( ButtonBeingPressed( theId ) )
             {
                 SetKeyState( theId, e_PressedYes );
-                CalculateFutureTime( KeyTimer, 0, 2, 0 );
+                CalculateFutureTime( KeyTimer, 0, 1, 0 );
             }
             break;
 
@@ -50,6 +50,7 @@ void MonitorButton( uint8_t theId )
         case e_BeingServedNo:
             if ( PORTCbits.RC1 == 0 )
             {
+                CalculateFutureTime( KeyTimer, 0, 0, 0 );
                 SetKeyState( theId, e_PressedNo );
             }
             break;

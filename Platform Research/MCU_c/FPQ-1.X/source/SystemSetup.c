@@ -55,7 +55,7 @@ void ConfigureTimer( void )
     OpenTimer0( TIMER_INT_ON &//Should be ON
     T0_8BIT &
     T0_SOURCE_INT &
-    T0_PS_1_256 );
+    T0_PS_1_64 );
 
     INTCONbits.TMR0IE 	= 0;	//Enable Timer0 Interrupt
 }
