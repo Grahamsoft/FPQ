@@ -26,7 +26,9 @@ typedef enum
     e_SteadyColourA,
     e_SteadyColourB,
     e_RedGreenFlash,
-    e_DimmedColourA
+    e_DimmedColourA,
+    e_RapidFlashColourB,
+    e_ColourMix
 }t_Sequences;
 
 t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );

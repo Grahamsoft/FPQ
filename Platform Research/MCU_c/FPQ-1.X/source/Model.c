@@ -69,15 +69,15 @@ void InitKeys()
 
     m_Keys[ 0 ].ButtonState                 = e_PressedNo;
     m_Keys[ 0 ].SequenceIdPressedNo         = e_AllOff;
-    m_Keys[ 0 ].SequenceIdPressedYes        = e_DimmedColourA;
-    m_Keys[ 0 ].SequenceIdBeingServedNo     = e_RedGreenFlash;
+    m_Keys[ 0 ].SequenceIdPressedYes        = e_RapidFlashColourB;
+    m_Keys[ 0 ].SequenceIdBeingServedNo     = e_ColourMix;
     m_Keys[ 0 ].SequenceIdBeingServedYes    = e_SteadyColourB;
     m_Keys[ 0 ].SequenceState               = 0;
     m_Keys[ 0 ].NextActionTimer             = KeyTimer;
     m_Keys[ 0 ].InputTimer                  = KeyTimer;
 
     m_Keys[ 1 ].ButtonState                 = e_PressedNo;
-    m_Keys[ 1 ].SequenceIdPressedNo         = e_AllOff;
+    m_Keys[ 1 ].SequenceIdPressedNo         = e_RapidFlashColourB;
     m_Keys[ 1 ].SequenceIdPressedYes        = e_DimmedColourA;
     m_Keys[ 1 ].SequenceIdBeingServedNo     = e_RedGreenFlash;
     m_Keys[ 1 ].SequenceIdBeingServedYes    = e_SteadyColourB;
@@ -86,8 +86,8 @@ void InitKeys()
     m_Keys[ 1 ].InputTimer                  = KeyTimer;
 
     m_Keys[ 2 ].ButtonState                 = e_PressedNo;
-    m_Keys[ 2 ].SequenceIdPressedNo         = e_AllOff;
-    m_Keys[ 2 ].SequenceIdPressedYes        = e_DimmedColourA;
+    m_Keys[ 2 ].SequenceIdPressedNo         = e_DimmedColourA;
+    m_Keys[ 2 ].SequenceIdPressedYes        = e_RedGreenFlash;
     m_Keys[ 2 ].SequenceIdBeingServedNo     = e_RedGreenFlash;
     m_Keys[ 2 ].SequenceIdBeingServedYes    = e_SteadyColourB;
     m_Keys[ 2 ].SequenceState               = 0;
