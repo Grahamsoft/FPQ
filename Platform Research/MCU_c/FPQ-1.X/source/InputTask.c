@@ -10,11 +10,56 @@
     #include <p18cxxx.h>   /* C18 General Include File */
 #endif
 
+// Private Function Signatures ---
+void MonitorBartenderButton( void );
+void MonitorButton( uint8_t theId );
+bool ButtonBeingPressed( uint8_t theId );
+// -------------------------------
+
 void InputTask( void )
 {
+    MonitorBartenderButton();
+    
     for( uint8_t i = 0; i < KeyCount; i++ )
     {
         MonitorButton( i );
+    }
+}
+
+void MonitorBartenderButton( void )
+{
+   static volatile t_ButtonState BartenderButton = e_PressedNo;
+   
+    switch( BartenderButton )
+    {
+        case e_PressedNo:
+            if ( PORTCbits.RC1 == 0 )
+            {
+                BartenderButton = e_PressedYes;
+            }
+            break;
+
+        case e_PressedYes:
+            if ( PORTCbits.RC1 == 1 )
+            {
+                volatile uint8_t HeadOfQueue = GetHeadOfQueue();
+
+                if ( HeadOfQueue != KeyCount )
+                {
+                    if ( GetKeyState( HeadOfQueue ) == e_BeingServedYes )
+                    {
+                        SetKeyState( HeadOfQueue, e_PressedNo );
+                    }
+
+                    if( HeadOfQueue != KeyCount )
+                    {
+                        SetKeyState( HeadOfQueue, e_BeingServedYes );
+                    }
+                }
+                
+                BartenderButton = e_PressedNo;
+            }
+            break;
     }
 }
 
@@ -42,17 +87,12 @@ void MonitorButton( uint8_t theId )
             }
             else
             {
-                CalculateFutureTime( KeyTimer, 0, 0, 0 );
+               // CalculateFutureTime( KeyTimer, 0, 0, 0 );
                 SetKeyState( theId, e_PressedNo );
             }
             break;
 
         case e_BeingServedNo:
-            if ( PORTCbits.RC1 == 0 )
-            {
-                CalculateFutureTime( KeyTimer, 0, 0, 0 );
-                SetKeyState( theId, e_PressedNo );
-            }
             break;
             
         case e_BeingServedYes:

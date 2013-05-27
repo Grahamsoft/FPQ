@@ -1,11 +1,12 @@
 #include "OutputSequences.h"
 #include "TimerTask.h"
 
-// ---- Private Sigs
+// Private Function Signatures ---
 t_ButtonColour RedGreenFlash( volatile uint8_t *theState, volatile t_ATime *theTimer );
 t_ButtonColour DimmedColourA( volatile uint8_t *theState, volatile t_ATime *theTimer );
 t_ButtonColour RapidFlashColourB( volatile uint8_t *theState, volatile t_ATime *theTimer );
 t_ButtonColour ColourMix( volatile uint8_t *theState, volatile t_ATime *theTimer );
+// -------------------------------
 
 t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer )
 {

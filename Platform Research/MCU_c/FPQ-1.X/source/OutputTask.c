@@ -26,7 +26,7 @@ void IlluminateButton( uint8_t theId )
     volatile uint8_t* SequenceState = GetSequenceState( theId );
     volatile t_Sequences Sequence = GetSequence( theId );    
     
-    if ( MaturedTimer( KeyTimer ) )
+    if ( MaturedTimer( KeyTimer ) || SequenceState == 0 )
     {
         
         switch ( GetColour( Sequence, SequenceState, KeyTimer ) )

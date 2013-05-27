@@ -3,10 +3,47 @@
 
 AKey m_Keys[ /*KeyCount*/ 5 ];
 
+volatile uint8_t    m_HeadOfQueue;
+
 void SetKeyState( uint8_t theKeyId, t_ButtonState theState  )
 {
+    // TODO Too much logic in the model!
+
+    // New to Q
+    if( theState == e_BeingServedNo )
+    {
+        if( m_HeadOfQueue == KeyCount )
+        {
+            m_HeadOfQueue = theKeyId;
+        }
+        else
+        {
+            volatile uint8_t LoopKeyId = m_HeadOfQueue;
+            
+            while( m_Keys[ LoopKeyId ].NextInQueue != KeyCount )
+            {
+                LoopKeyId = m_Keys[ LoopKeyId ].NextInQueue;
+            }
+
+            m_Keys[ LoopKeyId ].NextInQueue = theKeyId;
+        }
+    }
+
+    // No Longer in Q
+    if( ( theState == e_PressedNo ) && ( m_Keys[ theKeyId ].ButtonState == e_BeingServedYes ) )
+    {
+        volatile uint8_t OldHeadOfQueue = m_HeadOfQueue;
+        m_HeadOfQueue = m_Keys[ m_HeadOfQueue ].NextInQueue;
+        m_Keys[ OldHeadOfQueue ].NextInQueue = KeyCount;
+    }
+
     m_Keys[ theKeyId ].ButtonState = theState;
-    m_Keys[ theKeyId ].SequenceState = 0;
+    m_Keys[ theKeyId ].SequenceState = SequenceReset;
+}
+
+uint8_t GetHeadOfQueue( void )
+{
+    return m_HeadOfQueue;
 }
 
 t_ButtonState GetKeyState( uint8_t theKeyId )
@@ -60,6 +97,8 @@ t_Sequences GetSequence( uint8_t theKeyId )
 
 void InitKeys()
 {
+    m_HeadOfQueue = KeyCount;
+
     t_ATime KeyTimer;
     KeyTimer.Millisecond  = 0;
     KeyTimer.Second       = 0;
@@ -70,45 +109,50 @@ void InitKeys()
     m_Keys[ 0 ].ButtonState                 = e_PressedNo;
     m_Keys[ 0 ].SequenceIdPressedNo         = e_AllOff;
     m_Keys[ 0 ].SequenceIdPressedYes        = e_RapidFlashColourB;
-    m_Keys[ 0 ].SequenceIdBeingServedNo     = e_ColourMix;
-    m_Keys[ 0 ].SequenceIdBeingServedYes    = e_SteadyColourB;
+    m_Keys[ 0 ].SequenceIdBeingServedNo     = e_SteadyColourB;
+    m_Keys[ 0 ].SequenceIdBeingServedYes    = e_RedGreenFlash;
     m_Keys[ 0 ].SequenceState               = 0;
     m_Keys[ 0 ].NextActionTimer             = KeyTimer;
     m_Keys[ 0 ].InputTimer                  = KeyTimer;
+    m_Keys[ 0 ].NextInQueue                 = KeyCount;
 
     m_Keys[ 1 ].ButtonState                 = e_PressedNo;
-    m_Keys[ 1 ].SequenceIdPressedNo         = e_RapidFlashColourB;
-    m_Keys[ 1 ].SequenceIdPressedYes        = e_DimmedColourA;
-    m_Keys[ 1 ].SequenceIdBeingServedNo     = e_RedGreenFlash;
-    m_Keys[ 1 ].SequenceIdBeingServedYes    = e_SteadyColourB;
+    m_Keys[ 1 ].SequenceIdPressedNo         = e_AllOff;
+    m_Keys[ 1 ].SequenceIdPressedYes        = e_RapidFlashColourB;
+    m_Keys[ 1 ].SequenceIdBeingServedNo     = e_SteadyColourB;
+    m_Keys[ 1 ].SequenceIdBeingServedYes    = e_RedGreenFlash;
     m_Keys[ 1 ].SequenceState               = 0;
     m_Keys[ 1 ].NextActionTimer             = KeyTimer;
     m_Keys[ 1 ].InputTimer                  = KeyTimer;
+    m_Keys[ 1 ].NextInQueue                 = KeyCount;
 
     m_Keys[ 2 ].ButtonState                 = e_PressedNo;
-    m_Keys[ 2 ].SequenceIdPressedNo         = e_DimmedColourA;
-    m_Keys[ 2 ].SequenceIdPressedYes        = e_RedGreenFlash;
-    m_Keys[ 2 ].SequenceIdBeingServedNo     = e_RedGreenFlash;
-    m_Keys[ 2 ].SequenceIdBeingServedYes    = e_SteadyColourB;
+    m_Keys[ 2 ].SequenceIdPressedNo         = e_AllOff;
+    m_Keys[ 2 ].SequenceIdPressedYes        = e_RapidFlashColourB;
+    m_Keys[ 2 ].SequenceIdBeingServedNo     = e_SteadyColourB;
+    m_Keys[ 2 ].SequenceIdBeingServedYes    = e_RedGreenFlash;
     m_Keys[ 2 ].SequenceState               = 0;
     m_Keys[ 2 ].NextActionTimer             = KeyTimer;
     m_Keys[ 2 ].InputTimer                  = KeyTimer;
+    m_Keys[ 2 ].NextInQueue                 = KeyCount;
 
     m_Keys[ 3 ].ButtonState                 = e_PressedNo;
     m_Keys[ 3 ].SequenceIdPressedNo         = e_AllOff;
-    m_Keys[ 3 ].SequenceIdPressedYes        = e_DimmedColourA;
-    m_Keys[ 3 ].SequenceIdBeingServedNo     = e_RedGreenFlash;
-    m_Keys[ 3 ].SequenceIdBeingServedYes    = e_SteadyColourB;
+    m_Keys[ 3 ].SequenceIdPressedYes        = e_RapidFlashColourB;
+    m_Keys[ 3 ].SequenceIdBeingServedNo     = e_SteadyColourB;
+    m_Keys[ 3 ].SequenceIdBeingServedYes    = e_RedGreenFlash;
     m_Keys[ 3 ].SequenceState               = 0;
     m_Keys[ 3 ].NextActionTimer             = KeyTimer;
     m_Keys[ 3 ].InputTimer                  = KeyTimer;
+    m_Keys[ 3 ].NextInQueue                 = KeyCount;
     
     m_Keys[ 4 ].ButtonState                 = e_PressedNo;
     m_Keys[ 4 ].SequenceIdPressedNo         = e_AllOff;
-    m_Keys[ 4 ].SequenceIdPressedYes        = e_DimmedColourA;
-    m_Keys[ 4 ].SequenceIdBeingServedNo     = e_RedGreenFlash;
-    m_Keys[ 4 ].SequenceIdBeingServedYes    = e_SteadyColourB;
+    m_Keys[ 4 ].SequenceIdPressedYes        = e_RapidFlashColourB;
+    m_Keys[ 4 ].SequenceIdBeingServedNo     = e_SteadyColourB;
+    m_Keys[ 4 ].SequenceIdBeingServedYes    = e_RedGreenFlash;
     m_Keys[ 4 ].SequenceState               = 0;
     m_Keys[ 4 ].NextActionTimer             = KeyTimer;
     m_Keys[ 4 ].InputTimer                  = KeyTimer;
+    m_Keys[ 4 ].NextInQueue                 = KeyCount;
 }

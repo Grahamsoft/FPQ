@@ -12,8 +12,6 @@
 #include <stdint.h>        /* For uint8_t definition */
 
 void InputTask( void );
-void MonitorButton( uint8_t theId );
-bool ButtonBeingPressed( uint8_t theId );
+
 
 #endif	/* INPUTTASK_H */
-

@@ -31,6 +31,7 @@ typedef struct AKeyStruct
     volatile t_Sequences    SequenceIdBeingServedNo;
     volatile t_Sequences    SequenceIdBeingServedYes;
     volatile uint8_t        SequenceState;
+    volatile uint8_t        NextInQueue;
 //  char                Displaying;
 //  time_t              NextAction;
 //  time_t              TimeInState;
@@ -42,6 +43,8 @@ typedef struct AKeyStruct
 
 const uint8_t KeyCount = 5;
 
+const uint8_t SequenceReset = 0;
+
 void InitKeys( void );
 
 t_Sequences GetSequence( uint8_t theKeyId );
@@ -52,5 +55,6 @@ volatile t_ATime* GetKeyInputTimer( uint8_t theKeyId );
 
 void SetKeyState( uint8_t theKeyId, t_ButtonState theState );
 t_ButtonState GetKeyState( uint8_t theKeyId );
+uint8_t GetHeadOfQueue( void );
 
 #endif	/* MODEL_H */
