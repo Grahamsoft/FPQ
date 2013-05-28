@@ -51,6 +51,8 @@ void MonitorBartenderButton( void )
                         SetKeyState( HeadOfQueue, e_PressedNo );
                     }
 
+                    HeadOfQueue = GetHeadOfQueue();
+                    
                     if( HeadOfQueue != KeyCount )
                     {
                         SetKeyState( HeadOfQueue, e_BeingServedYes );
