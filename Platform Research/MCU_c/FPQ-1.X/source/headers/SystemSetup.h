@@ -15,3 +15,4 @@
 void ConfigureOscillator( void );
 void ConfigureTimer( void );
 void ConfigurePorts( void );
+void ConfigureUsart( void );

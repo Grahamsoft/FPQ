@@ -137,10 +137,10 @@ bool ButtonBeingPressed( uint8_t theId )
             break;
 
         case 4:
-//            if ( PORTBbits.RB4 == 0 )
-//            {
-//                BeingPressed = true;
-//            }
+            if ( PORTBbits.RB4 == 0 )
+            {
+                BeingPressed = true;
+            }
             break;
     }
     

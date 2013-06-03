@@ -38,7 +38,7 @@ void SetKeyState( uint8_t theKeyId, t_ButtonState theState  )
     }
 
     m_Keys[ theKeyId ].ButtonState = theState;
-    m_Keys[ theKeyId ].SequenceState = SequenceReset;
+    m_Keys[ theKeyId ].SequenceState = 0;
 }
 
 uint8_t GetHeadOfQueue( void )

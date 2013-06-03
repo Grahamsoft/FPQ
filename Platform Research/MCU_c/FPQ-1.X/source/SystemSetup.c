@@ -35,7 +35,8 @@
 
 #include <stdint.h>         /* For uint8_t definition */
 #include <stdbool.h>        /* For true/false definition */
-#include "timers.h"
+#include <timers.h>
+#include <usart.h>
 
 #endif
 
@@ -70,4 +71,15 @@ void ConfigurePorts( void )
     PORTA = 0;
     PORTB = 0;
     PORTC = 0;
+}
+
+void ConfigureUsart( void )
+{
+    OpenUSART( USART_TX_INT_OFF &
+                       USART_RX_INT_OFF &
+                       USART_ASYNCH_MODE &
+                       USART_EIGHT_BIT &
+                       USART_CONT_RX &
+                       USART_BRGH_LOW,
+                       12 );
 }

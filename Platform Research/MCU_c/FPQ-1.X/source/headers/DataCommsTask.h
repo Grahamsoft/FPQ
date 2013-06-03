@@ -8,6 +8,10 @@
 #ifndef DATACOMMSTASK_H
 #define	DATACOMMSTASK_H
 
+#include <stdbool.h>       /* For true/false definition */
+#include <stdint.h>        /* For uint8_t definition */
+
+void ConfigureUsart( void );
 int DataCommsTask( void );
 
 #endif	/* DATACOMMSTASK_H */

@@ -18,10 +18,7 @@
 #endif
 
 #include "SystemSetup.h"
-#include "User.h"
 #include "TaskManager.h"
-
-#include "delays.h"
 
 /******************************************************************************/
 /* Main Program                                                               */
@@ -31,8 +28,7 @@ void main()
     ConfigureOscillator();
     ConfigureTimer();
     ConfigurePorts();
-
-    InitApp();
+    ConfigureUsart();
     
     while( 1 )
     {

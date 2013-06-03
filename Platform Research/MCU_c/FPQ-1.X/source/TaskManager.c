@@ -27,7 +27,7 @@ void TaskManager()
         
         case 2:
             Increment_Timer();
-            //DataCommsTask();
+            DataCommsTask();
             InputTask();
             Increment_Timer();
             OutputTask();

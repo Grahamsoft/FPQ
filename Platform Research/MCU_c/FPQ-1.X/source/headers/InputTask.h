@@ -13,5 +13,4 @@
 
 void InputTask( void );
 
-
 #endif	/* INPUTTASK_H */

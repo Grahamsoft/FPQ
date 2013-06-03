@@ -24,10 +24,10 @@ void IlluminateButton( uint8_t theId )
 {
     volatile t_ATime* KeyTimer = GetKeyTimer( theId );
     volatile uint8_t* SequenceState = GetSequenceState( theId );
-    volatile t_Sequences Sequence = GetSequence( theId );    
     
-    if ( MaturedTimer( KeyTimer ) || SequenceState == 0 )
+    if ( ( MaturedTimer( KeyTimer ) ) || ( SequenceState == 0 ) )
     {
+        volatile t_Sequences Sequence = GetSequence( theId );
         
         switch ( GetColour( Sequence, SequenceState, KeyTimer ) )
         {
@@ -66,9 +66,13 @@ void ColourA( uint8_t theId )
             break;
 
         case 3:
+            PORTCbits.RC2 = 0;
+            PORTCbits.RC3 = 1;
             break;
 
         case 4:
+            PORTCbits.RC4 = 1;
+            PORTCbits.RC5 = 0;
             break;
     }
 }
@@ -93,9 +97,13 @@ void ColourB( uint8_t theId )
             break;
 
         case 3:
+            PORTCbits.RC2 = 1;
+            PORTCbits.RC3 = 0;
             break;
 
         case 4:
+            PORTCbits.RC4 = 0;
+            PORTCbits.RC5 = 1;
             break;
     }
 }
@@ -120,9 +128,13 @@ void ColourNone( uint8_t theId )
             break;
 
         case 3:
+            PORTCbits.RC2 = 0;
+            PORTCbits.RC3 = 0;
             break;
 
         case 4:
+            PORTCbits.RC4 = 0;
+            PORTCbits.RC5 = 0;
             break;
     }
 }
