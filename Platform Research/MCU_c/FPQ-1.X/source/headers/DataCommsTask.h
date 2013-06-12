@@ -13,5 +13,7 @@
 
 void ConfigureUsart( void );
 int DataCommsTask( void );
+void CustomerWating( uint8_t theKeyId );
+void CustomerBeingServed( uint8_t theKeyId );
 
 #endif	/* DATACOMMSTASK_H */
