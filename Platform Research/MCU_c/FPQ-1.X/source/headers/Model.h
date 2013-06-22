@@ -52,7 +52,6 @@ volatile uint8_t* GetSequenceState( uint8_t theKeyId );
 volatile t_ATime* GetKeyTimer( uint8_t theKeyId );
 volatile t_ATime* GetKeyInputTimer( uint8_t theKeyId );
 
-
 void SetKeyState( uint8_t theKeyId, t_ButtonState theState );
 t_ButtonState GetKeyState( uint8_t theKeyId );
 uint8_t GetHeadOfQueue( void );

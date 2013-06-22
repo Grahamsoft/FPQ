@@ -142,14 +142,14 @@
 union J1939_MESSAGE_UNION {
 	struct {
 		unsigned int	PDUFormat_Top		: 3;	// This needs pre and post processing.
-		unsigned int	DataPage			: 1;
-		unsigned int	Res					: 1;
-		unsigned int	Priority			: 3;
-		unsigned char	PDUFormat;					// CA should use only PDUFormat.
+		unsigned int	DataPage                : 1;
+		unsigned int	Res                     : 1;
+		unsigned int	Priority                : 3;
+		unsigned char	PDUFormat;                      // CA should use only PDUFormat.
 		unsigned char	PDUSpecific;
 		unsigned char	SourceAddress;
-		unsigned int	DataLength 			: 4;
-		unsigned int	RTR					: 4;	// RTR bit, value always 0x00
+		unsigned int	DataLength              : 4;
+		unsigned int	RTR                     : 4;	// RTR bit, value always 0x00
 		unsigned char	Data[J1939_DATA_LENGTH];
 	};
 	unsigned char		Array[J1939_MSG_LENGTH + J1939_DATA_LENGTH];
@@ -209,7 +209,7 @@ typedef union J1939_FLAGS_UNION J1939_FLAG;
 	#if J1939_POLL_ECAN == J1939_TRUE
 		struct TX_BUFFER_INFO_STRUCT {
 			unsigned char	WindowBits;	};
-		static rom struct TX_BUFFER_INFO_STRUCT BUFFER_TABLE[ECAN_MAX_TX_BUFFERS] = {
+		static struct TX_BUFFER_INFO_STRUCT BUFFER_TABLE[ECAN_MAX_TX_BUFFERS] = {
 			{ 0x06 },		// TXB1
 			{ 0x08 }};		// TXB0
 	#else

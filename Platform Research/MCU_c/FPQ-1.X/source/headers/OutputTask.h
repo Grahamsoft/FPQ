@@ -9,6 +9,8 @@
 #define	OUTPUTTASK_H
 
 void OutputTask( void );
+void ColourATest( void );
+void ColourBTest( void );
 
 #endif	/* OUTPUTTASK_H */
 

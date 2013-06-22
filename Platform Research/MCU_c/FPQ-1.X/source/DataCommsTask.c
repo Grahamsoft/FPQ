@@ -14,12 +14,17 @@
 #include "DataCommsSend.h"
 #include "Model.h"
 
+#include "headers/OutputTask.h"
+
 
 // Private Function Signatures ---
 char GetSerialChar( void );
 void CanCommsTask( void );
 void UartCommsTask( void );
 // -------------------------------
+
+static volatile t_ATime     m_DataWriteTimer;
+static volatile bool        m_Toggle;
 
 typedef enum
 {
@@ -45,6 +50,11 @@ static char InitText[] = "Hello World. Data Comms Init.... Done\n";
 
 static char c_CustomerWating[]          = "Customer Wating: \r\n";
 static char c_CustomerBeingServed[]     = "Customer Being Served: \r\n";
+
+static char c_CanCommandOn[]                = "CAN Command: ON \r\n";
+static char c_CanCommandOff[]               = "CAN Command: OFF \r\n";
+static char c_CanMessageSentOn[]            = "CAN Message Sent: ON \r\n";
+static char c_CanMessageSentOff[]           = "CAN Message Sent: OFF \r\n";
 
 J1939_MESSAGE CanMessage;
 
@@ -78,11 +88,21 @@ void CanCommsTask( void )
     switch( DataCommsReadState )
     {
         case e_CANInit:
-            while ( J1939_Flags.WaitingForAddressClaimContention )
+            if( J1939_Flags.WaitingForAddressClaimContention )
             {
-                J1939_Poll( 5 );
+                J1939_Poll( 1 ); // Was 5
             }
-            DataCommsReadState = e_CANRead;
+            else
+            {
+                m_Toggle = false;
+                m_DataWriteTimer.Day            = 0;
+                m_DataWriteTimer.Hour           = 0;
+                m_DataWriteTimer.Millisecond    = 0;
+                m_DataWriteTimer.Minute         = 0;
+                m_DataWriteTimer.Second         = 0;
+                
+                DataCommsReadState = e_CANRead;
+            }
             break;
 
         case e_CANRead:
@@ -92,39 +112,54 @@ void CanCommsTask( void )
 
                 if ( CanMessage.PDUFormat == TURN_ON_LED )
                 {
-                        putsUSART( "CAN Command: ON" );
+                        putsUSART( c_CanCommandOn );
                 }
                 else if ( CanMessage.PDUFormat == TURN_OFF_LED )
                 {
-                        putsUSART( "CAN Command: OFF" );
+                        putsUSART( c_CanCommandOff );
                 }
             }
-            J1939_Poll( 20 );
+            J1939_Poll( 1 ); // Was 20
+            DataCommsReadState = e_CANWrite;
             break;
 
         case e_CANWrite:
-            // NEVER USED ATM
-
-            CanMessage.DataPage             = 0;
-            CanMessage.Priority             = J1939_CONTROL_PRIORITY;
-            CanMessage.DestinationAddress   = OTHER_NODE;
-            CanMessage.DataLength           = 0;
-            CanMessage.PDUFormat            = TURN_ON_LED;
-
-            while ( J1939_EnqueueMessage( &CanMessage ) != RC_SUCCESS )
+            if ( MaturedTimer( &m_DataWriteTimer ) )
             {
-                J1939_Poll( 5 );
+                CanMessage.DataPage             = 0;
+                CanMessage.Priority             = J1939_CONTROL_PRIORITY;
+                CanMessage.DestinationAddress   = OTHER_NODE;
+                CanMessage.DataLength           = 0;
+                if( m_Toggle )
+                {
+                    m_Toggle = false;
+                    CanMessage.PDUFormat            = TURN_ON_LED;
+                    putsUSART( c_CanMessageSentOn );
+                    ColourATest(); // Just for debug
+                }
+                else
+                {
+                    m_Toggle = true;
+                    CanMessage.PDUFormat            = TURN_OFF_LED;
+                    putsUSART( c_CanMessageSentOff );
+                    ColourBTest(); // Just for debug
+                }
+
+                CalculateFutureTime( &m_DataWriteTimer, 0, 3, 0 );
+
+                while ( J1939_EnqueueMessage( &CanMessage ) != RC_SUCCESS )
+                {
+                    J1939_Poll( 5 );
+                }
             }
+            DataCommsReadState = e_CANRead;
             break;
     }
 }
 
 void UartCommsTask( void )
 {
-    //static CommsStateMachine DataCommsReadState = e_ReadMsg;
     static CommsStateMachine DataCommsReadState = e_DataComsInit;
-
-    //CANReceiveMessage();
 
     static char Msg = 0;
 

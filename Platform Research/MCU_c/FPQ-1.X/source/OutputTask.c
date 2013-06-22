@@ -46,6 +46,24 @@ void IlluminateButton( uint8_t theId )
     }
 }
 
+void ColourATest( void )
+{
+    ColourA( 0 );
+    ColourA( 1 );
+    ColourA( 2 );
+    ColourA( 3 );
+    ColourA( 4 );
+}
+
+void ColourBTest( void )
+{
+    ColourB( 0 );
+    ColourB( 1 );
+    ColourB( 2 );
+    ColourB( 3 );
+    ColourB( 4 );
+}
+
 void ColourA( uint8_t theId )
 {
     switch ( theId )

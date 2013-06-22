@@ -444,7 +444,7 @@ unsigned char J1939_EnqueueMessage( J1939_MESSAGE *MsgPtr )
 	#if J1939_POLL_ECAN == J1939_FALSE
 		PIE3 &= ~ECAN_TX_INT_ENABLE_LEGACY;
 	#else
-		PIE3bits.TXBnIE = 0;
+//		PIE3bits.TXBnIE = 0;
 	#endif
 
 	if (J1939_Flags.CannotClaimAddress)
