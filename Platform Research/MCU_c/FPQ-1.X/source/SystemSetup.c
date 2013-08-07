@@ -11,11 +11,11 @@
 // 5  RA3           Button 2 Switch     24 RB3           CAN Rx
 // 6  RA4           Button 2 Colour A   23 RB2           CAN Tx
 // 7  RA5           Button 2 Colour B   22 RB1           ( Int 1 )
-// 8  Vss           Earth               21 RB0           ( Int 2 )
+// 8  Vss           Earth               21 RB0           ( Int 2 )          A. Button 6 Switch      B. iButton 1-wire   C. Movement Senor
 // 9  RA7           Button 3 Switch     20 5v Power
 // 10 RA6           Button 3 Colour A   19 Earth
-// 11 RC0           Button 3 Colour B   18 RC7           Serial Rx
-// 12 RC1           Button 4 Switch     17 RC6           Serial Tx
+// 11 RC0           Button 3 Colour B   18 RC7           Serial Rx          A. Button 6 Colour A    B. Bell
+// 12 RC1           Button 4 Switch     17 RC6           Serial Tx          A. Button 6 Colour B    B. LCD Out
 // 13 RC2           Button 4 Colour A   16 RC5           Button 5 Colour A
 // 14 RC3           Button 4 Colour B   15 RC4           Button 5 Colour B
 //
@@ -31,15 +31,27 @@
 
 #include "SystemSetup.h"
 
-void ConfigureOscillator()
+void ConfigureHardware()
 {
-    OSCCON = 0b01111110;
-}
+    // Configure Oscillator
 
-void ConfigureTimer( void )
-{
-    //IPEN = 1;
+    OSCCON = 0b01111110;
+   
+    // Configure Ports
     
+    ADCON1 = 0b00001111;
+    TRISA = 0b10001001;
+    TRISB = 0b00001000;     // <3> for CAN
+    TRISC = 0b00000010;
+
+    PORTA = 0;
+    PORTB = 0;
+    PORTC = 0;
+
+    // Configure Timer
+
+    //IPEN = 1;
+
     ei();
 
     OpenTimer0( TIMER_INT_ON &//Should be ON
@@ -48,22 +60,9 @@ void ConfigureTimer( void )
     T0_PS_1_64 );
 
     INTCONbits.TMR0IE 	= 0;	//Enable Timer0 Interrupt
-}
 
-void ConfigurePorts( void )
-{
-    ADCON1 = 0b00001111;
-    TRISA = 0b10001001;
-    TRISB = 0b00000000;
-    TRISC = 0b00000010;
+    // Configure Usart
 
-    PORTA = 0;
-    PORTB = 0;
-    PORTC = 0;
-}
-
-void ConfigureUsart( void )
-{
     OpenUSART( USART_TX_INT_OFF &
                        USART_RX_INT_OFF &
                        USART_ASYNCH_MODE &

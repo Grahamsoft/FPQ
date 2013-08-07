@@ -31,7 +31,7 @@
 static const uint8_t TimersCount = 10;
 static volatile uint24_t m_HalfSeconds = 0;
 
-const uint8_t c_NoMsecInSec         = 100; //Should be 100, was 15
+const uint8_t c_NoMsecInSec         = 15; //Should be 100, was 15
 const uint8_t c_NoSecInMinOrMinInHr = 60;
 const uint8_t c_NoHrInDay           = 24;
 

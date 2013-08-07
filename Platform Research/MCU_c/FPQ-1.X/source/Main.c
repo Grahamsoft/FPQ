@@ -15,10 +15,7 @@
 /******************************************************************************/
 void main()
 {
-    ConfigureOscillator();
-    ConfigureTimer();
-    ConfigurePorts();
-    ConfigureUsart();
+    ConfigureHardware();
     
     while( 1 )
     {

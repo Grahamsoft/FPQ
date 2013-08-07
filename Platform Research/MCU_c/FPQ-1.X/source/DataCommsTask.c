@@ -4,11 +4,15 @@
  * 
  */
 
+#define EAUSART_V5
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <usart.h>
-#include "headers/J1939.H"
+//#include "headers/J1939.H"
+#include "headers/ECAN.h"
 
 #include "DataCommsTask.h"
 #include "DataCommsSend.h"
@@ -56,11 +60,16 @@ static char c_CanCommandOff[]               = "CAN Command: OFF \r\n";
 static char c_CanMessageSentOn[]            = "CAN Message Sent: ON \r\n";
 static char c_CanMessageSentOff[]           = "CAN Message Sent: OFF \r\n";
 
-J1939_MESSAGE CanMessage;
+//J1939_MESSAGE CanMessage;
 
 #define OTHER_NODE      129
 #define TURN_ON_LED     92
 #define TURN_OFF_LED    94
+
+    unsigned long id;
+    BYTE data[4];
+    BYTE dataLen;
+    ECAN_RX_MSG_FLAGS flags;
 
 int DataCommsTask( void )
 {
@@ -88,69 +97,106 @@ void CanCommsTask( void )
     switch( DataCommsReadState )
     {
         case e_CANInit:
-            if( J1939_Flags.WaitingForAddressClaimContention )
-            {
-                J1939_Poll( 1 ); // Was 5
-            }
-            else
-            {
-                m_Toggle = false;
-                m_DataWriteTimer.Day            = 0;
-                m_DataWriteTimer.Hour           = 0;
-                m_DataWriteTimer.Millisecond    = 0;
-                m_DataWriteTimer.Minute         = 0;
-                m_DataWriteTimer.Second         = 0;
-                
-                DataCommsReadState = e_CANRead;
+        {
+
+            // Start Debug
+            putsUSART( "Line: "     );
+            putsUSART( __LINE__     );
+            putsUSART( " File: "    );
+            putsUSART( __FILE__     );
+            putsUSART( "\r\n"       );
+            // End Debug
+
+            ECANInitialize();
+
+            // Start Debug
+            putsUSART( "Line: "     );
+            putsUSART( __LINE__     );
+            putsUSART( " File: "    );
+            putsUSART( __FILE__     );
+            putsUSART( "\r\n"       );
+            // End Debug
+
+            m_Toggle = false;
+            m_DataWriteTimer.Day            = 0;
+            m_DataWriteTimer.Hour           = 0;
+            m_DataWriteTimer.Millisecond    = 0;
+            m_DataWriteTimer.Minute         = 0;
+            m_DataWriteTimer.Second         = 0;
+
+            DataCommsReadState = e_CANRead;
+
             }
             break;
 
         case e_CANRead:
-            while ( RXQueueCount > 0 )
-            {
-                J1939_DequeueMessage( &CanMessage );
+           // putsUSART( "Started ECANReceiveMessage()\r\n" );
+            ECANReceiveMessage(&id, &data[0], &dataLen, &flags);
 
-                if ( CanMessage.PDUFormat == TURN_ON_LED )
-                {
-                        putsUSART( c_CanCommandOn );
-                }
-                else if ( CanMessage.PDUFormat == TURN_OFF_LED )
-                {
-                        putsUSART( c_CanCommandOff );
-                }
+            if ( dataLen > 0 )
+            {
+                // Start Debug
+                putsUSART( "Line: "     );
+                char str[5];
+                str[0] = 0;
+                sprintf(str, "%d", __LINE__);
+                putsUSART( str );
+                putsUSART( " File: "    );
+                putsUSART( __FILE__     );
+                putsUSART( "\r\n"       );
+                // End Debug
             }
-            J1939_Poll( 1 ); // Was 20
+
+            data[0] = 0;
+
             DataCommsReadState = e_CANWrite;
             break;
 
         case e_CANWrite:
             if ( MaturedTimer( &m_DataWriteTimer ) )
             {
-                CanMessage.DataPage             = 0;
-                CanMessage.Priority             = J1939_CONTROL_PRIORITY;
-                CanMessage.DestinationAddress   = OTHER_NODE;
-                CanMessage.DataLength           = 0;
-                if( m_Toggle )
-                {
-                    m_Toggle = false;
-                    CanMessage.PDUFormat            = TURN_ON_LED;
-                    putsUSART( c_CanMessageSentOn );
-                    ColourATest(); // Just for debug
-                }
-                else
-                {
-                    m_Toggle = true;
-                    CanMessage.PDUFormat            = TURN_OFF_LED;
-                    putsUSART( c_CanMessageSentOff );
-                    ColourBTest(); // Just for debug
-                }
+
+                // Start Debug
+                putsUSART( "Line: "     );
+                char str[5];
+                str[0] = 0;
+                sprintf(str, "%d", __LINE__);
+                putsUSART( str );
+                putsUSART( " File: "    );
+                putsUSART( __FILE__     );
+                putsUSART( "\r\n"       );
+                // End Debug
+
+                data[0] = 'c';
+
+                ECANSendMessage(0x123, &data[0], sizeof( data[0] ), ECAN_TX_STD_FRAME);
+
+                // Start Debug
+                putsUSART( "Line: "     );
+                str[0] = 0;
+                sprintf(str, "%d", __LINE__);
+                putsUSART( str );
+                putsUSART( " File: "    );
+                putsUSART( __FILE__     );
+                putsUSART( "\r\n"       );
+                // End Debug
+
+//                if( m_Toggle )
+//                {
+//                    m_Toggle = false;
+//                    CanMessage.PDUFormat            = TURN_ON_LED;
+//                    putsUSART( c_CanMessageSentOn );
+//                    ColourATest(); // Just for debug
+//                }
+//                else
+//                {
+//                    m_Toggle = true;
+//                    CanMessage.PDUFormat            = TURN_OFF_LED;
+//                    putsUSART( c_CanMessageSentOff );
+//                    ColourBTest(); // Just for debug
+//                }
 
                 CalculateFutureTime( &m_DataWriteTimer, 0, 3, 0 );
-
-                while ( J1939_EnqueueMessage( &CanMessage ) != RC_SUCCESS )
-                {
-                    J1939_Poll( 5 );
-                }
             }
             DataCommsReadState = e_CANRead;
             break;

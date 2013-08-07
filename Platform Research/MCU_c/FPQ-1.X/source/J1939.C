@@ -60,6 +60,8 @@
 #include <p18cxxx.h>
 #include "headers/J1939.H"
 
+#include <usart.h>
+
 #define J1939_TRUE	1
 #define J1939_FALSE	0
 
@@ -440,11 +442,11 @@ Return:		RC_SUCCESS			Message dequeued successfully
 unsigned char J1939_EnqueueMessage( J1939_MESSAGE *MsgPtr )
 {
 	unsigned char	rc = RC_SUCCESS;
-
+putsUSART( "J1939_EnqueueMessage\r\n" );
 	#if J1939_POLL_ECAN == J1939_FALSE
 		PIE3 &= ~ECAN_TX_INT_ENABLE_LEGACY;
 	#else
-//		PIE3bits.TXBnIE = 0;
+		PIE3bits.TXBnIE = 0;
 	#endif
 
 	if (J1939_Flags.CannotClaimAddress)
@@ -747,7 +749,7 @@ void J1939_Poll( unsigned long ElapsedTime )
 	// Update the Contention Wait Time.  We have to do that before
 	// we call J1939_ReceiveMessages in case the time gets reset back
 	// to zero in that routine.
-
+putsUSART( "P " );
 	ContentionWaitTime += ElapsedTime;
 
 	#if J1939_POLL_ECAN == J1939_TRUE
@@ -805,7 +807,7 @@ static void J1939_ReceiveMessages( void )
 	unsigned char	*RegPtr;
 	unsigned char	RXBuffer = 0;
 	unsigned char	Loop;
-
+putsUSART( "R" );
 	#if ECAN_LEGACY_MODE == J1939_TRUE
 		while (RXBuffer < 2)		// Repeat for both receive buffers
 	#else
@@ -982,7 +984,7 @@ static unsigned char J1939_TransmitMessages( void )
 {
 	unsigned char Mask = 0x04;
 	unsigned char Status;
-
+putsUSART( "T" );
 	if (TXQueueCount == 0)
 	{
 		// We don't have any more messages to transmit, so disable
@@ -1004,7 +1006,10 @@ static unsigned char J1939_TransmitMessages( void )
 	else
 	{
 		if (J1939_Flags.CannotClaimAddress)
+                {
+putsUSART( "J1939_Flags.CannotClaimAddress\r\n" );
 			return RC_CANNOTTRANSMIT;
+                }
 
 		// Make sure the last buffer we used last time is done transmitting.
 		// This should be redundant if we're using interrupts, but it is required if
@@ -1013,6 +1018,7 @@ static unsigned char J1939_TransmitMessages( void )
 
 		if (LastTXBufferUsed != 0)
 		{
+putsUSART( "LastTXBufferUsed != 0\r\n" );
 			#if ECAN_LEGACY_MODE == J1939_TRUE
 				CANCON  = BUFFER_TABLE[LastTXBufferUsed-1].WindowBits;
 			#else

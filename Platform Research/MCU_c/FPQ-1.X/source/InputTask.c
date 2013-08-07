@@ -18,7 +18,7 @@ bool ButtonBeingPressed( uint8_t theId );
 
 void InputTask( void )
 {
-    MonitorBartenderButton();
+    //MonitorBartenderButton();
     
     for( uint8_t i = 0; i < KeyCount; i++ )
     {
