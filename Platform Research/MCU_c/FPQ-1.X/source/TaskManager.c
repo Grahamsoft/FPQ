@@ -7,11 +7,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "TaskManager.h"
-#include "DataCommsTask.h"
-#include "InputTask.h"
-#include "OutputTask.h"
-#include "Model.h"
+#include "headers/TaskManager.h"
+#include "headers/DataCommsTask.h"
+#include "headers/InputTask.h"
+#include "headers/OutputTask.h"
+#include "headers/Model.h"
 
 void TaskManager()
 {

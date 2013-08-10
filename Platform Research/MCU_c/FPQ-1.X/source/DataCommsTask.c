@@ -14,9 +14,9 @@
 //#include "headers/J1939.H"
 #include "headers/ECAN.h"
 
-#include "DataCommsTask.h"
-#include "DataCommsSend.h"
-#include "Model.h"
+#include "headers/DataCommsTask.h"
+#include "headers/DataCommsSend.h"
+#include "headers/Model.h"
 
 #include "headers/OutputTask.h"
 

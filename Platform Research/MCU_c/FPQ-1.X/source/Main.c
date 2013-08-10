@@ -7,8 +7,8 @@
 #include <stdint.h>        /* For uint8_t definition */
 #include <stdbool.h>       /* For true/false definition */
 
-#include "SystemSetup.h"
-#include "TaskManager.h"
+#include "headers/SystemSetup.h"
+#include "headers/TaskManager.h"
 
 /******************************************************************************/
 /* Main Program                                                               */

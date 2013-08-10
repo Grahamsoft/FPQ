@@ -1,7 +1,7 @@
 
 # 1 "source/OutputSequences.c"
 
-# 13 "/Applications/microchip/xc8/v1.12/include/stdint.h"
+# 13 "C:\Program Files\Microchip\xc8\v1.20\include\stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -91,7 +91,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 4 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
+# 4 "C:\Program Files\Microchip\xc8\v1.20\include\stdlib.h"
 typedef int ptrdiff_t;
 typedef unsigned size_t;
 typedef unsigned short wchar_t;
@@ -167,10 +167,10 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
+# 12 "C:\Program Files\Microchip\xc8\v1.20\include\stdbool.h"
 typedef unsigned char bool;
 
-# 16 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h"
+# 16 "source/headers/TimerTask.h"
 typedef struct ATimeStruct
 {
 volatile uint8_t Millisecond;
@@ -185,7 +185,7 @@ bool MaturedTimer( volatile t_ATime *theTimer );
 void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
 void Increment_Timer( void );
 
-# 14 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputSequences.h"
+# 14 "source/headers/OutputSequences.h"
 typedef enum
 {
 e_Unknown,
@@ -208,7 +208,7 @@ e_ColourMix
 
 t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );
 
-# 103 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
+# 103 "C:\Program Files\Microchip\xc8\v1.20\include\stdlib.h"
 extern char * itoa(char * buf, int val, int base);
 extern char * utoa(char * buf, unsigned val, int base);
 

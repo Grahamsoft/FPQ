@@ -1,13 +1,16 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"360 C:\Program Files\Microchip\xc8\v1.20\include\GenericTypeDefs.h
 [s S2065 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2065 . b0 b1 b2 b3 b4 b5 b6 b7 ]
+"357
 [u S2064 `uc 1 `S2065 1 ]
 [n S2064 . Val bits ]
-[c E16235 224 0 32 64 96 128 .. ]
-[n E16235 _ECAN_OP_MODE ECAN_OP_MODE_BITS ECAN_OP_MODE_NORMAL ECAN_OP_MODE_SLEEP ECAN_OP_MODE_LOOP ECAN_OP_MODE_LISTEN ECAN_OP_MODE_CONFIG  ]
-"363 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/ecan.h
-[v _ECANSetOperationMode `(v ~T0 @X0 0 ef1`E16235 ]
-"27480 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+"171 source/ECAN.c
+[c E16245 224 0 32 64 96 128 .. ]
+[n E16245 _ECAN_OP_MODE ECAN_OP_MODE_BITS ECAN_OP_MODE_NORMAL ECAN_OP_MODE_SLEEP ECAN_OP_MODE_LOOP ECAN_OP_MODE_LISTEN ECAN_OP_MODE_CONFIG  ]
+"363 source/headers/ecan.h
+[v _ECANSetOperationMode `(v ~T0 @X0 0 ef1`E16245 ]
+"27480 C:\Program Files\Microchip\xc8\v1.20\include\pic18f2585.h
 [v _BRGCON1 `Vuc ~T0 @X0 0 e@3952 ]
 "27541
 [v _BRGCON2 `Vuc ~T0 @X0 0 e@3953 ]
@@ -15,10 +18,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _BRGCON3 `Vuc ~T0 @X0 0 e@3954 ]
 "27655
 [v _CIOCON `Vuc ~T0 @X0 0 e@3955 ]
+"27934
 [s S1749 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1749 . EWIN0 EWIN1 EWIN2 EWIN3 EWIN4 FIFOWM MDSEL0 MDSEL1 ]
+"27944
 [s S1750 :5 `uc 1 :1 `uc 1 ]
 [n S1750 . . F ]
+"27933
 [u S1748 `S1749 1 `S1750 1 ]
 [n S1748 . . . ]
 "27949
@@ -55,20 +61,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RXM0SIDH `Vuc ~T0 @X0 0 e@3864 ]
 "19436
 [v _RXM0SIDL `Vuc ~T0 @X0 0 e@3865 ]
+"19442
 [s S1258 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1258 . EID16 EID17 . EXIDEN . SID0 SID1 SID2 ]
+"19452
 [s S1259 :1 `uc 1 ]
 [n S1259 . RXM0EID16 ]
+"19455
 [s S1260 :1 `uc 1 :1 `uc 1 ]
 [n S1260 . . RXM0EID17 ]
+"19459
 [s S1261 :3 `uc 1 :1 `uc 1 ]
 [n S1261 . . RXM0EXIDM ]
+"19463
 [s S1262 :5 `uc 1 :1 `uc 1 ]
 [n S1262 . . RXM0SID0 ]
+"19467
 [s S1263 :6 `uc 1 :1 `uc 1 ]
 [n S1263 . . RXM0SID1 ]
+"19471
 [s S1264 :7 `uc 1 :1 `uc 1 ]
 [n S1264 . . RXM0SID2 ]
+"19441
 [u S1257 `S1258 1 `S1259 1 `S1260 1 `S1261 1 `S1262 1 `S1263 1 `S1264 1 ]
 [n S1257 . . . . . . . . ]
 "19476
@@ -77,154 +91,214 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RXM1SIDH `Vuc ~T0 @X0 0 e@3868 ]
 "19936
 [v _RXM1SIDL `Vuc ~T0 @X0 0 e@3869 ]
+"19942
 [s S1296 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1296 . EID16 EID17 . EXIDEN . SID0 SID1 SID2 ]
+"19952
 [s S1297 :1 `uc 1 ]
 [n S1297 . RXM1EID16 ]
+"19955
 [s S1298 :1 `uc 1 :1 `uc 1 ]
 [n S1298 . . RXM1EID17 ]
+"19959
 [s S1299 :3 `uc 1 :1 `uc 1 ]
 [n S1299 . . RXM1EXIDEN ]
+"19963
 [s S1300 :5 `uc 1 :1 `uc 1 ]
 [n S1300 . . RXM1SID0 ]
+"19967
 [s S1301 :6 `uc 1 :1 `uc 1 ]
 [n S1301 . . RXM1SID1 ]
+"19971
 [s S1302 :7 `uc 1 :1 `uc 1 ]
 [n S1302 . . RXM1SID2 ]
+"19941
 [u S1295 `S1296 1 `S1297 1 `S1298 1 `S1299 1 `S1300 1 `S1301 1 `S1302 1 ]
 [n S1295 . . . . . . . . ]
 "19976
 [v _RXM1SIDLbits `VS1295 ~T0 @X0 0 e@3869 ]
-[c E16204 3 0 1 2 3 32 0 32 64 0 64 .. ]
-[n E16204 _ECAN_TX_MSG_FLAGS ECAN_TX_PRIORITY_BITS ECAN_TX_PRIORITY_0 ECAN_TX_PRIORITY_1 ECAN_TX_PRIORITY_2 ECAN_TX_PRIORITY_3 ECAN_TX_FRAME_BIT ECAN_TX_STD_FRAME ECAN_TX_XTD_FRAME ECAN_TX_RTR_BIT ECAN_TX_NO_RTR_FRAME ECAN_TX_RTR_FRAME  ]
-"23060
+"617 source/ECAN.c
+[c E16214 3 0 1 2 3 32 0 32 64 0 64 .. ]
+[n E16214 _ECAN_TX_MSG_FLAGS ECAN_TX_PRIORITY_BITS ECAN_TX_PRIORITY_0 ECAN_TX_PRIORITY_1 ECAN_TX_PRIORITY_2 ECAN_TX_PRIORITY_3 ECAN_TX_FRAME_BIT ECAN_TX_STD_FRAME ECAN_TX_XTD_FRAME ECAN_TX_RTR_BIT ECAN_TX_NO_RTR_FRAME ECAN_TX_RTR_FRAME  ]
+"23060 C:\Program Files\Microchip\xc8\v1.20\include\pic18f2585.h
 [v _TXB0CON `Vuc ~T0 @X0 0 e@3904 ]
 "21682
 [v _TXB1CON `Vuc ~T0 @X0 0 e@3888 ]
 "20304
 [v _TXB2CON `Vuc ~T0 @X0 0 e@3872 ]
-"1310 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/ecan.h
+"1310 source/headers/ecan.h
 [v __CANIDToRegs `(v ~T0 @X0 0 ef3`*uc`ul`uc ]
-[c E16222 8 16 32 64 128 .. ]
-[n E16222 _ECAN_RX_MSG_FLAGS ECAN_RX_OVERFLOW ECAN_RX_INVALID_MSG ECAN_RX_XTD_FRAME ECAN_RX_RTR_FRAME ECAN_RX_DBL_BUFFERED  ]
+"803 source/ECAN.c
+[c E16232 8 16 32 64 128 .. ]
+[n E16232 _ECAN_RX_MSG_FLAGS ECAN_RX_OVERFLOW ECAN_RX_INVALID_MSG ECAN_RX_XTD_FRAME ECAN_RX_RTR_FRAME ECAN_RX_DBL_BUFFERED  ]
+"25926 C:\Program Files\Microchip\xc8\v1.20\include\pic18f2585.h
 [s S1639 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1639 . FILHIT0 JTOFF_FILHIT1 RXB0DBEN_FILHIT2 RXRTRRO_FILHIT3 FILHIT4 RXM0_RTRRO RXM1 RXFUL ]
+"25936
 [s S1640 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1640 . . JTOFF RXB0DBEN RXRTRRO . RXM0 ]
+"25944
 [s S1641 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1641 . . FILHIT1 FILHIT2 FILHIT3 . RTRRO ]
+"25952
 [s S1642 :2 `uc 1 :1 `uc 1 ]
 [n S1642 . . RXBODBEN ]
+"25956
 [s S1643 :1 `uc 1 ]
 [n S1643 . RXB0FILHIT0 ]
+"25959
 [s S1644 :1 `uc 1 :1 `uc 1 ]
 [n S1644 . . RXB0FILHIT1 ]
+"25963
 [s S1645 :2 `uc 1 :1 `uc 1 ]
 [n S1645 . . RXB0FILHIT2 ]
+"25967
 [s S1646 :3 `uc 1 :1 `uc 1 ]
 [n S1646 . . RXB0FILHIT3 ]
+"25971
 [s S1647 :4 `uc 1 :1 `uc 1 ]
 [n S1647 . . RXB0FILHIT4 ]
+"25975
 [s S1648 :7 `uc 1 :1 `uc 1 ]
 [n S1648 . . RXB0FUL ]
+"25979
 [s S1649 :5 `uc 1 :1 `uc 1 ]
 [n S1649 . . RXB0M0 ]
+"25983
 [s S1650 :6 `uc 1 :1 `uc 1 ]
 [n S1650 . . RXB0M1 ]
+"25987
 [s S1651 :3 `uc 1 :1 `uc 1 ]
 [n S1651 . . RXB0RTRR0 ]
+"25991
 [s S1652 :5 `uc 1 :1 `uc 1 ]
 [n S1652 . . RXB0RTRRO ]
+"25925
 [u S1638 `S1639 1 `S1640 1 `S1641 1 `S1642 1 `S1643 1 `S1644 1 `S1645 1 `S1646 1 `S1647 1 `S1648 1 `S1649 1 `S1650 1 `S1651 1 `S1652 1 ]
 [n S1638 . . . . . . . . . . . . . . . ]
-"25996 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+"25996
 [v _RXB0CONbits `VS1638 ~T0 @X0 0 e@3936 ]
-"599 /Applications/microchip/xc8/v1.12/include/plib/usart.h
+"599 C:\Program Files\Microchip\xc8\v1.20\include\plib\usart.h
 [v _putsUSART `(v ~T0 @X0 0 ef1`*uc ]
+"30414 C:\Program Files\Microchip\xc8\v1.20\include\pic18f2585.h
 [s S1880 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1880 . RXB0IF RXB1IF TXB0IF TXB1IF TXB2IF ERRIF WAKIF IRXIF ]
+"30424
 [s S1881 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
 [n S1881 . FIFOWMIF RXBnIF . TXBnIF ]
+"30430
 [s S1882 :1 `uc 1 :1 `uc 1 ]
 [n S1882 . . RXBNIF ]
+"30434
 [s S1883 :4 `uc 1 :1 `uc 1 ]
 [n S1883 . . TXBNIF ]
+"30413
 [u S1879 `S1880 1 `S1881 1 `S1882 1 `S1883 1 ]
 [n S1879 . . . . . ]
-"30439 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+"30439
 [v _PIR3bits `VS1879 ~T0 @X0 0 e@4004 ]
+"27687
 [s S1736 :7 `uc 1 :1 `uc 1 ]
 [n S1736 . . RXB0OVFL_NOT_FIFOEMPTY ]
+"27691
 [s S1737 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1737 . EWARN RXWARN TXWARN RXBP TXBP TXBO RXBnOVFL RXB0OVFL_nFIFOEMPTY ]
+"27701
 [s S1738 :7 `uc 1 :1 `uc 1 ]
 [n S1738 . . RXB0OVFL_NOT_FIFOEMPTY ]
+"27705
 [s S1739 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1739 . . RXB1OVFL RXB0OVFL ]
+"27710
 [s S1740 :7 `uc 1 :1 `uc 1 ]
 [n S1740 . . FIFOEMPTY ]
+"27714
 [s S1741 :7 `uc 1 :1 `uc 1 ]
 [n S1741 . . NOT_FIFOEMPTY ]
+"27718
 [s S1742 :7 `uc 1 :1 `uc 1 ]
 [n S1742 . . nFIFOEMPTY ]
+"27722
 [s S1743 :6 `uc 1 :1 `uc 1 ]
 [n S1743 . . RXBNOVFL ]
+"27686
 [u S1735 `S1736 1 `S1737 1 `S1738 1 `S1739 1 `S1740 1 `S1741 1 `S1742 1 `S1743 1 ]
 [n S1735 . . . . . . . . . ]
 "27727
 [v _COMSTATbits `VS1735 ~T0 @X0 0 e@3956 ]
+"24435
 [s S1554 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1554 . FILHIT0 FILHIT1 FILHIT2 RXRTRRO_FILHIT3 FILHIT4 RXM0_RTRRO RXM1 RXFUL ]
+"24445
 [s S1555 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1555 . . RXRTRRO . RXM0 ]
+"24451
 [s S1556 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1556 . . FILHIT3 . RTRRO ]
+"24457
 [s S1557 :1 `uc 1 ]
 [n S1557 . RXB1FILHIT0 ]
+"24460
 [s S1558 :1 `uc 1 :1 `uc 1 ]
 [n S1558 . . RXB1FILHIT1 ]
+"24464
 [s S1559 :2 `uc 1 :1 `uc 1 ]
 [n S1559 . . RXB1FILHIT2 ]
+"24468
 [s S1560 :3 `uc 1 :1 `uc 1 ]
 [n S1560 . . RXB1FILHIT3 ]
+"24472
 [s S1561 :4 `uc 1 :1 `uc 1 ]
 [n S1561 . . RXB1FILHIT4 ]
+"24476
 [s S1562 :7 `uc 1 :1 `uc 1 ]
 [n S1562 . . RXB1FUL ]
+"24480
 [s S1563 :5 `uc 1 :1 `uc 1 ]
 [n S1563 . . RXB1M0 ]
+"24484
 [s S1564 :6 `uc 1 :1 `uc 1 ]
 [n S1564 . . RXB1M1 ]
+"24488
 [s S1565 :3 `uc 1 :1 `uc 1 ]
 [n S1565 . . RXB1RTRR0 ]
+"24492
 [s S1566 :5 `uc 1 :1 `uc 1 ]
 [n S1566 . . RXB1RTRRO ]
+"24434
 [u S1553 `S1554 1 `S1555 1 `S1556 1 `S1557 1 `S1558 1 `S1559 1 `S1560 1 `S1561 1 `S1562 1 `S1563 1 `S1564 1 `S1565 1 `S1566 1 ]
 [n S1553 . . . . . . . . . . . . . . ]
 "24497
 [v _RXB1CONbits `VS1553 ~T0 @X0 0 e@3920 ]
-"205 /Applications/microchip/xc8/v1.12/include/stdio.h
+"205 C:\Program Files\Microchip\xc8\v1.20\include\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "49 source/ECAN.c
 [v __RegsToCANID `(v ~T0 @X0 0 ef3`*uc`*ul`uc ]
-"27377 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+"27377 C:\Program Files\Microchip\xc8\v1.20\include\pic18f2585.h
 [v _CANCON `Vuc ~T0 @X0 0 e@3951 ]
+"1123 source/ECAN.c
 [s S2123 :3 `uc 1 :5 `uc 1 ]
 [n S2123 . SIDL SIDH ]
+"1128
 [s S2124 :3 `uc 1 :5 `uc 1 ]
 [n S2124 . SIDHU EIDL_LN ]
+"1133
 [s S2125 :3 `uc 1 :5 `uc 1 ]
 [n S2125 . EIDL_UN EIDH_LN ]
+"1138
 [s S2126 :3 `uc 1 :2 `uc 1 :3 `uc 1 ]
 [n S2126 . EIDH_UN EIDHU . ]
+"1121
 [s S2122 `S2123 1 `S2124 1 `S2125 1 `S2126 1 ]
 [n S2122 . BYTE1 BYTE2 BYTE3 BYTE4 ]
+"1147
 [s S2127 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S2127 . BYTE_1 BYTE_2 BYTE_3 BYTE_4 ]
+"1153
 [u S2121 `ul 1 `S2122 1 `S2127 1 ]
 [n S2121 _CAN_MESSAGE_ID ID ID_VALS BYTES ]
 [; ;pic18f2585.h: 44: extern volatile unsigned char RXF6SIDH @ 0xD60;
-"46 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+"46 C:\Program Files\Microchip\xc8\v1.20\include\pic18f2585.h
 [; ;pic18f2585.h: 46: asm("RXF6SIDH equ 0D60h");
 [; <" RXF6SIDH equ 0D60h ;# ">
 [; ;pic18f2585.h: 49: typedef union {
@@ -14373,7 +14447,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;compare.h: 386: void CloseCompare1(void);
 [; ;EEP.h: 36: void Busy_eep ( void );
 [; ;EEP.h: 37: unsigned char Read_b_eep( unsigned int badd );
-[; ;EEP.h: 38: void Write_b_eep( unsigned int badd, unsigned char bdata );
+[; ;EEP.h: 38: void Write_b_eep( unsigned int badd, unsigned char bdat );
 [; ;stddef.h: 2: typedef int ptrdiff_t;
 [; ;stddef.h: 3: typedef unsigned size_t;
 [; ;stddef.h: 4: typedef unsigned short wchar_t;
@@ -14905,6 +14979,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xlcd.h: 140: extern void DelayFor18TCY(void);
 [; ;xlcd.h: 141: extern void DelayPORXLCD(void);
 [; ;xlcd.h: 142: extern void DelayXLCD(void);
+[; ;delays.h: 13: void Delay1TCYx(unsigned char);
+[; ;delays.h: 19: void Delay10TCYx(unsigned char);
+[; ;delays.h: 25: void Delay100TCYx(unsigned char);
+[; ;delays.h: 31: void Delay1KTCYx(unsigned char);
+[; ;delays.h: 37: void Delay10KTCYx(unsigned char);
 [; ;pic18.h: 18: __attribute__((__unsupported__("The flash_write routine is no longer supported. Please use the peripheral library functions: WriteBytesFlash, WriteBlockFlash or WriteWordFlash"))) void flash_write(const unsigned char *, unsigned int, __far unsigned c
 [; ;pic18.h: 144: extern void _delay(unsigned long);
 [; ;pic18.h: 146: extern void _delaywdt(unsigned long);
@@ -15019,7 +15098,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;ECAN.c: 171: ECANSetOperationMode(ECAN_OP_MODE_CONFIG);
 "171
-[e ( _ECANSetOperationMode (1 -> . `E16235 5 `E16235 ]
+[e ( _ECANSetOperationMode (1 -> . `E16245 5 `E16245 ]
 [; ;ECAN.c: 175: BRGCON1 = ((2-1) << 6) | (4-1);
 "175
 [e = _BRGCON1 -> | << - -> 2 `i -> 1 `i -> 6 `i - -> 4 `i -> 1 `i `uc ]
@@ -15086,13 +15165,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _RXM1SIDLbits 0 3 -> -> 0 `i `uc ]
 [; ;ECAN.c: 498: ECANSetOperationMode(0x00);
 "498
-[e ( _ECANSetOperationMode (1 -> -> 0 `i `E16235 ]
+[e ( _ECANSetOperationMode (1 -> -> 0 `i `E16245 ]
 [; ;ECAN.c: 500: }
 "500
 [e :UE 2085 ]
 }
 "617
-[v _ECANSendMessage `(uc ~T0 @X0 1 ef4`ul`*uc`uc`E16204 ]
+[v _ECANSendMessage `(uc ~T0 @X0 1 ef4`ul`*uc`uc`E16214 ]
 {
 [; ;ECAN.c: 613: bool ECANSendMessage( unsigned long id,
 [; ;ECAN.c: 614: BYTE* data,
@@ -15103,7 +15182,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _id `ul ~T0 @X0 1 r1 ]
 [v _data `*uc ~T0 @X0 1 r2 ]
 [v _dataLen `uc ~T0 @X0 1 r3 ]
-[v _msgFlags `E16204 ~T0 @X0 1 r4 ]
+[v _msgFlags `E16214 ~T0 @X0 1 r4 ]
 [f ]
 "628
 [v _i `uc ~T0 @X0 1 a ]
@@ -15152,13 +15231,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ECAN.c: 723: *ptr &= ~ECAN_TX_PRIORITY_BITS;
 "723
-[e =& *U _ptr -> ~ -> . `E16204 0 `i `uc ]
+[e =& *U _ptr -> ~ -> . `E16214 0 `i `uc ]
 [; ;ECAN.c: 724: *ptr |= msgFlags & ECAN_TX_PRIORITY_BITS;
 "724
-[e =| *U _ptr -> & -> _msgFlags `i -> . `E16204 0 `i `uc ]
+[e =| *U _ptr -> & -> _msgFlags `i -> . `E16214 0 `i `uc ]
 [; ;ECAN.c: 727: if ( msgFlags & ECAN_TX_RTR_BIT )
 "727
-[e $ ! != & -> _msgFlags `i -> . `E16204 8 `i -> 0 `i 2091  ]
+[e $ ! != & -> _msgFlags `i -> . `E16214 8 `i -> 0 `i 2091  ]
 [; ;ECAN.c: 728: temp = 0x40 | dataLen;
 "728
 [e = _temp -> | -> 64 `i -> _dataLen `i `uc ]
@@ -15175,7 +15254,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + _ptr * -> -> 5 `i `x -> -> # *U _ptr `i `x _temp ]
 [; ;ECAN.c: 735: if ( msgFlags & ECAN_TX_FRAME_BIT )
 "735
-[e $ ! != & -> _msgFlags `i -> . `E16204 5 `i -> 0 `i 2093  ]
+[e $ ! != & -> _msgFlags `i -> . `E16214 5 `i -> 0 `i 2093  ]
 [; ;ECAN.c: 736: temp = 1;
 "736
 [e = _temp -> -> 1 `i `uc ]
@@ -15242,7 +15321,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 2086 ]
 }
 "803
-[v _ECANReceiveMessage `(uc ~T0 @X0 1 ef4`*ul`*uc`*uc`*E16222 ]
+[v _ECANReceiveMessage `(uc ~T0 @X0 1 ef4`*ul`*uc`*uc`*E16232 ]
 {
 [; ;ECAN.c: 799: bool ECANReceiveMessage(unsigned long *id,
 [; ;ECAN.c: 800: BYTE *data,
@@ -15253,7 +15332,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _id `*ul ~T0 @X0 1 r1 ]
 [v _data `*uc ~T0 @X0 1 r2 ]
 [v _dataLen `*uc ~T0 @X0 1 r3 ]
-[v _msgFlags `*E16222 ~T0 @X0 1 r4 ]
+[v _msgFlags `*E16232 ~T0 @X0 1 r4 ]
 [f ]
 "808
 [v _ptr `*uc ~T0 @X0 1 a ]
@@ -15303,7 +15382,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ECAN.c: 840: *msgFlags |= ECAN_RX_OVERFLOW;
 "840
-[e =| *U _msgFlags -> . `E16222 0 `E16222 ]
+[e =| *U _msgFlags -> . `E16232 0 `E16232 ]
 [; ;ECAN.c: 841: COMSTATbits.RXB0OVFL = 0;
 "841
 [e = . . _COMSTATbits 3 2 -> -> 0 `i `uc ]
@@ -15354,7 +15433,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ECAN.c: 865: *msgFlags |= ECAN_RX_OVERFLOW;
 "865
-[e =| *U _msgFlags -> . `E16222 0 `E16222 ]
+[e =| *U _msgFlags -> . `E16232 0 `E16232 ]
 [; ;ECAN.c: 866: COMSTATbits.RXB1OVFL = 0;
 "866
 [e = . . _COMSTATbits 3 1 -> -> 0 `i `uc ]
@@ -15388,7 +15467,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _putsUSART (1 -> :s 12C `*uc ]
 [; ;ECAN.c: 881: *msgFlags |= ECAN_RX_DBL_BUFFERED;
 "881
-[e =| *U _msgFlags -> . `E16222 4 `E16222 ]
+[e =| *U _msgFlags -> . `E16232 4 `E16232 ]
 "882
 }
 [e :U 2106 ]
@@ -15468,7 +15547,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _savedPtr _ptr ]
 [; ;ECAN.c: 991: *msgFlags = 0;
 "991
-[e = *U _msgFlags -> -> 0 `i `E16222 ]
+[e = *U _msgFlags -> -> 0 `i `E16232 ]
 [; ;ECAN.c: 994: temp.Val = *(ptr+5);
 "994
 [e = . _temp 0 *U + _ptr * -> -> 5 `i `x -> -> # *U _ptr `i `x ]
@@ -15480,7 +15559,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ ! != -> . . _temp 1 6 `i -> -> -> 0 `i `uc `i 2109  ]
 [; ;ECAN.c: 999: *msgFlags |= ECAN_RX_RTR_FRAME;
 "999
-[e =| *U _msgFlags -> . `E16222 3 `E16222 ]
+[e =| *U _msgFlags -> . `E16232 3 `E16232 ]
 [e :U 2109 ]
 [; ;ECAN.c: 1002: temp.Val = *(ptr+2);
 "1002
@@ -15493,7 +15572,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ECAN.c: 1005: *msgFlags |= ECAN_RX_XTD_FRAME;
 "1005
-[e =| *U _msgFlags -> . `E16222 2 `E16222 ]
+[e =| *U _msgFlags -> . `E16232 2 `E16232 ]
 [; ;ECAN.c: 1006: temp.Val = 1;
 "1006
 [e = . _temp 0 -> -> 1 `i `uc ]
@@ -15541,7 +15620,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ECAN.c: 1022: *msgFlags |= ECAN_RX_INVALID_MSG;
 "1022
-[e =| *U _msgFlags -> . `E16222 1 `E16222 ]
+[e =| *U _msgFlags -> . `E16232 1 `E16232 ]
 [; ;ECAN.c: 1023: PIR3bits.IRXIF = 0;
 "1023
 [e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
@@ -15585,12 +15664,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 2100 ]
 }
 "1071
-[v _ECANSetOperationMode `(v ~T0 @X0 1 ef1`E16235 ]
+[v _ECANSetOperationMode `(v ~T0 @X0 1 ef1`E16245 ]
 {
 [; ;ECAN.c: 1070: void ECANSetOperationMode(ECAN_OP_MODE mode)
 [; ;ECAN.c: 1071: {
 [e :U _ECANSetOperationMode ]
-[v _mode `E16235 ~T0 @X0 1 r1 ]
+[v _mode `E16245 ~T0 @X0 1 r1 ]
 [f ]
 [; ;ECAN.c: 1072: CANCON &= 0x1F;
 "1072
@@ -15603,7 +15682,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 2118  ]
 [e :U 2119 ]
 [e :U 2118 ]
-[e $ != & -> _CANCON `i -> . `E16235 0 `i -> _mode `i 2119  ]
+[e $ != & -> _CANCON `i -> . `E16245 0 `i -> _mode `i 2119  ]
 [e :U 2120 ]
 [; ;ECAN.c: 1076: }
 "1076

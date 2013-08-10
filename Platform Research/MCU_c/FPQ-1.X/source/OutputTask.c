@@ -1,9 +1,9 @@
-#include "OutputTask.h"
-#include "delays.h"
-#include "Model.h"
+#include "headers/OutputTask.h"
+#include <delays.h>
+#include "headers/Model.h"
 #include <xc.h>        /* XC8 General Include File */
 
-#include "OutputSequences.h"
+#include "headers/OutputSequences.h"
 
 // Private Function Signatures ----------------------
 void IlluminateButton( uint8_t theId );

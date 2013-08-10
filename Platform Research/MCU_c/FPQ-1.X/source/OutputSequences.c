@@ -1,5 +1,5 @@
-#include "OutputSequences.h"
-#include "TimerTask.h"
+#include "headers/OutputSequences.h"
+#include "headers/TimerTask.h"
 
 // Private Function Signatures ---
 t_ButtonColour RedGreenFlash( volatile uint8_t *theState, volatile t_ATime *theTimer );

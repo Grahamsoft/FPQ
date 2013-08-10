@@ -1,10 +1,10 @@
  build/XC8_18F87K22/production/source/TaskManager.d  \
  build/XC8_18F87K22/production/source/TaskManager.p1:  \
  source/TaskManager.c  \
-/Users/David/Projects/FPQ-OnGitHub/Platform\ Research/MCU_c/FPQ-1.X/source/headers/OutputTask.h  \
-/Users/David/Projects/FPQ-OnGitHub/Platform\ Research/MCU_c/FPQ-1.X/source/headers/Model.h  \
-/Users/David/Projects/FPQ-OnGitHub/Platform\ Research/MCU_c/FPQ-1.X/source/headers/OutputSequences.h  \
-/Users/David/Projects/FPQ-OnGitHub/Platform\ Research/MCU_c/FPQ-1.X/source/headers/DataCommsTask.h  \
-/Users/David/Projects/FPQ-OnGitHub/Platform\ Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h  \
-/Users/David/Projects/FPQ-OnGitHub/Platform\ Research/MCU_c/FPQ-1.X/source/headers/TaskManager.h  \
-/Users/David/Projects/FPQ-OnGitHub/Platform\ Research/MCU_c/FPQ-1.X/source/headers/InputTask.h 
+source/headers/OutputTask.h  \
+source/headers/Model.h  \
+source/headers/OutputSequences.h  \
+source/headers/DataCommsTask.h  \
+source/headers/TimerTask.h  \
+source/headers/TaskManager.h  \
+source/headers/InputTask.h 

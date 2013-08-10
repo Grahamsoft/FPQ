@@ -22,8 +22,8 @@
 
 #endif
 
-#include "timers.h"
-#include "TimerTask.h"
+#include <timers.h>
+#include "headers/TimerTask.h"
 
 // Private Signatures ----
 //void Increment_Timer( void );

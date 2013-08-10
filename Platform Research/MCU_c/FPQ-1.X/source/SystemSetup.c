@@ -29,7 +29,7 @@
 #include <timers.h>
 #include <usart.h>
 
-#include "SystemSetup.h"
+#include "headers/SystemSetup.h"
 
 void ConfigureHardware()
 {

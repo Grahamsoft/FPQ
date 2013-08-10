@@ -35,7 +35,7 @@
  * Nilesh R.            7/22/03 Improved.
  ********************************************************************/
 
-#include "ecan.h"
+#include "headers/ecan.h"
 
 #include <usart.h>
 

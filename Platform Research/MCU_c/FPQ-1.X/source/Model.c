@@ -1,6 +1,6 @@
-#include "Model.h"
-#include "OutputSequences.h"
-#include "DataCommsSend.h"
+#include "headers/Model.h"
+#include "headers/OutputSequences.h"
+#include "headers/DataCommsSend.h"
 
 AKey m_Keys[ /*KeyCount*/ 5 ];
 
