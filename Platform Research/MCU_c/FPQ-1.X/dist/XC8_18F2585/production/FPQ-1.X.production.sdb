@@ -1,0 +1,2305 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F2585 ]
+"24 source/Main.c
+[s S55 ATimeStruct 5 `VEuc 1 Millisecond 1 0 `VEuc 1 Second 1 1 `VEuc 1 Minute 1 2 `VEuc 1 Hour 1 3 `VEuc 1 Day 1 4 ]
+[e E15650 _ECAN_RX_MSG_FLAGS `uc
+ECAN_RX_OVERFLOW 8
+ECAN_RX_INVALID_MSG 16
+ECAN_RX_XTD_FRAME 32
+ECAN_RX_RTR_FRAME 64
+ECAN_RX_DBL_BUFFERED 128
+]
+"27 source/DataCommsTask.c
+[s S75 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+[s S83 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[s S86 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+]
+[u S89 . 1 `S75 1 . 1 0 `S83 1 . 1 0 `S86 1 . 1 0 ]
+"30007 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[s S108 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+[s S117 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 BRGH1 1 0 :1:2 
+]
+[s S120 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S123 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SENDB1 1 0 :1:3 
+]
+[s S126 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SYNC1 1 0 :1:4 
+]
+[s S129 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+]
+[s S132 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX91 1 0 :1:6 
+]
+[s S135 . 1 `uc 1 TX9D1 1 0 :1:0 
+]
+[s S137 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 TXEN1 1 0 :1:5 
+]
+[u S140 . 1 `S108 1 . 1 0 `S117 1 . 1 0 `S120 1 . 1 0 `S123 1 . 1 0 `S126 1 . 1 0 `S129 1 . 1 0 `S132 1 . 1 0 `S135 1 . 1 0 `S137 1 . 1 0 ]
+"596 /Applications/microchip/xc8/v1.12/include/plib/usart.h
+[e E15839 . `uc
+e_CANInit 0
+e_CANRead 1
+e_CANWrite 2
+]
+"26 source/headers/TimerTask.h
+[e E15632 _ECAN_TX_MSG_FLAGS `uc
+ECAN_TX_PRIORITY_BITS 3
+ECAN_TX_PRIORITY_0 0
+ECAN_TX_PRIORITY_1 1
+ECAN_TX_PRIORITY_2 2
+ECAN_TX_PRIORITY_3 3
+ECAN_TX_FRAME_BIT 32
+ECAN_TX_STD_FRAME 0
+ECAN_TX_XTD_FRAME 32
+ECAN_TX_RTR_BIT 64
+ECAN_TX_NO_RTR_FRAME 0
+ECAN_TX_RTR_FRAME 64
+]
+"27
+[e E15832 . `uc
+e_DataComsInit 0
+e_ReadStartChar 1
+e_ReadMsg 2
+e_ReadEndChar 3
+e_DoMsgCommand 4
+]
+"57 source/headers/Model.h
+[e E15781 . `uc
+e_Error 0
+e_PressedNo 1
+e_PressedYes 2
+e_BeingServedNo 3
+e_BeingServedYes 4
+]
+"302 source/DataCommsTask.c
+[s S351 ATimeStruct 5 `VEuc 1 Millisecond 1 0 `VEuc 1 Second 1 1 `VEuc 1 Minute 1 2 `VEuc 1 Hour 1 3 `VEuc 1 Day 1 4 ]
+"196 source/TimerTask.c
+[v F16450 `(v  1 t 0 ]
+"214
+[v F16453 `(v  1 t 0 ]
+"28375 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[s S408 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+[s S417 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S426 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[s S435 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S444 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S448 . 1 `S408 1 . 1 0 `S417 1 . 1 0 `S426 1 . 1 0 `S435 1 . 1 0 `S444 1 . 1 0 ]
+"15 source/InputTask.c
+[e E210 . `uc
+e_Error 0
+e_PressedNo 1
+e_PressedYes 2
+e_BeingServedNo 3
+e_BeingServedYes 4
+]
+[s S534 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[s S543 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S552 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 . 1 0 :2:1 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S560 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+]
+[s S563 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S566 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S569 . 1 `S534 1 . 1 0 `S543 1 . 1 0 `S552 1 . 1 0 `S560 1 . 1 0 `S563 1 . 1 0 `S566 1 . 1 0 ]
+"55 source/headers/Model.h
+[s S615 ATimeStruct 5 `VEuc 1 Millisecond 1 0 `VEuc 1 Second 1 1 `VEuc 1 Minute 1 2 `VEuc 1 Hour 1 3 `VEuc 1 Day 1 4 ]
+"26 source/headers/TimerTask.h
+[s S633 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+[s S642 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+`uc 1 OSC1 1 0 :1:7 
+]
+[s S651 . 1 `uc 1 CVREF 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 VREFM 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 HLVDIN 1 0 :1:5 
+`uc 1 CLKO 1 0 :1:6 
+`uc 1 CLKI 1 0 :1:7 
+]
+[s S660 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S663 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SS 1 0 :1:5 
+]
+[s S666 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_SS 1 0 :1:5 
+]
+[s S669 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 nSS 1 0 :1:5 
+]
+[s S672 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RJPU 1 0 :1:7 
+]
+[s S675 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+]
+[u S677 . 1 `S633 1 . 1 0 `S642 1 . 1 0 `S651 1 . 1 0 `S660 1 . 1 0 `S663 1 . 1 0 `S666 1 . 1 0 `S669 1 . 1 0 `S672 1 . 1 0 `S675 1 . 1 0 ]
+"28058 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[s S732 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+[s S741 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CANRX 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S750 . 1 `uc 1 AN10 1 0 :1:0 
+`uc 1 AN8 1 0 :1:1 
+`uc 1 CANTX 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 AN9 1 0 :1:4 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S759 . 1 `uc 1 FLT0 1 0 :1:0 
+]
+[s S761 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S764 . 1 `S732 1 . 1 0 `S741 1 . 1 0 `S750 1 . 1 0 `S759 1 . 1 0 `S761 1 . 1 0 ]
+"9 source/OutputTask.c
+[s S845 ATimeStruct 5 `VEuc 1 Millisecond 1 0 `VEuc 1 Second 1 1 `VEuc 1 Minute 1 2 `VEuc 1 Hour 1 3 `VEuc 1 Day 1 4 ]
+"26 source/headers/TimerTask.h
+[e E194 . `uc
+e_NotSet 0
+e_AllOff 1
+e_SteadyColourA 2
+e_SteadyColourB 3
+e_RedGreenFlash 4
+e_DimmedColourA 5
+e_RapidFlashColourB 6
+e_ColourMix 7
+]
+"11 source/OutputTask.c
+[e E188 . `uc
+e_Unknown 0
+e_Off 1
+e_ColourA 2
+e_ColourB 3
+]
+"34 source/headers/OutputSequences.h
+[s S903 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+[s S912 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+`uc 1 OSC1 1 0 :1:7 
+]
+[s S921 . 1 `uc 1 CVREF 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 VREFM 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 HLVDIN 1 0 :1:5 
+`uc 1 CLKO 1 0 :1:6 
+`uc 1 CLKI 1 0 :1:7 
+]
+[s S930 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S933 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SS 1 0 :1:5 
+]
+[s S936 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_SS 1 0 :1:5 
+]
+[s S939 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 nSS 1 0 :1:5 
+]
+[s S942 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RJPU 1 0 :1:7 
+]
+[s S945 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+]
+[u S947 . 1 `S633 1 . 1 0 `S642 1 . 1 0 `S651 1 . 1 0 `S660 1 . 1 0 `S663 1 . 1 0 `S666 1 . 1 0 `S669 1 . 1 0 `S672 1 . 1 0 `S675 1 . 1 0 ]
+"28058 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[s S958 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[s S967 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S976 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 . 1 0 :2:1 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S984 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+]
+[s S987 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S990 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S993 . 1 `S534 1 . 1 0 `S543 1 . 1 0 `S552 1 . 1 0 `S560 1 . 1 0 `S563 1 . 1 0 `S566 1 . 1 0 ]
+"158 source/OutputTask.c
+[e E208 . `uc
+e_Error 0
+e_PressedNo 1
+e_PressedYes 2
+e_BeingServedNo 3
+e_BeingServedYes 4
+]
+[s S1025 ATimeStruct 5 `VEuc 1 Millisecond 1 0 `VEuc 1 Second 1 1 `VEuc 1 Minute 1 2 `VEuc 1 Hour 1 3 `VEuc 1 Day 1 4 ]
+[e E180 . `uc
+e_NotSet 0
+e_AllOff 1
+e_SteadyColourA 2
+e_SteadyColourB 3
+e_RedGreenFlash 4
+e_DimmedColourA 5
+e_RapidFlashColourB 6
+e_ColourMix 7
+]
+[s S1040 AKeyStruct 17 `VEE208 1 ButtonState 1 0 `VES55 1 InputTimer 5 1 `VES55 1 NextActionTimer 5 6 `VEE180 1 SequenceIdPressedNo 1 11 `VEE180 1 SequenceIdPressedYes 1 12 `VEE180 1 SequenceIdBeingServedNo 1 13 `VEE180 1 SequenceIdBeingServedYes 1 14 `VEuc 1 SequenceState 1 15 `VEuc 1 NextInQueue 1 16 ]
+"166 source/Model.c
+[e E180 . `uc
+e_NotSet 0
+e_AllOff 1
+e_SteadyColourA 2
+e_SteadyColourB 3
+e_RedGreenFlash 4
+e_DimmedColourA 5
+e_RapidFlashColourB 6
+e_ColourMix 7
+]
+[s S1108 ATimeStruct 5 `VEuc 1 Millisecond 1 0 `VEuc 1 Second 1 1 `VEuc 1 Minute 1 2 `VEuc 1 Hour 1 3 `VEuc 1 Day 1 4 ]
+[e E174 . `uc
+e_Unknown 0
+e_Off 1
+e_ColourA 2
+e_ColourB 3
+]
+"136 source/OutputSequences.c
+[s S1165 . 1 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+]
+[u S1174 . 1 `uc 1 Val 1 0 `S1165 1 bits 1 0 ]
+[e E16235 _ECAN_OP_MODE `uc
+ECAN_OP_MODE_BITS 224
+ECAN_OP_MODE_NORMAL 0
+ECAN_OP_MODE_SLEEP 32
+ECAN_OP_MODE_LOOP 64
+ECAN_OP_MODE_LISTEN 96
+ECAN_OP_MODE_CONFIG 128
+]
+"27655 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[s S1193 . 1 `uc 1 EWIN0 1 0 :1:0 
+`uc 1 EWIN1 1 0 :1:1 
+`uc 1 EWIN2 1 0 :1:2 
+`uc 1 EWIN3 1 0 :1:3 
+`uc 1 EWIN4 1 0 :1:4 
+`uc 1 FIFOWM 1 0 :1:5 
+`uc 1 MDSEL0 1 0 :1:6 
+`uc 1 MDSEL1 1 0 :1:7 
+]
+[s S1202 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 F 1 0 :1:5 
+]
+[u S1205 . 1 `S1193 1 . 1 0 `S1202 1 . 1 0 ]
+"19436
+[s S1237 . 1 `uc 1 EID16 1 0 :1:0 
+`uc 1 EID17 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 EXIDEN 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 SID0 1 0 :1:5 
+`uc 1 SID1 1 0 :1:6 
+`uc 1 SID2 1 0 :1:7 
+]
+[s S1246 . 1 `uc 1 RXM0EID16 1 0 :1:0 
+]
+[s S1248 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXM0EID17 1 0 :1:1 
+]
+[s S1251 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXM0EXIDM 1 0 :1:3 
+]
+[s S1254 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXM0SID0 1 0 :1:5 
+]
+[s S1257 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXM0SID1 1 0 :1:6 
+]
+[s S1260 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RXM0SID2 1 0 :1:7 
+]
+[u S1263 . 1 `S1237 1 . 1 0 `S1246 1 . 1 0 `S1248 1 . 1 0 `S1251 1 . 1 0 `S1254 1 . 1 0 `S1257 1 . 1 0 `S1260 1 . 1 0 ]
+"19936
+[s S1300 . 1 `uc 1 EID16 1 0 :1:0 
+`uc 1 EID17 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 EXIDEN 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 SID0 1 0 :1:5 
+`uc 1 SID1 1 0 :1:6 
+`uc 1 SID2 1 0 :1:7 
+]
+[s S1309 . 1 `uc 1 RXM1EID16 1 0 :1:0 
+]
+[s S1311 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXM1EID17 1 0 :1:1 
+]
+[s S1314 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXM1EXIDEN 1 0 :1:3 
+]
+[s S1317 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXM1SID0 1 0 :1:5 
+]
+[s S1320 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXM1SID1 1 0 :1:6 
+]
+[s S1323 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RXM1SID2 1 0 :1:7 
+]
+[u S1326 . 1 `S1237 1 . 1 0 `S1309 1 . 1 0 `S1311 1 . 1 0 `S1314 1 . 1 0 `S1317 1 . 1 0 `S1320 1 . 1 0 `S1323 1 . 1 0 ]
+"19976
+[e E16204 _ECAN_TX_MSG_FLAGS `uc
+ECAN_TX_PRIORITY_BITS 3
+ECAN_TX_PRIORITY_0 0
+ECAN_TX_PRIORITY_1 1
+ECAN_TX_PRIORITY_2 2
+ECAN_TX_PRIORITY_3 3
+ECAN_TX_FRAME_BIT 32
+ECAN_TX_STD_FRAME 0
+ECAN_TX_XTD_FRAME 32
+ECAN_TX_RTR_BIT 64
+ECAN_TX_NO_RTR_FRAME 0
+ECAN_TX_RTR_FRAME 64
+]
+"1310 source/headers/ecan.h
+[e E16222 _ECAN_RX_MSG_FLAGS `uc
+ECAN_RX_OVERFLOW 8
+ECAN_RX_INVALID_MSG 16
+ECAN_RX_XTD_FRAME 32
+ECAN_RX_RTR_FRAME 64
+ECAN_RX_DBL_BUFFERED 128
+]
+[s S1389 . 1 `uc 1 FILHIT0 1 0 :1:0 
+`uc 1 JTOFF_FILHIT1 1 0 :1:1 
+`uc 1 RXB0DBEN_FILHIT2 1 0 :1:2 
+`uc 1 RXRTRRO_FILHIT3 1 0 :1:3 
+`uc 1 FILHIT4 1 0 :1:4 
+`uc 1 RXM0_RTRRO 1 0 :1:5 
+`uc 1 RXM1 1 0 :1:6 
+`uc 1 RXFUL 1 0 :1:7 
+]
+[s S1398 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 JTOFF 1 0 :1:1 
+`uc 1 RXB0DBEN 1 0 :1:2 
+`uc 1 RXRTRRO 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RXM0 1 0 :1:5 
+]
+[s S1405 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 FILHIT1 1 0 :1:1 
+`uc 1 FILHIT2 1 0 :1:2 
+`uc 1 FILHIT3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RTRRO 1 0 :1:5 
+]
+[s S1412 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RXBODBEN 1 0 :1:2 
+]
+[s S1415 . 1 `uc 1 RXB0FILHIT0 1 0 :1:0 
+]
+[s S1417 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXB0FILHIT1 1 0 :1:1 
+]
+[s S1420 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RXB0FILHIT2 1 0 :1:2 
+]
+[s S1423 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXB0FILHIT3 1 0 :1:3 
+]
+[s S1426 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 RXB0FILHIT4 1 0 :1:4 
+]
+[s S1429 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RXB0FUL 1 0 :1:7 
+]
+[s S1432 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXB0M0 1 0 :1:5 
+]
+[s S1435 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXB0M1 1 0 :1:6 
+]
+[s S1438 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXB0RTRR0 1 0 :1:3 
+]
+[s S1441 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXB0RTRRO 1 0 :1:5 
+]
+[u S1444 . 1 `S1389 1 . 1 0 `S1398 1 . 1 0 `S1405 1 . 1 0 `S1412 1 . 1 0 `S1415 1 . 1 0 `S1417 1 . 1 0 `S1420 1 . 1 0 `S1423 1 . 1 0 `S1426 1 . 1 0 `S1429 1 . 1 0 `S1432 1 . 1 0 `S1435 1 . 1 0 `S1438 1 . 1 0 `S1441 1 . 1 0 ]
+"599 /Applications/microchip/xc8/v1.12/include/plib/usart.h
+[s S1516 . 1 `uc 1 RXB0IF 1 0 :1:0 
+`uc 1 RXB1IF 1 0 :1:1 
+`uc 1 TXB0IF 1 0 :1:2 
+`uc 1 TXB1IF 1 0 :1:3 
+`uc 1 TXB2IF 1 0 :1:4 
+`uc 1 ERRIF 1 0 :1:5 
+`uc 1 WAKIF 1 0 :1:6 
+`uc 1 IRXIF 1 0 :1:7 
+]
+[s S1525 . 1 `uc 1 FIFOWMIF 1 0 :1:0 
+`uc 1 RXBnIF 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 TXBnIF 1 0 :1:4 
+]
+[s S1530 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXBNIF 1 0 :1:1 
+]
+[s S1533 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TXBNIF 1 0 :1:4 
+]
+[u S1536 . 1 `S1516 1 . 1 0 `S1525 1 . 1 0 `S1530 1 . 1 0 `S1533 1 . 1 0 ]
+"30439 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[s S1562 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RXB0OVFL_NOT_FIFOEMPTY 1 0 :1:7 
+]
+[s S1565 . 1 `uc 1 EWARN 1 0 :1:0 
+`uc 1 RXWARN 1 0 :1:1 
+`uc 1 TXWARN 1 0 :1:2 
+`uc 1 RXBP 1 0 :1:3 
+`uc 1 TXBP 1 0 :1:4 
+`uc 1 TXBO 1 0 :1:5 
+`uc 1 RXBnOVFL 1 0 :1:6 
+`uc 1 RXB0OVFL_nFIFOEMPTY 1 0 :1:7 
+]
+[s S1574 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RXB0OVFL_NOT_FIFOEMPTY 1 0 :1:7 
+]
+[s S1577 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXB1OVFL 1 0 :1:6 
+`uc 1 RXB0OVFL 1 0 :1:7 
+]
+[s S1581 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 FIFOEMPTY 1 0 :1:7 
+]
+[s S1584 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_FIFOEMPTY 1 0 :1:7 
+]
+[s S1587 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 nFIFOEMPTY 1 0 :1:7 
+]
+[s S1590 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXBNOVFL 1 0 :1:6 
+]
+[u S1593 . 1 `S1562 1 . 1 0 `S1565 1 . 1 0 `S1562 1 . 1 0 `S1577 1 . 1 0 `S1581 1 . 1 0 `S1584 1 . 1 0 `S1587 1 . 1 0 `S1590 1 . 1 0 ]
+"27727
+[s S1634 . 1 `uc 1 FILHIT0 1 0 :1:0 
+`uc 1 FILHIT1 1 0 :1:1 
+`uc 1 FILHIT2 1 0 :1:2 
+`uc 1 RXRTRRO_FILHIT3 1 0 :1:3 
+`uc 1 FILHIT4 1 0 :1:4 
+`uc 1 RXM0_RTRRO 1 0 :1:5 
+`uc 1 RXM1 1 0 :1:6 
+`uc 1 RXFUL 1 0 :1:7 
+]
+[s S1643 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXRTRRO 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RXM0 1 0 :1:5 
+]
+[s S1648 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 FILHIT3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RTRRO 1 0 :1:5 
+]
+[s S1653 . 1 `uc 1 RXB1FILHIT0 1 0 :1:0 
+]
+[s S1655 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXB1FILHIT1 1 0 :1:1 
+]
+[s S1658 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RXB1FILHIT2 1 0 :1:2 
+]
+[s S1661 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXB1FILHIT3 1 0 :1:3 
+]
+[s S1664 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 RXB1FILHIT4 1 0 :1:4 
+]
+[s S1667 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RXB1FUL 1 0 :1:7 
+]
+[s S1670 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXB1M0 1 0 :1:5 
+]
+[s S1673 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXB1M1 1 0 :1:6 
+]
+[s S1676 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXB1RTRR0 1 0 :1:3 
+]
+[s S1679 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXB1RTRRO 1 0 :1:5 
+]
+[u S1682 . 1 `S1634 1 . 1 0 `S1643 1 . 1 0 `S1648 1 . 1 0 `S1653 1 . 1 0 `S1655 1 . 1 0 `S1658 1 . 1 0 `S1661 1 . 1 0 `S1664 1 . 1 0 `S1667 1 . 1 0 `S1670 1 . 1 0 `S1673 1 . 1 0 `S1676 1 . 1 0 `S1679 1 . 1 0 ]
+"27377
+[s S1754 . 1 `uc 1 SIDL 1 0 :3:0 
+`uc 1 SIDH 1 0 :5:3 
+]
+[s S1757 . 1 `uc 1 SIDHU 1 0 :3:0 
+`uc 1 EIDL_LN 1 0 :5:3 
+]
+[s S1760 . 1 `uc 1 EIDL_UN 1 0 :3:0 
+`uc 1 EIDH_LN 1 0 :5:3 
+]
+[s S1763 . 1 `uc 1 EIDH_UN 1 0 :3:0 
+`uc 1 EIDHU 1 0 :2:3 
+`uc 1 . 1 0 :3:5 
+]
+[s S1767 . 4 `S1754 1 BYTE1 1 0 `S1757 1 BYTE2 1 1 `S1760 1 BYTE3 1 2 `S1763 1 BYTE4 1 3 ]
+[s S1772 . 4 `uc 1 BYTE_1 1 0 `uc 1 BYTE_2 1 1 `uc 1 BYTE_3 1 2 `uc 1 BYTE_4 1 3 ]
+[u S1777 _CAN_MESSAGE_ID 4 `ul 1 ID 4 0 `S1767 1 ID_VALS 4 0 `S1772 1 BYTES 4 0 ]
+"533 /Applications/microchip/xc8/v1.12/sources/doprnt.c
+[s S1955 . 5 `*.MCuc 1 _cp 3 0 `ui 1 _len 2 3 ]
+[u S1958 . 5 `ui 1 _val 2 0 `S1955 1 _str 5 0 ]
+"33095 /Volumes/build/bamboo/xml-data/build-dir/XC8-RELEASE-JOB1/nz/build/dist/osx/include/pic18f2585.h
+[s S1969 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"33095
+[s S1978 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"33095
+[s S1987 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+"33095
+[s S1996 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"33095
+[s S2005 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+"33095
+[u S2009 . 1 `S408 1 . 1 0 `S417 1 . 1 0 `S426 1 . 1 0 `S435 1 . 1 0 `S444 1 . 1 0 ]
+"33560
+[s S2016 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"33560
+[s S2023 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+`uc 1 T0PS3 1 0 :1:3 
+]
+"33560
+[u S2028 . 1 `S2016 1 . 1 0 `S2023 1 . 1 0 ]
+"31 plib/Timers/t0open.c
+[u S2052 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+"30697 /Volumes/build/bamboo/xml-data/build-dir/XC8-RELEASE-JOB1/nz/build/dist/osx/include/pic18f2585.h
+[s S2064 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+[s S2073 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 BRGH1 1 0 :1:2 
+]
+[s S2076 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S2079 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SENDB1 1 0 :1:3 
+]
+[s S2082 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SYNC1 1 0 :1:4 
+]
+[s S2085 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+]
+[s S2088 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX91 1 0 :1:6 
+]
+[s S2091 . 1 `uc 1 TX9D1 1 0 :1:0 
+]
+[s S2093 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 TXEN1 1 0 :1:5 
+]
+[u S2096 . 1 `S108 1 . 1 0 `S117 1 . 1 0 `S120 1 . 1 0 `S123 1 . 1 0 `S126 1 . 1 0 `S129 1 . 1 0 `S132 1 . 1 0 `S135 1 . 1 0 `S137 1 . 1 0 ]
+"30907
+[s S2107 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+[s S2116 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S2119 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[u S2122 . 1 `S2107 1 . 1 0 `S2116 1 . 1 0 `S2119 1 . 1 0 ]
+"30727
+[s S2142 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+[s S2150 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[s S2153 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+]
+[u S2156 . 1 `S75 1 . 1 0 `S83 1 . 1 0 `S86 1 . 1 0 ]
+"30007
+[s S2161 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+[s S2169 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RC1IE 1 0 :1:5 
+]
+[s S2172 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IE 1 0 :1:4 
+]
+[u S2175 . 1 `S2161 1 . 1 0 `S2169 1 . 1 0 `S2172 1 . 1 0 ]
+"31150
+[s S2196 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+[s S2205 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S2214 . 1 `S2196 1 . 1 0 `S534 1 . 1 0 ]
+"143 plib/USART/uopen.c
+[s S2264 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+[s S2273 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 BRGH1 1 0 :1:2 
+]
+[s S2276 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S2279 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SENDB1 1 0 :1:3 
+]
+[s S2282 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SYNC1 1 0 :1:4 
+]
+[s S2285 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+]
+[s S2288 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX91 1 0 :1:6 
+]
+[s S2291 . 1 `uc 1 TX9D1 1 0 :1:0 
+]
+[s S2293 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 TXEN1 1 0 :1:5 
+]
+[u S2296 . 1 `S108 1 . 1 0 `S117 1 . 1 0 `S120 1 . 1 0 `S123 1 . 1 0 `S126 1 . 1 0 `S129 1 . 1 0 `S132 1 . 1 0 `S135 1 . 1 0 `S137 1 . 1 0 ]
+"21 plib/USART/uputs.c
+[s S2314 . 1 `uc 1 RX_NINE 1 0 :1:0 
+`uc 1 TX_NINE 1 0 :1:1 
+`uc 1 FRAME_ERROR 1 0 :1:2 
+`uc 1 OVERRUN_ERROR 1 0 :1:3 
+`uc 1 fill 1 0 :4:4 
+]
+[u S2320 USART 1 `uc 1 val 1 0 `S2314 1 . 1 0 ]
+"580 /Volumes/build/bamboo/xml-data/build-dir/XC8-RELEASE-JOB1/nz/build/dist/osx/include/plib/usart.h
+[s S2331 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+[s S2340 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S2343 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[u S2346 . 1 `S2107 1 . 1 0 `S2116 1 . 1 0 `S2119 1 . 1 0 ]
+"37 plib/USART/uread.c
+[s S2359 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+[s S2368 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 BRGH1 1 0 :1:2 
+]
+[s S2371 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S2374 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SENDB1 1 0 :1:3 
+]
+[s S2377 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SYNC1 1 0 :1:4 
+]
+[s S2380 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+]
+[s S2383 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX91 1 0 :1:6 
+]
+[s S2386 . 1 `uc 1 TX9D1 1 0 :1:0 
+]
+[s S2388 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 TXEN1 1 0 :1:5 
+]
+[u S2391 . 1 `S108 1 . 1 0 `S117 1 . 1 0 `S120 1 . 1 0 `S123 1 . 1 0 `S126 1 . 1 0 `S129 1 . 1 0 `S132 1 . 1 0 `S135 1 . 1 0 `S137 1 . 1 0 ]
+"30907 /Volumes/build/bamboo/xml-data/build-dir/XC8-RELEASE-JOB1/nz/build/dist/osx/include/pic18f2585.h
+[s S2402 . 1 `uc 1 RX_NINE 1 0 :1:0 
+`uc 1 TX_NINE 1 0 :1:1 
+`uc 1 FRAME_ERROR 1 0 :1:2 
+`uc 1 OVERRUN_ERROR 1 0 :1:3 
+`uc 1 fill 1 0 :4:4 
+]
+[u S2408 USART 1 `uc 1 val 1 0 `S2314 1 . 1 0 ]
+"7 ../common/aslmul.c
+[s S2702 . 1 `uc 1 RX_NINE 1 0 :1:0 
+`uc 1 TX_NINE 1 0 :1:1 
+`uc 1 FRAME_ERROR 1 0 :1:2 
+`uc 1 OVERRUN_ERROR 1 0 :1:3 
+`uc 1 fill 1 0 :4:4 
+]
+[u S2708 USART 1 `uc 1 val 1 0 `S2314 1 . 1 0 ]
+"5 ../common/asfladd.c
+[v ___asfladd `(d  1 e 3 0 ]
+"5 ../common/asfldiv.c
+[v ___asfldiv `(d  1 e 3 0 ]
+"5 ../common/asflmul.c
+[v ___asflmul `(d  1 e 3 0 ]
+"5 ../common/asflsub.c
+[v ___asflsub `(d  1 e 3 0 ]
+"5 ../common/asftadd.c
+[v ___asftadd `(f  1 e 3 0 ]
+"5 ../common/asftdiv.c
+[v ___asftdiv `(f  1 e 3 0 ]
+"5 ../common/asftmul.c
+[v ___asftmul `(f  1 e 3 0 ]
+"5 ../common/asftsub.c
+[v ___asftsub `(f  1 e 3 0 ]
+"5 ../common/aslmul.c
+[v ___aslmul `(ul  1 e 4 0 ]
+"5 /Applications/microchip/xc8/v1.12/sources/abdiv.c
+[v ___abdiv `(c  1 e 1 0 ]
+"5 /Applications/microchip/xc8/v1.12/sources/abmod.c
+[v ___abmod `(c  1 e 1 0 ]
+"32 /Applications/microchip/xc8/v1.12/sources/abtofl.c
+[v ___abtofl `(d  1 e 3 0 ]
+"34 /Applications/microchip/xc8/v1.12/sources/abtoft.c
+[v ___abtoft `(f  1 e 3 0 ]
+"10 /Applications/microchip/xc8/v1.12/sources/aldiv.c
+[v ___aldiv `(l  1 e 4 0 ]
+"10 /Applications/microchip/xc8/v1.12/sources/almod.c
+[v ___almod `(l  1 e 4 0 ]
+"37 /Applications/microchip/xc8/v1.12/sources/altofl.c
+[v ___altofl `(d  1 e 3 0 ]
+"43 /Applications/microchip/xc8/v1.12/sources/altoft.c
+[v ___altoft `(f  1 e 3 0 ]
+"10 /Applications/microchip/xc8/v1.12/sources/atdiv.c
+[v ___atdiv `(m  1 e 3 0 ]
+"10 /Applications/microchip/xc8/v1.12/sources/atmod.c
+[v ___atmod `(m  1 e 3 0 ]
+"38 /Applications/microchip/xc8/v1.12/sources/attofl.c
+[v ___attofl `(d  1 e 3 0 ]
+"38 /Applications/microchip/xc8/v1.12/sources/attoft.c
+[v ___attoft `(f  1 e 3 0 ]
+"10 /Applications/microchip/xc8/v1.12/sources/awdiv.c
+[v ___awdiv `(i  1 e 2 0 ]
+"10 /Applications/microchip/xc8/v1.12/sources/awmod.c
+[v ___awmod `(i  1 e 2 0 ]
+"32 /Applications/microchip/xc8/v1.12/sources/awtofl.c
+[v ___awtofl `(d  1 e 3 0 ]
+"33 /Applications/microchip/xc8/v1.12/sources/awtoft.c
+[v ___awtoft `(f  1 e 3 0 ]
+"3 /Applications/microchip/xc8/v1.12/sources/bmul.c
+[v ___bmul `(uc  1 e 1 0 ]
+"493 /Applications/microchip/xc8/v1.12/sources/doprnt.c
+[v _sprintf `(i  1 e 2 0 ]
+"64 /Applications/microchip/xc8/v1.12/sources/double.c
+[v ___flpack `(d  1 e 3 0 ]
+"89 /Applications/microchip/xc8/v1.12/sources/fladd.c
+[v ___fladd `(d  1 e 3 0 ]
+"50 /Applications/microchip/xc8/v1.12/sources/fldiv.c
+[v ___fldiv `(d  1 e 3 0 ]
+"5 /Applications/microchip/xc8/v1.12/sources/flge.c
+[v ___flge `(b  1 e 0 0 ]
+"51 /Applications/microchip/xc8/v1.12/sources/flmul.c
+[v ___flmul `(d  1 e 3 0 ]
+"16 /Applications/microchip/xc8/v1.12/sources/flneg.c
+[v ___flneg `(d  1 e 3 0 ]
+"63 /Applications/microchip/xc8/v1.12/sources/float.c
+[v ___ftpack `(f  1 e 3 0 ]
+"22 /Applications/microchip/xc8/v1.12/sources/flsub.c
+[v ___flsub `(d  1 e 3 0 ]
+"44 /Applications/microchip/xc8/v1.12/sources/fltol.c
+[v ___fltol `(l  1 e 4 0 ]
+"87 /Applications/microchip/xc8/v1.12/sources/ftadd.c
+[v ___ftadd `(f  1 e 3 0 ]
+"50 /Applications/microchip/xc8/v1.12/sources/ftdiv.c
+[v ___ftdiv `(f  1 e 3 0 ]
+"5 /Applications/microchip/xc8/v1.12/sources/ftge.c
+[v ___ftge `(b  1 e 0 0 ]
+"52 /Applications/microchip/xc8/v1.12/sources/ftmul.c
+[v ___ftmul `(f  1 e 3 0 ]
+"16 /Applications/microchip/xc8/v1.12/sources/ftneg.c
+[v ___ftneg `(f  1 e 3 0 ]
+"22 /Applications/microchip/xc8/v1.12/sources/ftsub.c
+[v ___ftsub `(f  1 e 3 0 ]
+"45 /Applications/microchip/xc8/v1.12/sources/fttol.c
+[v ___fttol `(l  1 e 4 0 ]
+"5 /Applications/microchip/xc8/v1.12/sources/lbdiv.c
+[v ___lbdiv `(uc  1 e 1 0 ]
+"5 /Applications/microchip/xc8/v1.12/sources/lbmod.c
+[v ___lbmod `(uc  1 e 1 0 ]
+"28 /Applications/microchip/xc8/v1.12/sources/lbtofl.c
+[v ___lbtofl `(d  1 e 3 0 ]
+"28 /Applications/microchip/xc8/v1.12/sources/lbtoft.c
+[v ___lbtoft `(f  1 e 3 0 ]
+"10 /Applications/microchip/xc8/v1.12/sources/lldiv.c
+[v ___lldiv `(ul  1 e 4 0 ]
+"10 /Applications/microchip/xc8/v1.12/sources/llmod.c
+[v ___llmod `(ul  1 e 4 0 ]
+"31 /Applications/microchip/xc8/v1.12/sources/lltofl.c
+[v ___lltofl `(d  1 e 3 0 ]
+"36 /Applications/microchip/xc8/v1.12/sources/lltoft.c
+[v ___lltoft `(f  1 e 3 0 ]
+"3 /Applications/microchip/xc8/v1.12/sources/lmul.c
+[v ___lmul `(ul  1 e 4 0 ]
+"10 /Applications/microchip/xc8/v1.12/sources/ltdiv.c
+[v ___ltdiv `(um  1 e 3 0 ]
+"10 /Applications/microchip/xc8/v1.12/sources/ltmod.c
+[v ___ltmod `(um  1 e 3 0 ]
+"31 /Applications/microchip/xc8/v1.12/sources/lttofl.c
+[v ___lttofl `(d  1 e 3 0 ]
+"31 /Applications/microchip/xc8/v1.12/sources/lttoft.c
+[v ___lttoft `(f  1 e 3 0 ]
+"10 /Applications/microchip/xc8/v1.12/sources/lwdiv.c
+[v ___lwdiv `(ui  1 e 2 0 ]
+"10 /Applications/microchip/xc8/v1.12/sources/lwmod.c
+[v ___lwmod `(ui  1 e 2 0 ]
+"29 /Applications/microchip/xc8/v1.12/sources/lwtofl.c
+[v ___lwtofl `(d  1 e 3 0 ]
+"29 /Applications/microchip/xc8/v1.12/sources/lwtoft.c
+[v ___lwtoft `(f  1 e 3 0 ]
+"3 /Applications/microchip/xc8/v1.12/sources/tmul.c
+[v ___tmul `(um  1 e 3 0 ]
+"3 /Applications/microchip/xc8/v1.12/sources/wmul.c
+[v ___wmul `(ui  1 e 2 0 ]
+"19 plib/Timers/t0open.c
+[v _OpenTimer0 `(v  1 e 0 0 ]
+"17 plib/Timers/t0write.c
+[v _WriteTimer0 `(v  1 e 0 0 ]
+"74 plib/USART/uopen.c
+[v _OpenUSART `(v  1 e 0 0 ]
+"15 plib/USART/uputs.c
+[v _putsUSART `(v  1 e 0 0 ]
+"16 plib/USART/uread.c
+[v _ReadUSART `(uc  1 e 1 0 ]
+"14 plib/USART/uwrite.c
+[v _WriteUSART `(v  1 e 0 0 ]
+"75 source/DataCommsTask.c
+[v _DataCommsTask `(i  1 e 2 0 ]
+"82
+[v _GetSerialChar `(uc  1 e 1 0 ]
+"94
+[v _CanCommsTask `(v  1 e 0 0 ]
+"207
+[v _UartCommsTask `(v  1 e 0 0 ]
+"296
+[v _CustomerWating `(v  1 e 0 0 ]
+"300
+[v _CustomerBeingServed `(v  1 e 0 0 ]
+"168 source/ECAN.c
+[v _ECANInitialize `(v  1 e 0 0 ]
+"617
+[v _ECANSendMessage `(uc  1 e 1 0 ]
+"803
+[v _ECANReceiveMessage `(uc  1 e 1 0 ]
+"1071
+[v _ECANSetOperationMode `(v  1 e 0 0 ]
+"1158
+[v __CANIDToRegs `(v  1 e 0 0 ]
+"1215
+[v __RegsToCANID `(v  1 e 0 0 ]
+"20 source/InputTask.c
+[v _InputTask `(v  1 e 0 0 ]
+"30
+[v _MonitorBartenderButton `(v  1 e 0 0 ]
+"69
+[v _MonitorButton `(v  1 e 0 0 ]
+"106
+[v _ButtonBeingPressed `(uc  1 e 1 0 ]
+"17 source/Main.c
+[v _main `(v  1 e 0 0 ]
+"10 source/Model.c
+[v _SetKeyState `(v  1 e 0 0 ]
+"53
+[v _GetHeadOfQueue `(uc  1 e 1 0 ]
+"58
+[v _GetKeyState `(E15781  1 e 1 0 ]
+[s S55 ATimeStruct 5 `VEuc 1 Millisecond 1 0 `VEuc 1 Second 1 1 `VEuc 1 Minute 1 2 `VEuc 1 Hour 1 3 `VEuc 1 Day 1 4 ]
+"63
+[v _GetKeyTimer `(*.MVES55  1 e 2 0 ]
+"68
+[v _GetKeyInputTimer `(*.MVES55  1 e 2 0 ]
+"73
+[v _GetSequenceState `(*.MVEuc  1 e 2 0 ]
+"84
+[v _GetSequence `(E194  1 e 1 0 ]
+"107
+[v _InitKeys `(v  1 e 0 0 ]
+"12 source/OutputSequences.c
+[v _GetColour `(E188  1 e 1 0 ]
+"53
+[v _RedGreenFlash `(E174  1 e 1 0 ]
+"75
+[v _DimmedColourA `(E174  1 e 1 0 ]
+"97
+[v _RapidFlashColourB `(E174  1 e 1 0 ]
+"118
+[v _ColourMix `(E174  1 e 1 0 ]
+"16 source/OutputTask.c
+[v _OutputTask `(v  1 e 0 0 ]
+"24
+[v _IlluminateButton `(v  1 e 0 0 ]
+"50
+[v _ColourATest `(v  1 e 0 0 ]
+"59
+[v _ColourBTest `(v  1 e 0 0 ]
+"68
+[v _ColourA `(v  1 e 0 0 ]
+"99
+[v _ColourB `(v  1 e 0 0 ]
+"130
+[v _ColourNone `(v  1 e 0 0 ]
+"35 source/SystemSetup.c
+[v _ConfigureHardware `(v  1 e 0 0 ]
+"17 source/TaskManager.c
+[v _TaskManager `(v  1 e 0 0 ]
+"43 source/TimerTask.c
+[v _InitTime `(v  1 e 0 0 ]
+"52
+[v _Increment_Timer `(v  1 e 0 0 ]
+"86
+[v _CalculateFutureTime `(v  1 e 0 0 ]
+"156
+[v _MaturedTimer `(uc  1 e 1 0 ]
+"196
+[v _LowPriorityISR `IIL(v  1 e 0 0 ]
+"214
+[v _ISR `II(v  1 e 0 0 ]
+"16250 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[v _RXF0SIDH `VEuc  1 e 1 @3840 ]
+"16382
+[v _RXF0SIDL `VEuc  1 e 1 @3841 ]
+"16759
+[v _RXF1SIDH `VEuc  1 e 1 @3844 ]
+"16891
+[v _RXF1SIDL `VEuc  1 e 1 @3845 ]
+"17268
+[v _RXF2SIDH `VEuc  1 e 1 @3848 ]
+"17400
+[v _RXF2SIDL `VEuc  1 e 1 @3849 ]
+"17777
+[v _RXF3SIDH `VEuc  1 e 1 @3852 ]
+"17909
+[v _RXF3SIDL `VEuc  1 e 1 @3853 ]
+"18286
+[v _RXF4SIDH `VEuc  1 e 1 @3856 ]
+"18418
+[v _RXF4SIDL `VEuc  1 e 1 @3857 ]
+"18795
+[v _RXF5SIDH `VEuc  1 e 1 @3860 ]
+"18927
+[v _RXF5SIDL `VEuc  1 e 1 @3861 ]
+"19304
+[v _RXM0SIDH `VEuc  1 e 1 @3864 ]
+"19436
+[v _RXM0SIDL `VEuc  1 e 1 @3865 ]
+[s S1237 . 1 `uc 1 EID16 1 0 :1:0 
+`uc 1 EID17 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 EXIDEN 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 SID0 1 0 :1:5 
+`uc 1 SID1 1 0 :1:6 
+`uc 1 SID2 1 0 :1:7 
+]
+"19476
+[s S1246 . 1 `uc 1 RXM0EID16 1 0 :1:0 
+]
+[s S1248 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXM0EID17 1 0 :1:1 
+]
+[s S1251 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXM0EXIDM 1 0 :1:3 
+]
+[s S1254 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXM0SID0 1 0 :1:5 
+]
+[s S1257 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXM0SID1 1 0 :1:6 
+]
+[s S1260 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RXM0SID2 1 0 :1:7 
+]
+[u S1263 . 1 `S1237 1 . 1 0 `S1246 1 . 1 0 `S1248 1 . 1 0 `S1251 1 . 1 0 `S1254 1 . 1 0 `S1257 1 . 1 0 `S1260 1 . 1 0 ]
+[v _RXM0SIDLbits `VES1263  1 e 1 @3865 ]
+"19804
+[v _RXM1SIDH `VEuc  1 e 1 @3868 ]
+"19936
+[v _RXM1SIDL `VEuc  1 e 1 @3869 ]
+"19976
+[v _RXM1SIDLbits `VES1263  1 e 1 @3869 ]
+"20304
+[v _TXB2CON `VEuc  1 e 1 @3872 ]
+"21682
+[v _TXB1CON `VEuc  1 e 1 @3888 ]
+"23060
+[v _TXB0CON `VEuc  1 e 1 @3904 ]
+"24429
+[v _RXB1CON `VEuc  1 e 1 @3920 ]
+[s S1634 . 1 `uc 1 FILHIT0 1 0 :1:0 
+`uc 1 FILHIT1 1 0 :1:1 
+`uc 1 FILHIT2 1 0 :1:2 
+`uc 1 RXRTRRO_FILHIT3 1 0 :1:3 
+`uc 1 FILHIT4 1 0 :1:4 
+`uc 1 RXM0_RTRRO 1 0 :1:5 
+`uc 1 RXM1 1 0 :1:6 
+`uc 1 RXFUL 1 0 :1:7 
+]
+"24497
+[s S1643 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXRTRRO 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RXM0 1 0 :1:5 
+]
+[s S1648 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 FILHIT3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RTRRO 1 0 :1:5 
+]
+[s S1653 . 1 `uc 1 RXB1FILHIT0 1 0 :1:0 
+]
+[s S1655 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXB1FILHIT1 1 0 :1:1 
+]
+[s S1658 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RXB1FILHIT2 1 0 :1:2 
+]
+[s S1661 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXB1FILHIT3 1 0 :1:3 
+]
+[s S1664 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 RXB1FILHIT4 1 0 :1:4 
+]
+[s S1667 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RXB1FUL 1 0 :1:7 
+]
+[s S1670 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXB1M0 1 0 :1:5 
+]
+[s S1673 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXB1M1 1 0 :1:6 
+]
+[s S1676 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXB1RTRR0 1 0 :1:3 
+]
+[s S1679 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXB1RTRRO 1 0 :1:5 
+]
+[u S1682 . 1 `S1634 1 . 1 0 `S1643 1 . 1 0 `S1648 1 . 1 0 `S1653 1 . 1 0 `S1655 1 . 1 0 `S1658 1 . 1 0 `S1661 1 . 1 0 `S1664 1 . 1 0 `S1667 1 . 1 0 `S1670 1 . 1 0 `S1673 1 . 1 0 `S1676 1 . 1 0 `S1679 1 . 1 0 ]
+[v _RXB1CONbits `VES1682  1 e 1 @3920 ]
+"25920
+[v _RXB0CON `VEuc  1 e 1 @3936 ]
+[s S1389 . 1 `uc 1 FILHIT0 1 0 :1:0 
+`uc 1 JTOFF_FILHIT1 1 0 :1:1 
+`uc 1 RXB0DBEN_FILHIT2 1 0 :1:2 
+`uc 1 RXRTRRO_FILHIT3 1 0 :1:3 
+`uc 1 FILHIT4 1 0 :1:4 
+`uc 1 RXM0_RTRRO 1 0 :1:5 
+`uc 1 RXM1 1 0 :1:6 
+`uc 1 RXFUL 1 0 :1:7 
+]
+"25996
+[s S1398 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 JTOFF 1 0 :1:1 
+`uc 1 RXB0DBEN 1 0 :1:2 
+`uc 1 RXRTRRO 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RXM0 1 0 :1:5 
+]
+[s S1405 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 FILHIT1 1 0 :1:1 
+`uc 1 FILHIT2 1 0 :1:2 
+`uc 1 FILHIT3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RTRRO 1 0 :1:5 
+]
+[s S1412 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RXBODBEN 1 0 :1:2 
+]
+[s S1415 . 1 `uc 1 RXB0FILHIT0 1 0 :1:0 
+]
+[s S1417 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXB0FILHIT1 1 0 :1:1 
+]
+[s S1420 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RXB0FILHIT2 1 0 :1:2 
+]
+[s S1423 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXB0FILHIT3 1 0 :1:3 
+]
+[s S1426 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 RXB0FILHIT4 1 0 :1:4 
+]
+[s S1429 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RXB0FUL 1 0 :1:7 
+]
+[s S1432 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXB0M0 1 0 :1:5 
+]
+[s S1435 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXB0M1 1 0 :1:6 
+]
+[s S1438 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RXB0RTRR0 1 0 :1:3 
+]
+[s S1441 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXB0RTRRO 1 0 :1:5 
+]
+[u S1444 . 1 `S1389 1 . 1 0 `S1398 1 . 1 0 `S1405 1 . 1 0 `S1412 1 . 1 0 `S1415 1 . 1 0 `S1417 1 . 1 0 `S1420 1 . 1 0 `S1423 1 . 1 0 `S1426 1 . 1 0 `S1429 1 . 1 0 `S1432 1 . 1 0 `S1435 1 . 1 0 `S1438 1 . 1 0 `S1441 1 . 1 0 ]
+[v _RXB0CONbits `VES1444  1 e 1 @3936 ]
+"27377
+[v _CANCON `VEuc  1 e 1 @3951 ]
+"27480
+[v _BRGCON1 `VEuc  1 e 1 @3952 ]
+"27541
+[v _BRGCON2 `VEuc  1 e 1 @3953 ]
+"27611
+[v _BRGCON3 `VEuc  1 e 1 @3954 ]
+"27655
+[v _CIOCON `VEuc  1 e 1 @3955 ]
+[s S1562 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RXB0OVFL_NOT_FIFOEMPTY 1 0 :1:7 
+]
+"27727
+[s S1565 . 1 `uc 1 EWARN 1 0 :1:0 
+`uc 1 RXWARN 1 0 :1:1 
+`uc 1 TXWARN 1 0 :1:2 
+`uc 1 RXBP 1 0 :1:3 
+`uc 1 TXBP 1 0 :1:4 
+`uc 1 TXBO 1 0 :1:5 
+`uc 1 RXBnOVFL 1 0 :1:6 
+`uc 1 RXB0OVFL_nFIFOEMPTY 1 0 :1:7 
+]
+[s S1577 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXB1OVFL 1 0 :1:6 
+`uc 1 RXB0OVFL 1 0 :1:7 
+]
+[s S1581 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 FIFOEMPTY 1 0 :1:7 
+]
+[s S1584 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_FIFOEMPTY 1 0 :1:7 
+]
+[s S1587 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 nFIFOEMPTY 1 0 :1:7 
+]
+[s S1590 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXBNOVFL 1 0 :1:6 
+]
+[u S1593 . 1 `S1562 1 . 1 0 `S1565 1 . 1 0 `S1562 1 . 1 0 `S1577 1 . 1 0 `S1581 1 . 1 0 `S1584 1 . 1 0 `S1587 1 . 1 0 `S1590 1 . 1 0 ]
+[v _COMSTATbits `VES1593  1 e 1 @3956 ]
+[s S1193 . 1 `uc 1 EWIN0 1 0 :1:0 
+`uc 1 EWIN1 1 0 :1:1 
+`uc 1 EWIN2 1 0 :1:2 
+`uc 1 EWIN3 1 0 :1:3 
+`uc 1 EWIN4 1 0 :1:4 
+`uc 1 FIFOWM 1 0 :1:5 
+`uc 1 MDSEL0 1 0 :1:6 
+`uc 1 MDSEL1 1 0 :1:7 
+]
+"27949
+[s S1202 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 F 1 0 :1:5 
+]
+[u S1205 . 1 `S1193 1 . 1 0 `S1202 1 . 1 0 ]
+[v _ECANCONbits `VES1205  1 e 1 @3959 ]
+"27998
+[v _PORTA `VEuc  1 e 1 @3968 ]
+[s S633 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"28058
+[s S642 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+`uc 1 OSC1 1 0 :1:7 
+]
+[s S651 . 1 `uc 1 CVREF 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 VREFM 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 HLVDIN 1 0 :1:5 
+`uc 1 CLKO 1 0 :1:6 
+`uc 1 CLKI 1 0 :1:7 
+]
+[s S660 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S663 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SS 1 0 :1:5 
+]
+[s S666 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_SS 1 0 :1:5 
+]
+[s S669 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 nSS 1 0 :1:5 
+]
+[s S672 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RJPU 1 0 :1:7 
+]
+[s S675 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+]
+[u S677 . 1 `S633 1 . 1 0 `S642 1 . 1 0 `S651 1 . 1 0 `S660 1 . 1 0 `S663 1 . 1 0 `S666 1 . 1 0 `S669 1 . 1 0 `S672 1 . 1 0 `S675 1 . 1 0 ]
+[v _PORTAbits `VES677  1 e 1 @3968 ]
+"28202
+[v _PORTB `VEuc  1 e 1 @3969 ]
+[s S732 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"28246
+[s S741 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CANRX 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S750 . 1 `uc 1 AN10 1 0 :1:0 
+`uc 1 AN8 1 0 :1:1 
+`uc 1 CANTX 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 AN9 1 0 :1:4 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S759 . 1 `uc 1 FLT0 1 0 :1:0 
+]
+[s S761 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S764 . 1 `S732 1 . 1 0 `S741 1 . 1 0 `S750 1 . 1 0 `S759 1 . 1 0 `S761 1 . 1 0 ]
+[v _PORTBbits `VES764  1 e 1 @3969 ]
+"28375
+[v _PORTC `VEuc  1 e 1 @3970 ]
+[s S534 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"28423
+[s S543 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S552 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 . 1 0 :2:1 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S560 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+]
+[s S563 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S566 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S569 . 1 `S534 1 . 1 0 `S543 1 . 1 0 `S552 1 . 1 0 `S560 1 . 1 0 `S563 1 . 1 0 `S566 1 . 1 0 ]
+[v _PORTCbits `VES569  1 e 1 @3970 ]
+"29176
+[v _TRISA `VEuc  1 e 1 @3986 ]
+"29397
+[v _TRISB `VEuc  1 e 1 @3987 ]
+"29618
+[v _TRISC `VEuc  1 e 1 @3988 ]
+[s S75 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"30007
+[s S83 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[s S86 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+]
+[u S89 . 1 `S75 1 . 1 0 `S83 1 . 1 0 `S86 1 . 1 0 ]
+[v _PIR1bits `VES89  1 e 1 @3998 ]
+[s S1516 . 1 `uc 1 RXB0IF 1 0 :1:0 
+`uc 1 RXB1IF 1 0 :1:1 
+`uc 1 TXB0IF 1 0 :1:2 
+`uc 1 TXB1IF 1 0 :1:3 
+`uc 1 TXB2IF 1 0 :1:4 
+`uc 1 ERRIF 1 0 :1:5 
+`uc 1 WAKIF 1 0 :1:6 
+`uc 1 IRXIF 1 0 :1:7 
+]
+"30439
+[s S1525 . 1 `uc 1 FIFOWMIF 1 0 :1:0 
+`uc 1 RXBnIF 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 TXBnIF 1 0 :1:4 
+]
+[s S1530 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXBNIF 1 0 :1:1 
+]
+[s S1533 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TXBNIF 1 0 :1:4 
+]
+[u S1536 . 1 `S1516 1 . 1 0 `S1525 1 . 1 0 `S1530 1 . 1 0 `S1533 1 . 1 0 ]
+[v _PIR3bits `VES1536  1 e 1 @4004 ]
+[s S108 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"30907
+[s S117 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 BRGH1 1 0 :1:2 
+]
+[s S120 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S123 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SENDB1 1 0 :1:3 
+]
+[s S126 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SYNC1 1 0 :1:4 
+]
+[s S129 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+]
+[s S132 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX91 1 0 :1:6 
+]
+[s S135 . 1 `uc 1 TX9D1 1 0 :1:0 
+]
+[s S137 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 TXEN1 1 0 :1:5 
+]
+[u S140 . 1 `S108 1 . 1 0 `S117 1 . 1 0 `S120 1 . 1 0 `S123 1 . 1 0 `S126 1 . 1 0 `S129 1 . 1 0 `S132 1 . 1 0 `S135 1 . 1 0 `S137 1 . 1 0 ]
+[v _TXSTAbits `VES140  1 e 1 @4012 ]
+"31618
+[v _ADCON1 `VEuc  1 e 1 @4033 ]
+"32938
+[v _OSCCON `VEuc  1 e 1 @4051 ]
+[s S408 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"33560
+[s S417 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"33560
+[s S426 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+"33560
+[s S435 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"33560
+[s S444 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+"33560
+[u S448 . 1 `S408 1 . 1 0 `S417 1 . 1 0 `S426 1 . 1 0 `S435 1 . 1 0 `S444 1 . 1 0 ]
+"33560
+"33560
+[v _INTCONbits `VES448  1 e 1 @4082 ]
+"37970
+[v _T0IF `VEb  1 e 0 @32658 ]
+"354 /Applications/microchip/xc8/v1.12/sources/doprnt.c
+[v _dpowers `C[5]ui  1 s 10 dpowers ]
+[s S2196 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"29650 /Volumes/build/bamboo/xml-data/build-dir/XC8-RELEASE-JOB1/nz/build/dist/osx/include/pic18f2585.h
+[u S2214 . 1 `S2196 1 . 1 0 `S534 1 . 1 0 ]
+[v _TRISCbits `VES2214  1 e 1 @3988 ]
+"29934
+[v _PIE1bits `VES89  1 e 1 @3997 ]
+"30697
+[v _RCSTA `VEuc  1 e 1 @4011 ]
+[s S2107 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"30727
+[s S2116 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S2119 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[u S2122 . 1 `S2107 1 . 1 0 `S2116 1 . 1 0 `S2119 1 . 1 0 ]
+[v _RCSTAbits `VES2122  1 e 1 @4011 ]
+"30854
+[v _TXSTA `VEuc  1 e 1 @4012 ]
+"31117
+[v _TXREG `VEuc  1 e 1 @4013 ]
+"31128
+[v _RCREG `VEuc  1 e 1 @4014 ]
+"31139
+[v _SPBRG `VEuc  1 e 1 @4015 ]
+"31150
+[v _SPBRGH `VEuc  1 e 1 @4016 ]
+"33014
+[v _T0CON `VEuc  1 e 1 @4053 ]
+[s S2016 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"33035
+[s S2023 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+`uc 1 T0PS3 1 0 :1:3 
+]
+"33035
+[u S2028 . 1 `S2016 1 . 1 0 `S2023 1 . 1 0 ]
+"33035
+"33035
+[v _T0CONbits `VES2028  1 e 1 @4053 ]
+"33095
+[v _TMR0L `VEuc  1 e 1 @4054 ]
+"33101
+[v _TMR0H `VEuc  1 e 1 @4055 ]
+[s S2314 . 1 `uc 1 RX_NINE 1 0 :1:0 
+`uc 1 TX_NINE 1 0 :1:1 
+`uc 1 FRAME_ERROR 1 0 :1:2 
+`uc 1 OVERRUN_ERROR 1 0 :1:3 
+`uc 1 fill 1 0 :4:4 
+]
+"5 plib/USART/udefs.c
+[u S2320 USART 1 `uc 1 val 1 0 `S2314 1 . 1 0 ]
+[v _USART_Status `S2320  1 e 1 0 ]
+"30 source/DataCommsTask.c
+[v _m_DataWriteTimer `VES55  1 s 5 m_DataWriteTimer ]
+"31
+[v _m_Toggle `VEuc  1 s 1 m_Toggle ]
+"49
+[v _StartChar `Cuc  1 s 1 StartChar ]
+"50
+[v _EndChar `Cuc  1 s 1 EndChar ]
+"51
+[v _NoRead `Cuc  1 s 1 NoRead ]
+"53
+[v _InitText `[39]uc  1 s 39 InitText ]
+"55
+[v _c_CustomerWating `[20]uc  1 s 20 c_CustomerWating ]
+"56
+[v _c_CustomerBeingServed `[26]uc  1 s 26 c_CustomerBeingServed ]
+"58
+[v _c_CanCommandOn `[19]uc  1 s 19 c_CanCommandOn ]
+"59
+[v _c_CanCommandOff `[20]uc  1 s 20 c_CanCommandOff ]
+"60
+[v _c_CanMessageSentOn `[24]uc  1 s 24 c_CanMessageSentOn ]
+"61
+[v _c_CanMessageSentOff `[25]uc  1 s 25 c_CanMessageSentOff ]
+"69
+[v _id `ul  1 e 4 0 ]
+"70
+[v _data `[4]uc  1 e 4 0 ]
+"71
+[v _dataLen `uc  1 e 1 0 ]
+"72
+[v _flags `E15650  1 e 1 0 ]
+[s S1165 . 1 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+]
+"56 source/ECAN.c
+[u S1174 . 1 `uc 1 Val 1 0 `S1165 1 bits 1 0 ]
+[v __ECANRxFilterHitInfo `S1174  1 e 1 0 ]
+"44 source/headers/Model.h
+[v _KeyCount `Cuc  1 e 1 0 ]
+"46
+[v _SequenceReset `Cuc  1 e 1 0 ]
+"5 source/Model.c
+[v _m_Keys `VE[5]S1040  1 e 85 0 ]
+"7
+[v _m_HeadOfQueue `VEuc  1 e 1 0 ]
+"31 source/TimerTask.c
+[v _TimersCount `Cuc  1 s 1 TimersCount ]
+"32
+[v _m_HalfSeconds `VEum  1 s 3 m_HalfSeconds ]
+"34
+[v _c_NoMsecInSec `Cuc  1 e 1 0 ]
+"35
+[v _c_NoSecInMinOrMinInHr `Cuc  1 e 1 0 ]
+"36
+[v _c_NoHrInDay `Cuc  1 e 1 0 ]
+"38
+[v _m_CurrentTime `VES55  1 s 5 m_CurrentTime ]
+"40
+[v _m_Ticks `VEuc  1 s 1 m_Ticks ]
+"17 source/Main.c
+[v _main `(v  1 e 0 0 ]
+{
+"24
+} 0
+"17 source/TaskManager.c
+[v _TaskManager `(v  1 e 0 0 ]
+{
+"18
+[v TaskManager@Operation `uc  1 s 1 Operation ]
+"36
+} 0
+"43 source/TimerTask.c
+[v _InitTime `(v  1 e 0 0 ]
+{
+"49
+} 0
+"107 source/Model.c
+[v _InitKeys `(v  1 e 0 0 ]
+{
+"110
+[v InitKeys@KeyTimer `VES55  1 a 5 31 ]
+"166
+} 0
+"52 source/TimerTask.c
+[v _Increment_Timer `(v  1 e 0 0 ]
+{
+"83
+} 0
+"75 source/DataCommsTask.c
+[v _DataCommsTask `(i  1 e 2 0 ]
+{
+"79
+} 0
+"20 source/InputTask.c
+[v _InputTask `(v  1 e 0 0 ]
+{
+"23
+[v InputTask@i `uc  1 a 1 0 ]
+"27
+} 0
+"16 source/OutputTask.c
+[v _OutputTask `(v  1 e 0 0 ]
+{
+"17
+[v OutputTask@i `uc  1 a 1 17 ]
+"21
+} 0
+"35 source/SystemSetup.c
+[v _ConfigureHardware `(v  1 e 0 0 ]
+{
+"73
+} 0
+"17 plib/Timers/t0write.c
+[v _WriteTimer0 `(v  1 e 0 0 ]
+{
+[u S2052 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+"18
+[v WriteTimer0@timer `S2052  1 a 2 33 ]
+"17
+[v WriteTimer0@timer0 `ui  1 p 2 31 ]
+"24
+} 0
+"94 source/DataCommsTask.c
+[v _CanCommsTask `(v  1 e 0 0 ]
+{
+"161
+[v CanCommsTask@str_333 `[5]uc  1 a 5 48 ]
+"140
+[v CanCommsTask@str `[5]uc  1 a 5 43 ]
+"95
+[v CanCommsTask@DataCommsReadState `E15839  1 s 1 DataCommsReadState ]
+"204
+} 0
+"207
+[v _UartCommsTask `(v  1 e 0 0 ]
+{
+"212
+[v UartCommsTask@HeadOfQueue `VEuc  1 a 1 42 ]
+"208
+[v UartCommsTask@DataCommsReadState `E15832  1 s 1 DataCommsReadState ]
+"210
+[v UartCommsTask@Msg `uc  1 s 1 Msg ]
+"293
+} 0
+"82
+[v _GetSerialChar `(uc  1 e 1 0 ]
+{
+"83
+[v GetSerialChar@ReceivedChar `uc  1 a 1 32 ]
+"91
+} 0
+"16 plib/USART/uread.c
+[v _ReadUSART `(uc  1 e 1 0 ]
+{
+"17
+[v ReadUSART@data `uc  1 a 1 31 ]
+"37
+} 0
+"168 source/ECAN.c
+[v _ECANInitialize `(v  1 e 0 0 ]
+{
+"500
+} 0
+"803
+[v _ECANReceiveMessage `(uc  1 e 1 0 ]
+{
+"891
+[v ECANReceiveMessage@str `[5]uc  1 a 5 24 ]
+"1040
+[v ECANReceiveMessage@str_1913 `[5]uc  1 a 5 29 ]
+"808
+[v ECANReceiveMessage@ptr `*.buc  1 a 2 37 ]
+[v ECANReceiveMessage@savedPtr `*.buc  1 a 2 34 ]
+"810
+[v ECANReceiveMessage@temp `S1174  1 a 1 39 ]
+"809
+[v ECANReceiveMessage@i `uc  1 a 1 36 ]
+"803
+[v ECANReceiveMessage@id `*.0ul  1 p 2 16 ]
+[v ECANReceiveMessage@data `*.0uc  1 p 2 18 ]
+[v ECANReceiveMessage@dataLen `*.0uc  1 p 2 20 ]
+[v ECANReceiveMessage@msgFlags `*.0E16222  1 p 2 22 ]
+"1050
+} 0
+"493 /Applications/microchip/xc8/v1.12/sources/doprnt.c
+[v _sprintf `(i  1 e 2 0 ]
+{
+[s S1955 . 5 `*.sCuc 1 _cp 3 0 `ui 1 _len 2 3 ]
+"533
+[u S1958 . 5 `ui 1 _val 2 0 `S1955 1 _str 5 0 ]
+[v sprintf@_val `S1958  1 a 5 10 ]
+"494
+[v sprintf@ap `[1]*.sv  1 a 2 6 ]
+"499
+[v sprintf@c `c  1 a 1 15 ]
+"506
+[v sprintf@prec `c  1 a 1 9 ]
+"508
+[v sprintf@flag `uc  1 a 1 8 ]
+"493
+[v sprintf@sp `*.0uc  1 p 2 0 ]
+[v sprintf@f `*.cCuc  1 p 2 2 ]
+"1548
+} 0
+"617 source/ECAN.c
+[v _ECANSendMessage `(uc  1 e 1 0 ]
+{
+"630
+[v ECANSendMessage@pb `[9]*.Muc  1 a 18 8 ]
+"629
+[v ECANSendMessage@ptr `*.buc  1 a 2 31 ]
+[v ECANSendMessage@tempPtr `*.buc  1 a 2 27 ]
+"628
+[v ECANSendMessage@i `uc  1 a 1 30 ]
+"631
+[v ECANSendMessage@temp `uc  1 a 1 29 ]
+"628
+[v ECANSendMessage@j `uc  1 a 1 26 ]
+"617
+[v ECANSendMessage@id `ul  1 p 4 0 ]
+[v ECANSendMessage@data `*.0uc  1 p 2 4 ]
+[v ECANSendMessage@dataLen `uc  1 p 1 6 ]
+[v ECANSendMessage@msgFlags `E16204  1 p 1 7 ]
+"761
+} 0
+"53 source/Model.c
+[v _GetHeadOfQueue `(uc  1 e 1 0 ]
+{
+"55
+} 0
+"19 plib/Timers/t0open.c
+[v _OpenTimer0 `(v  1 e 0 0 ]
+{
+[v OpenTimer0@config `uc  1 p 1 31 ]
+"31
+} 0
+"74 plib/USART/uopen.c
+[v _OpenUSART `(v  1 e 0 0 ]
+{
+[v OpenUSART@config `uc  1 p 1 31 ]
+[v OpenUSART@spbrg `ui  1 p 2 32 ]
+"143
+} 0
+"69 source/InputTask.c
+[v _MonitorButton `(v  1 e 0 0 ]
+{
+"70
+[v MonitorButton@KeyTimer `*.0VES55  1 a 2 46 ]
+"69
+[v MonitorButton@theId `uc  1 p 1 42 ]
+"103
+} 0
+"58 source/Model.c
+[v _GetKeyState `(E15781  1 e 1 0 ]
+{
+[v GetKeyState@theKeyId `uc  1 p 1 31 ]
+"60
+} 0
+"10
+[v _SetKeyState `(v  1 e 0 0 ]
+{
+"22
+[v SetKeyState@LoopKeyId `VEuc  1 a 1 40 ]
+"43
+[v SetKeyState@OldHeadOfQueue `VEuc  1 a 1 39 ]
+"10
+[v SetKeyState@theKeyId `uc  1 p 1 37 ]
+[v SetKeyState@theState `E208  1 p 1 38 ]
+"50
+} 0
+"296 source/DataCommsTask.c
+[v _CustomerWating `(v  1 e 0 0 ]
+{
+[v CustomerWating@theKeyId `uc  1 p 1 36 ]
+"298
+} 0
+"300
+[v _CustomerBeingServed `(v  1 e 0 0 ]
+{
+[v CustomerBeingServed@theKeyId `uc  1 p 1 36 ]
+"302
+} 0
+"15 plib/USART/uputs.c
+[v _putsUSART `(v  1 e 0 0 ]
+{
+[v putsUSART@data `*.suc  1 p 2 32 ]
+"21
+} 0
+"68 source/Model.c
+[v _GetKeyInputTimer `(*.MVES55  1 e 2 0 ]
+{
+[v GetKeyInputTimer@theKeyId `uc  1 p 1 31 ]
+"70
+} 0
+"106 source/InputTask.c
+[v _ButtonBeingPressed `(uc  1 e 1 0 ]
+{
+"107
+[v ButtonBeingPressed@BeingPressed `uc  1 a 1 33 ]
+"106
+[v ButtonBeingPressed@theId `uc  1 p 1 31 ]
+"148
+} 0
+"24 source/OutputTask.c
+[v _IlluminateButton `(v  1 e 0 0 ]
+{
+"30
+[v IlluminateButton@Sequence `VEE194  1 a 1 15 ]
+"26
+[v IlluminateButton@SequenceState `*.0VEuc  1 a 2 13 ]
+"25
+[v IlluminateButton@KeyTimer `*.0VES55  1 a 2 11 ]
+"24
+[v IlluminateButton@theId `uc  1 p 1 10 ]
+"47
+} 0
+"156 source/TimerTask.c
+[v _MaturedTimer `(uc  1 e 1 0 ]
+{
+"157
+[v MaturedTimer@ToReturn `VEuc  1 a 1 34 ]
+"156
+[v MaturedTimer@theTimer `*.0VES55  1 p 2 31 ]
+"193
+} 0
+"63 source/Model.c
+[v _GetKeyTimer `(*.MVES55  1 e 2 0 ]
+{
+[v GetKeyTimer@theKeyId `uc  1 p 1 31 ]
+"65
+} 0
+"73
+[v _GetSequenceState `(*.MVEuc  1 e 2 0 ]
+{
+[v GetSequenceState@theKeyId `uc  1 p 1 31 ]
+"75
+} 0
+"84
+[v _GetSequence `(E194  1 e 1 0 ]
+{
+"85
+[v GetSequence@ReturnedSequence `VEE180  1 a 1 32 ]
+"84
+[v GetSequence@theKeyId `uc  1 p 1 31 ]
+"104
+} 0
+"130 source/OutputTask.c
+[v _ColourNone `(v  1 e 0 0 ]
+{
+[v ColourNone@theId `uc  1 p 1 31 ]
+"158
+} 0
+"68
+[v _ColourA `(v  1 e 0 0 ]
+{
+[v ColourA@theId `uc  1 p 1 31 ]
+"96
+} 0
+"99
+[v _ColourB `(v  1 e 0 0 ]
+{
+[v ColourB@theId `uc  1 p 1 31 ]
+"127
+} 0
+"12 source/OutputSequences.c
+[v _GetColour `(E188  1 e 1 0 ]
+{
+"13
+[v GetColour@ReturnColour `E174  1 a 1 9 ]
+"12
+[v GetColour@theSequences `E180  1 p 1 1 ]
+[v GetColour@theState `*.0VEuc  1 p 2 2 ]
+[v GetColour@theTimer `*.0VES55  1 p 2 4 ]
+"50
+} 0
+"1071 source/ECAN.c
+[v _ECANSetOperationMode `(v  1 e 0 0 ]
+{
+[v ECANSetOperationMode@mode `E16235  1 p 1 31 ]
+"1076
+} 0
+"53 source/OutputSequences.c
+[v _RedGreenFlash `(E174  1 e 1 0 ]
+{
+"54
+[v RedGreenFlash@ReturnColour `E174  1 a 1 0 ]
+"53
+[v RedGreenFlash@theState `*.0VEuc  1 p 2 42 ]
+[v RedGreenFlash@theTimer `*.0VES55  1 p 2 44 ]
+"72
+} 0
+"75
+[v _DimmedColourA `(E174  1 e 1 0 ]
+{
+"76
+[v DimmedColourA@ReturnColour `E174  1 a 1 0 ]
+"75
+[v DimmedColourA@theState `*.0VEuc  1 p 2 42 ]
+[v DimmedColourA@theTimer `*.0VES55  1 p 2 44 ]
+"94
+} 0
+"97
+[v _RapidFlashColourB `(E174  1 e 1 0 ]
+{
+"98
+[v RapidFlashColourB@ReturnColour `E174  1 a 1 0 ]
+"97
+[v RapidFlashColourB@theState `*.0VEuc  1 p 2 42 ]
+[v RapidFlashColourB@theTimer `*.0VES55  1 p 2 44 ]
+"115
+} 0
+"118
+[v _ColourMix `(E174  1 e 1 0 ]
+{
+"119
+[v ColourMix@ReturnColour `E174  1 a 1 0 ]
+"118
+[v ColourMix@theState `*.0VEuc  1 p 2 42 ]
+[v ColourMix@theTimer `*.0VES55  1 p 2 44 ]
+"136
+} 0
+"86 source/TimerTask.c
+[v _CalculateFutureTime `(v  1 e 0 0 ]
+{
+"87
+[v CalculateFutureTime@CarryOver `VEuc  1 a 1 41 ]
+"86
+[v CalculateFutureTime@theTimer `*.0VES55  1 p 2 31 ]
+[v CalculateFutureTime@theMinutes `uc  1 p 1 33 ]
+[v CalculateFutureTime@theSeconds `uc  1 p 1 34 ]
+[v CalculateFutureTime@theHalfSeconds `uc  1 p 1 35 ]
+"153
+} 0
+"1158 source/ECAN.c
+[v __CANIDToRegs `(v  1 e 0 0 ]
+{
+[s S1754 . 1 `uc 1 SIDL 1 0 :3:0 
+`uc 1 SIDH 1 0 :5:3 
+]
+"1159
+[s S1757 . 1 `uc 1 SIDHU 1 0 :3:0 
+`uc 1 EIDL_LN 1 0 :5:3 
+]
+[s S1760 . 1 `uc 1 EIDL_UN 1 0 :3:0 
+`uc 1 EIDH_LN 1 0 :5:3 
+]
+[s S1763 . 1 `uc 1 EIDH_UN 1 0 :3:0 
+`uc 1 EIDHU 1 0 :2:3 
+`uc 1 . 1 0 :3:5 
+]
+[s S1767 . 4 `S1754 1 BYTE1 1 0 `S1757 1 BYTE2 1 1 `S1760 1 BYTE3 1 2 `S1763 1 BYTE4 1 3 ]
+[s S1772 . 4 `uc 1 BYTE_1 1 0 `uc 1 BYTE_2 1 1 `uc 1 BYTE_3 1 2 `uc 1 BYTE_4 1 3 ]
+[u S1777 _CAN_MESSAGE_ID 4 `ul 1 ID 4 0 `S1767 1 ID_VALS 4 0 `S1772 1 BYTES 4 0 ]
+[v __CANIDToRegs@Value `*.aS1777  1 a 2 40 ]
+"1158
+[v __CANIDToRegs@ptr `*.buc  1 p 2 31 ]
+[v __CANIDToRegs@val `ul  1 p 4 33 ]
+[v __CANIDToRegs@type `uc  1 p 1 37 ]
+"1186
+} 0
+"1215
+[v __RegsToCANID `(v  1 e 0 0 ]
+{
+"1216
+[v __RegsToCANID@Value `*.0S1777  1 a 2 38 ]
+"1215
+[v __RegsToCANID@ptr `*.buc  1 p 2 31 ]
+[v __RegsToCANID@val `*.0ul  1 p 2 33 ]
+[v __RegsToCANID@type `uc  1 p 1 35 ]
+"1244
+} 0
+"14 plib/USART/uwrite.c
+[v _WriteUSART `(v  1 e 0 0 ]
+{
+[v WriteUSART@data `uc  1 p 1 31 ]
+"23
+} 0
+"10 /Applications/microchip/xc8/v1.12/sources/lwdiv.c
+[v ___lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient `ui  1 a 2 37 ]
+"12
+[v ___lwdiv@counter `uc  1 a 1 36 ]
+"10
+[v ___lwdiv@dividend `ui  1 p 2 31 ]
+[v ___lwdiv@divisor `ui  1 p 2 33 ]
+"31
+} 0
+"10 /Applications/microchip/xc8/v1.12/sources/lwmod.c
+[v ___lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter `uc  1 a 1 44 ]
+"10
+[v ___lwmod@dividend `ui  1 p 2 39 ]
+[v ___lwmod@divisor `ui  1 p 2 41 ]
+"26
+} 0
+"196 source/TimerTask.c
+[v _LowPriorityISR `IIL(v  1 e 0 0 ]
+{
+"211
+} 0
+"214
+[v _ISR `II(v  1 e 0 0 ]
+{
+"235
+} 0

@@ -1,0 +1,286 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"25 source/headers/TimerTask.h
+[v _InitTime `(v ~T0 @X0 0 ef ]
+"48 source/headers/Model.h
+[v _InitKeys `(v ~T0 @X0 0 ef ]
+"28 source/headers/TimerTask.h
+[v _Increment_Timer `(v ~T0 @X0 0 ef ]
+"15 source/headers/DataCommsTask.h
+[v _DataCommsTask `(i ~T0 @X0 0 ef ]
+"14 source/headers/InputTask.h
+[v _InputTask `(v ~T0 @X0 0 ef ]
+"11 source/headers/OutputTask.h
+[v _OutputTask `(v ~T0 @X0 0 ef ]
+[; ;stdio.h: 8: typedef int ptrdiff_t;
+[; ;stdio.h: 9: typedef unsigned size_t;
+[; ;stdio.h: 10: typedef unsigned short wchar_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 23: extern int errno;
+[; ;stdio.h: 54: struct __prbuf
+[; ;stdio.h: 55: {
+[; ;stdio.h: 56: char * ptr;
+[; ;stdio.h: 57: void (* func)(char);
+[; ;stdio.h: 58: };
+[; ;conio.h: 17: extern int errno;
+[; ;conio.h: 20: extern void init_uart(void);
+[; ;conio.h: 22: extern char getch(void);
+[; ;conio.h: 23: extern char getche(void);
+[; ;conio.h: 24: extern void putch(char);
+[; ;conio.h: 25: extern void ungetch(char);
+[; ;conio.h: 27: extern __bit kbhit(void);
+[; ;conio.h: 31: extern char * cgets(char *);
+[; ;conio.h: 32: extern void cputs(const char *);
+[; ;stdio.h: 99: extern int cprintf(char *, ...);
+[; ;stdio.h: 104: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 194: extern char * gets(char *);
+[; ;stdio.h: 195: extern int puts(const char *);
+[; ;stdio.h: 196: extern int scanf(const char *, ...);
+[; ;stdio.h: 197: extern int sscanf(const char *, const char *, ...);
+[; ;stdio.h: 198: extern int vprintf(const char *, va_list);
+[; ;stdio.h: 199: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 200: extern int vscanf(const char *, va_list ap);
+[; ;stdio.h: 201: extern int vsscanf(const char *, const char *, va_list);
+[; ;stdio.h: 205: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 206: extern int printf(const char *, ...);
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: int rem;
+[; ;stdlib.h: 29: int quot;
+[; ;stdlib.h: 30: } div_t;
+[; ;stdlib.h: 31: typedef struct {
+[; ;stdlib.h: 32: unsigned rem;
+[; ;stdlib.h: 33: unsigned quot;
+[; ;stdlib.h: 34: } udiv_t;
+[; ;stdlib.h: 35: typedef struct {
+[; ;stdlib.h: 36: long quot;
+[; ;stdlib.h: 37: long rem;
+[; ;stdlib.h: 38: } ldiv_t;
+[; ;stdlib.h: 39: typedef struct {
+[; ;stdlib.h: 40: unsigned long quot;
+[; ;stdlib.h: 41: unsigned long rem;
+[; ;stdlib.h: 42: } uldiv_t;
+[; ;stdlib.h: 65: extern double atof(const char *);
+[; ;stdlib.h: 66: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 67: extern int atoi(const char *);
+[; ;stdlib.h: 68: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 69: extern long atol(const char *);
+[; ;stdlib.h: 70: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 72: extern int rand(void);
+[; ;stdlib.h: 73: extern void srand(unsigned int);
+[; ;stdlib.h: 74: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 75: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 76: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 77: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 78: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 79: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 80: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 81: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 82: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 87: extern void * malloc(size_t);
+[; ;stdlib.h: 88: extern void free(void *);
+[; ;stdlib.h: 89: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 91: extern void abort(void);
+[; ;stdlib.h: 92: extern void exit(int);
+[; ;stdlib.h: 93: extern int atexit(void (*)(void));
+[; ;stdlib.h: 94: extern char * getenv(const char *);
+[; ;stdlib.h: 95: extern char ** environ;
+[; ;stdlib.h: 96: extern int system(char *);
+[; ;stdlib.h: 97: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 98: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 99: extern int abs(int);
+[; ;stdlib.h: 100: extern long labs(long);
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;TaskManager.h: 11: void TaskManager( void );
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;DataCommsTask.h: 14: void ConfigureUsart( void );
+[; ;DataCommsTask.h: 15: int DataCommsTask( void );
+[; ;DataCommsTask.h: 16: void CustomerWating( uint8_t theKeyId );
+[; ;DataCommsTask.h: 17: void CustomerBeingServed( uint8_t theKeyId );
+[; ;InputTask.h: 14: void InputTask( void );
+[; ;OutputTask.h: 11: void OutputTask( void );
+[; ;OutputTask.h: 12: void ColourATest( void );
+[; ;OutputTask.h: 13: void ColourBTest( void );
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;TimerTask.h: 16: typedef struct ATimeStruct
+[; ;TimerTask.h: 17: {
+[; ;TimerTask.h: 18: volatile uint8_t Millisecond;
+[; ;TimerTask.h: 19: volatile uint8_t Second;
+[; ;TimerTask.h: 20: volatile uint8_t Minute;
+[; ;TimerTask.h: 21: volatile uint8_t Hour;
+[; ;TimerTask.h: 22: volatile uint8_t Day;
+[; ;TimerTask.h: 23: }t_ATime;
+[; ;TimerTask.h: 25: void InitTime( void );
+[; ;TimerTask.h: 26: bool MaturedTimer( volatile t_ATime *theTimer );
+[; ;TimerTask.h: 27: void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
+[; ;TimerTask.h: 28: void Increment_Timer( void );
+[; ;OutputSequences.h: 14: typedef enum
+[; ;OutputSequences.h: 15: {
+[; ;OutputSequences.h: 16: e_Unknown,
+[; ;OutputSequences.h: 17: e_Off,
+[; ;OutputSequences.h: 18: e_ColourA,
+[; ;OutputSequences.h: 19: e_ColourB
+[; ;OutputSequences.h: 20: }t_ButtonColour;
+[; ;OutputSequences.h: 22: typedef enum
+[; ;OutputSequences.h: 23: {
+[; ;OutputSequences.h: 24: e_NotSet,
+[; ;OutputSequences.h: 25: e_AllOff,
+[; ;OutputSequences.h: 26: e_SteadyColourA,
+[; ;OutputSequences.h: 27: e_SteadyColourB,
+[; ;OutputSequences.h: 28: e_RedGreenFlash,
+[; ;OutputSequences.h: 29: e_DimmedColourA,
+[; ;OutputSequences.h: 30: e_RapidFlashColourB,
+[; ;OutputSequences.h: 31: e_ColourMix
+[; ;OutputSequences.h: 32: }t_Sequences;
+[; ;OutputSequences.h: 34: t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;Model.h: 15: typedef enum
+[; ;Model.h: 16: {
+[; ;Model.h: 17: e_Error,
+[; ;Model.h: 18: e_PressedNo,
+[; ;Model.h: 19: e_PressedYes,
+[; ;Model.h: 20: e_BeingServedNo,
+[; ;Model.h: 21: e_BeingServedYes
+[; ;Model.h: 22: }t_ButtonState;
+[; ;Model.h: 24: typedef struct AKeyStruct
+[; ;Model.h: 25: {
+[; ;Model.h: 26: volatile t_ButtonState ButtonState;
+[; ;Model.h: 27: volatile t_ATime InputTimer;
+[; ;Model.h: 28: volatile t_ATime NextActionTimer;
+[; ;Model.h: 29: volatile t_Sequences SequenceIdPressedNo;
+[; ;Model.h: 30: volatile t_Sequences SequenceIdPressedYes;
+[; ;Model.h: 31: volatile t_Sequences SequenceIdBeingServedNo;
+[; ;Model.h: 32: volatile t_Sequences SequenceIdBeingServedYes;
+[; ;Model.h: 33: volatile uint8_t SequenceState;
+[; ;Model.h: 34: volatile uint8_t NextInQueue;
+[; ;Model.h: 42: }AKey;
+"44 source/headers/Model.h
+[v _KeyCount `Cuc ~T0 @X0 1 e ]
+[i _KeyCount
+-> -> 5 `i `uc
+]
+[; ;Model.h: 44: const uint8_t KeyCount = 5;
+"46
+[v _SequenceReset `Cuc ~T0 @X0 1 e ]
+[i _SequenceReset
+-> -> 0 `i `uc
+]
+[; ;Model.h: 46: const uint8_t SequenceReset = 0;
+[; ;Model.h: 48: void InitKeys( void );
+[; ;Model.h: 50: t_Sequences GetSequence( uint8_t theKeyId );
+[; ;Model.h: 51: volatile uint8_t* GetSequenceState( uint8_t theKeyId );
+[; ;Model.h: 52: volatile t_ATime* GetKeyTimer( uint8_t theKeyId );
+[; ;Model.h: 53: volatile t_ATime* GetKeyInputTimer( uint8_t theKeyId );
+[; ;Model.h: 55: void SetKeyState( uint8_t theKeyId, t_ButtonState theState );
+[; ;Model.h: 56: t_ButtonState GetKeyState( uint8_t theKeyId );
+[; ;Model.h: 57: uint8_t GetHeadOfQueue( void );
+"17 source/TaskManager.c
+[v _TaskManager `(v ~T0 @X0 1 ef ]
+{
+[; ;TaskManager.c: 16: void TaskManager()
+[; ;TaskManager.c: 17: {
+[e :U _TaskManager ]
+[f ]
+"18
+[v F337 `uc ~T0 @X0 1 s Operation ]
+[i F337
+-> -> 1 `i `uc
+]
+[; ;TaskManager.c: 18: static uint8_t Operation = 1;
+[; ;TaskManager.c: 20: switch( Operation )
+"20
+[e $U 10  ]
+[; ;TaskManager.c: 21: {
+"21
+{
+[; ;TaskManager.c: 22: case 1:
+"22
+[e :U 11 ]
+[; ;TaskManager.c: 23: InitTime();
+"23
+[e ( _InitTime ..  ]
+[; ;TaskManager.c: 24: InitKeys();
+"24
+[e ( _InitKeys ..  ]
+[; ;TaskManager.c: 25: Operation = 2;
+"25
+[e = F337 -> -> 2 `i `uc ]
+[; ;TaskManager.c: 26: break;
+"26
+[e $U 9  ]
+[; ;TaskManager.c: 28: case 2:
+"28
+[e :U 12 ]
+[; ;TaskManager.c: 29: Increment_Timer();
+"29
+[e ( _Increment_Timer ..  ]
+[; ;TaskManager.c: 30: DataCommsTask();
+"30
+[e ( _DataCommsTask ..  ]
+[; ;TaskManager.c: 31: InputTask();
+"31
+[e ( _InputTask ..  ]
+[; ;TaskManager.c: 32: Increment_Timer();
+"32
+[e ( _Increment_Timer ..  ]
+[; ;TaskManager.c: 33: OutputTask();
+"33
+[e ( _OutputTask ..  ]
+[; ;TaskManager.c: 34: break;
+"34
+[e $U 9  ]
+"35
+}
+[; ;TaskManager.c: 35: }
+[e $U 9  ]
+"20
+[e :U 10 ]
+[e [\ F337 , $ -> -> 1 `i `uc 11
+ , $ -> -> 2 `i `uc 12
+ 9 ]
+"35
+[e :U 9 ]
+[; ;TaskManager.c: 36: }
+"36
+[e :UE 8 ]
+}

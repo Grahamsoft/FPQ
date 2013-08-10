@@ -1,0 +1,424 @@
+
+# 1 "source/Model.c"
+
+# 13 "/Applications/microchip/xc8/v1.12/include/stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 4 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
+typedef int ptrdiff_t;
+typedef unsigned size_t;
+typedef unsigned short wchar_t;
+
+# 16
+extern int errno;
+
+# 27
+typedef struct {
+int rem;
+int quot;
+} div_t;
+typedef struct {
+unsigned rem;
+unsigned quot;
+} udiv_t;
+typedef struct {
+long quot;
+long rem;
+} ldiv_t;
+typedef struct {
+unsigned long quot;
+unsigned long rem;
+} uldiv_t;
+
+# 65
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+
+extern void abort(void);
+extern void exit(int);
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+
+# 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
+typedef unsigned char bool;
+
+# 16 "source/headers/TimerTask.h"
+typedef struct ATimeStruct
+{
+volatile uint8_t Millisecond;
+volatile uint8_t Second;
+volatile uint8_t Minute;
+volatile uint8_t Hour;
+volatile uint8_t Day;
+}t_ATime;
+
+void InitTime( void );
+bool MaturedTimer( volatile t_ATime *theTimer );
+void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
+void Increment_Timer( void );
+
+# 14 "source/headers/OutputSequences.h"
+typedef enum
+{
+e_Unknown,
+e_Off,
+e_ColourA,
+e_ColourB
+}t_ButtonColour;
+
+typedef enum
+{
+e_NotSet,
+e_AllOff,
+e_SteadyColourA,
+e_SteadyColourB,
+e_RedGreenFlash,
+e_DimmedColourA,
+e_RapidFlashColourB,
+e_ColourMix
+}t_Sequences;
+
+t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );
+
+# 103 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+
+# 15 "source/headers/Model.h"
+typedef enum
+{
+e_Error,
+e_PressedNo,
+e_PressedYes,
+e_BeingServedNo,
+e_BeingServedYes
+}t_ButtonState;
+
+typedef struct AKeyStruct
+{
+volatile t_ButtonState ButtonState;
+volatile t_ATime InputTimer;
+volatile t_ATime NextActionTimer;
+volatile t_Sequences SequenceIdPressedNo;
+volatile t_Sequences SequenceIdPressedYes;
+volatile t_Sequences SequenceIdBeingServedNo;
+volatile t_Sequences SequenceIdBeingServedYes;
+volatile uint8_t SequenceState;
+volatile uint8_t NextInQueue;
+
+# 42
+}AKey;
+
+const uint8_t KeyCount = 5;
+
+const uint8_t SequenceReset = 0;
+
+void InitKeys( void );
+
+t_Sequences GetSequence( uint8_t theKeyId );
+volatile uint8_t* GetSequenceState( uint8_t theKeyId );
+volatile t_ATime* GetKeyTimer( uint8_t theKeyId );
+volatile t_ATime* GetKeyInputTimer( uint8_t theKeyId );
+
+void SetKeyState( uint8_t theKeyId, t_ButtonState theState );
+t_ButtonState GetKeyState( uint8_t theKeyId );
+uint8_t GetHeadOfQueue( void );
+
+# 11 "source/headers/DataCommsSend.h"
+void CustomerWating( uint8_t theKeyId );
+void CustomerBeingServed( uint8_t theKeyId );
+
+# 5 "source/Model.c"
+AKey m_Keys[ 5 ];
+
+volatile uint8_t m_HeadOfQueue;
+
+void SetKeyState( uint8_t theKeyId, t_ButtonState theState )
+{
+
+
+
+if( theState == e_BeingServedNo )
+{
+if( m_HeadOfQueue == KeyCount )
+{
+m_HeadOfQueue = theKeyId;
+}
+else
+{
+volatile uint8_t LoopKeyId = m_HeadOfQueue;
+
+while( m_Keys[ LoopKeyId ].NextInQueue != KeyCount )
+{
+LoopKeyId = m_Keys[ LoopKeyId ].NextInQueue;
+}
+
+m_Keys[ LoopKeyId ].NextInQueue = theKeyId;
+}
+
+CustomerWating( theKeyId );
+}
+
+if( theState == e_BeingServedYes )
+{
+CustomerBeingServed( theKeyId );
+}
+
+
+if( ( theState == e_PressedNo ) && ( m_Keys[ theKeyId ].ButtonState == e_BeingServedYes ) )
+{
+volatile uint8_t OldHeadOfQueue = m_HeadOfQueue;
+m_HeadOfQueue = m_Keys[ m_HeadOfQueue ].NextInQueue;
+m_Keys[ OldHeadOfQueue ].NextInQueue = KeyCount;
+}
+
+m_Keys[ theKeyId ].ButtonState = theState;
+m_Keys[ theKeyId ].SequenceState = 0;
+}
+
+uint8_t GetHeadOfQueue( void )
+{
+return m_HeadOfQueue;
+}
+
+t_ButtonState GetKeyState( uint8_t theKeyId )
+{
+return m_Keys[ theKeyId ].ButtonState;
+}
+
+volatile t_ATime* GetKeyTimer( uint8_t theKeyId )
+{
+return &m_Keys[ theKeyId ].NextActionTimer;
+}
+
+volatile t_ATime* GetKeyInputTimer( uint8_t theKeyId )
+{
+return &m_Keys[ theKeyId ].InputTimer;
+}
+
+volatile uint8_t* GetSequenceState( uint8_t theKeyId )
+{
+return &m_Keys[ theKeyId ].SequenceState;
+}
+
+# 83
+t_Sequences GetSequence( uint8_t theKeyId )
+{
+volatile t_Sequences ReturnedSequence = 1;
+
+switch ( m_Keys[ theKeyId ].ButtonState )
+{
+case e_PressedNo:
+ReturnedSequence = m_Keys[ theKeyId ].SequenceIdPressedNo;
+break;
+case e_PressedYes:
+ReturnedSequence = m_Keys[ theKeyId ].SequenceIdPressedYes;
+break;
+case e_BeingServedNo:
+ReturnedSequence = m_Keys[ theKeyId ].SequenceIdBeingServedNo;
+break;
+case e_BeingServedYes:
+ReturnedSequence = m_Keys[ theKeyId ].SequenceIdBeingServedYes;
+break;
+}
+
+return ReturnedSequence;
+}
+
+void InitKeys()
+{
+m_HeadOfQueue = KeyCount;
+
+t_ATime KeyTimer;
+KeyTimer.Millisecond = 0;
+KeyTimer.Second = 0;
+KeyTimer.Minute = 0;
+KeyTimer.Hour = 0;
+KeyTimer.Day = 0;
+
+m_Keys[ 0 ].ButtonState = e_PressedNo;
+m_Keys[ 0 ].SequenceIdPressedNo = e_AllOff;
+m_Keys[ 0 ].SequenceIdPressedYes = e_RapidFlashColourB;
+m_Keys[ 0 ].SequenceIdBeingServedNo = e_SteadyColourB;
+m_Keys[ 0 ].SequenceIdBeingServedYes = e_RedGreenFlash;
+m_Keys[ 0 ].SequenceState = 0;
+m_Keys[ 0 ].NextActionTimer = KeyTimer;
+m_Keys[ 0 ].InputTimer = KeyTimer;
+m_Keys[ 0 ].NextInQueue = KeyCount;
+
+m_Keys[ 1 ].ButtonState = e_PressedNo;
+m_Keys[ 1 ].SequenceIdPressedNo = e_AllOff;
+m_Keys[ 1 ].SequenceIdPressedYes = e_RapidFlashColourB;
+m_Keys[ 1 ].SequenceIdBeingServedNo = e_SteadyColourB;
+m_Keys[ 1 ].SequenceIdBeingServedYes = e_RedGreenFlash;
+m_Keys[ 1 ].SequenceState = 0;
+m_Keys[ 1 ].NextActionTimer = KeyTimer;
+m_Keys[ 1 ].InputTimer = KeyTimer;
+m_Keys[ 1 ].NextInQueue = KeyCount;
+
+m_Keys[ 2 ].ButtonState = e_PressedNo;
+m_Keys[ 2 ].SequenceIdPressedNo = e_AllOff;
+m_Keys[ 2 ].SequenceIdPressedYes = e_RapidFlashColourB;
+m_Keys[ 2 ].SequenceIdBeingServedNo = e_SteadyColourB;
+m_Keys[ 2 ].SequenceIdBeingServedYes = e_RedGreenFlash;
+m_Keys[ 2 ].SequenceState = 0;
+m_Keys[ 2 ].NextActionTimer = KeyTimer;
+m_Keys[ 2 ].InputTimer = KeyTimer;
+m_Keys[ 2 ].NextInQueue = KeyCount;
+
+m_Keys[ 3 ].ButtonState = e_PressedNo;
+m_Keys[ 3 ].SequenceIdPressedNo = e_AllOff;
+m_Keys[ 3 ].SequenceIdPressedYes = e_RapidFlashColourB;
+m_Keys[ 3 ].SequenceIdBeingServedNo = e_SteadyColourB;
+m_Keys[ 3 ].SequenceIdBeingServedYes = e_RedGreenFlash;
+m_Keys[ 3 ].SequenceState = 0;
+m_Keys[ 3 ].NextActionTimer = KeyTimer;
+m_Keys[ 3 ].InputTimer = KeyTimer;
+m_Keys[ 3 ].NextInQueue = KeyCount;
+
+m_Keys[ 4 ].ButtonState = e_PressedNo;
+m_Keys[ 4 ].SequenceIdPressedNo = e_AllOff;
+m_Keys[ 4 ].SequenceIdPressedYes = e_RapidFlashColourB;
+m_Keys[ 4 ].SequenceIdBeingServedNo = e_SteadyColourB;
+m_Keys[ 4 ].SequenceIdBeingServedYes = e_RedGreenFlash;
+m_Keys[ 4 ].SequenceState = 0;
+m_Keys[ 4 ].NextActionTimer = KeyTimer;
+m_Keys[ 4 ].InputTimer = KeyTimer;
+m_Keys[ 4 ].NextInQueue = KeyCount;
+}

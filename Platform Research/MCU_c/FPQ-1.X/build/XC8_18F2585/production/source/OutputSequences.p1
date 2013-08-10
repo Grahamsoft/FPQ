@@ -1,0 +1,544 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[c E180 0 1 2 3 4 5 6 7 .. ]
+[n E180 . e_NotSet e_AllOff e_SteadyColourA e_SteadyColourB e_RedGreenFlash e_DimmedColourA e_RapidFlashColourB e_ColourMix  ]
+[s S5 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 ]
+[n S5 ATimeStruct Millisecond Second Minute Hour Day ]
+[c E174 0 1 2 3 .. ]
+[n E174 . e_Unknown e_Off e_ColourA e_ColourB  ]
+"27 source/headers/TimerTask.h
+[v _CalculateFutureTime `(v ~T0 @X0 0 ef4`*VS5`uc`uc`uc ]
+"5 source/OutputSequences.c
+[v _RedGreenFlash `(E174 ~T0 @X0 0 ef2`*Vuc`*VS5 ]
+"6
+[v _DimmedColourA `(E174 ~T0 @X0 0 ef2`*Vuc`*VS5 ]
+"7
+[v _RapidFlashColourB `(E174 ~T0 @X0 0 ef2`*Vuc`*VS5 ]
+"8
+[v _ColourMix `(E174 ~T0 @X0 0 ef2`*Vuc`*VS5 ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdlib.h: 4: typedef int ptrdiff_t;
+[; ;stdlib.h: 5: typedef unsigned size_t;
+[; ;stdlib.h: 6: typedef unsigned short wchar_t;
+[; ;stdlib.h: 16: extern int errno;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: int rem;
+[; ;stdlib.h: 29: int quot;
+[; ;stdlib.h: 30: } div_t;
+[; ;stdlib.h: 31: typedef struct {
+[; ;stdlib.h: 32: unsigned rem;
+[; ;stdlib.h: 33: unsigned quot;
+[; ;stdlib.h: 34: } udiv_t;
+[; ;stdlib.h: 35: typedef struct {
+[; ;stdlib.h: 36: long quot;
+[; ;stdlib.h: 37: long rem;
+[; ;stdlib.h: 38: } ldiv_t;
+[; ;stdlib.h: 39: typedef struct {
+[; ;stdlib.h: 40: unsigned long quot;
+[; ;stdlib.h: 41: unsigned long rem;
+[; ;stdlib.h: 42: } uldiv_t;
+[; ;stdlib.h: 65: extern double atof(const char *);
+[; ;stdlib.h: 66: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 67: extern int atoi(const char *);
+[; ;stdlib.h: 68: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 69: extern long atol(const char *);
+[; ;stdlib.h: 70: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 72: extern int rand(void);
+[; ;stdlib.h: 73: extern void srand(unsigned int);
+[; ;stdlib.h: 74: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 75: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 76: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 77: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 78: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 79: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 80: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 81: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 82: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 87: extern void * malloc(size_t);
+[; ;stdlib.h: 88: extern void free(void *);
+[; ;stdlib.h: 89: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 91: extern void abort(void);
+[; ;stdlib.h: 92: extern void exit(int);
+[; ;stdlib.h: 93: extern int atexit(void (*)(void));
+[; ;stdlib.h: 94: extern char * getenv(const char *);
+[; ;stdlib.h: 95: extern char ** environ;
+[; ;stdlib.h: 96: extern int system(char *);
+[; ;stdlib.h: 97: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 98: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 99: extern int abs(int);
+[; ;stdlib.h: 100: extern long labs(long);
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;TimerTask.h: 16: typedef struct ATimeStruct
+[; ;TimerTask.h: 17: {
+[; ;TimerTask.h: 18: volatile uint8_t Millisecond;
+[; ;TimerTask.h: 19: volatile uint8_t Second;
+[; ;TimerTask.h: 20: volatile uint8_t Minute;
+[; ;TimerTask.h: 21: volatile uint8_t Hour;
+[; ;TimerTask.h: 22: volatile uint8_t Day;
+[; ;TimerTask.h: 23: }t_ATime;
+[; ;TimerTask.h: 25: void InitTime( void );
+[; ;TimerTask.h: 26: bool MaturedTimer( volatile t_ATime *theTimer );
+[; ;TimerTask.h: 27: void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
+[; ;TimerTask.h: 28: void Increment_Timer( void );
+[; ;OutputSequences.h: 14: typedef enum
+[; ;OutputSequences.h: 15: {
+[; ;OutputSequences.h: 16: e_Unknown,
+[; ;OutputSequences.h: 17: e_Off,
+[; ;OutputSequences.h: 18: e_ColourA,
+[; ;OutputSequences.h: 19: e_ColourB
+[; ;OutputSequences.h: 20: }t_ButtonColour;
+[; ;OutputSequences.h: 22: typedef enum
+[; ;OutputSequences.h: 23: {
+[; ;OutputSequences.h: 24: e_NotSet,
+[; ;OutputSequences.h: 25: e_AllOff,
+[; ;OutputSequences.h: 26: e_SteadyColourA,
+[; ;OutputSequences.h: 27: e_SteadyColourB,
+[; ;OutputSequences.h: 28: e_RedGreenFlash,
+[; ;OutputSequences.h: 29: e_DimmedColourA,
+[; ;OutputSequences.h: 30: e_RapidFlashColourB,
+[; ;OutputSequences.h: 31: e_ColourMix
+[; ;OutputSequences.h: 32: }t_Sequences;
+[; ;OutputSequences.h: 34: t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;OutputSequences.c: 5: t_ButtonColour RedGreenFlash( volatile uint8_t *theState, volatile t_ATime *theTimer );
+[; ;OutputSequences.c: 6: t_ButtonColour DimmedColourA( volatile uint8_t *theState, volatile t_ATime *theTimer );
+[; ;OutputSequences.c: 7: t_ButtonColour RapidFlashColourB( volatile uint8_t *theState, volatile t_ATime *theTimer );
+[; ;OutputSequences.c: 8: t_ButtonColour ColourMix( volatile uint8_t *theState, volatile t_ATime *theTimer );
+"12 source/OutputSequences.c
+[v _GetColour `(E174 ~T0 @X0 1 ef3`E180`*Vuc`*VS5 ]
+{
+[; ;OutputSequences.c: 11: t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer )
+[; ;OutputSequences.c: 12: {
+[e :U _GetColour ]
+[v _theSequences `E180 ~T0 @X0 1 r1 ]
+[v _theState `*Vuc ~T0 @X0 1 r2 ]
+[v _theTimer `*VS5 ~T0 @X0 1 r3 ]
+[f ]
+"13
+[v _ReturnColour `E174 ~T0 @X0 1 a ]
+[; ;OutputSequences.c: 13: t_ButtonColour ReturnColour;
+[; ;OutputSequences.c: 15: switch ( theSequences )
+"15
+[e $U 8  ]
+[; ;OutputSequences.c: 16: {
+"16
+{
+[; ;OutputSequences.c: 17: case e_AllOff:
+"17
+[e :U 9 ]
+[; ;OutputSequences.c: 18: ReturnColour = e_Off;
+"18
+[e = _ReturnColour -> . `E174 1 `E174 ]
+[; ;OutputSequences.c: 19: CalculateFutureTime( theTimer, 0, 0, 0 );
+"19
+[e ( _CalculateFutureTime (4 , , , _theTimer -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;OutputSequences.c: 20: break;
+"20
+[e $U 7  ]
+[; ;OutputSequences.c: 22: case e_SteadyColourA:
+"22
+[e :U 10 ]
+[; ;OutputSequences.c: 23: ReturnColour = e_ColourA;
+"23
+[e = _ReturnColour -> . `E174 2 `E174 ]
+[; ;OutputSequences.c: 24: CalculateFutureTime( theTimer, 0, 0, 0 );
+"24
+[e ( _CalculateFutureTime (4 , , , _theTimer -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;OutputSequences.c: 25: break;
+"25
+[e $U 7  ]
+[; ;OutputSequences.c: 27: case e_SteadyColourB:
+"27
+[e :U 11 ]
+[; ;OutputSequences.c: 28: ReturnColour = e_ColourB;
+"28
+[e = _ReturnColour -> . `E174 3 `E174 ]
+[; ;OutputSequences.c: 29: CalculateFutureTime( theTimer, 0, 0, 0 );
+"29
+[e ( _CalculateFutureTime (4 , , , _theTimer -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;OutputSequences.c: 30: break;
+"30
+[e $U 7  ]
+[; ;OutputSequences.c: 32: case e_RedGreenFlash:
+"32
+[e :U 12 ]
+[; ;OutputSequences.c: 33: ReturnColour = RedGreenFlash( theState, theTimer );
+"33
+[e = _ReturnColour ( _RedGreenFlash (2 , _theState _theTimer ]
+[; ;OutputSequences.c: 34: break;
+"34
+[e $U 7  ]
+[; ;OutputSequences.c: 36: case e_DimmedColourA:
+"36
+[e :U 13 ]
+[; ;OutputSequences.c: 37: ReturnColour = DimmedColourA( theState, theTimer );
+"37
+[e = _ReturnColour ( _DimmedColourA (2 , _theState _theTimer ]
+[; ;OutputSequences.c: 38: break;
+"38
+[e $U 7  ]
+[; ;OutputSequences.c: 40: case e_RapidFlashColourB:
+"40
+[e :U 14 ]
+[; ;OutputSequences.c: 41: ReturnColour = RapidFlashColourB( theState, theTimer );
+"41
+[e = _ReturnColour ( _RapidFlashColourB (2 , _theState _theTimer ]
+[; ;OutputSequences.c: 42: break;
+"42
+[e $U 7  ]
+[; ;OutputSequences.c: 44: case e_ColourMix:
+"44
+[e :U 15 ]
+[; ;OutputSequences.c: 45: ReturnColour = ColourMix( theState, theTimer );
+"45
+[e = _ReturnColour ( _ColourMix (2 , _theState _theTimer ]
+[; ;OutputSequences.c: 46: break;
+"46
+[e $U 7  ]
+"47
+}
+[; ;OutputSequences.c: 47: }
+[e $U 7  ]
+"15
+[e :U 8 ]
+[e [\ _theSequences , $ -> . `E180 1 `E180 9
+ , $ -> . `E180 2 `E180 10
+ , $ -> . `E180 3 `E180 11
+ , $ -> . `E180 4 `E180 12
+ , $ -> . `E180 5 `E180 13
+ , $ -> . `E180 6 `E180 14
+ , $ -> . `E180 7 `E180 15
+ 7 ]
+"47
+[e :U 7 ]
+[; ;OutputSequences.c: 49: return ReturnColour;
+"49
+[e ) _ReturnColour ]
+[e $UE 6  ]
+[; ;OutputSequences.c: 50: }
+"50
+[e :UE 6 ]
+}
+"53
+[v _RedGreenFlash `(E174 ~T0 @X0 1 ef2`*Vuc`*VS5 ]
+{
+[; ;OutputSequences.c: 52: t_ButtonColour RedGreenFlash( volatile uint8_t *theState, volatile t_ATime *theTimer )
+[; ;OutputSequences.c: 53: {
+[e :U _RedGreenFlash ]
+[v _theState `*Vuc ~T0 @X0 1 r1 ]
+[v _theTimer `*VS5 ~T0 @X0 1 r2 ]
+[f ]
+"54
+[v _ReturnColour `E174 ~T0 @X0 1 a ]
+[; ;OutputSequences.c: 54: t_ButtonColour ReturnColour = e_Unknown;
+[e = _ReturnColour -> . `E174 0 `E174 ]
+[; ;OutputSequences.c: 57: switch( *theState )
+"57
+[e $U 18  ]
+[; ;OutputSequences.c: 58: {
+"58
+{
+[; ;OutputSequences.c: 59: case 0:
+"59
+[e :U 19 ]
+"60
+[e :U 20 ]
+[; ;OutputSequences.c: 60: case 1:
+[; ;OutputSequences.c: 61: ReturnColour = e_ColourA;
+"61
+[e = _ReturnColour -> . `E174 2 `E174 ]
+[; ;OutputSequences.c: 62: CalculateFutureTime( theTimer, 0, 2, 0 );
+"62
+[e ( _CalculateFutureTime (4 , , , _theTimer -> -> 0 `i `uc -> -> 2 `i `uc -> -> 0 `i `uc ]
+[; ;OutputSequences.c: 63: *theState = 2;
+"63
+[e = *U _theState -> -> 2 `i `uc ]
+[; ;OutputSequences.c: 64: break;
+"64
+[e $U 17  ]
+[; ;OutputSequences.c: 65: case 2:
+"65
+[e :U 21 ]
+[; ;OutputSequences.c: 66: ReturnColour = e_ColourB;
+"66
+[e = _ReturnColour -> . `E174 3 `E174 ]
+[; ;OutputSequences.c: 67: CalculateFutureTime( theTimer, 0, 2, 0 );
+"67
+[e ( _CalculateFutureTime (4 , , , _theTimer -> -> 0 `i `uc -> -> 2 `i `uc -> -> 0 `i `uc ]
+[; ;OutputSequences.c: 68: *theState = 1;
+"68
+[e = *U _theState -> -> 1 `i `uc ]
+[; ;OutputSequences.c: 69: break;
+"69
+[e $U 17  ]
+"70
+}
+[; ;OutputSequences.c: 70: }
+[e $U 17  ]
+"57
+[e :U 18 ]
+[e [\ *U _theState , $ -> -> 0 `i `uc 19
+ , $ -> -> 1 `i `uc 20
+ , $ -> -> 2 `i `uc 21
+ 17 ]
+"70
+[e :U 17 ]
+[; ;OutputSequences.c: 71: return ReturnColour;
+"71
+[e ) _ReturnColour ]
+[e $UE 16  ]
+[; ;OutputSequences.c: 72: }
+"72
+[e :UE 16 ]
+}
+"75
+[v _DimmedColourA `(E174 ~T0 @X0 1 ef2`*Vuc`*VS5 ]
+{
+[; ;OutputSequences.c: 74: t_ButtonColour DimmedColourA( volatile uint8_t *theState, volatile t_ATime *theTimer )
+[; ;OutputSequences.c: 75: {
+[e :U _DimmedColourA ]
+[v _theState `*Vuc ~T0 @X0 1 r1 ]
+[v _theTimer `*VS5 ~T0 @X0 1 r2 ]
+[f ]
+"76
+[v _ReturnColour `E174 ~T0 @X0 1 a ]
+[; ;OutputSequences.c: 76: t_ButtonColour ReturnColour = e_Unknown;
+[e = _ReturnColour -> . `E174 0 `E174 ]
+[; ;OutputSequences.c: 79: switch( *theState )
+"79
+[e $U 24  ]
+[; ;OutputSequences.c: 80: {
+"80
+{
+[; ;OutputSequences.c: 81: case 0:
+"81
+[e :U 25 ]
+"82
+[e :U 26 ]
+[; ;OutputSequences.c: 82: case 1:
+[; ;OutputSequences.c: 83: ReturnColour = e_ColourA;
+"83
+[e = _ReturnColour -> . `E174 2 `E174 ]
+[; ;OutputSequences.c: 84: CalculateFutureTime( theTimer, 0, 0, 1 );
+"84
+[e ( _CalculateFutureTime (4 , , , _theTimer -> -> 0 `i `uc -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;OutputSequences.c: 85: *theState = 2;
+"85
+[e = *U _theState -> -> 2 `i `uc ]
+[; ;OutputSequences.c: 86: break;
+"86
+[e $U 23  ]
+[; ;OutputSequences.c: 87: case 2:
+"87
+[e :U 27 ]
+[; ;OutputSequences.c: 88: ReturnColour = e_Off;
+"88
+[e = _ReturnColour -> . `E174 1 `E174 ]
+[; ;OutputSequences.c: 89: CalculateFutureTime( theTimer, 0, 0, 2 );
+"89
+[e ( _CalculateFutureTime (4 , , , _theTimer -> -> 0 `i `uc -> -> 0 `i `uc -> -> 2 `i `uc ]
+[; ;OutputSequences.c: 90: *theState = 1;
+"90
+[e = *U _theState -> -> 1 `i `uc ]
+[; ;OutputSequences.c: 91: break;
+"91
+[e $U 23  ]
+"92
+}
+[; ;OutputSequences.c: 92: }
+[e $U 23  ]
+"79
+[e :U 24 ]
+[e [\ *U _theState , $ -> -> 0 `i `uc 25
+ , $ -> -> 1 `i `uc 26
+ , $ -> -> 2 `i `uc 27
+ 23 ]
+"92
+[e :U 23 ]
+[; ;OutputSequences.c: 93: return ReturnColour;
+"93
+[e ) _ReturnColour ]
+[e $UE 22  ]
+[; ;OutputSequences.c: 94: }
+"94
+[e :UE 22 ]
+}
+"97
+[v _RapidFlashColourB `(E174 ~T0 @X0 1 ef2`*Vuc`*VS5 ]
+{
+[; ;OutputSequences.c: 96: t_ButtonColour RapidFlashColourB( volatile uint8_t *theState, volatile t_ATime *theTimer )
+[; ;OutputSequences.c: 97: {
+[e :U _RapidFlashColourB ]
+[v _theState `*Vuc ~T0 @X0 1 r1 ]
+[v _theTimer `*VS5 ~T0 @X0 1 r2 ]
+[f ]
+"98
+[v _ReturnColour `E174 ~T0 @X0 1 a ]
+[; ;OutputSequences.c: 98: t_ButtonColour ReturnColour = e_Unknown;
+[e = _ReturnColour -> . `E174 0 `E174 ]
+[; ;OutputSequences.c: 100: switch( *theState )
+"100
+[e $U 30  ]
+[; ;OutputSequences.c: 101: {
+"101
+{
+[; ;OutputSequences.c: 102: case 0:
+"102
+[e :U 31 ]
+"103
+[e :U 32 ]
+[; ;OutputSequences.c: 103: case 1:
+[; ;OutputSequences.c: 104: ReturnColour = e_ColourB;
+"104
+[e = _ReturnColour -> . `E174 3 `E174 ]
+[; ;OutputSequences.c: 105: CalculateFutureTime( theTimer, 0, 0, 10 );
+"105
+[e ( _CalculateFutureTime (4 , , , _theTimer -> -> 0 `i `uc -> -> 0 `i `uc -> -> 10 `i `uc ]
+[; ;OutputSequences.c: 106: *theState = 2;
+"106
+[e = *U _theState -> -> 2 `i `uc ]
+[; ;OutputSequences.c: 107: break;
+"107
+[e $U 29  ]
+[; ;OutputSequences.c: 108: case 2:
+"108
+[e :U 33 ]
+[; ;OutputSequences.c: 109: ReturnColour = e_Off;
+"109
+[e = _ReturnColour -> . `E174 1 `E174 ]
+[; ;OutputSequences.c: 110: CalculateFutureTime( theTimer, 0, 0, 50 );
+"110
+[e ( _CalculateFutureTime (4 , , , _theTimer -> -> 0 `i `uc -> -> 0 `i `uc -> -> 50 `i `uc ]
+[; ;OutputSequences.c: 111: *theState = 1;
+"111
+[e = *U _theState -> -> 1 `i `uc ]
+[; ;OutputSequences.c: 112: break;
+"112
+[e $U 29  ]
+"113
+}
+[; ;OutputSequences.c: 113: }
+[e $U 29  ]
+"100
+[e :U 30 ]
+[e [\ *U _theState , $ -> -> 0 `i `uc 31
+ , $ -> -> 1 `i `uc 32
+ , $ -> -> 2 `i `uc 33
+ 29 ]
+"113
+[e :U 29 ]
+[; ;OutputSequences.c: 114: return ReturnColour;
+"114
+[e ) _ReturnColour ]
+[e $UE 28  ]
+[; ;OutputSequences.c: 115: }
+"115
+[e :UE 28 ]
+}
+"118
+[v _ColourMix `(E174 ~T0 @X0 1 ef2`*Vuc`*VS5 ]
+{
+[; ;OutputSequences.c: 117: t_ButtonColour ColourMix( volatile uint8_t *theState, volatile t_ATime *theTimer )
+[; ;OutputSequences.c: 118: {
+[e :U _ColourMix ]
+[v _theState `*Vuc ~T0 @X0 1 r1 ]
+[v _theTimer `*VS5 ~T0 @X0 1 r2 ]
+[f ]
+"119
+[v _ReturnColour `E174 ~T0 @X0 1 a ]
+[; ;OutputSequences.c: 119: t_ButtonColour ReturnColour = e_Unknown;
+[e = _ReturnColour -> . `E174 0 `E174 ]
+[; ;OutputSequences.c: 121: switch( *theState )
+"121
+[e $U 36  ]
+[; ;OutputSequences.c: 122: {
+"122
+{
+[; ;OutputSequences.c: 123: case 0:
+"123
+[e :U 37 ]
+"124
+[e :U 38 ]
+[; ;OutputSequences.c: 124: case 1:
+[; ;OutputSequences.c: 125: ReturnColour = e_ColourA;
+"125
+[e = _ReturnColour -> . `E174 2 `E174 ]
+[; ;OutputSequences.c: 126: CalculateFutureTime( theTimer, 0, 0, 0 );
+"126
+[e ( _CalculateFutureTime (4 , , , _theTimer -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;OutputSequences.c: 127: *theState = 2;
+"127
+[e = *U _theState -> -> 2 `i `uc ]
+[; ;OutputSequences.c: 128: break;
+"128
+[e $U 35  ]
+[; ;OutputSequences.c: 129: case 2:
+"129
+[e :U 39 ]
+[; ;OutputSequences.c: 130: ReturnColour = e_ColourB;
+"130
+[e = _ReturnColour -> . `E174 3 `E174 ]
+[; ;OutputSequences.c: 131: CalculateFutureTime( theTimer, 0, 0, 0 );
+"131
+[e ( _CalculateFutureTime (4 , , , _theTimer -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;OutputSequences.c: 132: *theState = 1;
+"132
+[e = *U _theState -> -> 1 `i `uc ]
+[; ;OutputSequences.c: 133: break;
+"133
+[e $U 35  ]
+"134
+}
+[; ;OutputSequences.c: 134: }
+[e $U 35  ]
+"121
+[e :U 36 ]
+[e [\ *U _theState , $ -> -> 0 `i `uc 37
+ , $ -> -> 1 `i `uc 38
+ , $ -> -> 2 `i `uc 39
+ 35 ]
+"134
+[e :U 35 ]
+[; ;OutputSequences.c: 135: return ReturnColour;
+"135
+[e ) _ReturnColour ]
+[e $UE 34  ]
+[; ;OutputSequences.c: 136: }
+"136
+[e :UE 34 ]
+}

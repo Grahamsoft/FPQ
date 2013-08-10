@@ -1,0 +1,1 @@
+ dist/XC8_18F2585/production/doprnt.d  dist/XC8_18F2585/production/doprnt.p1:  /Applications/microchip/xc8/v1.12/sources/doprnt.c

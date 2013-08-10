@@ -1,0 +1,2835 @@
+Microchip MPLAB XC8 Compiler V1.12 ()
+
+Linker command line:
+
+--edf=/Applications/microchip/xc8/v1.12/dat/en_msgs.txt -cs \
+  -h+dist/XC8_18F2585/production/FPQ-1.X.production.sym -z -Q18F2585 \
+  -ol.obj -Mdist/XC8_18F2585/production/FPQ-1.X.production.map -E1 -ver=XC8 \
+  -ACODE=00h-0BFFFh -ACONST=00h-0BFFFh -ASMALLCONST=0D00h-0DFFhx179 \
+  -AMEDIUMCONST=0D00h-0BFFFh -ACOMRAM=01h-05Fh -AABS1=00h-0CFFh \
+  -ABIGRAM=01h-0CFFh -ARAM=060h-0FFh,0100h-01FFhx12 -ABANK0=060h-0FFh \
+  -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh -ABANK3=0300h-03FFh \
+  -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh -ABANK6=0600h-06FFh \
+  -ABANK7=0700h-07FFh -ABANK8=0800h-08FFh -ABANK9=0900h-09FFh \
+  -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh -ABANK12=0C00h-0CFFh \
+  -ASFR=0D00h-0DFFhx2,0F00h-0F5Fh,0F60h-0FFFh \
+  -preset_vec=00h,intcode=08h,intcodelo=018h,powerup,init,end_init \
+  -pramtop=0D00h -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST \
+  -pconst=CONST -AFARRAM=00h-00h -ACONFIG=0300000h-030000Dh -pconfig=CONFIG \
+  -AIDLOC=0200000h-0200007h -pidloc=IDLOC -AEEDATA=0F00000h-0F003FFh \
+  -peeprom_data=EEDATA \
+  -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
+  -pfarbss=FARRAM,fardata=FARRAM \
+  -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
+  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE /tmp/cgtaHszuD.obj \
+  dist/XC8_18F2585/production/FPQ-1.X.production.obj 
+
+Object code version is 3.10
+
+Machine type is 18F2585
+
+Call graph: (short form)
+
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+/tmp/cgtaHszuD.obj
+                end_init                             A2       A2        4        C       0
+                reset_vec                             0        0        4        0       0
+                idloc                            200000   200000        8   200000       0
+                config                           300000   300000        E   300000       0
+dist/XC8_18F2585/production/FPQ-1.X.production.obj
+                intcodelo                            18       18       8A        C       0
+                intcode                               8        8       10        4       0
+                smallconst                          D00      D00       4E      680       0
+                intcode_body                       2E6E     2E6E       68     15D1       0
+                text48                             2F96     2F96       5C     15D1       0
+                text47                             2E02     2E02       6C     15D1       0
+                text46                             3300     3300       1C     15D1       0
+                text45                             1D8A     1D8A      17A      6A7       0
+                text44                             21EE     21EE      164      6A7       0
+                text43                             1506     1506      26E      6A7       0
+                text42                             2A3E     2A3E       B6      6A7       0
+                text41                             2988     2988       B6      6A7       0
+                text40                             28D2     28D2       B6      6A7       0
+                text39                             281C     281C       B6      6A7       0
+                text38                             32E2     32E2       1E     15D1       0
+                text37                             1F04     1F04      176      6A7       0
+                text36                             3174     3174       46     15D1       0
+                text35                             312E     312E       46     15D1       0
+                text34                             30E8     30E8       46     15D1       0
+                text33                             2692     2692       C6      6A7       0
+                text32                             32C2     32C2       20     15D1       0
+                text31                             32A2     32A2       20     15D1       0
+                text30                             249A     249A      122      6A7       0
+                text29                             2BA2     2BA2       AA     15D1       0
+                text28                             2D7C     2D7C       86     15D1       0
+                text27                             3282     3282       20     15D1       0
+                text26                             2ED6     2ED6       64     15D1       0
+                text25                             3370     3370       12     15D1       0
+                text24                             335E     335E       12     15D1       0
+                text23                             207A     207A      174      6A7       0
+                text22                             331C     331C       1A     15D1       0
+                text21                             25BC     25BC       D6      6A7       0
+                text20                             2CEC     2CEC       90     15D1       0
+                text19                             3260     3260       22     15D1       0
+                text18                             339E     339E        6     15D1       0
+                text17                             1BAC     1BAC      1DE      6A7       0
+                text16                             1774     1774      220      6A7       0
+                text15                              D4E      D4E      40A      6A7       0
+                text14                             2758     2758       C4      6A7       0
+                text13                             31FC     31FC       38     15D1       0
+                text12                             3234     3234       2C     15D1       0
+                text11                             2352     2352      148      6A7       0
+                text10                             1158     1158      3AE      6A7       0
+                text9                              334C     334C       12     15D1       0
+                text8                              30A2     30A2       46     15D1       0
+                text7                              2F3A     2F3A       5C     15D1       0
+                text6                              304C     304C       56     15D1       0
+                text5                              3392     3392        C     15D1       0
+                text4                              2C4C     2C4C       A0     15D1       0
+                text3                              1994     1994      218      6A7       0
+                text2                              3336     3336       16     15D1       0
+                text1                              31BA     31BA       42     15D1       0
+                text0                              3382     3382       10     15D1       0
+                cstackCOMRAM                          1        1       31        1       1
+                cstackBANK0                          C7       C7       36       60       1
+                dataBANK1                           100      100       AD      100       1
+                bssBANK0                             60       60       67       60       1
+                dataCOMRAM                           3F       3F        2        1       1
+                bssCOMRAM                            32       32        D        1       1
+                cinit                              2FF2     2FF2       5A     15D1       0
+                idataBANK1                         2AF4     2AF4       AD      6A7       0
+                idataCOMRAM                        33A4     33A4        2     15D1       0
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   CODE           
+                end_init                             A2       A2        4         0
+                intcodelo                            18       18       8A         0
+                intcode                               8        8       10         0
+                reset_vec                             0        0        4         0
+                intcode_body                       2E6E     2E6E       68         0
+                text48                             2F96     2F96       5C         0
+                text47                             2E02     2E02       6C         0
+                text46                             3300     3300       1C         0
+                text45                             1D8A     1D8A      17A         0
+                text44                             21EE     21EE      164         0
+                text43                             1506     1506      26E         0
+                text42                             2A3E     2A3E       B6         0
+                text41                             2988     2988       B6         0
+                text40                             28D2     28D2       B6         0
+                text39                             281C     281C       B6         0
+                text38                             32E2     32E2       1E         0
+                text37                             1F04     1F04      176         0
+                text36                             3174     3174       46         0
+                text35                             312E     312E       46         0
+                text34                             30E8     30E8       46         0
+                text33                             2692     2692       C6         0
+                text32                             32C2     32C2       20         0
+                text31                             32A2     32A2       20         0
+                text30                             249A     249A      122         0
+                text29                             2BA2     2BA2       AA         0
+                text28                             2D7C     2D7C       86         0
+                text27                             3282     3282       20         0
+                text26                             2ED6     2ED6       64         0
+                text25                             3370     3370       12         0
+                text24                             335E     335E       12         0
+                text23                             207A     207A      174         0
+                text22                             331C     331C       1A         0
+                text21                             25BC     25BC       D6         0
+                text20                             2CEC     2CEC       90         0
+                text19                             3260     3260       22         0
+                text18                             339E     339E        6         0
+                text17                             1BAC     1BAC      1DE         0
+                text16                             1774     1774      220         0
+                text15                              D4E      D4E      40A         0
+                text14                             2758     2758       C4         0
+                text13                             31FC     31FC       38         0
+                text12                             3234     3234       2C         0
+                text11                             2352     2352      148         0
+                text10                             1158     1158      3AE         0
+                text9                              334C     334C       12         0
+                text8                              30A2     30A2       46         0
+                text7                              2F3A     2F3A       5C         0
+                text6                              304C     304C       56         0
+                text5                              3392     3392        C         0
+                text4                              2C4C     2C4C       A0         0
+                text3                              1994     1994      218         0
+                text2                              3336     3336       16         0
+                text1                              31BA     31BA       42         0
+                text0                              3382     3382       10         0
+                cinit                              2FF2     2FF2       5A         0
+                idataBANK1                         2AF4     2AF4       AD         0
+                idataCOMRAM                        33A4     33A4        2         0
+
+        CLASS   CONST          
+
+        CLASS   SMALLCONST     
+                smallconst                          D00      D00       4E         0
+
+        CLASS   MEDIUMCONST    
+
+        CLASS   COMRAM         
+                cstackCOMRAM                          1        1       31         1
+                dataCOMRAM                           3F       3F        2         1
+                bssCOMRAM                            32       32        D         1
+
+        CLASS   ABS1           
+
+        CLASS   BIGRAM         
+
+        CLASS   RAM            
+
+        CLASS   BANK0          
+                cstackBANK0                          C7       C7       36         1
+                bssBANK0                             60       60       67         1
+
+        CLASS   BANK1          
+                dataBANK1                           100      100       AD         1
+
+        CLASS   BANK2          
+
+        CLASS   BANK3          
+
+        CLASS   BANK4          
+
+        CLASS   BANK5          
+
+        CLASS   BANK6          
+
+        CLASS   BANK7          
+
+        CLASS   BANK8          
+
+        CLASS   BANK9          
+
+        CLASS   BANK10         
+
+        CLASS   BANK11         
+
+        CLASS   BANK12         
+
+        CLASS   SFR            
+
+        CLASS   FARRAM         
+
+        CLASS   CONFIG         
+                config                           300000   300000        E         0
+
+        CLASS   IDLOC          
+                idloc                            200000   200000        8         0
+
+        CLASS   EEDATA         
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
+
+                reset_vec                      000000  000004  000004         0       0  CODE    
+                cstackCOMRAM                   000001  000040  000041         1       1  COMRAM  
+                intcode                        000008  000010  000018         4       0  CODE    
+                intcodelo                      000018  00008E  0000A6         C       0  CODE    
+                bssBANK0                       000060  00009D  0000FD        60       1  BANK0   
+                dataBANK1                      000100  0000AD  0001AD       100       1  BANK1   
+                smallconst                     000D00  00004E  000D4E       680       0  SMALLCON
+                text15                         000D4E  001E53  002BA1       6A7       0  CODE    
+                text29                         002BA2  000804  0033A6      15D1       0  CODE    
+                idloc                          200000  000008  200008    200000       0  IDLOC   
+                config                         300000  00000E  30000E    300000       0  CONFIG  
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            0000FD-0000FF                3
+        BANK1            0001AD-0001FF               53
+        BANK10           000A00-000AFF              100
+        BANK11           000B00-000BFF              100
+        BANK12           000C00-000CFF              100
+        BANK2            000200-0002FF              100
+        BANK3            000300-0003FF              100
+        BANK4            000400-0004FF              100
+        BANK5            000500-0005FF              100
+        BANK6            000600-0006FF              100
+        BANK7            000700-0007FF              100
+        BANK8            000800-0008FF              100
+        BANK9            000900-0009FF              100
+        BIGRAM           000041-00005F               1F
+                         0000FD-0000FF                3
+                         0001AD-000CFF              B53
+        CODE             000004-000007                4
+                         0000A6-000CFF              C5A
+                         002BA1-002BA1                1
+                         0033A6-00BFFF             8C5A
+        COMRAM           000041-00005F               1F
+        CONST            000004-000007                4
+                         0000A6-000CFF              C5A
+                         002BA1-002BA1                1
+                         0033A6-00BFFF             8C5A
+        EEDATA           F00000-F003FF              400
+        MEDIUMCONST      002BA1-002BA1                1
+                         0033A6-00BFFF             8C5A
+        RAM              0000FD-0000FF                3
+                         0001AD-000CFF              100
+        SFR              000D00-000FFF              100
+        SMALLCONST       002BA1-002BA1                1
+                         0033A6-00BFFF              100
+
+                                  Symbol Table
+
+?_ButtonBeingPressed                   cstackCOMRAM 000020
+?_CalculateFutureTime                  cstackCOMRAM 000020
+?_ColourA                              cstackCOMRAM 000020
+?_ColourB                              cstackCOMRAM 000020
+?_ColourMix                            cstackCOMRAM 00002B
+?_ColourNone                           cstackCOMRAM 000020
+?_CustomerBeingServed                  cstackCOMRAM 000025
+?_CustomerWating                       cstackCOMRAM 000025
+?_DimmedColourA                        cstackCOMRAM 00002B
+?_ECANReceiveMessage                   cstackBANK0  0000D7
+?_ECANSendMessage                      cstackBANK0  0000C7
+?_ECANSetOperationMode                 cstackCOMRAM 000020
+?_GetColour                            cstackBANK0  0000C8
+?_GetKeyInputTimer                     cstackCOMRAM 000020
+?_GetKeyState                          cstackCOMRAM 000020
+?_GetKeyTimer                          cstackCOMRAM 000020
+?_GetSequence                          cstackCOMRAM 000020
+?_GetSequenceState                     cstackCOMRAM 000020
+?_IlluminateButton                     cstackBANK0  0000D1
+?_MaturedTimer                         cstackCOMRAM 000020
+?_MonitorButton                        cstackCOMRAM 00002B
+?_OpenTimer0                           cstackCOMRAM 000020
+?_OpenUSART                            cstackCOMRAM 000020
+?_RapidFlashColourB                    cstackCOMRAM 00002B
+?_RedGreenFlash                        cstackCOMRAM 00002B
+?_SetKeyState                          cstackCOMRAM 000026
+?_WriteTimer0                          cstackCOMRAM 000020
+?_WriteUSART                           cstackCOMRAM 000020
+?__CANIDToRegs                         cstackCOMRAM 000020
+?__RegsToCANID                         cstackCOMRAM 000020
+?___lwdiv                              cstackCOMRAM 000020
+?___lwmod                              cstackCOMRAM 000028
+?_putsUSART                            cstackCOMRAM 000021
+?_sprintf                              cstackBANK0  0000C7
+ButtonBeingPressed@BeingPressed        cstackCOMRAM 000022
+ButtonBeingPressed@theId               cstackCOMRAM 000020
+CalculateFutureTime@CarryOver          cstackCOMRAM 00002A
+CalculateFutureTime@theHalfSeconds     cstackCOMRAM 000024
+CalculateFutureTime@theMinutes         cstackCOMRAM 000022
+CalculateFutureTime@theSeconds         cstackCOMRAM 000023
+CalculateFutureTime@theTimer           cstackCOMRAM 000020
+CanCommsTask@DataCommsReadState        bssBANK0     000060
+CanCommsTask@str                       cstackBANK0  0000F2
+CanCommsTask@str_333                   cstackBANK0  0000F7
+ColourA@theId                          cstackCOMRAM 000020
+ColourB@theId                          cstackCOMRAM 000020
+ColourMix@ReturnColour                 cstackBANK0  0000C7
+ColourMix@theState                     cstackCOMRAM 00002B
+ColourMix@theTimer                     cstackCOMRAM 00002D
+ColourNone@theId                       cstackCOMRAM 000020
+DimmedColourA@ReturnColour             cstackBANK0  0000C7
+DimmedColourA@theState                 cstackCOMRAM 00002B
+DimmedColourA@theTimer                 cstackCOMRAM 00002D
+ECANReceiveMessage@data                cstackBANK0  0000D9
+ECANReceiveMessage@dataLen             cstackBANK0  0000DB
+ECANReceiveMessage@i                   cstackBANK0  0000EB
+ECANReceiveMessage@id                  cstackBANK0  0000D7
+ECANReceiveMessage@msgFlags            cstackBANK0  0000DD
+ECANReceiveMessage@ptr                 cstackBANK0  0000EC
+ECANReceiveMessage@savedPtr            cstackBANK0  0000E9
+ECANReceiveMessage@str                 cstackBANK0  0000DF
+ECANReceiveMessage@str_1913            cstackBANK0  0000E4
+ECANReceiveMessage@temp                cstackBANK0  0000EE
+ECANSendMessage@data                   cstackBANK0  0000CB
+ECANSendMessage@dataLen                cstackBANK0  0000CD
+ECANSendMessage@i                      cstackBANK0  0000E5
+ECANSendMessage@id                     cstackBANK0  0000C7
+ECANSendMessage@j                      cstackBANK0  0000E1
+ECANSendMessage@msgFlags               cstackBANK0  0000CE
+ECANSendMessage@pb                     cstackBANK0  0000CF
+ECANSendMessage@ptr                    cstackBANK0  0000E6
+ECANSendMessage@temp                   cstackBANK0  0000E4
+ECANSendMessage@tempPtr                cstackBANK0  0000E2
+ECANSetOperationMode@mode              cstackCOMRAM 000020
+GetColour@ReturnColour                 cstackBANK0  0000D0
+GetColour@theSequences                 cstackBANK0  0000C8
+GetColour@theState                     cstackBANK0  0000C9
+GetColour@theTimer                     cstackBANK0  0000CB
+GetKeyInputTimer@theKeyId              cstackCOMRAM 000020
+GetKeyState@theKeyId                   cstackCOMRAM 000020
+GetKeyTimer@theKeyId                   cstackCOMRAM 000020
+GetSequence@ReturnedSequence           cstackCOMRAM 000021
+GetSequence@theKeyId                   cstackCOMRAM 000020
+GetSequenceState@theKeyId              cstackCOMRAM 000020
+GetSerialChar@ReceivedChar             cstackCOMRAM 000021
+IlluminateButton@KeyTimer              cstackBANK0  0000D2
+IlluminateButton@Sequence              cstackBANK0  0000D6
+IlluminateButton@SequenceState         cstackBANK0  0000D4
+IlluminateButton@theId                 cstackBANK0  0000D1
+InitKeys@KeyTimer                      cstackCOMRAM 000020
+InputTask@i                            cstackBANK0  0000C7
+MaturedTimer@ToReturn                  cstackCOMRAM 000023
+MaturedTimer@theTimer                  cstackCOMRAM 000020
+MonitorBartenderButton@BartenderButton dataCOMRAM   00003F
+MonitorButton@KeyTimer                 cstackCOMRAM 00002F
+MonitorButton@theId                    cstackCOMRAM 00002B
+OpenTimer0@config                      cstackCOMRAM 000020
+OpenUSART@config                       cstackCOMRAM 000020
+OpenUSART@spbrg                        cstackCOMRAM 000021
+OutputTask@i                           cstackBANK0  0000D8
+RapidFlashColourB@ReturnColour         cstackBANK0  0000C7
+RapidFlashColourB@theState             cstackCOMRAM 00002B
+RapidFlashColourB@theTimer             cstackCOMRAM 00002D
+ReadUSART@data                         cstackCOMRAM 000020
+RedGreenFlash@ReturnColour             cstackBANK0  0000C7
+RedGreenFlash@theState                 cstackCOMRAM 00002B
+RedGreenFlash@theTimer                 cstackCOMRAM 00002D
+SetKeyState@LoopKeyId                  cstackCOMRAM 000029
+SetKeyState@OldHeadOfQueue             cstackCOMRAM 000028
+SetKeyState@theKeyId                   cstackCOMRAM 000026
+SetKeyState@theState                   cstackCOMRAM 000027
+TaskManager@Operation                  dataCOMRAM   000040
+UartCommsTask@DataCommsReadState       bssCOMRAM    00003A
+UartCommsTask@HeadOfQueue              cstackCOMRAM 00002B
+UartCommsTask@Msg                      bssCOMRAM    00003B
+WriteTimer0@timer                      cstackCOMRAM 000022
+WriteTimer0@timer0                     cstackCOMRAM 000020
+WriteUSART@data                        cstackCOMRAM 000020
+_ADCON1                                (abs)        000FC1
+_BRGCON1                               (abs)        000F70
+_BRGCON2                               (abs)        000F71
+_BRGCON3                               (abs)        000F72
+_ButtonBeingPressed                    text28       002D7C
+_CANCON                                (abs)        000F6F
+_CIOCON                                (abs)        000F73
+_COMSTATbits                           (abs)        000F74
+_CalculateFutureTime                   text43       001506
+_CanCommsTask                          text10       001158
+_ColourA                               text35       00312E
+_ColourB                               text36       003174
+_ColourMix                             text42       002A3E
+_ColourNone                            text34       0030E8
+_ConfigureHardware                     text8        0030A2
+_CustomerBeingServed                   text25       003370
+_CustomerWating                        text24       00335E
+_DataCommsTask                         text5        003392
+_DimmedColourA                         text40       0028D2
+_ECANCONbits                           (abs)        000F77
+_ECANInitialize                        text14       002758
+_ECANReceiveMessage                    text15       000D4E
+_ECANSendMessage                       text17       001BAC
+_ECANSetOperationMode                  text38       0032E2
+_GetColour                             text37       001F04
+_GetHeadOfQueue                        text18       00339E
+_GetKeyInputTimer                      text27       003282
+_GetKeyState                           text22       00331C
+_GetKeyTimer                           text31       0032A2
+_GetSequence                           text33       002692
+_GetSequenceState                      text32       0032C2
+_GetSerialChar                         text12       003234
+_INTCONbits                            (abs)        000FF2
+_ISR                                   intcode      000008
+_IlluminateButton                      text29       002BA2
+_Increment_Timer                       text4        002C4C
+_InitKeys                              text3        001994
+_InitText                              dataBANK1    000158
+_InitTime                              text2        003336
+_InputTask                             text6        00304C
+_KeyCount                              smallconst   000D0B
+_LowPriorityISR                        intcodelo    000018
+_MaturedTimer                          text30       00249A
+_MonitorButton                         text21       0025BC
+_NoRead                                smallconst   000D0C
+_OSCCON                                (abs)        000FD3
+_OpenTimer0                            text19       003260
+_OpenUSART                             text20       002CEC
+_OutputTask                            text7        002F3A
+_PIE1bits                              (abs)        000F9D
+_PIR1bits                              (abs)        000F9E
+_PIR3bits                              (abs)        000FA4
+_PORTA                                 (abs)        000F80
+_PORTAbits                             (abs)        000F80
+_PORTB                                 (abs)        000F81
+_PORTBbits                             (abs)        000F81
+_PORTC                                 (abs)        000F82
+_PORTCbits                             (abs)        000F82
+_RCREG                                 (abs)        000FAE
+_RCSTA                                 (abs)        000FAB
+_RCSTAbits                             (abs)        000FAB
+_RXB0CON                               (abs)        000F60
+_RXB0CONbits                           (abs)        000F60
+_RXB1CON                               (abs)        000F50
+_RXB1CONbits                           (abs)        000F50
+_RXF0SIDH                              (abs)        000F00
+_RXF0SIDL                              (abs)        000F01
+_RXF1SIDH                              (abs)        000F04
+_RXF1SIDL                              (abs)        000F05
+_RXF2SIDH                              (abs)        000F08
+_RXF2SIDL                              (abs)        000F09
+_RXF3SIDH                              (abs)        000F0C
+_RXF3SIDL                              (abs)        000F0D
+_RXF4SIDH                              (abs)        000F10
+_RXF4SIDL                              (abs)        000F11
+_RXF5SIDH                              (abs)        000F14
+_RXF5SIDL                              (abs)        000F15
+_RXM0SIDH                              (abs)        000F18
+_RXM0SIDL                              (abs)        000F19
+_RXM0SIDLbits                          (abs)        000F19
+_RXM1SIDH                              (abs)        000F1C
+_RXM1SIDL                              (abs)        000F1D
+_RXM1SIDLbits                          (abs)        000F1D
+_RapidFlashColourB                     text41       002988
+_ReadUSART                             text13       0031FC
+_RedGreenFlash                         text39       00281C
+_SPBRG                                 (abs)        000FAF
+_SPBRGH                                (abs)        000FB0
+_SequenceReset                         smallconst   000D0D
+_SetKeyState                           text23       00207A
+_StartChar                             smallconst   000D0E
+_T0CON                                 (abs)        000FD5
+_T0CONbits                             (abs)        000FD5
+_T0IF                                  (abs)        007F92
+_TMR0H                                 (abs)        000FD7
+_TMR0L                                 (abs)        000FD6
+_TRISA                                 (abs)        000F92
+_TRISB                                 (abs)        000F93
+_TRISC                                 (abs)        000F94
+_TRISCbits                             (abs)        000F94
+_TXB0CON                               (abs)        000F40
+_TXB1CON                               (abs)        000F30
+_TXB2CON                               (abs)        000F20
+_TXREG                                 (abs)        000FAD
+_TXSTA                                 (abs)        000FAC
+_TXSTAbits                             (abs)        000FAC
+_TaskManager                           text1        0031BA
+_USART_Status                          bssCOMRAM    00003C
+_UartCommsTask                         text11       002352
+_WriteTimer0                           text9        00334C
+_WriteUSART                            text46       003300
+__CANIDToRegs                          text44       0021EE
+__CANIDToRegs@Value                    cstackCOMRAM 000029
+__CANIDToRegs@ptr                      cstackCOMRAM 000020
+__CANIDToRegs@type                     cstackCOMRAM 000026
+__CANIDToRegs@val                      cstackCOMRAM 000022
+__CFG_BBSIZ$1024                       (abs)        000000
+__CFG_BOREN$BOHW                       (abs)        000000
+__CFG_BORV$3                           (abs)        000000
+__CFG_CP0$OFF                          (abs)        000000
+__CFG_CP1$OFF                          (abs)        000000
+__CFG_CP2$OFF                          (abs)        000000
+__CFG_CPB$OFF                          (abs)        000000
+__CFG_CPD$OFF                          (abs)        000000
+__CFG_EBTR0$OFF                        (abs)        000000
+__CFG_EBTR1$OFF                        (abs)        000000
+__CFG_EBTR2$OFF                        (abs)        000000
+__CFG_EBTRB$OFF                        (abs)        000000
+__CFG_FCMEN$OFF                        (abs)        000000
+__CFG_IESO$OFF                         (abs)        000000
+__CFG_LPT1OSC$OFF                      (abs)        000000
+__CFG_LVP$OFF                          (abs)        000000
+__CFG_MCLRE$OFF                        (abs)        000000
+__CFG_OSC$IRCIO67                      (abs)        000000
+__CFG_PBADEN$OFF                       (abs)        000000
+__CFG_PWRT$OFF                         (abs)        000000
+__CFG_STVREN$OFF                       (abs)        000000
+__CFG_WDT$OFF                          (abs)        000000
+__CFG_WDTPS$32768                      (abs)        000000
+__CFG_WRT0$OFF                         (abs)        000000
+__CFG_WRT1$OFF                         (abs)        000000
+__CFG_WRT2$OFF                         (abs)        000000
+__CFG_WRTB$OFF                         (abs)        000000
+__CFG_WRTC$OFF                         (abs)        000000
+__CFG_WRTD$OFF                         (abs)        000000
+__CFG_XINST$OFF                        (abs)        000000
+__ECANRxFilterHitInfo                  bssBANK0     000061
+__HRAM                                 (abs)        000000
+__Habs1                                abs1         000000
+__Hbank0                               bank0        000000
+__Hbank1                               bank1        000000
+__Hbank10                              bank10       000000
+__Hbank11                              bank11       000000
+__Hbank12                              bank12       000000
+__Hbank2                               bank2        000000
+__Hbank3                               bank3        000000
+__Hbank4                               bank4        000000
+__Hbank5                               bank5        000000
+__Hbank6                               bank6        000000
+__Hbank7                               bank7        000000
+__Hbank8                               bank8        000000
+__Hbank9                               bank9        000000
+__Hbigbss                              bigbss       000000
+__Hbigdata                             bigdata      000000
+__Hbigram                              bigram       000000
+__Hbss                                 bss          000000
+__HbssBANK0                            bssBANK0     000000
+__HbssCOMRAM                           bssCOMRAM    000000
+__Hcinit                               cinit        000000
+__Hclrtext                             clrtext      000000
+__Hcomram                              comram       000000
+__Hconfig                              config       30000E
+__Hconst                               const        000000
+__HcstackBANK0                         cstackBANK0  000000
+__HcstackCOMRAM                        cstackCOMRAM 000000
+__Hdata                                data         000000
+__HdataBANK1                           dataBANK1    000000
+__HdataCOMRAM                          dataCOMRAM   000000
+__Heeprom_data                         eeprom_data  000000
+__Hend_init                            end_init     0000A6
+__Hfarbss                              farbss       000000
+__Hfardata                             fardata      000000
+__Hibigdata                            ibigdata     000000
+__Hidata                               idata        000000
+__HidataBANK1                          idataBANK1   000000
+__HidataCOMRAM                         idataCOMRAM  000000
+__Hidloc                               idloc        200008
+__Hifardata                            ifardata     000000
+__Hinit                                init         0000A2
+__Hintcode                             intcode      000018
+__Hintcode_body                        intcode_body 000000
+__Hintcodelo                           intcodelo    0000A2
+__Hintentry                            intentry     000000
+__Hintret                              intret       000000
+__Hintsave_regs                        intsave_regs 000000
+__Hirdata                              irdata       000000
+__Hmediumconst                         mediumconst  000000
+__Hnvbit                               nvbit        000000
+__Hnvrram                              nvrram       000000
+__Hparam                               rparam       000000
+__Hpowerup                             powerup      0000A2
+__Hram                                 ram          000000
+__Hramtop                              ramtop       000D00
+__Hrbit                                rbit         000000
+__Hrbss                                rbss         000000
+__Hrdata                               rdata        000000
+__Hreset_vec                           reset_vec    000004
+__Hrparam                              rparam       000000
+__Hsfr                                 sfr          000000
+__Hsmallconst                          smallconst   000D4E
+__Hstruct                              struct       000000
+__Htemp                                temp         000000
+__Htext                                text         000000
+__Htext0                               text0        000000
+__Htext1                               text1        000000
+__Htext10                              text10       000000
+__Htext11                              text11       000000
+__Htext12                              text12       000000
+__Htext13                              text13       000000
+__Htext14                              text14       000000
+__Htext15                              text15       000000
+__Htext16                              text16       000000
+__Htext17                              text17       000000
+__Htext18                              text18       000000
+__Htext19                              text19       000000
+__Htext2                               text2        000000
+__Htext20                              text20       000000
+__Htext21                              text21       000000
+__Htext22                              text22       000000
+__Htext23                              text23       000000
+__Htext24                              text24       000000
+__Htext25                              text25       000000
+__Htext26                              text26       000000
+__Htext27                              text27       000000
+__Htext28                              text28       000000
+__Htext29                              text29       000000
+__Htext3                               text3        000000
+__Htext30                              text30       000000
+__Htext31                              text31       000000
+__Htext32                              text32       000000
+__Htext33                              text33       000000
+__Htext34                              text34       000000
+__Htext35                              text35       000000
+__Htext36                              text36       000000
+__Htext37                              text37       000000
+__Htext38                              text38       000000
+__Htext39                              text39       000000
+__Htext4                               text4        000000
+__Htext40                              text40       000000
+__Htext41                              text41       000000
+__Htext42                              text42       000000
+__Htext43                              text43       000000
+__Htext44                              text44       000000
+__Htext45                              text45       000000
+__Htext46                              text46       000000
+__Htext47                              text47       000000
+__Htext48                              text48       000000
+__Htext5                               text5        000000
+__Htext6                               text6        000000
+__Htext7                               text7        000000
+__Htext8                               text8        000000
+__Htext9                               text9        000000
+__LRAM                                 (abs)        000001
+__Labs1                                abs1         000000
+__Lbank0                               bank0        000000
+__Lbank1                               bank1        000000
+__Lbank10                              bank10       000000
+__Lbank11                              bank11       000000
+__Lbank12                              bank12       000000
+__Lbank2                               bank2        000000
+__Lbank3                               bank3        000000
+__Lbank4                               bank4        000000
+__Lbank5                               bank5        000000
+__Lbank6                               bank6        000000
+__Lbank7                               bank7        000000
+__Lbank8                               bank8        000000
+__Lbank9                               bank9        000000
+__Lbigbss                              bigbss       000000
+__Lbigdata                             bigdata      000000
+__Lbigram                              bigram       000000
+__Lbss                                 bss          000000
+__LbssBANK0                            bssBANK0     000000
+__LbssCOMRAM                           bssCOMRAM    000000
+__Lcinit                               cinit        000000
+__Lclrtext                             clrtext      000000
+__Lcomram                              comram       000000
+__Lconfig                              config       300000
+__Lconst                               const        000000
+__LcstackBANK0                         cstackBANK0  000000
+__LcstackCOMRAM                        cstackCOMRAM 000000
+__Ldata                                data         000000
+__LdataBANK1                           dataBANK1    000000
+__LdataCOMRAM                          dataCOMRAM   000000
+__Leeprom_data                         eeprom_data  000000
+__Lend_init                            end_init     0000A2
+__Lfarbss                              farbss       000000
+__Lfardata                             fardata      000000
+__Libigdata                            ibigdata     000000
+__Lidata                               idata        000000
+__LidataBANK1                          idataBANK1   000000
+__LidataCOMRAM                         idataCOMRAM  000000
+__Lidloc                               idloc        200000
+__Lifardata                            ifardata     000000
+__Linit                                init         0000A2
+__Lintcode                             intcode      000008
+__Lintcode_body                        intcode_body 000000
+__Lintcodelo                           intcodelo    000018
+__Lintentry                            intentry     000000
+__Lintret                              intret       000000
+__Lintsave_regs                        intsave_regs 000000
+__Lirdata                              irdata       000000
+__Lmediumconst                         mediumconst  000000
+__Lnvbit                               nvbit        000000
+__Lnvrram                              nvrram       000000
+__Lparam                               rparam       000000
+__Lpowerup                             powerup      0000A2
+__Lram                                 ram          000000
+__Lramtop                              ramtop       000D00
+__Lrbit                                rbit         000000
+__Lrbss                                rbss         000000
+__Lrdata                               rdata        000000
+__Lreset_vec                           reset_vec    000000
+__Lrparam                              rparam       000000
+__Lsfr                                 sfr          000000
+__Lsmallconst                          smallconst   000D00
+__Lstruct                              struct       000000
+__Ltemp                                temp         000000
+__Ltext                                text         000000
+__Ltext0                               text0        000000
+__Ltext1                               text1        000000
+__Ltext10                              text10       000000
+__Ltext11                              text11       000000
+__Ltext12                              text12       000000
+__Ltext13                              text13       000000
+__Ltext14                              text14       000000
+__Ltext15                              text15       000000
+__Ltext16                              text16       000000
+__Ltext17                              text17       000000
+__Ltext18                              text18       000000
+__Ltext19                              text19       000000
+__Ltext2                               text2        000000
+__Ltext20                              text20       000000
+__Ltext21                              text21       000000
+__Ltext22                              text22       000000
+__Ltext23                              text23       000000
+__Ltext24                              text24       000000
+__Ltext25                              text25       000000
+__Ltext26                              text26       000000
+__Ltext27                              text27       000000
+__Ltext28                              text28       000000
+__Ltext29                              text29       000000
+__Ltext3                               text3        000000
+__Ltext30                              text30       000000
+__Ltext31                              text31       000000
+__Ltext32                              text32       000000
+__Ltext33                              text33       000000
+__Ltext34                              text34       000000
+__Ltext35                              text35       000000
+__Ltext36                              text36       000000
+__Ltext37                              text37       000000
+__Ltext38                              text38       000000
+__Ltext39                              text39       000000
+__Ltext4                               text4        000000
+__Ltext40                              text40       000000
+__Ltext41                              text41       000000
+__Ltext42                              text42       000000
+__Ltext43                              text43       000000
+__Ltext44                              text44       000000
+__Ltext45                              text45       000000
+__Ltext46                              text46       000000
+__Ltext47                              text47       000000
+__Ltext48                              text48       000000
+__Ltext5                               text5        000000
+__Ltext6                               text6        000000
+__Ltext7                               text7        000000
+__Ltext8                               text8        000000
+__Ltext9                               text9        000000
+__RegsToCANID                          text45       001D8A
+__RegsToCANID@Value                    cstackCOMRAM 000027
+__RegsToCANID@ptr                      cstackCOMRAM 000020
+__RegsToCANID@type                     cstackCOMRAM 000024
+__RegsToCANID@val                      cstackCOMRAM 000022
+__S0                                   (abs)        30000E
+__S1                                   (abs)        0001AD
+___lwdiv                               text47       002E02
+___lwdiv@counter                       cstackCOMRAM 000025
+___lwdiv@dividend                      cstackCOMRAM 000020
+___lwdiv@divisor                       cstackCOMRAM 000022
+___lwdiv@quotient                      cstackCOMRAM 000026
+___lwmod                               text48       002F96
+___lwmod@counter                       cstackCOMRAM 00002D
+___lwmod@dividend                      cstackCOMRAM 000028
+___lwmod@divisor                       cstackCOMRAM 00002A
+__accesstop                            (abs)        000060
+__activetblptr                         (abs)        000002
+__end_of_ButtonBeingPressed            text28       002E02
+__end_of_CalculateFutureTime           text43       001774
+__end_of_CanCommsTask                  text10       001506
+__end_of_ColourA                       text35       003174
+__end_of_ColourB                       text36       0031BA
+__end_of_ColourMix                     text42       002AF4
+__end_of_ColourNone                    text34       00312E
+__end_of_ConfigureHardware             text8        0030E8
+__end_of_CustomerBeingServed           text25       003382
+__end_of_CustomerWating                text24       003370
+__end_of_DataCommsTask                 text5        00339E
+__end_of_DimmedColourA                 text40       002988
+__end_of_ECANInitialize                text14       00281C
+__end_of_ECANReceiveMessage            text15       001158
+__end_of_ECANSendMessage               text17       001D8A
+__end_of_ECANSetOperationMode          text38       003300
+__end_of_EndChar                       smallconst   000D0B
+__end_of_GetColour                     text37       00207A
+__end_of_GetHeadOfQueue                text18       0033A4
+__end_of_GetKeyInputTimer              text27       0032A2
+__end_of_GetKeyState                   text22       003336
+__end_of_GetKeyTimer                   text31       0032C2
+__end_of_GetSequence                   text33       002758
+__end_of_GetSequenceState              text32       0032E2
+__end_of_GetSerialChar                 text12       003260
+__end_of_ISR                           intcode_body 002ED6
+__end_of_IlluminateButton              text29       002C4C
+__end_of_Increment_Timer               text4        002CEC
+__end_of_InitKeys                      text3        001BAC
+__end_of_InitTime                      text2        00334C
+__end_of_InputTask                     text6        0030A2
+__end_of_KeyCount                      smallconst   000D0C
+__end_of_LowPriorityISR                intcodelo    0000A2
+__end_of_MaturedTimer                  text30       0025BC
+__end_of_MonitorButton                 text21       002692
+__end_of_NoRead                        smallconst   000D0D
+__end_of_OpenTimer0                    text19       003282
+__end_of_OpenUSART                     text20       002D7C
+__end_of_OutputTask                    text7        002F96
+__end_of_RapidFlashColourB             text41       002A3E
+__end_of_ReadUSART                     text13       003234
+__end_of_RedGreenFlash                 text39       0028D2
+__end_of_SequenceReset                 smallconst   000D0E
+__end_of_SetKeyState                   text23       0021EE
+__end_of_StartChar                     smallconst   000D0F
+__end_of_TaskManager                   text1        0031FC
+__end_of_TimersCount                   smallconst   000D10
+__end_of_UartCommsTask                 text11       00249A
+__end_of_WriteTimer0                   text9        00335E
+__end_of_WriteUSART                    text46       00331C
+__end_of__CANIDToRegs                  text44       002352
+__end_of__RegsToCANID                  text45       001F04
+__end_of___lwdiv                       text47       002E6E
+__end_of___lwmod                       text48       002FF2
+__end_of__initialization               cinit        003042
+__end_of__stringdata                   smallconst   000D4D
+__end_of_c_NoHrInDay                   smallconst   000D11
+__end_of_c_NoMsecInSec                 smallconst   000D12
+__end_of_c_NoSecInMinOrMinInHr         smallconst   000D13
+__end_of_dpowers                       smallconst   000D0A
+__end_of_main                          text0        003392
+__end_of_putsUSART                     text26       002F3A
+__end_of_sprintf                       text16       001994
+__initialization                       cinit        002FF2
+__mediumconst                          mediumconst  000000
+__pbssBANK0                            bssBANK0     000060
+__pbssCOMRAM                           bssCOMRAM    000032
+__pcinit                               cinit        002FF2
+__pcstackBANK0                         cstackBANK0  0000C7
+__pcstackCOMRAM                        cstackCOMRAM 000001
+__pdataBANK1                           dataBANK1    000100
+__pdataCOMRAM                          dataCOMRAM   00003F
+__pidataBANK1                          idataBANK1   002AF4
+__pidataCOMRAM                         idataCOMRAM  0033A4
+__pintcode                             intcode      000008
+__pintcode_body                        intcode_body 002E6E
+__pintcodelo                           intcodelo    000018
+__psmallconst                          smallconst   000D00
+__ptext0                               text0        003382
+__ptext1                               text1        0031BA
+__ptext10                              text10       001158
+__ptext11                              text11       002352
+__ptext12                              text12       003234
+__ptext13                              text13       0031FC
+__ptext14                              text14       002758
+__ptext15                              text15       000D4E
+__ptext16                              text16       001774
+__ptext17                              text17       001BAC
+__ptext18                              text18       00339E
+__ptext19                              text19       003260
+__ptext2                               text2        003336
+__ptext20                              text20       002CEC
+__ptext21                              text21       0025BC
+__ptext22                              text22       00331C
+__ptext23                              text23       00207A
+__ptext24                              text24       00335E
+__ptext25                              text25       003370
+__ptext26                              text26       002ED6
+__ptext27                              text27       003282
+__ptext28                              text28       002D7C
+__ptext29                              text29       002BA2
+__ptext3                               text3        001994
+__ptext30                              text30       00249A
+__ptext31                              text31       0032A2
+__ptext32                              text32       0032C2
+__ptext33                              text33       002692
+__ptext34                              text34       0030E8
+__ptext35                              text35       00312E
+__ptext36                              text36       003174
+__ptext37                              text37       001F04
+__ptext38                              text38       0032E2
+__ptext39                              text39       00281C
+__ptext4                               text4        002C4C
+__ptext40                              text40       0028D2
+__ptext41                              text41       002988
+__ptext42                              text42       002A3E
+__ptext43                              text43       001506
+__ptext44                              text44       0021EE
+__ptext45                              text45       001D8A
+__ptext46                              text46       003300
+__ptext47                              text47       002E02
+__ptext48                              text48       002F96
+__ptext5                               text5        003392
+__ptext6                               text6        00304C
+__ptext7                               text7        002F3A
+__ptext8                               text8        0030A2
+__ptext9                               text9        00334C
+__ramtop                               ramtop       000D00
+__size_of_ButtonBeingPressed           (abs)        000000
+__size_of_CalculateFutureTime          (abs)        000000
+__size_of_CanCommsTask                 (abs)        000000
+__size_of_ColourA                      (abs)        000000
+__size_of_ColourB                      (abs)        000000
+__size_of_ColourMix                    (abs)        000000
+__size_of_ColourNone                   (abs)        000000
+__size_of_ConfigureHardware            (abs)        000000
+__size_of_CustomerBeingServed          (abs)        000000
+__size_of_CustomerWating               (abs)        000000
+__size_of_DataCommsTask                (abs)        000000
+__size_of_DimmedColourA                (abs)        000000
+__size_of_ECANInitialize               (abs)        000000
+__size_of_ECANReceiveMessage           (abs)        000000
+__size_of_ECANSendMessage              (abs)        000000
+__size_of_ECANSetOperationMode         (abs)        000000
+__size_of_GetColour                    (abs)        000000
+__size_of_GetHeadOfQueue               (abs)        000000
+__size_of_GetKeyInputTimer             (abs)        000000
+__size_of_GetKeyState                  (abs)        000000
+__size_of_GetKeyTimer                  (abs)        000000
+__size_of_GetSequence                  (abs)        000000
+__size_of_GetSequenceState             (abs)        000000
+__size_of_GetSerialChar                (abs)        000000
+__size_of_ISR                          (abs)        000000
+__size_of_IlluminateButton             (abs)        000000
+__size_of_Increment_Timer              (abs)        000000
+__size_of_InitKeys                     (abs)        000000
+__size_of_InitTime                     (abs)        000000
+__size_of_InputTask                    (abs)        000000
+__size_of_LowPriorityISR               (abs)        000000
+__size_of_MaturedTimer                 (abs)        000000
+__size_of_MonitorButton                (abs)        000000
+__size_of_OpenTimer0                   (abs)        000000
+__size_of_OpenUSART                    (abs)        000000
+__size_of_OutputTask                   (abs)        000000
+__size_of_RapidFlashColourB            (abs)        000000
+__size_of_ReadUSART                    (abs)        000000
+__size_of_RedGreenFlash                (abs)        000000
+__size_of_SetKeyState                  (abs)        000000
+__size_of_TaskManager                  (abs)        000000
+__size_of_UartCommsTask                (abs)        000000
+__size_of_WriteTimer0                  (abs)        000000
+__size_of_WriteUSART                   (abs)        000000
+__size_of__CANIDToRegs                 (abs)        000000
+__size_of__RegsToCANID                 (abs)        000000
+__size_of___lwdiv                      (abs)        000000
+__size_of___lwmod                      (abs)        000000
+__size_of_main                         (abs)        000000
+__size_of_putsUSART                    (abs)        000000
+__size_of_sprintf                      (abs)        000000
+__smallconst                           smallconst   000D00
+__stringdata                           smallconst   000D13
+_c_CustomerBeingServed                 dataBANK1    00017F
+_c_CustomerWating                      dataBANK1    000199
+_c_NoHrInDay                           smallconst   000D10
+_c_NoMsecInSec                         smallconst   000D11
+_c_NoSecInMinOrMinInHr                 smallconst   000D12
+_data                                  bssBANK0     0000BD
+_dataLen                               bssBANK0     0000C5
+_dpowers                               smallconst   000D00
+_flags                                 bssBANK0     0000C6
+_id                                    bssBANK0     0000C1
+_m_CurrentTime                         bssCOMRAM    000032
+_m_DataWriteTimer                      bssBANK0     0000B8
+_m_HeadOfQueue                         bssCOMRAM    00003D
+_m_Keys                                bssBANK0     000063
+_m_Toggle                              bssBANK0     000062
+_main                                  text0        003382
+_putsUSART                             text26       002ED6
+_sprintf                               text16       001774
+end_of_initialization                  cinit        003042
+int_func                               intcode_body 002E6E
+intlevel0                              text         000000
+intlevel1                              text         000000
+intlevel2                              text         000000
+intlevel3                              text         000000
+putsUSART@data                         cstackCOMRAM 000021
+sprintf@_val                           cstackBANK0  0000D1
+sprintf@ap                             cstackBANK0  0000CD
+sprintf@c                              cstackBANK0  0000D6
+sprintf@f                              cstackBANK0  0000C9
+sprintf@flag                           cstackBANK0  0000CF
+sprintf@prec                           cstackBANK0  0000D0
+sprintf@sp                             cstackBANK0  0000C7
+start                                  init         0000A2
+start_initialization                   cinit        002FF2
+
+
+FUNCTION INFORMATION:
+
+ *************** function _main *****************
+ Defined at:
+		line 17 in file "source/Main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels required when called:    9
+ This function calls:
+		_ConfigureHardware
+		_TaskManager
+ This function is called by:
+		Startup code after reset
+ This function uses a non-reentrant model
+
+
+ *************** function _TaskManager *****************
+ Defined at:
+		line 17 in file "source/TaskManager.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       1       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    8
+ This function calls:
+		_InitTime
+		_InitKeys
+		_Increment_Timer
+		_DataCommsTask
+		_InputTask
+		_OutputTask
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _InitTime *****************
+ Defined at:
+		line 43 in file "source/TimerTask.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_TaskManager
+ This function uses a non-reentrant model
+
+
+ *************** function _InitKeys *****************
+ Defined at:
+		line 107 in file "source/Model.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  KeyTimer        5   31[COMRAM] volatile struct ATimeStr
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         5       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_TaskManager
+ This function uses a non-reentrant model
+
+
+ *************** function _Increment_Timer *****************
+ Defined at:
+		line 52 in file "source/TimerTask.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_WriteTimer0
+ This function is called by:
+		_TaskManager
+ This function uses a non-reentrant model
+
+
+ *************** function _DataCommsTask *****************
+ Defined at:
+		line 75 in file "source/DataCommsTask.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  2    8[COMRAM] int 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		_CanCommsTask
+		_UartCommsTask
+ This function is called by:
+		_TaskManager
+ This function uses a non-reentrant model
+
+
+ *************** function _InputTask *****************
+ Defined at:
+		line 20 in file "source/InputTask.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  i               1    0[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       1       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		_MonitorButton
+ This function is called by:
+		_TaskManager
+ This function uses a non-reentrant model
+
+
+ *************** function _OutputTask *****************
+ Defined at:
+		line 16 in file "source/OutputTask.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  i               1   17[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       1       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       2       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    6
+ This function calls:
+		_IlluminateButton
+ This function is called by:
+		_TaskManager
+ This function uses a non-reentrant model
+
+
+ *************** function _ConfigureHardware *****************
+ Defined at:
+		line 35 in file "source/SystemSetup.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_OpenTimer0
+		_OpenUSART
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _WriteTimer0 *****************
+ Defined at:
+		line 17 in file "plib/Timers/t0write.c"
+ Parameters:    Size  Location     Type
+  timer0          2   31[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  timer           2   33[COMRAM] struct Timers
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_Increment_Timer
+ This function uses a non-reentrant model
+
+
+ *************** function _CanCommsTask *****************
+ Defined at:
+		line 94 in file "source/DataCommsTask.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  str             5   48[BANK0 ] unsigned char [5]
+  str             5   43[BANK0 ] unsigned char [5]
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0      10       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       3       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0      13       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       13 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_putsUSART
+		_ECANInitialize
+		_ECANReceiveMessage
+		_sprintf
+		_MaturedTimer
+		_ECANSendMessage
+		_CalculateFutureTime
+ This function is called by:
+		_DataCommsTask
+ This function uses a non-reentrant model
+
+
+ *************** function _UartCommsTask *****************
+ Defined at:
+		line 207 in file "source/DataCommsTask.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  HeadOfQueue     1   42[COMRAM] volatile unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    6
+ This function calls:
+		_putsUSART
+		_GetSerialChar
+		_GetHeadOfQueue
+		_GetKeyState
+		_SetKeyState
+ This function is called by:
+		_DataCommsTask
+ This function uses a non-reentrant model
+
+
+ *************** function _GetSerialChar *****************
+ Defined at:
+		line 82 in file "source/DataCommsTask.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  ReceivedChar    1   32[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_ReadUSART
+ This function is called by:
+		_UartCommsTask
+ This function uses a non-reentrant model
+
+
+ *************** function _ReadUSART *****************
+ Defined at:
+		line 16 in file "plib/USART/uread.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  data            1   31[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_GetSerialChar
+ This function uses a non-reentrant model
+
+
+ *************** function _ECANInitialize *****************
+ Defined at:
+		line 168 in file "source/ECAN.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_ECANSetOperationMode
+ This function is called by:
+		_CanCommsTask
+ This function uses a non-reentrant model
+
+
+ *************** function _ECANReceiveMessage *****************
+ Defined at:
+		line 803 in file "source/ECAN.c"
+ Parameters:    Size  Location     Type
+  id              2   16[BANK0 ] PTR unsigned long 
+		 -> id(4), 
+  data            2   18[BANK0 ] PTR unsigned char 
+		 -> data(4), 
+  dataLen         2   20[BANK0 ] PTR unsigned char 
+		 -> dataLen(1), 
+  msgFlags        2   22[BANK0 ] PTR enum E16222
+		 -> flags(1), 
+ Auto vars:     Size  Location     Type
+  str             5   24[BANK0 ] unsigned char [5]
+  str             5   29[BANK0 ] unsigned char [5]
+  ptr             2   37[BANK0 ] PTR unsigned char 
+		 -> RXB1CON(1), RXB0CON(1), 
+  savedPtr        2   34[BANK0 ] PTR unsigned char 
+		 -> RXB1CON(1), RXB0CON(1), 
+  temp            1   39[BANK0 ] struct .
+  i               1   36[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       8       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0      16       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1      24       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       25 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_putsUSART
+		_sprintf
+		__RegsToCANID
+ This function is called by:
+		_CanCommsTask
+ This function uses a non-reentrant model
+
+
+ *************** function _sprintf *****************
+ Defined at:
+		line 493 in file "/Applications/microchip/xc8/v1.12/sources/doprnt.c"
+ Parameters:    Size  Location     Type
+  sp              2    0[BANK0 ] PTR unsigned char 
+		 -> ECANReceiveMessage@str_1913(5), ECANReceiveMessage@str(5), CanCommsTask@str_333(5), CanCommsTask@str(5), 
+  f               2    2[BANK0 ] PTR const unsigned char 
+		 -> STR_46(3), STR_37(3), STR_20(3), STR_15(3), 
+		 -> STR_10(3), 
+ Auto vars:     Size  Location     Type
+  _val            5   10[BANK0 ] struct .
+  ap              2    6[BANK0 ] PTR void [1]
+		 -> ?_sprintf(2), 
+  c               1   15[BANK0 ] char 
+  prec            1    9[BANK0 ] char 
+  flag            1    8[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  2    0[BANK0 ] int 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       6       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0      10       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         2      16       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       18 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		___lwdiv
+		___lwmod
+ This function is called by:
+		_CanCommsTask
+		_ECANReceiveMessage
+ This function uses a non-reentrant model
+
+
+ *************** function _ECANSendMessage *****************
+ Defined at:
+		line 617 in file "source/ECAN.c"
+ Parameters:    Size  Location     Type
+  id              4    0[BANK0 ] unsigned long 
+  data            2    4[BANK0 ] PTR unsigned char 
+		 -> data(4), 
+  dataLen         1    6[BANK0 ] unsigned char 
+  msgFlags        1    7[BANK0 ] enum E16204
+ Auto vars:     Size  Location     Type
+  pb             18    8[BANK0 ] PTR unsigned char [9]
+		 -> TXB2CON(1), TXB1CON(1), TXB0CON(1), 
+  ptr             2   31[BANK0 ] PTR unsigned char 
+		 -> TXB2CON(1), TXB1CON(1), TXB0CON(1), 
+  tempPtr         2   27[BANK0 ] PTR unsigned char 
+		 -> TXB2CON(1), TXB1CON(1), TXB0CON(1), 
+  i               1   30[BANK0 ] unsigned char 
+  temp            1   29[BANK0 ] unsigned char 
+  j               1   26[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       8       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0      25       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1      33       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       34 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		__CANIDToRegs
+ This function is called by:
+		_CanCommsTask
+ This function uses a non-reentrant model
+
+
+ *************** function _GetHeadOfQueue *****************
+ Defined at:
+		line 53 in file "source/Model.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_UartCommsTask
+		_MonitorBartenderButton
+ This function uses a non-reentrant model
+
+
+ *************** function _OpenTimer0 *****************
+ Defined at:
+		line 19 in file "plib/Timers/t0open.c"
+ Parameters:    Size  Location     Type
+  config          1   31[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_ConfigureHardware
+ This function uses a non-reentrant model
+
+
+ *************** function _OpenUSART *****************
+ Defined at:
+		line 74 in file "plib/USART/uopen.c"
+ Parameters:    Size  Location     Type
+  config          1   31[COMRAM] unsigned char 
+  spbrg           2   32[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         3       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_ConfigureHardware
+ This function uses a non-reentrant model
+
+
+ *************** function _MonitorButton *****************
+ Defined at:
+		line 69 in file "source/InputTask.c"
+ Parameters:    Size  Location     Type
+  theId           1   42[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+  KeyTimer        2   46[COMRAM] PTR volatile struct ATim
+		 -> m_Keys(85), 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          3       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    6
+ This function calls:
+		_GetKeyInputTimer
+		_ButtonBeingPressed
+		_SetKeyState
+		_CalculateFutureTime
+		_MaturedTimer
+		_GetKeyState
+ This function is called by:
+		_InputTask
+ This function uses a non-reentrant model
+
+
+ *************** function _GetKeyState *****************
+ Defined at:
+		line 58 in file "source/Model.c"
+ Parameters:    Size  Location     Type
+  theKeyId        1   31[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      enum E15781
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_UartCommsTask
+		_MonitorButton
+		_MonitorBartenderButton
+ This function uses a non-reentrant model
+
+
+ *************** function _SetKeyState *****************
+ Defined at:
+		line 10 in file "source/Model.c"
+ Parameters:    Size  Location     Type
+  theKeyId        1   37[COMRAM] unsigned char 
+  theState        1   38[COMRAM] enum E208
+ Auto vars:     Size  Location     Type
+  LoopKeyId       1   40[COMRAM] volatile unsigned char 
+  OldHeadOfQue    1   39[COMRAM] volatile unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_CustomerWating
+		_CustomerBeingServed
+ This function is called by:
+		_UartCommsTask
+		_MonitorButton
+		_MonitorBartenderButton
+ This function uses a non-reentrant model
+
+
+ *************** function _CustomerWating *****************
+ Defined at:
+		line 296 in file "source/DataCommsTask.c"
+ Parameters:    Size  Location     Type
+  theKeyId        1   36[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_putsUSART
+ This function is called by:
+		_SetKeyState
+ This function uses a non-reentrant model
+
+
+ *************** function _CustomerBeingServed *****************
+ Defined at:
+		line 300 in file "source/DataCommsTask.c"
+ Parameters:    Size  Location     Type
+  theKeyId        1   36[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_putsUSART
+ This function is called by:
+		_SetKeyState
+ This function uses a non-reentrant model
+
+
+ *************** function _putsUSART *****************
+ Defined at:
+		line 15 in file "plib/USART/uputs.c"
+ Parameters:    Size  Location     Type
+  data            2   32[COMRAM] PTR unsigned char 
+		 -> STR_49(3), STR_48(14), STR_47(8), ECANReceiveMessage@str_1913(5), 
+		 -> STR_45(7), STR_44(3), STR_43(14), STR_42(8), 
+		 -> STR_41(7), STR_40(3), STR_39(14), STR_38(8), 
+		 -> ECANReceiveMessage@str(5), STR_36(7), STR_35(3), STR_34(14), 
+		 -> STR_33(8), STR_32(7), STR_31(3), STR_30(14), 
+		 -> STR_29(8), STR_28(7), STR_27(3), STR_26(14), 
+		 -> STR_25(8), STR_24(7), c_CustomerBeingServed(26), c_CustomerWating(20), 
+		 -> InitText(39), STR_23(3), STR_22(23), STR_21(8), 
+		 -> STR_19(7), STR_18(3), STR_17(23), STR_16(8), 
+		 -> CanCommsTask@str_333(5), STR_14(7), STR_13(3), STR_12(23), 
+		 -> STR_11(8), CanCommsTask@str(5), STR_9(7), STR_8(3), 
+		 -> STR_7(23), STR_6(8), STR_5(7), STR_4(3), 
+		 -> STR_3(23), STR_2(8), RAM(3327), STR_1(7), 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_WriteUSART
+ This function is called by:
+		_CanCommsTask
+		_UartCommsTask
+		_CustomerWating
+		_CustomerBeingServed
+		_ECANReceiveMessage
+ This function uses a non-reentrant model
+
+
+ *************** function _GetKeyInputTimer *****************
+ Defined at:
+		line 68 in file "source/Model.c"
+ Parameters:    Size  Location     Type
+  theKeyId        1   31[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  2   31[COMRAM] PTR volatile struct ATim
+ Registers used:
+		wreg, status,2, status,0, prodl, prodh
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_MonitorButton
+ This function uses a non-reentrant model
+
+
+ *************** function _ButtonBeingPressed *****************
+ Defined at:
+		line 106 in file "source/InputTask.c"
+ Parameters:    Size  Location     Type
+  theId           1   31[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+  BeingPressed    1   33[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_MonitorButton
+ This function uses a non-reentrant model
+
+
+ *************** function _IlluminateButton *****************
+ Defined at:
+		line 24 in file "source/OutputTask.c"
+ Parameters:    Size  Location     Type
+  theId           1   10[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+  Sequence        1   15[BANK0 ] volatile enum E194
+  SequenceStat    2   13[BANK0 ] PTR volatile unsigned ch
+		 -> m_Keys(85), 
+  KeyTimer        2   11[BANK0 ] PTR volatile struct ATim
+		 -> m_Keys(85), 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       1       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       5       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       6       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_GetKeyTimer
+		_GetSequenceState
+		_MaturedTimer
+		_GetSequence
+		_ColourNone
+		_ColourA
+		_ColourB
+		_GetColour
+ This function is called by:
+		_OutputTask
+ This function uses a non-reentrant model
+
+
+ *************** function _MaturedTimer *****************
+ Defined at:
+		line 156 in file "source/TimerTask.c"
+ Parameters:    Size  Location     Type
+  theTimer        2   31[COMRAM] PTR volatile struct ATim
+		 -> m_Keys(85), m_DataWriteTimer(5), 
+ Auto vars:     Size  Location     Type
+  ToReturn        1   34[COMRAM] volatile unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_CanCommsTask
+		_MonitorButton
+		_IlluminateButton
+ This function uses a non-reentrant model
+
+
+ *************** function _GetKeyTimer *****************
+ Defined at:
+		line 63 in file "source/Model.c"
+ Parameters:    Size  Location     Type
+  theKeyId        1   31[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  2   31[COMRAM] PTR volatile struct ATim
+ Registers used:
+		wreg, status,2, status,0, prodl, prodh
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_IlluminateButton
+ This function uses a non-reentrant model
+
+
+ *************** function _GetSequenceState *****************
+ Defined at:
+		line 73 in file "source/Model.c"
+ Parameters:    Size  Location     Type
+  theKeyId        1   31[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  2   31[COMRAM] PTR volatile unsigned ch
+ Registers used:
+		wreg, status,2, status,0, prodl, prodh
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_IlluminateButton
+ This function uses a non-reentrant model
+
+
+ *************** function _GetSequence *****************
+ Defined at:
+		line 84 in file "source/Model.c"
+ Parameters:    Size  Location     Type
+  theKeyId        1   31[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+  ReturnedSequ    1   32[COMRAM] volatile enum E180
+ Return value:  Size  Location     Type
+                  1    wreg      enum E194
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_IlluminateButton
+ This function uses a non-reentrant model
+
+
+ *************** function _ColourNone *****************
+ Defined at:
+		line 130 in file "source/OutputTask.c"
+ Parameters:    Size  Location     Type
+  theId           1   31[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_IlluminateButton
+ This function uses a non-reentrant model
+
+
+ *************** function _ColourA *****************
+ Defined at:
+		line 68 in file "source/OutputTask.c"
+ Parameters:    Size  Location     Type
+  theId           1   31[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_IlluminateButton
+		_ColourATest
+ This function uses a non-reentrant model
+
+
+ *************** function _ColourB *****************
+ Defined at:
+		line 99 in file "source/OutputTask.c"
+ Parameters:    Size  Location     Type
+  theId           1   31[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_IlluminateButton
+		_ColourBTest
+ This function uses a non-reentrant model
+
+
+ *************** function _GetColour *****************
+ Defined at:
+		line 12 in file "source/OutputSequences.c"
+ Parameters:    Size  Location     Type
+  theSequences    1    1[BANK0 ] enum E180
+  theState        2    2[BANK0 ] PTR volatile unsigned ch
+		 -> m_Keys(85), 
+  theTimer        2    4[BANK0 ] PTR volatile struct ATim
+		 -> m_Keys(85), 
+ Auto vars:     Size  Location     Type
+  ReturnColour    1    9[BANK0 ] enum E174
+ Return value:  Size  Location     Type
+                  1    wreg      enum E188
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       5       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       3       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       9       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        9 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_CalculateFutureTime
+		_RedGreenFlash
+		_DimmedColourA
+		_RapidFlashColourB
+		_ColourMix
+ This function is called by:
+		_IlluminateButton
+ This function uses a non-reentrant model
+
+
+ *************** function _ECANSetOperationMode *****************
+ Defined at:
+		line 1071 in file "source/ECAN.c"
+ Parameters:    Size  Location     Type
+  mode            1   31[COMRAM] enum E16235
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_ECANInitialize
+ This function uses a non-reentrant model
+
+
+ *************** function _RedGreenFlash *****************
+ Defined at:
+		line 53 in file "source/OutputSequences.c"
+ Parameters:    Size  Location     Type
+  theState        2   42[COMRAM] PTR volatile unsigned ch
+		 -> m_Keys(85), 
+  theTimer        2   44[COMRAM] PTR volatile struct ATim
+		 -> m_Keys(85), 
+ Auto vars:     Size  Location     Type
+  ReturnColour    1    0[BANK0 ] enum E174
+ Return value:  Size  Location     Type
+                  1    wreg      enum E174
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         4       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          3       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         7       1       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_CalculateFutureTime
+ This function is called by:
+		_GetColour
+ This function uses a non-reentrant model
+
+
+ *************** function _DimmedColourA *****************
+ Defined at:
+		line 75 in file "source/OutputSequences.c"
+ Parameters:    Size  Location     Type
+  theState        2   42[COMRAM] PTR volatile unsigned ch
+		 -> m_Keys(85), 
+  theTimer        2   44[COMRAM] PTR volatile struct ATim
+		 -> m_Keys(85), 
+ Auto vars:     Size  Location     Type
+  ReturnColour    1    0[BANK0 ] enum E174
+ Return value:  Size  Location     Type
+                  1    wreg      enum E174
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         4       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          3       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         7       1       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_CalculateFutureTime
+ This function is called by:
+		_GetColour
+ This function uses a non-reentrant model
+
+
+ *************** function _RapidFlashColourB *****************
+ Defined at:
+		line 97 in file "source/OutputSequences.c"
+ Parameters:    Size  Location     Type
+  theState        2   42[COMRAM] PTR volatile unsigned ch
+		 -> m_Keys(85), 
+  theTimer        2   44[COMRAM] PTR volatile struct ATim
+		 -> m_Keys(85), 
+ Auto vars:     Size  Location     Type
+  ReturnColour    1    0[BANK0 ] enum E174
+ Return value:  Size  Location     Type
+                  1    wreg      enum E174
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         4       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          3       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         7       1       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_CalculateFutureTime
+ This function is called by:
+		_GetColour
+ This function uses a non-reentrant model
+
+
+ *************** function _ColourMix *****************
+ Defined at:
+		line 118 in file "source/OutputSequences.c"
+ Parameters:    Size  Location     Type
+  theState        2   42[COMRAM] PTR volatile unsigned ch
+		 -> m_Keys(85), 
+  theTimer        2   44[COMRAM] PTR volatile struct ATim
+		 -> m_Keys(85), 
+ Auto vars:     Size  Location     Type
+  ReturnColour    1    0[BANK0 ] enum E174
+ Return value:  Size  Location     Type
+                  1    wreg      enum E174
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         4       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          3       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         7       1       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_CalculateFutureTime
+ This function is called by:
+		_GetColour
+ This function uses a non-reentrant model
+
+
+ *************** function _CalculateFutureTime *****************
+ Defined at:
+		line 86 in file "source/TimerTask.c"
+ Parameters:    Size  Location     Type
+  theTimer        2   31[COMRAM] PTR volatile struct ATim
+		 -> m_Keys(85), m_DataWriteTimer(5), 
+  theMinutes      1   33[COMRAM] unsigned char 
+  theSeconds      1   34[COMRAM] unsigned char 
+  theHalfSecon    1   35[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+  CarryOver       1   41[COMRAM] volatile unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         5       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          5       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        11       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       11 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_CanCommsTask
+		_MonitorButton
+		_GetColour
+		_RedGreenFlash
+		_DimmedColourA
+		_RapidFlashColourB
+		_ColourMix
+ This function uses a non-reentrant model
+
+
+ *************** function __CANIDToRegs *****************
+ Defined at:
+		line 1158 in file "source/ECAN.c"
+ Parameters:    Size  Location     Type
+  ptr             2   31[COMRAM] PTR unsigned char 
+		 -> TXB2CON(1), TXB1CON(1), TXB0CON(1), 
+  val             4   33[COMRAM] unsigned long 
+  type            1   37[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+  Value           2   40[COMRAM] PTR struct _CAN_MESSAGE_
+		 -> _CANIDToRegs@val(4), 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         7       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        11       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       11 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_ECANSendMessage
+ This function uses a non-reentrant model
+
+
+ *************** function __RegsToCANID *****************
+ Defined at:
+		line 1215 in file "source/ECAN.c"
+ Parameters:    Size  Location     Type
+  ptr             2   31[COMRAM] PTR unsigned char 
+		 -> RXB1CON(1), RXB0CON(1), 
+  val             2   33[COMRAM] PTR unsigned long 
+		 -> id(4), 
+  type            1   35[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+  Value           2   38[COMRAM] PTR struct _CAN_MESSAGE_
+		 -> id(4), 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         5       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         9       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        9 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_ECANReceiveMessage
+ This function uses a non-reentrant model
+
+
+ *************** function _WriteUSART *****************
+ Defined at:
+		line 14 in file "plib/USART/uwrite.c"
+ Parameters:    Size  Location     Type
+  data            1   31[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_putsUSART
+ This function uses a non-reentrant model
+
+
+ *************** function ___lwdiv *****************
+ Defined at:
+		line 10 in file "/Applications/microchip/xc8/v1.12/sources/lwdiv.c"
+ Parameters:    Size  Location     Type
+  dividend        2   31[COMRAM] unsigned int 
+  divisor         2   33[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  quotient        2   37[COMRAM] unsigned int 
+  counter         1   36[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  2   31[COMRAM] unsigned int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         4       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         3       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         8       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_sprintf
+ This function uses a non-reentrant model
+
+
+ *************** function ___lwmod *****************
+ Defined at:
+		line 10 in file "/Applications/microchip/xc8/v1.12/sources/lwmod.c"
+ Parameters:    Size  Location     Type
+  dividend        2   39[COMRAM] unsigned int 
+  divisor         2   41[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  counter         1   44[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  2   39[COMRAM] unsigned int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         4       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_sprintf
+ This function uses a non-reentrant model
+
+
+ *************** function _LowPriorityISR *****************
+ Defined at:
+		line 196 in file "source/TimerTask.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:         17       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        17       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       17 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		Interrupt level 1
+ This function uses a non-reentrant model
+
+
+ *************** function _ISR *****************
+ Defined at:
+		line 214 in file "source/TimerTask.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:         14       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        14       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       14 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		Interrupt level 2
+ This function uses a non-reentrant model
+
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+source/Model.c
+		_GetKeyTimer   		CODE           	32A2	0000	32
+		_GetKeyState   		CODE           	331C	0000	26
+		_InitKeys      		CODE           	1994	0000	536
+		_SetKeyState   		CODE           	207A	0000	372
+		_GetKeyInputTim		CODE           	3282	0000	32
+		_GetSequence   		CODE           	2692	0000	198
+		_GetSequenceSta		CODE           	32C2	0000	32
+		_GetHeadOfQueue		CODE           	339E	0000	6
+
+source/Model.c estimated size: 1234
+
+plib/Timers/t0open.c
+		_OpenTimer0    		CODE           	3260	0000	34
+
+plib/Timers/t0open.c estimated size: 34
+
+source/OutputTask.c
+		_ColourB       		CODE           	3174	0000	70
+		_ColourNone    		CODE           	30E8	0000	70
+		_ColourA       		CODE           	312E	0000	70
+		_IlluminateButt		CODE           	2BA2	0000	170
+		_OutputTask    		CODE           	2F3A	0000	92
+
+source/OutputTask.c estimated size: 472
+
+shared
+		_KeyCount      		SMALLCONST     	0D0B	0000	1
+		__stringdata   		SMALLCONST     	0D13	0000	58
+		_dpowers       		SMALLCONST     	0D00	0000	10
+		_c_NoMsecInSec 		SMALLCONST     	0D11	0000	1
+		__initializatio		CODE           	2FF2	0000	80
+		_SequenceReset 		SMALLCONST     	0D0D	0000	1
+		_c_NoSecInMinOr		SMALLCONST     	0D12	0000	1
+		_NoRead        		SMALLCONST     	0D0C	0000	1
+		_TimersCount   		SMALLCONST     	0000	0000	3344
+		_EndChar       		SMALLCONST     	0000	0000	3339
+		_c_NoHrInDay   		SMALLCONST     	0D10	0000	1
+		_StartChar     		SMALLCONST     	0D0E	0000	1
+
+shared estimated size: 6838
+
+source/Main.c
+		_main          		CODE           	3382	0000	16
+
+source/Main.c estimated size: 16
+
+plib/USART/uputs.c
+		_putsUSART     		CODE           	2ED6	0000	100
+
+plib/USART/uputs.c estimated size: 100
+
+plib/USART/uopen.c
+		_OpenUSART     		CODE           	2CEC	0000	144
+
+plib/USART/uopen.c estimated size: 144
+
+source/TaskManager.c
+		_TaskManager   		CODE           	31BA	0000	66
+
+source/TaskManager.c estimated size: 66
+
+source/SystemSetup.c
+		_ConfigureHardw		CODE           	30A2	0000	70
+
+source/SystemSetup.c estimated size: 70
+
+plib/Timers/t0write.c
+		_WriteTimer0   		CODE           	334C	0000	18
+
+plib/Timers/t0write.c estimated size: 18
+
+source/TimerTask.c
+		_ISR           		CODE           	0008	0000	11982
+		_Increment_Time		CODE           	2C4C	0000	160
+		_MaturedTimer  		CODE           	249A	0000	290
+		_InitTime      		CODE           	3336	0000	22
+		_LowPriorityISR		CODE           	0018	0000	138
+		_CalculateFutur		CODE           	1506	0000	622
+
+source/TimerTask.c estimated size: 13214
+
+/Applications/microchip/xc8/v1.12/sources/lwmod.c
+		___lwmod       		CODE           	2F96	0000	92
+
+/Applications/microchip/xc8/v1.12/sources/lwmod.c estimated size: 92
+
+source/OutputSequences.c
+		_DimmedColourA 		CODE           	28D2	0000	182
+		_GetColour     		CODE           	1F04	0000	374
+		_RapidFlashColo		CODE           	2988	0000	182
+		_RedGreenFlash 		CODE           	281C	0000	182
+		_ColourMix     		CODE           	2A3E	0000	182
+
+source/OutputSequences.c estimated size: 1102
+
+source/ECAN.c
+		_ECANReceiveMes		CODE           	0D4E	0000	1034
+		__RegsToCANID  		CODE           	1D8A	0000	378
+		_ECANInitialize		CODE           	2758	0000	196
+		__CANIDToRegs  		CODE           	21EE	0000	356
+		_ECANSetOperati		CODE           	32E2	0000	30
+		_ECANSendMessag		CODE           	1BAC	0000	478
+
+source/ECAN.c estimated size: 2472
+
+/Applications/microchip/xc8/v1.12/sources/lwdiv.c
+		___lwdiv       		CODE           	2E02	0000	108
+
+/Applications/microchip/xc8/v1.12/sources/lwdiv.c estimated size: 108
+
+/Applications/microchip/xc8/v1.12/sources/doprnt.c
+		_sprintf       		CODE           	1774	0000	544
+
+/Applications/microchip/xc8/v1.12/sources/doprnt.c estimated size: 544
+
+source/InputTask.c
+		_ButtonBeingPre		CODE           	2D7C	0000	134
+		_InputTask     		CODE           	304C	0000	86
+		_MonitorButton 		CODE           	25BC	0000	214
+
+source/InputTask.c estimated size: 434
+
+source/DataCommsTask.c
+		_CanCommsTask  		CODE           	1158	0000	942
+		_DataCommsTask 		CODE           	3392	0000	12
+		_GetSerialChar 		CODE           	3234	0000	44
+		_CustomerBeingS		CODE           	3370	0000	18
+		_CustomerWating		CODE           	335E	0000	18
+		_UartCommsTask 		CODE           	2352	0000	328
+
+source/DataCommsTask.c estimated size: 1362
+
+plib/USART/uwrite.c
+		_WriteUSART    		CODE           	3300	0000	28
+
+plib/USART/uwrite.c estimated size: 28
+
+plib/USART/uread.c
+		_ReadUSART     		CODE           	31FC	0000	56
+
+plib/USART/uread.c estimated size: 56
+
