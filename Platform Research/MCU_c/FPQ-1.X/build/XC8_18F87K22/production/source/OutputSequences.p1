@@ -1,11 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"12 source/OutputSequences.c
 [c E180 0 1 2 3 4 5 6 7 .. ]
 [n E180 . e_NotSet e_AllOff e_SteadyColourA e_SteadyColourB e_RedGreenFlash e_DimmedColourA e_RapidFlashColourB e_ColourMix  ]
-"23 source/headers/TimerTask.h
 [s S5 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 ]
 [n S5 ATimeStruct Millisecond Second Minute Hour Day ]
-"12 source/OutputSequences.c
 [c E174 0 1 2 3 .. ]
 [n E174 . e_Unknown e_Off e_ColourA e_ColourB  ]
 "27 source/headers/TimerTask.h

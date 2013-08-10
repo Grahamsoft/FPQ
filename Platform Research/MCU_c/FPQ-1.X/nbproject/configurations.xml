@@ -50,7 +50,7 @@
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
-    <conf name="XC8_18F87K22" type="2">
+    <conf name="XC8_18F2585" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
         <targetDevice>PIC18F2585</targetDevice>
@@ -58,7 +58,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit2PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.20</languageToolchainVersion>
+        <languageToolchainVersion>1.12</languageToolchainVersion>
         <platform>4</platform>
       </toolsSet>
       <compileType>

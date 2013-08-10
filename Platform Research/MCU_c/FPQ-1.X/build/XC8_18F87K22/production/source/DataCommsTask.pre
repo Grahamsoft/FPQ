@@ -1,12 +1,12 @@
 
 # 1 "source/DataCommsTask.c"
 
-# 8 "C:\Program Files\Microchip\xc8\v1.20\include\stdio.h"
+# 8 "/Applications/microchip/xc8/v1.12/include/stdio.h"
 typedef int ptrdiff_t;
 typedef unsigned size_t;
 typedef unsigned short wchar_t;
 
-# 7 "C:\Program Files\Microchip\xc8\v1.20\include\stdarg.h"
+# 7 "/Applications/microchip/xc8/v1.12/include/stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -15,7 +15,7 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 23 "C:\Program Files\Microchip\xc8\v1.20\include\stdio.h"
+# 23 "/Applications/microchip/xc8/v1.12/include/stdio.h"
 extern int errno;
 
 # 54
@@ -25,7 +25,7 @@ char * ptr;
 void (* func)(char);
 };
 
-# 17 "C:\Program Files\Microchip\xc8\v1.20\include\conio.h"
+# 17 "/Applications/microchip/xc8/v1.12/include/conio.h"
 extern int errno;
 
 
@@ -42,7 +42,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 99 "C:\Program Files\Microchip\xc8\v1.20\include\stdio.h"
+# 99 "/Applications/microchip/xc8/v1.12/include/stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -69,7 +69,7 @@ extern int vsscanf(const char *, const char *, va_list);
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 27 "C:\Program Files\Microchip\xc8\v1.20\include\stdlib.h"
+# 27 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
 typedef struct {
 int rem;
 int quot;
@@ -137,10 +137,10 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 12 "C:\Program Files\Microchip\xc8\v1.20\include\stdbool.h"
+# 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
 typedef unsigned char bool;
 
-# 44 "C:\Program Files\Microchip\xc8\v1.20\include\pic18f2585.h"
+# 44 "/Applications/microchip/xc8/v1.12/include/pic18f2585.h"
 extern volatile unsigned char RXF6SIDH @ 0xD60;
 
 asm("RXF6SIDH equ 0D60h");
@@ -17854,7 +17854,7 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
-# 18 "C:\Program Files\Microchip\xc8\v1.20\include\pic18.h"
+# 18 "/Applications/microchip/xc8/v1.12/include/pic18.h"
 __attribute__((__unsupported__("The flash_write routine is no longer supported. Please use the peripheral library functions: WriteBytesFlash, WriteBlockFlash or WriteWordFlash"))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 
 
@@ -17866,7 +17866,7 @@ extern void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern void _delay3(unsigned char);
 
-# 568 "C:\Program Files\Microchip\xc8\v1.20\include\plib\usart.h"
+# 568 "/Applications/microchip/xc8/v1.12/include/plib/usart.h"
 union USART
 {
 unsigned char val;
@@ -17976,7 +17976,7 @@ void _CANIDToRegs(BYTE* ptr,
 unsigned long val,
 BYTE type );
 
-# 13 "C:\Program Files\Microchip\xc8\v1.20\include\stdint.h"
+# 13 "/Applications/microchip/xc8/v1.12/include/stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -18076,7 +18076,7 @@ void CustomerBeingServed( uint8_t theKeyId );
 void CustomerWating( uint8_t theKeyId );
 void CustomerBeingServed( uint8_t theKeyId );
 
-# 103 "C:\Program Files\Microchip\xc8\v1.20\include\stdlib.h"
+# 103 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
 extern char * itoa(char * buf, int val, int base);
 extern char * utoa(char * buf, unsigned val, int base);
 
@@ -18126,7 +18126,7 @@ e_ColourMix
 
 t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );
 
-# 103 "C:\Program Files\Microchip\xc8\v1.20\include\stdlib.h"
+# 103 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
 extern char * itoa(char * buf, int val, int base);
 extern char * utoa(char * buf, unsigned val, int base);
 

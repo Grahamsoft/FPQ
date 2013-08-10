@@ -1,7 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "9 source/OutputTask.c
 [v _IlluminateButton `(v ~T0 @X0 0 ef1`uc ]
-"23 source/headers/TimerTask.h
 [s S5 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 ]
 [n S5 ATimeStruct Millisecond Second Minute Hour Day ]
 "52 source/headers/Model.h
@@ -10,73 +9,54 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _GetSequenceState `(*Vuc ~T0 @X0 0 ef1`uc ]
 "26 source/headers/TimerTask.h
 [v _MaturedTimer `(uc ~T0 @X0 0 ef1`*VS5 ]
-"30 source/OutputTask.c
-[c E196 0 1 2 3 4 5 6 7 .. ]
-[n E196 . e_NotSet e_AllOff e_SteadyColourA e_SteadyColourB e_RedGreenFlash e_DimmedColourA e_RapidFlashColourB e_ColourMix  ]
+[c E194 0 1 2 3 4 5 6 7 .. ]
+[n E194 . e_NotSet e_AllOff e_SteadyColourA e_SteadyColourB e_RedGreenFlash e_DimmedColourA e_RapidFlashColourB e_ColourMix  ]
 "50 source/headers/Model.h
-[v _GetSequence `(E196 ~T0 @X0 0 ef1`uc ]
+[v _GetSequence `(E194 ~T0 @X0 0 ef1`uc ]
 "12 source/OutputTask.c
 [v _ColourNone `(v ~T0 @X0 0 ef1`uc ]
 "10
 [v _ColourA `(v ~T0 @X0 0 ef1`uc ]
 "11
 [v _ColourB `(v ~T0 @X0 0 ef1`uc ]
-"32
-[c E190 0 1 2 3 .. ]
-[n E190 . e_Unknown e_Off e_ColourA e_ColourB  ]
+[c E188 0 1 2 3 .. ]
+[n E188 . e_Unknown e_Off e_ColourA e_ColourB  ]
 "34 source/headers/OutputSequences.h
-[v _GetColour `(E190 ~T0 @X0 0 ef3`E196`*Vuc`*VS5 ]
-"28004 C:\Program Files\Microchip\xc8\v1.20\include\pic18f2585.h
+[v _GetColour `(E188 ~T0 @X0 0 ef3`E194`*Vuc`*VS5 ]
 [s S1758 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1758 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"28014
 [s S1759 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1759 . AN0 AN1 AN2 AN3 T0CKI AN4 OSC2 OSC1 ]
-"28024
 [s S1760 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1760 . CVREF . VREFM VREFP . HLVDIN CLKO CLKI ]
-"28034
 [s S1761 :5 `uc 1 :1 `uc 1 ]
 [n S1761 . . LVDIN ]
-"28038
 [s S1762 :5 `uc 1 :1 `uc 1 ]
 [n S1762 . . SS ]
-"28042
 [s S1763 :5 `uc 1 :1 `uc 1 ]
 [n S1763 . . NOT_SS ]
-"28046
 [s S1764 :5 `uc 1 :1 `uc 1 ]
 [n S1764 . . nSS ]
-"28050
 [s S1765 :7 `uc 1 :1 `uc 1 ]
 [n S1765 . . RJPU ]
-"28054
 [s S1766 :1 `uc 1 ]
 [n S1766 . ULPWUIN ]
-"28003
 [u S1757 `S1758 1 `S1759 1 `S1760 1 `S1761 1 `S1762 1 `S1763 1 `S1764 1 `S1765 1 `S1766 1 ]
 [n S1757 . . . . . . . . . . ]
-"28058
+"28058 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
 [v _PORTAbits `VS1757 ~T0 @X0 0 e@3968 ]
-"28381
 [s S1774 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1774 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"28391
 [s S1775 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1775 . T1OSO T1OSI CCP1 SCK SDI SDO TX RX ]
-"28401
 [s S1776 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1776 . T13CKI . SCL SDA . CK DT ]
-"28410
 [s S1777 :1 `uc 1 :1 `uc 1 ]
 [n S1777 . . CCP2 ]
-"28414
 [s S1778 :2 `uc 1 :1 `uc 1 ]
 [n S1778 . . PA1 ]
-"28418
 [s S1779 :1 `uc 1 :1 `uc 1 ]
 [n S1779 . . PA2 ]
-"28380
 [u S1773 `S1774 1 `S1775 1 `S1776 1 `S1777 1 `S1778 1 `S1779 1 ]
 [n S1773 . . . . . . . ]
 "28423
@@ -84,11 +64,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;OutputTask.h: 11: void OutputTask( void );
 [; ;OutputTask.h: 12: void ColourATest( void );
 [; ;OutputTask.h: 13: void ColourBTest( void );
-[; ;delays.h: 13: void Delay1TCYx(unsigned char);
-[; ;delays.h: 19: void Delay10TCYx(unsigned char);
-[; ;delays.h: 25: void Delay100TCYx(unsigned char);
-[; ;delays.h: 31: void Delay1KTCYx(unsigned char);
-[; ;delays.h: 37: void Delay10KTCYx(unsigned char);
+[; ;delays.h: 18: void Delay10TCYx(unsigned char);
+[; ;delays.h: 24: void Delay100TCYx(unsigned char);
+[; ;delays.h: 30: void Delay1KTCYx(unsigned char);
+[; ;delays.h: 36: void Delay10KTCYx(unsigned char);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -250,7 +229,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Model.h: 56: t_ButtonState GetKeyState( uint8_t theKeyId );
 [; ;Model.h: 57: uint8_t GetHeadOfQueue( void );
 [; ;pic18f2585.h: 44: extern volatile unsigned char RXF6SIDH @ 0xD60;
-"46 C:\Program Files\Microchip\xc8\v1.20\include\pic18f2585.h
+"46 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
 [; ;pic18f2585.h: 46: asm("RXF6SIDH equ 0D60h");
 [; <" RXF6SIDH equ 0D60h ;# ">
 [; ;pic18f2585.h: 49: typedef union {
@@ -14399,7 +14378,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;compare.h: 386: void CloseCompare1(void);
 [; ;EEP.h: 36: void Busy_eep ( void );
 [; ;EEP.h: 37: unsigned char Read_b_eep( unsigned int badd );
-[; ;EEP.h: 38: void Write_b_eep( unsigned int badd, unsigned char bdat );
+[; ;EEP.h: 38: void Write_b_eep( unsigned int badd, unsigned char bdata );
 [; ;stddef.h: 13: extern int errno;
 [; ;GenericTypeDefs.h: 65: typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
 [; ;GenericTypeDefs.h: 68: typedef enum _BIT { CLEAR = 0, SET } BIT;
@@ -14993,7 +14972,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "29
 {
 "30
-[v _Sequence `VE196 ~T0 @X0 1 a ]
+[v _Sequence `VE194 ~T0 @X0 1 a ]
 [; ;OutputTask.c: 30: volatile t_Sequences Sequence = GetSequence( theId );
 [e = _Sequence ( _GetSequence (1 _theId ]
 [; ;OutputTask.c: 32: switch ( GetColour( Sequence, SequenceState, KeyTimer ) )
@@ -15035,9 +15014,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 2094  ]
 "32
 [e :U 2095 ]
-[e [\ ( _GetColour (3 , , _Sequence _SequenceState _KeyTimer , $ -> . `E190 1 `E190 2096
- , $ -> . `E190 2 `E190 2097
- , $ -> . `E190 3 `E190 2098
+[e [\ ( _GetColour (3 , , _Sequence _SequenceState _KeyTimer , $ -> . `E188 1 `E188 2096
+ , $ -> . `E188 2 `E188 2097
+ , $ -> . `E188 3 `E188 2098
  2094 ]
 "45
 [e :U 2094 ]

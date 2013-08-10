@@ -1,12 +1,12 @@
 
 # 1 "source/TaskManager.c"
 
-# 8 "C:\Program Files\Microchip\xc8\v1.20\include\stdio.h"
+# 8 "/Applications/microchip/xc8/v1.12/include/stdio.h"
 typedef int ptrdiff_t;
 typedef unsigned size_t;
 typedef unsigned short wchar_t;
 
-# 7 "C:\Program Files\Microchip\xc8\v1.20\include\stdarg.h"
+# 7 "/Applications/microchip/xc8/v1.12/include/stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -15,7 +15,7 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 23 "C:\Program Files\Microchip\xc8\v1.20\include\stdio.h"
+# 23 "/Applications/microchip/xc8/v1.12/include/stdio.h"
 extern int errno;
 
 # 54
@@ -25,7 +25,7 @@ char * ptr;
 void (* func)(char);
 };
 
-# 17 "C:\Program Files\Microchip\xc8\v1.20\include\conio.h"
+# 17 "/Applications/microchip/xc8/v1.12/include/conio.h"
 extern int errno;
 
 
@@ -42,7 +42,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 99 "C:\Program Files\Microchip\xc8\v1.20\include\stdio.h"
+# 99 "/Applications/microchip/xc8/v1.12/include/stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -69,7 +69,7 @@ extern int vsscanf(const char *, const char *, va_list);
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 27 "C:\Program Files\Microchip\xc8\v1.20\include\stdlib.h"
+# 27 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
 typedef struct {
 int rem;
 int quot;
@@ -140,10 +140,10 @@ extern char * ftoa(float f, int * status);
 # 11 "source/headers/TaskManager.h"
 void TaskManager( void );
 
-# 12 "C:\Program Files\Microchip\xc8\v1.20\include\stdbool.h"
+# 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
 typedef unsigned char bool;
 
-# 13 "C:\Program Files\Microchip\xc8\v1.20\include\stdint.h"
+# 13 "/Applications/microchip/xc8/v1.12/include/stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -247,7 +247,7 @@ void OutputTask( void );
 void ColourATest( void );
 void ColourBTest( void );
 
-# 103 "C:\Program Files\Microchip\xc8\v1.20\include\stdlib.h"
+# 103 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
 extern char * itoa(char * buf, int val, int base);
 extern char * utoa(char * buf, unsigned val, int base);
 
@@ -297,7 +297,7 @@ e_ColourMix
 
 t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );
 
-# 103 "C:\Program Files\Microchip\xc8\v1.20\include\stdlib.h"
+# 103 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
 extern char * itoa(char * buf, int val, int base);
 extern char * utoa(char * buf, unsigned val, int base);
 
