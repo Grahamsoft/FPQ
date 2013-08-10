@@ -1,40 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[s S2087 `i 1 `i 1 ]
-[n S2087 ATimerStruct Matured FutureTime ]
-"38048 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
-[v _TMR0IE `Vb ~T0 @X0 0 e@32661 ]
-"38050
-[v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
-[s S2038 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2038 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-[s S2039 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2039 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
-[s S2040 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2040 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE GIEL GIEH ]
-[s S2041 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2041 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-[s S2042 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2042 . . GIEL GIEH ]
-[u S2037 `S2038 1 `S2039 1 `S2040 1 `S2041 1 `S2042 1 ]
-[n S2037 . . . . . . ]
-"33560
-[v _INTCONbits `VS2037 ~T0 @X0 0 e@4082 ]
+[s S2087 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 ]
+[n S2087 ATimeStruct Millisecond Second Minute Hour Day ]
+"37970 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[v _T0IF `Vb ~T0 @X0 0 e@32658 ]
 "121 /Applications/microchip/xc8/v1.12/include/plib/timers.h
 [v _WriteTimer0 `(v ~T0 @X0 0 ef1`ui ]
-[s S1762 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1762 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-[s S1763 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1763 . INT0 INT1 INT2 CANRX KBI0 KBI1 KBI2 KBI3 ]
-[s S1764 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1764 . AN10 AN8 CANTX . AN9 PGM PGC PGD ]
-[s S1765 :1 `uc 1 ]
-[n S1765 . FLT0 ]
-[s S1766 :3 `uc 1 :1 `uc 1 ]
-[n S1766 . . CCP2_PA2 ]
-[u S1761 `S1762 1 `S1763 1 `S1764 1 `S1765 1 `S1766 1 ]
-[n S1761 . . . . . . ]
-"28246 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
-[v _PORTBbits `VS1761 ~T0 @X0 0 e@3969 ]
 [; ;pic18f2585.h: 44: extern volatile unsigned char RXF6SIDH @ 0xD60;
 "46 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
 [; ;pic18f2585.h: 46: asm("RXF6SIDH equ 0D60h");
@@ -14831,220 +14801,539 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;TimerTask.h: 13: typedef struct ATimerStruct
-[; ;TimerTask.h: 14: {
-[; ;TimerTask.h: 15: int Matured;
-[; ;TimerTask.h: 16: int FutureTime;
-[; ;TimerTask.h: 18: }ATimer;
-[; ;TimerTask.h: 20: int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
-[; ;TimerTask.h: 21: void ClearTimer( ATimer *theTimer );
-[; ;TimerTask.h: 22: bool MaturedTimer( ATimer *theTimer );
-[; ;TimerTask.h: 23: ATimer* GetNewTimerPointer( void );
-"27 source/TimerTask.c
-[v _TimersCount `Ci ~T0 @X0 1 s ]
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;TimerTask.h: 16: typedef struct ATimeStruct
+[; ;TimerTask.h: 17: {
+[; ;TimerTask.h: 18: volatile uint8_t Millisecond;
+[; ;TimerTask.h: 19: volatile uint8_t Second;
+[; ;TimerTask.h: 20: volatile uint8_t Minute;
+[; ;TimerTask.h: 21: volatile uint8_t Hour;
+[; ;TimerTask.h: 22: volatile uint8_t Day;
+[; ;TimerTask.h: 23: }t_ATime;
+[; ;TimerTask.h: 25: void InitTime( void );
+[; ;TimerTask.h: 26: bool MaturedTimer( volatile t_ATime *theTimer );
+[; ;TimerTask.h: 27: void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
+[; ;TimerTask.h: 28: void Increment_Timer( void );
+"31 source/TimerTask.c
+[v _TimersCount `Cuc ~T0 @X0 1 s ]
 [i _TimersCount
--> 10 `i
+-> -> 10 `i `uc
 ]
-[; ;TimerTask.c: 27: static const int TimersCount = 10;
-"28
-[v _Timers `S2087 ~T0 @X0 -> 10 `i e ]
-[; ;TimerTask.c: 28: ATimer Timers[ 10 ];
-"31
-[v _m_HalfSeconds `ui ~T0 @X0 1 s ]
+[; ;TimerTask.c: 31: static const uint8_t TimersCount = 10;
+"32
+[v _m_HalfSeconds `Vum ~T0 @X0 1 s ]
 [i _m_HalfSeconds
--> -> 0 `i `ui
+-> -> -> 0 `i `m `um
 ]
-[; ;TimerTask.c: 31: static unsigned int m_HalfSeconds = 0;
+[; ;TimerTask.c: 32: static volatile uint24_t m_HalfSeconds = 0;
 "34
-[v _Increment_Timer `(v ~T0 @X0 1 ef ]
-{
-[; ;TimerTask.c: 33: void Increment_Timer( void )
-[; ;TimerTask.c: 34: {
-[e :U _Increment_Timer ]
-[f ]
-[; ;TimerTask.c: 35: if ( m_HalfSeconds == 72000 )
+[v _c_NoMsecInSec `Cuc ~T0 @X0 1 e ]
+[i _c_NoMsecInSec
+-> -> 15 `i `uc
+]
+[; ;TimerTask.c: 34: const uint8_t c_NoMsecInSec = 15;
 "35
-[e $ ! == -> _m_HalfSeconds `l -> 72000 `l 2089  ]
-[; ;TimerTask.c: 36: {
+[v _c_NoSecInMinOrMinInHr `Cuc ~T0 @X0 1 e ]
+[i _c_NoSecInMinOrMinInHr
+-> -> 60 `i `uc
+]
+[; ;TimerTask.c: 35: const uint8_t c_NoSecInMinOrMinInHr = 60;
 "36
-{
-[; ;TimerTask.c: 37: m_HalfSeconds = 0;
-"37
-[e = _m_HalfSeconds -> -> 0 `i `ui ]
+[v _c_NoHrInDay `Cuc ~T0 @X0 1 e ]
+[i _c_NoHrInDay
+-> -> 24 `i `uc
+]
+[; ;TimerTask.c: 36: const uint8_t c_NoHrInDay = 24;
 "38
-}
-[; ;TimerTask.c: 38: }
-[e $U 2090  ]
-"39
-[e :U 2089 ]
-[; ;TimerTask.c: 39: else
-[; ;TimerTask.c: 40: {
+[v _m_CurrentTime `S2087 ~T0 @X0 1 s ]
+[; ;TimerTask.c: 38: static t_ATime m_CurrentTime;
 "40
-{
-[; ;TimerTask.c: 41: m_HalfSeconds++;
-"41
-[e ++ _m_HalfSeconds -> -> 1 `i `ui ]
-"42
-}
-[e :U 2090 ]
-[; ;TimerTask.c: 42: }
-[; ;TimerTask.c: 43: }
+[v _m_Ticks `Vuc ~T0 @X0 1 s ]
+[i _m_Ticks
+-> -> 0 `i `uc
+]
+[; ;TimerTask.c: 40: static volatile uint8_t m_Ticks = 0;
 "43
+[v _InitTime `(v ~T0 @X0 1 ef ]
+{
+[; ;TimerTask.c: 42: void InitTime( void )
+[; ;TimerTask.c: 43: {
+[e :U _InitTime ]
+[f ]
+[; ;TimerTask.c: 44: m_CurrentTime.Day = 0;
+"44
+[e = . _m_CurrentTime 4 -> -> 0 `i `uc ]
+[; ;TimerTask.c: 45: m_CurrentTime.Hour = 0;
+"45
+[e = . _m_CurrentTime 3 -> -> 0 `i `uc ]
+[; ;TimerTask.c: 46: m_CurrentTime.Millisecond = 0;
+"46
+[e = . _m_CurrentTime 0 -> -> 0 `i `uc ]
+[; ;TimerTask.c: 47: m_CurrentTime.Minute = 0;
+"47
+[e = . _m_CurrentTime 2 -> -> 0 `i `uc ]
+[; ;TimerTask.c: 48: m_CurrentTime.Second = 0;
+"48
+[e = . _m_CurrentTime 1 -> -> 0 `i `uc ]
+[; ;TimerTask.c: 49: }
+"49
 [e :UE 2088 ]
 }
-"46
-[v _GetNewTimerPointer `(*S2087 ~T0 @X0 1 ef ]
-{
-[; ;TimerTask.c: 45: ATimer* GetNewTimerPointer( void )
-[; ;TimerTask.c: 46: {
-[e :U _GetNewTimerPointer ]
-[f ]
-"47
-[v F16422 `i ~T0 @X0 1 s TimersAllocated ]
-[i F16422
--> 0 `i
-]
-"49
-[v _TimerPointer `*S2087 ~T0 @X0 1 a ]
-[; ;TimerTask.c: 47: static int TimersAllocated = 0;
-[; ;TimerTask.c: 49: ATimer *TimerPointer;
-[; ;TimerTask.c: 51: if ( TimersAllocated < TimersCount )
-"51
-[e $ ! < F16422 _TimersCount 2092  ]
-[; ;TimerTask.c: 52: {
 "52
+[v _Increment_Timer `(v ~T0 @X0 1 ef ]
 {
-[; ;TimerTask.c: 53: TimerPointer = &Timers[ TimersAllocated ];
+[; ;TimerTask.c: 51: void Increment_Timer( void )
+[; ;TimerTask.c: 52: {
+[e :U _Increment_Timer ]
+[f ]
+[; ;TimerTask.c: 53: if( T0IF == 1 )
 "53
-[e = _TimerPointer &U *U + &U _Timers * -> -> F16422 `ui `ux -> -> # *U &U _Timers `ui `ux ]
-[; ;TimerTask.c: 54: TimersAllocated++;
+[e $ ! == -> _T0IF `i -> 1 `i 2090  ]
+[; ;TimerTask.c: 54: {
 "54
-[e ++ F16422 -> 1 `i ]
+{
+[; ;TimerTask.c: 55: m_CurrentTime.Millisecond++;
 "55
+[e ++ . _m_CurrentTime 0 -> -> 1 `i `uc ]
+[; ;TimerTask.c: 57: if( m_CurrentTime.Millisecond >= c_NoMsecInSec )
+"57
+[e $ ! >= -> . _m_CurrentTime 0 `i -> _c_NoMsecInSec `i 2091  ]
+[; ;TimerTask.c: 58: {
+"58
+{
+[; ;TimerTask.c: 59: m_CurrentTime.Second++;
+"59
+[e ++ . _m_CurrentTime 1 -> -> 1 `i `uc ]
+[; ;TimerTask.c: 60: m_CurrentTime.Millisecond = 0;
+"60
+[e = . _m_CurrentTime 0 -> -> 0 `i `uc ]
+[; ;TimerTask.c: 61: if( m_CurrentTime.Second >= c_NoSecInMinOrMinInHr )
+"61
+[e $ ! >= -> . _m_CurrentTime 1 `i -> _c_NoSecInMinOrMinInHr `i 2092  ]
+[; ;TimerTask.c: 62: {
+"62
+{
+[; ;TimerTask.c: 63: m_CurrentTime.Minute++;
+"63
+[e ++ . _m_CurrentTime 2 -> -> 1 `i `uc ]
+[; ;TimerTask.c: 64: m_CurrentTime.Second = 0;
+"64
+[e = . _m_CurrentTime 1 -> -> 0 `i `uc ]
+[; ;TimerTask.c: 65: if( m_CurrentTime.Minute >= c_NoSecInMinOrMinInHr )
+"65
+[e $ ! >= -> . _m_CurrentTime 2 `i -> _c_NoSecInMinOrMinInHr `i 2093  ]
+[; ;TimerTask.c: 66: {
+"66
+{
+[; ;TimerTask.c: 67: m_CurrentTime.Hour++;
+"67
+[e ++ . _m_CurrentTime 3 -> -> 1 `i `uc ]
+[; ;TimerTask.c: 68: m_CurrentTime.Minute = 0;
+"68
+[e = . _m_CurrentTime 2 -> -> 0 `i `uc ]
+[; ;TimerTask.c: 69: if( m_CurrentTime.Hour >= c_NoHrInDay )
+"69
+[e $ ! >= -> . _m_CurrentTime 3 `i -> _c_NoHrInDay `i 2094  ]
+[; ;TimerTask.c: 70: {
+"70
+{
+[; ;TimerTask.c: 71: m_CurrentTime.Hour = 0;
+"71
+[e = . _m_CurrentTime 3 -> -> 0 `i `uc ]
+[; ;TimerTask.c: 72: if( m_CurrentTime.Day < (255) )
+"72
+[e $ ! < -> . _m_CurrentTime 4 `i -> 255 `i 2095  ]
+[; ;TimerTask.c: 73: {
+"73
+{
+[; ;TimerTask.c: 74: m_CurrentTime.Day++;
+"74
+[e ++ . _m_CurrentTime 4 -> -> 1 `i `uc ]
+"75
+}
+[e :U 2095 ]
+"76
+}
+[e :U 2094 ]
+"77
+}
+[e :U 2093 ]
+"78
 }
 [e :U 2092 ]
-[; ;TimerTask.c: 55: }
-[; ;TimerTask.c: 57: return TimerPointer;
-"57
-[e ) _TimerPointer ]
-[e $UE 2091  ]
-[; ;TimerTask.c: 58: }
-"58
-[e :UE 2091 ]
-}
-"61
-[v _SetTimer `(i ~T0 @X0 1 ef5`*S2087`i`i`i`i ]
-{
-[; ;TimerTask.c: 60: int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds )
-[; ;TimerTask.c: 61: {
-[e :U _SetTimer ]
-[v _theTimer `*S2087 ~T0 @X0 1 r1 ]
-[v _theHours `i ~T0 @X0 1 r2 ]
-[v _theMinutes `i ~T0 @X0 1 r3 ]
-[v _theSeconds `i ~T0 @X0 1 r4 ]
-[v _theHalfSeconds `i ~T0 @X0 1 r5 ]
-[f ]
-"62
-[v _FutureTime `i ~T0 @X0 1 a ]
-[; ;TimerTask.c: 62: int FutureTime = theHalfSeconds;
-[e = _FutureTime _theHalfSeconds ]
-[; ;TimerTask.c: 63: FutureTime =+ ( theSeconds * 2 );
-"63
-[e = _FutureTime * _theSeconds -> 2 `i ]
-[; ;TimerTask.c: 64: FutureTime =+ ( theMinutes * ( 60 * 2 ) );
-"64
-[e = _FutureTime * _theMinutes * -> 60 `i -> 2 `i ]
-[; ;TimerTask.c: 65: FutureTime =+ ( theHours * ( 60 * ( 60 * 2 ) ) );
-"65
-[e = _FutureTime * _theHours * -> 60 `i * -> 60 `i -> 2 `i ]
-[; ;TimerTask.c: 67: theTimer->FutureTime = FutureTime;
-"67
-[e = . *U _theTimer 1 _FutureTime ]
-[; ;TimerTask.c: 68: theTimer->Matured = 0;
-"68
-[e = . *U _theTimer 0 -> 0 `i ]
-[; ;TimerTask.c: 69: }
-"69
-[e :UE 2093 ]
-}
-"72
-[v _ClearTimer `(v ~T0 @X0 1 ef1`*S2087 ]
-{
-[; ;TimerTask.c: 71: void ClearTimer( ATimer *theTimer )
-[; ;TimerTask.c: 72: {
-[e :U _ClearTimer ]
-[v _theTimer `*S2087 ~T0 @X0 1 r1 ]
-[f ]
-[; ;TimerTask.c: 73: theTimer->FutureTime = 0;
-"73
-[e = . *U _theTimer 1 -> 0 `i ]
-[; ;TimerTask.c: 74: theTimer->Matured = 0;
-"74
-[e = . *U _theTimer 0 -> 0 `i ]
-[; ;TimerTask.c: 75: }
-"75
-[e :UE 2094 ]
-}
-"78
-[v _MaturedTimer `(uc ~T0 @X0 1 ef1`*S2087 ]
-{
-[; ;TimerTask.c: 77: bool MaturedTimer( ATimer *theTimer )
-[; ;TimerTask.c: 78: {
-[e :U _MaturedTimer ]
-[v _theTimer `*S2087 ~T0 @X0 1 r1 ]
-[f ]
-[; ;TimerTask.c: 79: return theTimer->Matured;
 "79
-[e ) -> . *U _theTimer 0 `uc ]
-[e $UE 2095  ]
-[; ;TimerTask.c: 80: }
+}
+[e :U 2091 ]
+[; ;TimerTask.c: 75: }
+[; ;TimerTask.c: 76: }
+[; ;TimerTask.c: 77: }
+[; ;TimerTask.c: 78: }
+[; ;TimerTask.c: 79: }
+[; ;TimerTask.c: 80: WriteTimer0( 0 );
 "80
-[e :UE 2095 ]
-}
-"83
-[v F16434 `(v ~T0 @X0 1 tf ]
-[v _ISR `IF16434 ~T0 @X0 1 e ]
-{
-[; ;TimerTask.c: 82: void interrupt ISR (void)
-[; ;TimerTask.c: 83: {
-[e :U _ISR ]
-[f ]
-[; ;TimerTask.c: 84: if(TMR0IE && TMR0IF)
-"84
-[e $ ! && _TMR0IE _TMR0IF 2097  ]
-[; ;TimerTask.c: 85: {
-"85
-{
-[; ;TimerTask.c: 86: INTCONbits.TMR0IF = 0;
-"86
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;TimerTask.c: 87: Increment_Timer();
-"87
-[e ( _Increment_Timer ..  ]
-[; ;TimerTask.c: 88: WriteTimer0( 0 );
-"88
 [e ( _WriteTimer0 (1 -> -> 0 `i `ui ]
-[; ;TimerTask.c: 89: PORTBbits.RB1 = 1;
-"89
-[e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
-"91
+[; ;TimerTask.c: 81: T0IF = 0;
+"81
+[e = _T0IF -> -> 0 `i `b ]
+"82
 }
-[; ;TimerTask.c: 91: }
-[e $U 2098  ]
-"92
-[e :U 2097 ]
-[; ;TimerTask.c: 92: else
-[; ;TimerTask.c: 93: {
-"93
+[e :U 2090 ]
+[; ;TimerTask.c: 82: }
+[; ;TimerTask.c: 83: }
+"83
+[e :UE 2089 ]
+}
+"86
+[v _CalculateFutureTime `(v ~T0 @X0 1 ef4`*VS2087`uc`uc`uc ]
 {
-[; ;TimerTask.c: 94: PORTBbits.RB3 = 1;
+[; ;TimerTask.c: 85: void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds )
+[; ;TimerTask.c: 86: {
+[e :U _CalculateFutureTime ]
+[v _theTimer `*VS2087 ~T0 @X0 1 r1 ]
+[v _theMinutes `uc ~T0 @X0 1 r2 ]
+[v _theSeconds `uc ~T0 @X0 1 r3 ]
+[v _theHalfSeconds `uc ~T0 @X0 1 r4 ]
+[f ]
+"87
+[v _CarryOver `Vuc ~T0 @X0 1 a ]
+[; ;TimerTask.c: 87: volatile uint8_t CarryOver = 0;
+[e = _CarryOver -> -> 0 `i `uc ]
+[; ;TimerTask.c: 91: if ( theHalfSeconds > c_NoMsecInSec )
+"91
+[e $ ! > -> _theHalfSeconds `i -> _c_NoMsecInSec `i 2097  ]
+[; ;TimerTask.c: 92: {
+"92
+{
+[; ;TimerTask.c: 93: theHalfSeconds = c_NoMsecInSec;
+"93
+[e = _theHalfSeconds _c_NoMsecInSec ]
 "94
-[e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
-"95
+}
+[e :U 2097 ]
+[; ;TimerTask.c: 94: }
+[; ;TimerTask.c: 96: if ( theSeconds >= c_NoSecInMinOrMinInHr )
+"96
+[e $ ! >= -> _theSeconds `i -> _c_NoSecInMinOrMinInHr `i 2098  ]
+[; ;TimerTask.c: 97: {
+"97
+{
+[; ;TimerTask.c: 98: theSeconds = c_NoSecInMinOrMinInHr - 1;
+"98
+[e = _theSeconds -> - -> _c_NoSecInMinOrMinInHr `i -> 1 `i `uc ]
+"99
 }
 [e :U 2098 ]
-[; ;TimerTask.c: 95: }
-[; ;TimerTask.c: 96: }
-"96
+[; ;TimerTask.c: 99: }
+[; ;TimerTask.c: 101: if ( theMinutes >= c_NoSecInMinOrMinInHr )
+"101
+[e $ ! >= -> _theMinutes `i -> _c_NoSecInMinOrMinInHr `i 2099  ]
+[; ;TimerTask.c: 102: {
+"102
+{
+[; ;TimerTask.c: 103: theMinutes = c_NoSecInMinOrMinInHr - 1;
+"103
+[e = _theMinutes -> - -> _c_NoSecInMinOrMinInHr `i -> 1 `i `uc ]
+"104
+}
+[e :U 2099 ]
+[; ;TimerTask.c: 104: }
+[; ;TimerTask.c: 108: if( ( theHalfSeconds + m_CurrentTime.Millisecond ) <= c_NoMsecInSec )
+"108
+[e $ ! <= + -> _theHalfSeconds `i -> . _m_CurrentTime 0 `i -> _c_NoMsecInSec `i 2100  ]
+[; ;TimerTask.c: 109: {
+"109
+{
+[; ;TimerTask.c: 110: theTimer->Millisecond = theHalfSeconds + m_CurrentTime.Millisecond;
+"110
+[e = . *U _theTimer 0 -> + -> _theHalfSeconds `i -> . _m_CurrentTime 0 `i `uc ]
+[; ;TimerTask.c: 111: CarryOver = 0;
+"111
+[e = _CarryOver -> -> 0 `i `uc ]
+"112
+}
+[; ;TimerTask.c: 112: }
+[e $U 2101  ]
+"113
+[e :U 2100 ]
+[; ;TimerTask.c: 113: else
+[; ;TimerTask.c: 114: {
+"114
+{
+[; ;TimerTask.c: 115: CarryOver = 1;
+"115
+[e = _CarryOver -> -> 1 `i `uc ]
+[; ;TimerTask.c: 116: theTimer->Millisecond = ( theHalfSeconds + m_CurrentTime.Millisecond ) - c_NoMsecInSec;
+"116
+[e = . *U _theTimer 0 -> - + -> _theHalfSeconds `i -> . _m_CurrentTime 0 `i -> _c_NoMsecInSec `i `uc ]
+"117
+}
+[e :U 2101 ]
+[; ;TimerTask.c: 117: }
+[; ;TimerTask.c: 119: if( ( theSeconds + m_CurrentTime.Second + CarryOver ) < c_NoSecInMinOrMinInHr )
+"119
+[e $ ! < + + -> _theSeconds `i -> . _m_CurrentTime 1 `i -> _CarryOver `i -> _c_NoSecInMinOrMinInHr `i 2102  ]
+[; ;TimerTask.c: 120: {
+"120
+{
+[; ;TimerTask.c: 121: theTimer->Second = theSeconds + m_CurrentTime.Second + CarryOver;
+"121
+[e = . *U _theTimer 1 -> + + -> _theSeconds `i -> . _m_CurrentTime 1 `i -> _CarryOver `i `uc ]
+[; ;TimerTask.c: 122: CarryOver = 0;
+"122
+[e = _CarryOver -> -> 0 `i `uc ]
+"123
+}
+[; ;TimerTask.c: 123: }
+[e $U 2103  ]
+"124
+[e :U 2102 ]
+[; ;TimerTask.c: 124: else
+[; ;TimerTask.c: 125: {
+"125
+{
+[; ;TimerTask.c: 126: theTimer->Second = ( theSeconds + m_CurrentTime.Second + CarryOver ) - c_NoSecInMinOrMinInHr;
+"126
+[e = . *U _theTimer 1 -> - + + -> _theSeconds `i -> . _m_CurrentTime 1 `i -> _CarryOver `i -> _c_NoSecInMinOrMinInHr `i `uc ]
+[; ;TimerTask.c: 127: CarryOver = 1;
+"127
+[e = _CarryOver -> -> 1 `i `uc ]
+"128
+}
+[e :U 2103 ]
+[; ;TimerTask.c: 128: }
+[; ;TimerTask.c: 130: if( ( theMinutes + m_CurrentTime.Minute + CarryOver ) < c_NoSecInMinOrMinInHr )
+"130
+[e $ ! < + + -> _theMinutes `i -> . _m_CurrentTime 2 `i -> _CarryOver `i -> _c_NoSecInMinOrMinInHr `i 2104  ]
+[; ;TimerTask.c: 131: {
+"131
+{
+[; ;TimerTask.c: 132: theTimer->Minute = theMinutes + m_CurrentTime.Minute + CarryOver;
+"132
+[e = . *U _theTimer 2 -> + + -> _theMinutes `i -> . _m_CurrentTime 2 `i -> _CarryOver `i `uc ]
+[; ;TimerTask.c: 133: CarryOver = 0;
+"133
+[e = _CarryOver -> -> 0 `i `uc ]
+"134
+}
+[; ;TimerTask.c: 134: }
+[e $U 2105  ]
+"135
+[e :U 2104 ]
+[; ;TimerTask.c: 135: else
+[; ;TimerTask.c: 136: {
+"136
+{
+[; ;TimerTask.c: 137: theTimer->Minute = ( theMinutes + m_CurrentTime.Minute + CarryOver ) - c_NoSecInMinOrMinInHr;
+"137
+[e = . *U _theTimer 2 -> - + + -> _theMinutes `i -> . _m_CurrentTime 2 `i -> _CarryOver `i -> _c_NoSecInMinOrMinInHr `i `uc ]
+[; ;TimerTask.c: 138: CarryOver = 1;
+"138
+[e = _CarryOver -> -> 1 `i `uc ]
+"139
+}
+[e :U 2105 ]
+[; ;TimerTask.c: 139: }
+[; ;TimerTask.c: 141: if( ( m_CurrentTime.Hour + CarryOver ) < c_NoHrInDay )
+"141
+[e $ ! < + -> . _m_CurrentTime 3 `i -> _CarryOver `i -> _c_NoHrInDay `i 2106  ]
+[; ;TimerTask.c: 142: {
+"142
+{
+[; ;TimerTask.c: 143: theTimer->Hour = m_CurrentTime.Hour + CarryOver;
+"143
+[e = . *U _theTimer 3 -> + -> . _m_CurrentTime 3 `i -> _CarryOver `i `uc ]
+[; ;TimerTask.c: 144: CarryOver = 0;
+"144
+[e = _CarryOver -> -> 0 `i `uc ]
+"145
+}
+[; ;TimerTask.c: 145: }
+[e $U 2107  ]
+"146
+[e :U 2106 ]
+[; ;TimerTask.c: 146: else
+[; ;TimerTask.c: 147: {
+"147
+{
+[; ;TimerTask.c: 148: if( ( m_CurrentTime.Day + 1 ) < (255) )
+"148
+[e $ ! < + -> . _m_CurrentTime 4 `i -> 1 `i -> 255 `i 2108  ]
+[; ;TimerTask.c: 149: {
+"149
+{
+[; ;TimerTask.c: 150: theTimer->Day++;
+"150
+[e ++ . *U _theTimer 4 -> -> 1 `i `uc ]
+"151
+}
+[e :U 2108 ]
+"152
+}
+[e :U 2107 ]
+[; ;TimerTask.c: 151: }
+[; ;TimerTask.c: 152: }
+[; ;TimerTask.c: 153: }
+"153
 [e :UE 2096 ]
+}
+"156
+[v _MaturedTimer `(uc ~T0 @X0 1 ef1`*VS2087 ]
+{
+[; ;TimerTask.c: 155: bool MaturedTimer( volatile t_ATime *theTimer )
+[; ;TimerTask.c: 156: {
+[e :U _MaturedTimer ]
+[v _theTimer `*VS2087 ~T0 @X0 1 r1 ]
+[f ]
+"157
+[v _ToReturn `Vuc ~T0 @X0 1 a ]
+[; ;TimerTask.c: 157: volatile bool ToReturn = 0;
+[e = _ToReturn -> -> 0 `i `uc ]
+[; ;TimerTask.c: 159: if( m_CurrentTime.Day > theTimer->Day )
+"159
+[e $ ! > -> . _m_CurrentTime 4 `i -> . *U _theTimer 4 `i 2110  ]
+[; ;TimerTask.c: 160: {
+"160
+{
+[; ;TimerTask.c: 161: ToReturn = 1;
+"161
+[e = _ToReturn -> -> 1 `i `uc ]
+"162
+}
+[; ;TimerTask.c: 162: }
+[e $U 2111  ]
+"163
+[e :U 2110 ]
+[; ;TimerTask.c: 163: else if( m_CurrentTime.Day == theTimer->Day )
+[e $ ! == -> . _m_CurrentTime 4 `i -> . *U _theTimer 4 `i 2112  ]
+[; ;TimerTask.c: 164: {
+"164
+{
+[; ;TimerTask.c: 165: if( m_CurrentTime.Hour > theTimer->Hour )
+"165
+[e $ ! > -> . _m_CurrentTime 3 `i -> . *U _theTimer 3 `i 2113  ]
+[; ;TimerTask.c: 166: {
+"166
+{
+[; ;TimerTask.c: 167: ToReturn = 1;
+"167
+[e = _ToReturn -> -> 1 `i `uc ]
+"168
+}
+[; ;TimerTask.c: 168: }
+[e $U 2114  ]
+"169
+[e :U 2113 ]
+[; ;TimerTask.c: 169: else if( m_CurrentTime.Hour == theTimer->Hour )
+[e $ ! == -> . _m_CurrentTime 3 `i -> . *U _theTimer 3 `i 2115  ]
+[; ;TimerTask.c: 170: {
+"170
+{
+[; ;TimerTask.c: 171: if( m_CurrentTime.Minute > theTimer->Minute )
+"171
+[e $ ! > -> . _m_CurrentTime 2 `i -> . *U _theTimer 2 `i 2116  ]
+[; ;TimerTask.c: 172: {
+"172
+{
+[; ;TimerTask.c: 173: ToReturn = 1;
+"173
+[e = _ToReturn -> -> 1 `i `uc ]
+"174
+}
+[; ;TimerTask.c: 174: }
+[e $U 2117  ]
+"175
+[e :U 2116 ]
+[; ;TimerTask.c: 175: else if( m_CurrentTime.Minute == theTimer->Minute )
+[e $ ! == -> . _m_CurrentTime 2 `i -> . *U _theTimer 2 `i 2118  ]
+[; ;TimerTask.c: 176: {
+"176
+{
+[; ;TimerTask.c: 177: if( m_CurrentTime.Second > theTimer->Second )
+"177
+[e $ ! > -> . _m_CurrentTime 1 `i -> . *U _theTimer 1 `i 2119  ]
+[; ;TimerTask.c: 178: {
+"178
+{
+[; ;TimerTask.c: 179: ToReturn = 1;
+"179
+[e = _ToReturn -> -> 1 `i `uc ]
+"180
+}
+[; ;TimerTask.c: 180: }
+[e $U 2120  ]
+"181
+[e :U 2119 ]
+[; ;TimerTask.c: 181: else if( m_CurrentTime.Second == theTimer->Second )
+[e $ ! == -> . _m_CurrentTime 1 `i -> . *U _theTimer 1 `i 2121  ]
+[; ;TimerTask.c: 182: {
+"182
+{
+[; ;TimerTask.c: 183: if( m_CurrentTime.Millisecond >= theTimer->Millisecond )
+"183
+[e $ ! >= -> . _m_CurrentTime 0 `i -> . *U _theTimer 0 `i 2122  ]
+[; ;TimerTask.c: 184: {
+"184
+{
+[; ;TimerTask.c: 185: ToReturn = 1;
+"185
+[e = _ToReturn -> -> 1 `i `uc ]
+"186
+}
+[e :U 2122 ]
+"187
+}
+[e :U 2121 ]
+"188
+[e :U 2120 ]
+}
+[e :U 2118 ]
+"189
+[e :U 2117 ]
+}
+[e :U 2115 ]
+"190
+[e :U 2114 ]
+}
+[e :U 2112 ]
+"192
+[e :U 2111 ]
+[; ;TimerTask.c: 186: }
+[; ;TimerTask.c: 187: }
+[; ;TimerTask.c: 188: }
+[; ;TimerTask.c: 189: }
+[; ;TimerTask.c: 190: }
+[; ;TimerTask.c: 192: return ToReturn;
+[e ) _ToReturn ]
+[e $UE 2109  ]
+[; ;TimerTask.c: 193: }
+"193
+[e :UE 2109 ]
+}
+"196
+[v F16450 `(v ~T0 @X0 1 tf ]
+[v _LowPriorityISR `ILF16450 ~T0 @X0 1 e ]
+{
+[; ;TimerTask.c: 195: void interrupt low_priority LowPriorityISR( void )
+[; ;TimerTask.c: 196: {
+[e :U _LowPriorityISR ]
+[f ]
+[; ;TimerTask.c: 211: }
+"211
+[e :UE 2123 ]
+}
+"214
+[v F16453 `(v ~T0 @X0 1 tf ]
+[v _ISR `IF16453 ~T0 @X0 1 e ]
+{
+[; ;TimerTask.c: 213: void interrupt ISR( void )
+[; ;TimerTask.c: 214: {
+[e :U _ISR ]
+[f ]
+[; ;TimerTask.c: 235: }
+"235
+[e :UE 2124 ]
 }

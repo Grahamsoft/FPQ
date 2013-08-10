@@ -1,92 +1,242 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"14 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/InputTask.h
-[v _MonitorButton `(v ~T0 @X0 0 ef1`i ]
-"15
-[v _ButtonBeingPressed `(uc ~T0 @X0 0 ef1`i ]
-[c E42 0 1 2 3 .. ]
-[n E42 . e_PressedNo e_PressedYes e_BeingServedNo e_BeingServedYes  ]
-"40 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
-[v _SetKeyState `(v ~T0 @X0 0 ef2`i`E42 ]
-"41
-[v _GetKeyState `(E42 ~T0 @X0 0 ef1`i ]
-[s S1756 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1756 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-[s S1757 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1757 . AN0 AN1 AN2 AN3 T0CKI AN4 OSC2 OSC1 ]
+"15 source/InputTask.c
+[v _MonitorButton `(v ~T0 @X0 0 ef1`uc ]
+[c E210 0 1 2 3 4 .. ]
+[n E210 . e_Error e_PressedNo e_PressedYes e_BeingServedNo e_BeingServedYes  ]
+[s S1774 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1774 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+[s S1775 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1775 . T1OSO T1OSI CCP1 SCK SDI SDO TX RX ]
+[s S1776 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1776 . T13CKI . SCL SDA . CK DT ]
+[s S1777 :1 `uc 1 :1 `uc 1 ]
+[n S1777 . . CCP2 ]
+[s S1778 :2 `uc 1 :1 `uc 1 ]
+[n S1778 . . PA1 ]
+[s S1779 :1 `uc 1 :1 `uc 1 ]
+[n S1779 . . PA2 ]
+[u S1773 `S1774 1 `S1775 1 `S1776 1 `S1777 1 `S1778 1 `S1779 1 ]
+[n S1773 . . . . . . . ]
+"28423 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
+[v _PORTCbits `VS1773 ~T0 @X0 0 e@3970 ]
+"57 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+[v _GetHeadOfQueue `(uc ~T0 @X0 0 ef ]
+"56
+[v _GetKeyState `(E210 ~T0 @X0 0 ef1`uc ]
+"55
+[v _SetKeyState `(v ~T0 @X0 0 ef2`uc`E210 ]
+[s S5 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 ]
+[n S5 ATimeStruct Millisecond Second Minute Hour Day ]
+"53
+[v _GetKeyInputTimer `(*VS5 ~T0 @X0 0 ef1`uc ]
+"16 source/InputTask.c
+[v _ButtonBeingPressed `(uc ~T0 @X0 0 ef1`uc ]
+"27 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h
+[v _CalculateFutureTime `(v ~T0 @X0 0 ef4`*VS5`uc`uc`uc ]
+"26
+[v _MaturedTimer `(uc ~T0 @X0 0 ef1`*VS5 ]
 [s S1758 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1758 . CVREF . VREFM VREFP . HLVDIN CLKO CLKI ]
-[s S1759 :5 `uc 1 :1 `uc 1 ]
-[n S1759 . . LVDIN ]
-[s S1760 :5 `uc 1 :1 `uc 1 ]
-[n S1760 . . SS ]
+[n S1758 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+[s S1759 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1759 . AN0 AN1 AN2 AN3 T0CKI AN4 OSC2 OSC1 ]
+[s S1760 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1760 . CVREF . VREFM VREFP . HLVDIN CLKO CLKI ]
 [s S1761 :5 `uc 1 :1 `uc 1 ]
-[n S1761 . . NOT_SS ]
+[n S1761 . . LVDIN ]
 [s S1762 :5 `uc 1 :1 `uc 1 ]
-[n S1762 . . nSS ]
-[s S1763 :7 `uc 1 :1 `uc 1 ]
-[n S1763 . . RJPU ]
-[s S1764 :1 `uc 1 ]
-[n S1764 . ULPWUIN ]
-[u S1755 `S1756 1 `S1757 1 `S1758 1 `S1759 1 `S1760 1 `S1761 1 `S1762 1 `S1763 1 `S1764 1 ]
-[n S1755 . . . . . . . . . . ]
+[n S1762 . . SS ]
+[s S1763 :5 `uc 1 :1 `uc 1 ]
+[n S1763 . . NOT_SS ]
+[s S1764 :5 `uc 1 :1 `uc 1 ]
+[n S1764 . . nSS ]
+[s S1765 :7 `uc 1 :1 `uc 1 ]
+[n S1765 . . RJPU ]
+[s S1766 :1 `uc 1 ]
+[n S1766 . ULPWUIN ]
+[u S1757 `S1758 1 `S1759 1 `S1760 1 `S1761 1 `S1762 1 `S1763 1 `S1764 1 `S1765 1 `S1766 1 ]
+[n S1757 . . . . . . . . . . ]
 "28058 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
-[v _PORTAbits `VS1755 ~T0 @X0 0 e@3968 ]
+[v _PORTAbits `VS1757 ~T0 @X0 0 e@3968 ]
+[s S1768 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1768 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+[s S1769 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1769 . INT0 INT1 INT2 CANRX KBI0 KBI1 KBI2 KBI3 ]
+[s S1770 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1770 . AN10 AN8 CANTX . AN9 PGM PGC PGD ]
+[s S1771 :1 `uc 1 ]
+[n S1771 . FLT0 ]
+[s S1772 :3 `uc 1 :1 `uc 1 ]
+[n S1772 . . CCP2_PA2 ]
+[u S1767 `S1768 1 `S1769 1 `S1770 1 `S1771 1 `S1772 1 ]
+[n S1767 . . . . . . ]
+"28246
+[v _PORTBbits `VS1767 ~T0 @X0 0 e@3969 ]
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;InputTask.h: 13: void InputTask( void );
-[; ;InputTask.h: 14: void MonitorButton( int theId );
-[; ;InputTask.h: 15: bool ButtonBeingPressed( int theId );
-[; ;OutputSequences.h: 11: typedef enum
-[; ;OutputSequences.h: 12: {
-[; ;OutputSequences.h: 13: e_Off,
-[; ;OutputSequences.h: 14: e_ColourA,
-[; ;OutputSequences.h: 15: e_ColourB
-[; ;OutputSequences.h: 16: }t_ButtonColour;
-[; ;OutputSequences.h: 18: typedef struct SequencePhaseStruct
-[; ;OutputSequences.h: 19: {
-[; ;OutputSequences.h: 20: int NextActionTime;
-[; ;OutputSequences.h: 21: t_ButtonColour CurrentColour;
-[; ;OutputSequences.h: 22: }SequencePhase;
-[; ;OutputSequences.h: 24: typedef struct ASequenceStruct
-[; ;OutputSequences.h: 25: {
-[; ;OutputSequences.h: 26: SequencePhase *Sequence;
-[; ;OutputSequences.h: 27: int Size;
-[; ;OutputSequences.h: 28: int Current;
-[; ;OutputSequences.h: 29: }ASequence;
-[; ;OutputSequences.h: 31: void InitSequences( void );
-[; ;OutputSequences.h: 32: ASequence* GetSequencePointer( int theId );
-[; ;TimerTask.h: 13: typedef struct ATimerStruct
-[; ;TimerTask.h: 14: {
-[; ;TimerTask.h: 15: int Matured;
-[; ;TimerTask.h: 16: int FutureTime;
-[; ;TimerTask.h: 18: }ATimer;
-[; ;TimerTask.h: 20: int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
-[; ;TimerTask.h: 21: void ClearTimer( ATimer *theTimer );
-[; ;TimerTask.h: 22: bool MaturedTimer( ATimer *theTimer );
-[; ;TimerTask.h: 23: ATimer* GetNewTimerPointer( void );
-[; ;Model.h: 14: typedef enum
-[; ;Model.h: 15: {
-[; ;Model.h: 16: e_PressedNo,
-[; ;Model.h: 17: e_PressedYes,
-[; ;Model.h: 18: e_BeingServedNo,
-[; ;Model.h: 19: e_BeingServedYes
-[; ;Model.h: 20: }t_ButtonState;
-[; ;Model.h: 22: typedef struct AKeyStruct
-[; ;Model.h: 23: {
-[; ;Model.h: 24: int Id;
-[; ;Model.h: 25: t_ButtonState State;
-[; ;Model.h: 26: ASequence* Sequence;
-[; ;Model.h: 27: ATimer* Timer;
-[; ;Model.h: 35: }AKey;
-"37 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
-[v _KeyCount `Ci ~T0 @X0 1 e ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;InputTask.h: 14: void InputTask( void );
+[; ;stdlib.h: 4: typedef int ptrdiff_t;
+[; ;stdlib.h: 5: typedef unsigned size_t;
+[; ;stdlib.h: 6: typedef unsigned short wchar_t;
+[; ;stdlib.h: 16: extern int errno;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: int rem;
+[; ;stdlib.h: 29: int quot;
+[; ;stdlib.h: 30: } div_t;
+[; ;stdlib.h: 31: typedef struct {
+[; ;stdlib.h: 32: unsigned rem;
+[; ;stdlib.h: 33: unsigned quot;
+[; ;stdlib.h: 34: } udiv_t;
+[; ;stdlib.h: 35: typedef struct {
+[; ;stdlib.h: 36: long quot;
+[; ;stdlib.h: 37: long rem;
+[; ;stdlib.h: 38: } ldiv_t;
+[; ;stdlib.h: 39: typedef struct {
+[; ;stdlib.h: 40: unsigned long quot;
+[; ;stdlib.h: 41: unsigned long rem;
+[; ;stdlib.h: 42: } uldiv_t;
+[; ;stdlib.h: 65: extern double atof(const char *);
+[; ;stdlib.h: 66: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 67: extern int atoi(const char *);
+[; ;stdlib.h: 68: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 69: extern long atol(const char *);
+[; ;stdlib.h: 70: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 72: extern int rand(void);
+[; ;stdlib.h: 73: extern void srand(unsigned int);
+[; ;stdlib.h: 74: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 75: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 76: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 77: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 78: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 79: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 80: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 81: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 82: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 87: extern void * malloc(size_t);
+[; ;stdlib.h: 88: extern void free(void *);
+[; ;stdlib.h: 89: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 91: extern void abort(void);
+[; ;stdlib.h: 92: extern void exit(int);
+[; ;stdlib.h: 93: extern int atexit(void (*)(void));
+[; ;stdlib.h: 94: extern char * getenv(const char *);
+[; ;stdlib.h: 95: extern char ** environ;
+[; ;stdlib.h: 96: extern int system(char *);
+[; ;stdlib.h: 97: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 98: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 99: extern int abs(int);
+[; ;stdlib.h: 100: extern long labs(long);
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;TimerTask.h: 16: typedef struct ATimeStruct
+[; ;TimerTask.h: 17: {
+[; ;TimerTask.h: 18: volatile uint8_t Millisecond;
+[; ;TimerTask.h: 19: volatile uint8_t Second;
+[; ;TimerTask.h: 20: volatile uint8_t Minute;
+[; ;TimerTask.h: 21: volatile uint8_t Hour;
+[; ;TimerTask.h: 22: volatile uint8_t Day;
+[; ;TimerTask.h: 23: }t_ATime;
+[; ;TimerTask.h: 25: void InitTime( void );
+[; ;TimerTask.h: 26: bool MaturedTimer( volatile t_ATime *theTimer );
+[; ;TimerTask.h: 27: void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
+[; ;TimerTask.h: 28: void Increment_Timer( void );
+[; ;OutputSequences.h: 14: typedef enum
+[; ;OutputSequences.h: 15: {
+[; ;OutputSequences.h: 16: e_Unknown,
+[; ;OutputSequences.h: 17: e_Off,
+[; ;OutputSequences.h: 18: e_ColourA,
+[; ;OutputSequences.h: 19: e_ColourB
+[; ;OutputSequences.h: 20: }t_ButtonColour;
+[; ;OutputSequences.h: 22: typedef enum
+[; ;OutputSequences.h: 23: {
+[; ;OutputSequences.h: 24: e_NotSet,
+[; ;OutputSequences.h: 25: e_AllOff,
+[; ;OutputSequences.h: 26: e_SteadyColourA,
+[; ;OutputSequences.h: 27: e_SteadyColourB,
+[; ;OutputSequences.h: 28: e_RedGreenFlash,
+[; ;OutputSequences.h: 29: e_DimmedColourA,
+[; ;OutputSequences.h: 30: e_RapidFlashColourB,
+[; ;OutputSequences.h: 31: e_ColourMix
+[; ;OutputSequences.h: 32: }t_Sequences;
+[; ;OutputSequences.h: 34: t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;Model.h: 15: typedef enum
+[; ;Model.h: 16: {
+[; ;Model.h: 17: e_Error,
+[; ;Model.h: 18: e_PressedNo,
+[; ;Model.h: 19: e_PressedYes,
+[; ;Model.h: 20: e_BeingServedNo,
+[; ;Model.h: 21: e_BeingServedYes
+[; ;Model.h: 22: }t_ButtonState;
+[; ;Model.h: 24: typedef struct AKeyStruct
+[; ;Model.h: 25: {
+[; ;Model.h: 26: volatile t_ButtonState ButtonState;
+[; ;Model.h: 27: volatile t_ATime InputTimer;
+[; ;Model.h: 28: volatile t_ATime NextActionTimer;
+[; ;Model.h: 29: volatile t_Sequences SequenceIdPressedNo;
+[; ;Model.h: 30: volatile t_Sequences SequenceIdPressedYes;
+[; ;Model.h: 31: volatile t_Sequences SequenceIdBeingServedNo;
+[; ;Model.h: 32: volatile t_Sequences SequenceIdBeingServedYes;
+[; ;Model.h: 33: volatile uint8_t SequenceState;
+[; ;Model.h: 34: volatile uint8_t NextInQueue;
+[; ;Model.h: 42: }AKey;
+"44 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+[v _KeyCount `Cuc ~T0 @X0 1 e ]
 [i _KeyCount
--> 5 `i
+-> -> 5 `i `uc
 ]
-[; ;Model.h: 37: const int KeyCount = 5;
-[; ;Model.h: 39: void InitKeys( void );
-[; ;Model.h: 40: void SetKeyState( int theKeyId, t_ButtonState theState );
-[; ;Model.h: 41: t_ButtonState GetKeyState( int theKeyId );
-[; ;Model.h: 42: ATimer* GetKeyTimer( int theKeyId );
+[; ;Model.h: 44: const uint8_t KeyCount = 5;
+"46
+[v _SequenceReset `Cuc ~T0 @X0 1 e ]
+[i _SequenceReset
+-> -> 0 `i `uc
+]
+[; ;Model.h: 46: const uint8_t SequenceReset = 0;
+[; ;Model.h: 48: void InitKeys( void );
+[; ;Model.h: 50: t_Sequences GetSequence( uint8_t theKeyId );
+[; ;Model.h: 51: volatile uint8_t* GetSequenceState( uint8_t theKeyId );
+[; ;Model.h: 52: volatile t_ATime* GetKeyTimer( uint8_t theKeyId );
+[; ;Model.h: 53: volatile t_ATime* GetKeyInputTimer( uint8_t theKeyId );
+[; ;Model.h: 55: void SetKeyState( uint8_t theKeyId, t_ButtonState theState );
+[; ;Model.h: 56: t_ButtonState GetKeyState( uint8_t theKeyId );
+[; ;Model.h: 57: uint8_t GetHeadOfQueue( void );
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
 [; ;pic18f2585.h: 44: extern volatile unsigned char RXF6SIDH @ 0xD60;
 "46 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
 [; ;pic18f2585.h: 46: asm("RXF6SIDH equ 0D60h");
@@ -14238,9 +14388,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;EEP.h: 36: void Busy_eep ( void );
 [; ;EEP.h: 37: unsigned char Read_b_eep( unsigned int badd );
 [; ;EEP.h: 38: void Write_b_eep( unsigned int badd, unsigned char bdata );
-[; ;stddef.h: 2: typedef int ptrdiff_t;
-[; ;stddef.h: 3: typedef unsigned size_t;
-[; ;stddef.h: 4: typedef unsigned short wchar_t;
 [; ;stddef.h: 13: extern int errno;
 [; ;GenericTypeDefs.h: 65: typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
 [; ;GenericTypeDefs.h: 68: typedef enum _BIT { CLEAR = 0, SET } BIT;
@@ -14773,253 +14920,388 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 144: extern void _delay(unsigned long);
 [; ;pic18.h: 146: extern void _delaywdt(unsigned long);
 [; ;pic18.h: 148: extern void _delay3(unsigned char);
-"14 source/InputTask.c
+[; ;InputTask.c: 14: void MonitorBartenderButton( void );
+[; ;InputTask.c: 15: void MonitorButton( uint8_t theId );
+[; ;InputTask.c: 16: bool ButtonBeingPressed( uint8_t theId );
+"20 source/InputTask.c
 [v _InputTask `(v ~T0 @X0 1 ef ]
 {
-[; ;InputTask.c: 13: void InputTask( void )
-[; ;InputTask.c: 14: {
+[; ;InputTask.c: 19: void InputTask( void )
+[; ;InputTask.c: 20: {
 [e :U _InputTask ]
 [f ]
-[; ;InputTask.c: 15: for( int i = 0; i < KeyCount; i++ )
-"15
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i _KeyCount 2087  ]
-[e $U 2088  ]
-"16
-[e :U 2087 ]
-[; ;InputTask.c: 16: {
-{
-[; ;InputTask.c: 17: MonitorButton( i );
-"17
-[e ( _MonitorButton (1 _i ]
-"18
-}
-"15
-[e ++ _i -> 1 `i ]
-[e $ < _i _KeyCount 2087  ]
-[e :U 2088 ]
-"18
-}
-[; ;InputTask.c: 18: }
-[; ;InputTask.c: 19: }
-"19
-[e :UE 2086 ]
-}
-"22
-[v _MonitorButton `(v ~T0 @X0 1 ef1`i ]
-{
-[; ;InputTask.c: 21: void MonitorButton( int theId )
-[; ;InputTask.c: 22: {
-[e :U _MonitorButton ]
-[v _theId `i ~T0 @X0 1 r1 ]
-[f ]
-[; ;InputTask.c: 23: switch ( GetKeyState( theId ) )
+[; ;InputTask.c: 23: for( uint8_t i = 0; i < KeyCount; i++ )
 "23
-[e $U 2092  ]
-[; ;InputTask.c: 24: {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> _KeyCount `i 2089  ]
+[e $U 2090  ]
 "24
+[e :U 2089 ]
+[; ;InputTask.c: 24: {
 {
-[; ;InputTask.c: 25: case e_PressedNo:
+[; ;InputTask.c: 25: MonitorButton( i );
 "25
-[e :U 2093 ]
-[; ;InputTask.c: 26: if ( ButtonBeingPressed( theId ) )
+[e ( _MonitorButton (1 _i ]
 "26
-[e $ ! != -> ( _ButtonBeingPressed (1 _theId `i -> -> -> 0 `i `uc `i 2094  ]
-[; ;InputTask.c: 27: {
-"27
-{
-[; ;InputTask.c: 28: SetKeyState( theId, e_PressedYes );
-"28
-[e ( _SetKeyState (2 , _theId -> . `E42 1 `E42 ]
-"30
 }
-[e :U 2094 ]
-[; ;InputTask.c: 30: }
-[; ;InputTask.c: 31: break;
-"31
-[e $U 2091  ]
-[; ;InputTask.c: 33: case e_PressedYes:
-"33
-[e :U 2095 ]
-[; ;InputTask.c: 34: if ( ! ButtonBeingPressed( theId ) )
-"34
-[e $ ! ! != -> ( _ButtonBeingPressed (1 _theId `i -> -> -> 0 `i `uc `i 2096  ]
-[; ;InputTask.c: 35: {
-"35
+"23
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> _KeyCount `i 2089  ]
+[e :U 2090 ]
+"26
+}
+[; ;InputTask.c: 26: }
+[; ;InputTask.c: 27: }
+"27
+[e :UE 2088 ]
+}
+"30
+[v _MonitorBartenderButton `(v ~T0 @X0 1 ef ]
 {
-[; ;InputTask.c: 36: SetKeyState( theId, e_BeingServedNo );
+[; ;InputTask.c: 29: void MonitorBartenderButton( void )
+[; ;InputTask.c: 30: {
+[e :U _MonitorBartenderButton ]
+[f ]
+"31
+[v F16454 `VE210 ~T0 @X0 1 s BartenderButton ]
+[i F16454
+-> . `E210 1 `VE210
+]
+[; ;InputTask.c: 31: static volatile t_ButtonState BartenderButton = e_PressedNo;
+[; ;InputTask.c: 33: switch( BartenderButton )
+"33
+[e $U 2094  ]
+[; ;InputTask.c: 34: {
+"34
+{
+[; ;InputTask.c: 35: case e_PressedNo:
+"35
+[e :U 2095 ]
+[; ;InputTask.c: 36: if ( PORTCbits.RC1 == 0 )
 "36
-[e ( _SetKeyState (2 , _theId -> . `E42 2 `E42 ]
+[e $ ! == -> . . _PORTCbits 0 1 `i -> 0 `i 2096  ]
+[; ;InputTask.c: 37: {
+"37
+{
+[; ;InputTask.c: 38: BartenderButton = e_PressedYes;
 "38
+[e = F16454 -> . `E210 2 `VE210 ]
+"39
 }
 [e :U 2096 ]
-[; ;InputTask.c: 38: }
-[; ;InputTask.c: 45: break;
-"45
-[e $U 2091  ]
-[; ;InputTask.c: 47: case e_BeingServedNo:
-"47
+[; ;InputTask.c: 39: }
+[; ;InputTask.c: 40: break;
+"40
+[e $U 2093  ]
+[; ;InputTask.c: 42: case e_PressedYes:
+"42
 [e :U 2097 ]
-[; ;InputTask.c: 48: if ( ButtonBeingPressed( theId ) )
-"48
-[e $ ! != -> ( _ButtonBeingPressed (1 _theId `i -> -> -> 0 `i `uc `i 2098  ]
-[; ;InputTask.c: 49: {
-"49
+[; ;InputTask.c: 43: if ( PORTCbits.RC1 == 1 )
+"43
+[e $ ! == -> . . _PORTCbits 0 1 `i -> 1 `i 2098  ]
+[; ;InputTask.c: 44: {
+"44
 {
-[; ;InputTask.c: 50: SetKeyState( theId, e_BeingServedYes );
+"45
+[v _HeadOfQueue `Vuc ~T0 @X0 1 a ]
+[; ;InputTask.c: 45: volatile uint8_t HeadOfQueue = GetHeadOfQueue();
+[e = _HeadOfQueue ( _GetHeadOfQueue ..  ]
+[; ;InputTask.c: 47: if ( HeadOfQueue != KeyCount )
+"47
+[e $ ! != -> _HeadOfQueue `i -> _KeyCount `i 2099  ]
+[; ;InputTask.c: 48: {
+"48
+{
+[; ;InputTask.c: 49: if ( GetKeyState( HeadOfQueue ) == e_BeingServedYes )
+"49
+[e $ ! == -> ( _GetKeyState (1 _HeadOfQueue `i -> . `E210 4 `i 2100  ]
+[; ;InputTask.c: 50: {
 "50
-[e ( _SetKeyState (2 , _theId -> . `E42 3 `E42 ]
+{
+[; ;InputTask.c: 51: SetKeyState( HeadOfQueue, e_PressedNo );
+"51
+[e ( _SetKeyState (2 , _HeadOfQueue -> . `E210 1 `E210 ]
 "52
 }
-[e :U 2098 ]
+[e :U 2100 ]
 [; ;InputTask.c: 52: }
-[; ;InputTask.c: 53: break;
-"53
-[e $U 2091  ]
-[; ;InputTask.c: 55: case e_BeingServedYes:
-"55
-[e :U 2099 ]
-[; ;InputTask.c: 56: if ( ! ButtonBeingPressed( theId ) )
+[; ;InputTask.c: 54: HeadOfQueue = GetHeadOfQueue();
+"54
+[e = _HeadOfQueue ( _GetHeadOfQueue ..  ]
+[; ;InputTask.c: 56: if( HeadOfQueue != KeyCount )
 "56
-[e $ ! ! != -> ( _ButtonBeingPressed (1 _theId `i -> -> -> 0 `i `uc `i 2100  ]
+[e $ ! != -> _HeadOfQueue `i -> _KeyCount `i 2101  ]
 [; ;InputTask.c: 57: {
 "57
 {
-[; ;InputTask.c: 58: SetKeyState( theId, e_PressedNo );
+[; ;InputTask.c: 58: SetKeyState( HeadOfQueue, e_BeingServedYes );
 "58
-[e ( _SetKeyState (2 , _theId -> . `E42 0 `E42 ]
+[e ( _SetKeyState (2 , _HeadOfQueue -> . `E210 4 `E210 ]
+"59
+}
+[e :U 2101 ]
 "60
 }
-[e :U 2100 ]
+[e :U 2099 ]
+[; ;InputTask.c: 59: }
 [; ;InputTask.c: 60: }
-[; ;InputTask.c: 61: break;
-"61
-[e $U 2091  ]
+[; ;InputTask.c: 62: BartenderButton = e_PressedNo;
 "62
-}
-[; ;InputTask.c: 62: }
-[e $U 2091  ]
-"23
-[e :U 2092 ]
-[e [\ ( _GetKeyState (1 _theId , $ -> . `E42 0 `E42 2093
- , $ -> . `E42 1 `E42 2095
- , $ -> . `E42 2 `E42 2097
- , $ -> . `E42 3 `E42 2099
- 2091 ]
-"62
-[e :U 2091 ]
-[; ;InputTask.c: 63: }
+[e = F16454 -> . `E210 1 `VE210 ]
 "63
-[e :UE 2090 ]
 }
+[e :U 2098 ]
+[; ;InputTask.c: 63: }
+[; ;InputTask.c: 64: break;
+"64
+[e $U 2093  ]
+"65
+}
+[; ;InputTask.c: 65: }
+[e $U 2093  ]
+"33
+[e :U 2094 ]
+[e [\ F16454 , $ -> . `E210 1 `VE210 2095
+ , $ -> . `E210 2 `VE210 2097
+ 2093 ]
+"65
+[e :U 2093 ]
+[; ;InputTask.c: 66: }
 "66
-[v _ButtonBeingPressed `(uc ~T0 @X0 1 ef1`i ]
-{
-[; ;InputTask.c: 65: bool ButtonBeingPressed( int theId )
-[; ;InputTask.c: 66: {
-[e :U _ButtonBeingPressed ]
-[v _theId `i ~T0 @X0 1 r1 ]
-[f ]
-"67
-[v _BeingPressed `uc ~T0 @X0 1 a ]
-[; ;InputTask.c: 67: bool BeingPressed = 0;
-[e = _BeingPressed -> -> 0 `i `uc ]
-[; ;InputTask.c: 69: switch ( theId )
+[e :UE 2092 ]
+}
 "69
-[e $U 2103  ]
-[; ;InputTask.c: 70: {
-"70
+[v _MonitorButton `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;InputTask.c: 71: case 0:
-"71
-[e :U 2104 ]
-[; ;InputTask.c: 72: if ( PORTAbits.RA0 == 0 )
+[; ;InputTask.c: 68: void MonitorButton( uint8_t theId )
+[; ;InputTask.c: 69: {
+[e :U _MonitorButton ]
+[v _theId `uc ~T0 @X0 1 r1 ]
+[f ]
+"70
+[v _KeyTimer `*VS5 ~T0 @X0 1 a ]
+[; ;InputTask.c: 70: volatile t_ATime* KeyTimer = GetKeyInputTimer( theId );
+[e = _KeyTimer ( _GetKeyInputTimer (1 _theId ]
+[; ;InputTask.c: 72: switch ( GetKeyState( theId ) )
 "72
-[e $ ! == -> . . _PORTAbits 0 0 `i -> 0 `i 2105  ]
+[e $U 2104  ]
 [; ;InputTask.c: 73: {
 "73
 {
-[; ;InputTask.c: 74: BeingPressed = 1;
+[; ;InputTask.c: 74: case e_PressedNo:
 "74
-[e = _BeingPressed -> -> 1 `i `uc ]
-"75
-}
 [e :U 2105 ]
-[; ;InputTask.c: 75: }
-[; ;InputTask.c: 76: break;
+[; ;InputTask.c: 75: if ( ButtonBeingPressed( theId ) )
+"75
+[e $ ! != -> ( _ButtonBeingPressed (1 _theId `i -> -> -> 0 `i `uc `i 2106  ]
+[; ;InputTask.c: 76: {
 "76
-[e $U 2102  ]
-[; ;InputTask.c: 78: case 1:
+{
+[; ;InputTask.c: 77: SetKeyState( theId, e_PressedYes );
+"77
+[e ( _SetKeyState (2 , _theId -> . `E210 2 `E210 ]
+[; ;InputTask.c: 78: CalculateFutureTime( KeyTimer, 0, 1, 0 );
 "78
-[e :U 2106 ]
-[; ;InputTask.c: 79: if ( PORTAbits.RA3 == 0 )
+[e ( _CalculateFutureTime (4 , , , _KeyTimer -> -> 0 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc ]
 "79
-[e $ ! == -> . . _PORTAbits 0 3 `i -> 0 `i 2107  ]
-[; ;InputTask.c: 80: {
-"80
-{
-[; ;InputTask.c: 81: BeingPressed = 1;
-"81
-[e = _BeingPressed -> -> 1 `i `uc ]
-"82
 }
+[e :U 2106 ]
+[; ;InputTask.c: 79: }
+[; ;InputTask.c: 80: break;
+"80
+[e $U 2103  ]
+[; ;InputTask.c: 82: case e_PressedYes:
+"82
 [e :U 2107 ]
-[; ;InputTask.c: 82: }
-[; ;InputTask.c: 83: break;
+[; ;InputTask.c: 83: if ( ButtonBeingPressed( theId ) )
 "83
-[e $U 2102  ]
-[; ;InputTask.c: 85: case 2:
-"85
-[e :U 2108 ]
-[; ;InputTask.c: 86: if ( PORTAbits.RA7 == 0 )
-"86
-[e $ ! == -> . . _PORTAbits 0 7 `i -> 0 `i 2109  ]
-[; ;InputTask.c: 87: {
-"87
+[e $ ! != -> ( _ButtonBeingPressed (1 _theId `i -> -> -> 0 `i `uc `i 2108  ]
+[; ;InputTask.c: 84: {
+"84
 {
-[; ;InputTask.c: 88: BeingPressed = 1;
+[; ;InputTask.c: 85: if ( MaturedTimer( KeyTimer ) )
+"85
+[e $ ! != -> ( _MaturedTimer (1 _KeyTimer `i -> -> -> 0 `i `uc `i 2109  ]
+[; ;InputTask.c: 86: {
+"86
+{
+[; ;InputTask.c: 87: SetKeyState( theId, e_BeingServedNo );
+"87
+[e ( _SetKeyState (2 , _theId -> . `E210 3 `E210 ]
 "88
-[e = _BeingPressed -> -> 1 `i `uc ]
-"89
 }
 [e :U 2109 ]
-[; ;InputTask.c: 89: }
-[; ;InputTask.c: 90: break;
-"90
-[e $U 2102  ]
-[; ;InputTask.c: 92: case 3:
-"92
-[e :U 2110 ]
-[; ;InputTask.c: 97: break;
-"97
-[e $U 2102  ]
-[; ;InputTask.c: 99: case 4:
-"99
-[e :U 2111 ]
-[; ;InputTask.c: 104: break;
-"104
-[e $U 2102  ]
-"105
+"89
 }
-[; ;InputTask.c: 105: }
-[e $U 2102  ]
-"69
+[; ;InputTask.c: 88: }
+[; ;InputTask.c: 89: }
+[e $U 2110  ]
+"90
+[e :U 2108 ]
+[; ;InputTask.c: 90: else
+[; ;InputTask.c: 91: {
+"91
+{
+[; ;InputTask.c: 93: SetKeyState( theId, e_PressedNo );
+"93
+[e ( _SetKeyState (2 , _theId -> . `E210 1 `E210 ]
+"94
+}
+[e :U 2110 ]
+[; ;InputTask.c: 94: }
+[; ;InputTask.c: 95: break;
+"95
+[e $U 2103  ]
+[; ;InputTask.c: 97: case e_BeingServedNo:
+"97
+[e :U 2111 ]
+[; ;InputTask.c: 98: break;
+"98
+[e $U 2103  ]
+[; ;InputTask.c: 100: case e_BeingServedYes:
+"100
+[e :U 2112 ]
+[; ;InputTask.c: 101: break;
+"101
+[e $U 2103  ]
+"102
+}
+[; ;InputTask.c: 102: }
+[e $U 2103  ]
+"72
+[e :U 2104 ]
+[e [\ ( _GetKeyState (1 _theId , $ -> . `E210 1 `E210 2105
+ , $ -> . `E210 2 `E210 2107
+ , $ -> . `E210 3 `E210 2111
+ , $ -> . `E210 4 `E210 2112
+ 2103 ]
+"102
 [e :U 2103 ]
-[e [\ _theId , $ -> 0 `i 2104
- , $ -> 1 `i 2106
- , $ -> 2 `i 2108
- , $ -> 3 `i 2110
- , $ -> 4 `i 2111
- 2102 ]
-"105
-[e :U 2102 ]
-[; ;InputTask.c: 107: return BeingPressed;
+[; ;InputTask.c: 103: }
+"103
+[e :UE 2102 ]
+}
+"106
+[v _ButtonBeingPressed `(uc ~T0 @X0 1 ef1`uc ]
+{
+[; ;InputTask.c: 105: bool ButtonBeingPressed( uint8_t theId )
+[; ;InputTask.c: 106: {
+[e :U _ButtonBeingPressed ]
+[v _theId `uc ~T0 @X0 1 r1 ]
+[f ]
 "107
+[v _BeingPressed `uc ~T0 @X0 1 a ]
+[; ;InputTask.c: 107: bool BeingPressed = 0;
+[e = _BeingPressed -> -> 0 `i `uc ]
+[; ;InputTask.c: 109: switch ( theId )
+"109
+[e $U 2115  ]
+[; ;InputTask.c: 110: {
+"110
+{
+[; ;InputTask.c: 111: case 0:
+"111
+[e :U 2116 ]
+[; ;InputTask.c: 112: if ( PORTAbits.RA0 == 0 )
+"112
+[e $ ! == -> . . _PORTAbits 0 0 `i -> 0 `i 2117  ]
+[; ;InputTask.c: 113: {
+"113
+{
+[; ;InputTask.c: 114: BeingPressed = 1;
+"114
+[e = _BeingPressed -> -> 1 `i `uc ]
+"115
+}
+[e :U 2117 ]
+[; ;InputTask.c: 115: }
+[; ;InputTask.c: 116: break;
+"116
+[e $U 2114  ]
+[; ;InputTask.c: 118: case 1:
+"118
+[e :U 2118 ]
+[; ;InputTask.c: 119: if ( PORTAbits.RA3 == 0 )
+"119
+[e $ ! == -> . . _PORTAbits 0 3 `i -> 0 `i 2119  ]
+[; ;InputTask.c: 120: {
+"120
+{
+[; ;InputTask.c: 121: BeingPressed = 1;
+"121
+[e = _BeingPressed -> -> 1 `i `uc ]
+"122
+}
+[e :U 2119 ]
+[; ;InputTask.c: 122: }
+[; ;InputTask.c: 123: break;
+"123
+[e $U 2114  ]
+[; ;InputTask.c: 125: case 2:
+"125
+[e :U 2120 ]
+[; ;InputTask.c: 126: if ( PORTAbits.RA7 == 0 )
+"126
+[e $ ! == -> . . _PORTAbits 0 7 `i -> 0 `i 2121  ]
+[; ;InputTask.c: 127: {
+"127
+{
+[; ;InputTask.c: 128: BeingPressed = 1;
+"128
+[e = _BeingPressed -> -> 1 `i `uc ]
+"129
+}
+[e :U 2121 ]
+[; ;InputTask.c: 129: }
+[; ;InputTask.c: 130: break;
+"130
+[e $U 2114  ]
+[; ;InputTask.c: 132: case 3:
+"132
+[e :U 2122 ]
+[; ;InputTask.c: 137: break;
+"137
+[e $U 2114  ]
+[; ;InputTask.c: 139: case 4:
+"139
+[e :U 2123 ]
+[; ;InputTask.c: 140: if ( PORTBbits.RB4 == 0 )
+"140
+[e $ ! == -> . . _PORTBbits 0 4 `i -> 0 `i 2124  ]
+[; ;InputTask.c: 141: {
+"141
+{
+[; ;InputTask.c: 142: BeingPressed = 1;
+"142
+[e = _BeingPressed -> -> 1 `i `uc ]
+"143
+}
+[e :U 2124 ]
+[; ;InputTask.c: 143: }
+[; ;InputTask.c: 144: break;
+"144
+[e $U 2114  ]
+"145
+}
+[; ;InputTask.c: 145: }
+[e $U 2114  ]
+"109
+[e :U 2115 ]
+[e [\ _theId , $ -> -> 0 `i `uc 2116
+ , $ -> -> 1 `i `uc 2118
+ , $ -> -> 2 `i `uc 2120
+ , $ -> -> 3 `i `uc 2122
+ , $ -> -> 4 `i `uc 2123
+ 2114 ]
+"145
+[e :U 2114 ]
+[; ;InputTask.c: 147: return BeingPressed;
+"147
 [e ) _BeingPressed ]
-[e $UE 2101  ]
-[; ;InputTask.c: 108: }
-"108
-[e :UE 2101 ]
+[e $UE 2113  ]
+[; ;InputTask.c: 148: }
+"148
+[e :UE 2113 ]
 }

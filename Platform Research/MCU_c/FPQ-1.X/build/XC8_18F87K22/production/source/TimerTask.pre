@@ -18824,87 +18824,207 @@ typedef uint16_t uintptr_t;
 # 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
 typedef unsigned char bool;
 
-# 13 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h"
-typedef struct ATimerStruct
+# 103 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+
+# 16 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h"
+typedef struct ATimeStruct
 {
-int Matured;
-int FutureTime;
+volatile uint8_t Millisecond;
+volatile uint8_t Second;
+volatile uint8_t Minute;
+volatile uint8_t Hour;
+volatile uint8_t Day;
+}t_ATime;
 
-}ATimer;
+void InitTime( void );
+bool MaturedTimer( volatile t_ATime *theTimer );
+void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
+void Increment_Timer( void );
 
-int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
-void ClearTimer( ATimer *theTimer );
-bool MaturedTimer( ATimer *theTimer );
-ATimer* GetNewTimerPointer( void );
+# 31 "source/TimerTask.c"
+static const uint8_t TimersCount = 10;
+static volatile uint24_t m_HalfSeconds = 0;
 
-# 27 "source/TimerTask.c"
-static const int TimersCount = 10;
-ATimer Timers[ 10 ];
+const uint8_t c_NoMsecInSec = 15;
+const uint8_t c_NoSecInMinOrMinInHr = 60;
+const uint8_t c_NoHrInDay = 24;
 
+static t_ATime m_CurrentTime;
 
-static unsigned int m_HalfSeconds = 0;
+static volatile uint8_t m_Ticks = 0;
+
+void InitTime( void )
+{
+m_CurrentTime.Day = 0;
+m_CurrentTime.Hour = 0;
+m_CurrentTime.Millisecond = 0;
+m_CurrentTime.Minute = 0;
+m_CurrentTime.Second = 0;
+}
 
 void Increment_Timer( void )
 {
-if ( m_HalfSeconds == 72000 )
+if( T0IF == 1 )
 {
-m_HalfSeconds = 0;
+m_CurrentTime.Millisecond++;
+
+if( m_CurrentTime.Millisecond >= c_NoMsecInSec )
+{
+m_CurrentTime.Second++;
+m_CurrentTime.Millisecond = 0;
+if( m_CurrentTime.Second >= c_NoSecInMinOrMinInHr )
+{
+m_CurrentTime.Minute++;
+m_CurrentTime.Second = 0;
+if( m_CurrentTime.Minute >= c_NoSecInMinOrMinInHr )
+{
+m_CurrentTime.Hour++;
+m_CurrentTime.Minute = 0;
+if( m_CurrentTime.Hour >= c_NoHrInDay )
+{
+m_CurrentTime.Hour = 0;
+if( m_CurrentTime.Day < (255) )
+{
+m_CurrentTime.Day++;
 }
-else
-{
-m_HalfSeconds++;
 }
 }
-
-ATimer* GetNewTimerPointer( void )
-{
-static int TimersAllocated = 0;
-
-ATimer *TimerPointer;
-
-if ( TimersAllocated < TimersCount )
-{
-TimerPointer = &Timers[ TimersAllocated ];
-TimersAllocated++;
 }
-
-return TimerPointer;
 }
-
-int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds )
-{
-int FutureTime = theHalfSeconds;
-FutureTime =+ ( theSeconds * 2 );
-FutureTime =+ ( theMinutes * ( 60 * 2 ) );
-FutureTime =+ ( theHours * ( 60 * ( 60 * 2 ) ) );
-
-theTimer->FutureTime = FutureTime;
-theTimer->Matured = 0;
-}
-
-void ClearTimer( ATimer *theTimer )
-{
-theTimer->FutureTime = 0;
-theTimer->Matured = 0;
-}
-
-bool MaturedTimer( ATimer *theTimer )
-{
-return theTimer->Matured;
-}
-
-void interrupt ISR (void)
-{
-if(TMR0IE && TMR0IF)
-{
-INTCONbits.TMR0IF = 0;
-Increment_Timer();
 WriteTimer0( 0 );
-PORTBbits.RB1 = 1;
+T0IF = 0;
+}
+}
 
+void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds )
+{
+volatile uint8_t CarryOver = 0;
+
+
+
+if ( theHalfSeconds > c_NoMsecInSec )
+{
+theHalfSeconds = c_NoMsecInSec;
+}
+
+if ( theSeconds >= c_NoSecInMinOrMinInHr )
+{
+theSeconds = c_NoSecInMinOrMinInHr - 1;
+}
+
+if ( theMinutes >= c_NoSecInMinOrMinInHr )
+{
+theMinutes = c_NoSecInMinOrMinInHr - 1;
+}
+
+
+
+if( ( theHalfSeconds + m_CurrentTime.Millisecond ) <= c_NoMsecInSec )
+{
+theTimer->Millisecond = theHalfSeconds + m_CurrentTime.Millisecond;
+CarryOver = 0;
 }
 else
 {
-PORTBbits.RB3 = 1;
+CarryOver = 1;
+theTimer->Millisecond = ( theHalfSeconds + m_CurrentTime.Millisecond ) - c_NoMsecInSec;
+}
+
+if( ( theSeconds + m_CurrentTime.Second + CarryOver ) < c_NoSecInMinOrMinInHr )
+{
+theTimer->Second = theSeconds + m_CurrentTime.Second + CarryOver;
+CarryOver = 0;
+}
+else
+{
+theTimer->Second = ( theSeconds + m_CurrentTime.Second + CarryOver ) - c_NoSecInMinOrMinInHr;
+CarryOver = 1;
+}
+
+if( ( theMinutes + m_CurrentTime.Minute + CarryOver ) < c_NoSecInMinOrMinInHr )
+{
+theTimer->Minute = theMinutes + m_CurrentTime.Minute + CarryOver;
+CarryOver = 0;
+}
+else
+{
+theTimer->Minute = ( theMinutes + m_CurrentTime.Minute + CarryOver ) - c_NoSecInMinOrMinInHr;
+CarryOver = 1;
+}
+
+if( ( m_CurrentTime.Hour + CarryOver ) < c_NoHrInDay )
+{
+theTimer->Hour = m_CurrentTime.Hour + CarryOver;
+CarryOver = 0;
+}
+else
+{
+if( ( m_CurrentTime.Day + 1 ) < (255) )
+{
+theTimer->Day++;
 }
 }
+}
+
+bool MaturedTimer( volatile t_ATime *theTimer )
+{
+volatile bool ToReturn = 0;
+
+if( m_CurrentTime.Day > theTimer->Day )
+{
+ToReturn = 1;
+}
+else if( m_CurrentTime.Day == theTimer->Day )
+{
+if( m_CurrentTime.Hour > theTimer->Hour )
+{
+ToReturn = 1;
+}
+else if( m_CurrentTime.Hour == theTimer->Hour )
+{
+if( m_CurrentTime.Minute > theTimer->Minute )
+{
+ToReturn = 1;
+}
+else if( m_CurrentTime.Minute == theTimer->Minute )
+{
+if( m_CurrentTime.Second > theTimer->Second )
+{
+ToReturn = 1;
+}
+else if( m_CurrentTime.Second == theTimer->Second )
+{
+if( m_CurrentTime.Millisecond >= theTimer->Millisecond )
+{
+ToReturn = 1;
+}
+}
+}
+}
+}
+
+return ToReturn;
+}
+
+void interrupt low_priority LowPriorityISR( void )
+{
+
+# 211
+}
+
+void interrupt ISR( void )
+{
+
+# 235
+}
+

@@ -1,179 +1,614 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[c E36 0 1 2 3 .. ]
-[n E36 . e_PressedNo e_PressedYes e_BeingServedNo e_BeingServedYes  ]
-[c E1 0 1 2 .. ]
-[n E1 . e_Off e_ColourA e_ColourB  ]
-[s S1 `i 1 `E1 1 ]
-[n S1 SequencePhaseStruct NextActionTime CurrentColour ]
-[s S2 `*S1 1 `i 1 `i 1 ]
-[n S2 ASequenceStruct Sequence Size Current ]
-[s S3 `i 1 `i 1 ]
-[n S3 ATimerStruct Matured FutureTime ]
-[s S4 `i 1 `E36 1 `*S2 1 `*S3 1 ]
-[n S4 AKeyStruct Id State Sequence Timer ]
-"31 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputSequences.h
-[v _InitSequences `(v ~T0 @X0 0 ef ]
-"32
-[v _GetSequencePointer `(*S2 ~T0 @X0 0 ef1`i ]
-"23 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h
-[v _GetNewTimerPointer `(*S3 ~T0 @X0 0 ef ]
-[; ;OutputSequences.h: 11: typedef enum
-[; ;OutputSequences.h: 12: {
-[; ;OutputSequences.h: 13: e_Off,
-[; ;OutputSequences.h: 14: e_ColourA,
-[; ;OutputSequences.h: 15: e_ColourB
-[; ;OutputSequences.h: 16: }t_ButtonColour;
-[; ;OutputSequences.h: 18: typedef struct SequencePhaseStruct
-[; ;OutputSequences.h: 19: {
-[; ;OutputSequences.h: 20: int NextActionTime;
-[; ;OutputSequences.h: 21: t_ButtonColour CurrentColour;
-[; ;OutputSequences.h: 22: }SequencePhase;
-[; ;OutputSequences.h: 24: typedef struct ASequenceStruct
-[; ;OutputSequences.h: 25: {
-[; ;OutputSequences.h: 26: SequencePhase *Sequence;
-[; ;OutputSequences.h: 27: int Size;
-[; ;OutputSequences.h: 28: int Current;
-[; ;OutputSequences.h: 29: }ASequence;
-[; ;OutputSequences.h: 31: void InitSequences( void );
-[; ;OutputSequences.h: 32: ASequence* GetSequencePointer( int theId );
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;TimerTask.h: 13: typedef struct ATimerStruct
-[; ;TimerTask.h: 14: {
-[; ;TimerTask.h: 15: int Matured;
-[; ;TimerTask.h: 16: int FutureTime;
-[; ;TimerTask.h: 18: }ATimer;
-[; ;TimerTask.h: 20: int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
-[; ;TimerTask.h: 21: void ClearTimer( ATimer *theTimer );
-[; ;TimerTask.h: 22: bool MaturedTimer( ATimer *theTimer );
-[; ;TimerTask.h: 23: ATimer* GetNewTimerPointer( void );
-[; ;Model.h: 14: typedef enum
-[; ;Model.h: 15: {
-[; ;Model.h: 16: e_PressedNo,
-[; ;Model.h: 17: e_PressedYes,
-[; ;Model.h: 18: e_BeingServedNo,
-[; ;Model.h: 19: e_BeingServedYes
-[; ;Model.h: 20: }t_ButtonState;
-[; ;Model.h: 22: typedef struct AKeyStruct
-[; ;Model.h: 23: {
-[; ;Model.h: 24: int Id;
-[; ;Model.h: 25: t_ButtonState State;
-[; ;Model.h: 26: ASequence* Sequence;
-[; ;Model.h: 27: ATimer* Timer;
-[; ;Model.h: 35: }AKey;
-"37 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
-[v _KeyCount `Ci ~T0 @X0 1 e ]
-[i _KeyCount
--> 5 `i
-]
-[; ;Model.h: 37: const int KeyCount = 5;
-[; ;Model.h: 39: void InitKeys( void );
-[; ;Model.h: 40: void SetKeyState( int theKeyId, t_ButtonState theState );
-[; ;Model.h: 41: t_ButtonState GetKeyState( int theKeyId );
-[; ;Model.h: 42: ATimer* GetKeyTimer( int theKeyId );
-"3 source/Model.c
-[v _m_Keys `S4 ~T0 @X0 -> 5 `i e ]
-[; ;Model.c: 3: AKey m_Keys[ 5 ];
-"6
-[v _SetKeyState `(v ~T0 @X0 1 ef2`i`E36 ]
-{
-[; ;Model.c: 5: void SetKeyState( int theKeyId, t_ButtonState theState )
-[; ;Model.c: 6: {
-[e :U _SetKeyState ]
-[v _theKeyId `i ~T0 @X0 1 r1 ]
-[v _theState `E36 ~T0 @X0 1 r2 ]
-[f ]
-[; ;Model.c: 7: m_Keys[ theKeyId ].State = theState;
-"7
-[e = . *U + &U _m_Keys * -> -> _theKeyId `ui `ux -> -> # *U &U _m_Keys `ui `ux 1 _theState ]
-[; ;Model.c: 8: }
-"8
-[e :UE 5 ]
-}
-"11
-[v _GetKeyState `(E36 ~T0 @X0 1 ef1`i ]
-{
-[; ;Model.c: 10: t_ButtonState GetKeyState( int theKeyId )
-[; ;Model.c: 11: {
-[e :U _GetKeyState ]
-[v _theKeyId `i ~T0 @X0 1 r1 ]
-[f ]
-[; ;Model.c: 12: return m_Keys[ theKeyId ].State;
+[c E208 0 1 2 3 4 .. ]
+[n E208 . e_Error e_PressedNo e_PressedYes e_BeingServedNo e_BeingServedYes  ]
+[s S5 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 ]
+[n S5 ATimeStruct Millisecond Second Minute Hour Day ]
+[c E180 0 1 2 3 4 5 6 7 .. ]
+[n E180 . e_NotSet e_AllOff e_SteadyColourA e_SteadyColourB e_RedGreenFlash e_DimmedColourA e_RapidFlashColourB e_ColourMix  ]
+[s S6 `VE208 1 `VS5 1 `VS5 1 `VE180 1 `VE180 1 `VE180 1 `VE180 1 `Vuc 1 `Vuc 1 ]
+[n S6 AKeyStruct ButtonState InputTimer NextActionTimer SequenceIdPressedNo SequenceIdPressedYes SequenceIdBeingServedNo SequenceIdBeingServedYes SequenceState NextInQueue ]
+"11 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/DataCommsSend.h
+[v _CustomerWating `(v ~T0 @X0 0 ef1`uc ]
 "12
-[e ) . *U + &U _m_Keys * -> -> _theKeyId `ui `ux -> -> # *U &U _m_Keys `ui `ux 1 ]
-[e $UE 6  ]
-[; ;Model.c: 13: }
-"13
-[e :UE 6 ]
-}
-"16
-[v _GetKeyTimer `(*S3 ~T0 @X0 1 ef1`i ]
+[v _CustomerBeingServed `(v ~T0 @X0 0 ef1`uc ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdlib.h: 4: typedef int ptrdiff_t;
+[; ;stdlib.h: 5: typedef unsigned size_t;
+[; ;stdlib.h: 6: typedef unsigned short wchar_t;
+[; ;stdlib.h: 16: extern int errno;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: int rem;
+[; ;stdlib.h: 29: int quot;
+[; ;stdlib.h: 30: } div_t;
+[; ;stdlib.h: 31: typedef struct {
+[; ;stdlib.h: 32: unsigned rem;
+[; ;stdlib.h: 33: unsigned quot;
+[; ;stdlib.h: 34: } udiv_t;
+[; ;stdlib.h: 35: typedef struct {
+[; ;stdlib.h: 36: long quot;
+[; ;stdlib.h: 37: long rem;
+[; ;stdlib.h: 38: } ldiv_t;
+[; ;stdlib.h: 39: typedef struct {
+[; ;stdlib.h: 40: unsigned long quot;
+[; ;stdlib.h: 41: unsigned long rem;
+[; ;stdlib.h: 42: } uldiv_t;
+[; ;stdlib.h: 65: extern double atof(const char *);
+[; ;stdlib.h: 66: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 67: extern int atoi(const char *);
+[; ;stdlib.h: 68: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 69: extern long atol(const char *);
+[; ;stdlib.h: 70: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 72: extern int rand(void);
+[; ;stdlib.h: 73: extern void srand(unsigned int);
+[; ;stdlib.h: 74: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 75: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 76: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 77: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 78: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 79: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 80: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 81: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 82: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 87: extern void * malloc(size_t);
+[; ;stdlib.h: 88: extern void free(void *);
+[; ;stdlib.h: 89: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 91: extern void abort(void);
+[; ;stdlib.h: 92: extern void exit(int);
+[; ;stdlib.h: 93: extern int atexit(void (*)(void));
+[; ;stdlib.h: 94: extern char * getenv(const char *);
+[; ;stdlib.h: 95: extern char ** environ;
+[; ;stdlib.h: 96: extern int system(char *);
+[; ;stdlib.h: 97: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 98: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 99: extern int abs(int);
+[; ;stdlib.h: 100: extern long labs(long);
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;TimerTask.h: 16: typedef struct ATimeStruct
+[; ;TimerTask.h: 17: {
+[; ;TimerTask.h: 18: volatile uint8_t Millisecond;
+[; ;TimerTask.h: 19: volatile uint8_t Second;
+[; ;TimerTask.h: 20: volatile uint8_t Minute;
+[; ;TimerTask.h: 21: volatile uint8_t Hour;
+[; ;TimerTask.h: 22: volatile uint8_t Day;
+[; ;TimerTask.h: 23: }t_ATime;
+[; ;TimerTask.h: 25: void InitTime( void );
+[; ;TimerTask.h: 26: bool MaturedTimer( volatile t_ATime *theTimer );
+[; ;TimerTask.h: 27: void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
+[; ;TimerTask.h: 28: void Increment_Timer( void );
+[; ;OutputSequences.h: 14: typedef enum
+[; ;OutputSequences.h: 15: {
+[; ;OutputSequences.h: 16: e_Unknown,
+[; ;OutputSequences.h: 17: e_Off,
+[; ;OutputSequences.h: 18: e_ColourA,
+[; ;OutputSequences.h: 19: e_ColourB
+[; ;OutputSequences.h: 20: }t_ButtonColour;
+[; ;OutputSequences.h: 22: typedef enum
+[; ;OutputSequences.h: 23: {
+[; ;OutputSequences.h: 24: e_NotSet,
+[; ;OutputSequences.h: 25: e_AllOff,
+[; ;OutputSequences.h: 26: e_SteadyColourA,
+[; ;OutputSequences.h: 27: e_SteadyColourB,
+[; ;OutputSequences.h: 28: e_RedGreenFlash,
+[; ;OutputSequences.h: 29: e_DimmedColourA,
+[; ;OutputSequences.h: 30: e_RapidFlashColourB,
+[; ;OutputSequences.h: 31: e_ColourMix
+[; ;OutputSequences.h: 32: }t_Sequences;
+[; ;OutputSequences.h: 34: t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;Model.h: 15: typedef enum
+[; ;Model.h: 16: {
+[; ;Model.h: 17: e_Error,
+[; ;Model.h: 18: e_PressedNo,
+[; ;Model.h: 19: e_PressedYes,
+[; ;Model.h: 20: e_BeingServedNo,
+[; ;Model.h: 21: e_BeingServedYes
+[; ;Model.h: 22: }t_ButtonState;
+[; ;Model.h: 24: typedef struct AKeyStruct
+[; ;Model.h: 25: {
+[; ;Model.h: 26: volatile t_ButtonState ButtonState;
+[; ;Model.h: 27: volatile t_ATime InputTimer;
+[; ;Model.h: 28: volatile t_ATime NextActionTimer;
+[; ;Model.h: 29: volatile t_Sequences SequenceIdPressedNo;
+[; ;Model.h: 30: volatile t_Sequences SequenceIdPressedYes;
+[; ;Model.h: 31: volatile t_Sequences SequenceIdBeingServedNo;
+[; ;Model.h: 32: volatile t_Sequences SequenceIdBeingServedYes;
+[; ;Model.h: 33: volatile uint8_t SequenceState;
+[; ;Model.h: 34: volatile uint8_t NextInQueue;
+[; ;Model.h: 42: }AKey;
+"44 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+[v _KeyCount `Cuc ~T0 @X0 1 e ]
+[i _KeyCount
+-> -> 5 `i `uc
+]
+[; ;Model.h: 44: const uint8_t KeyCount = 5;
+"46
+[v _SequenceReset `Cuc ~T0 @X0 1 e ]
+[i _SequenceReset
+-> -> 0 `i `uc
+]
+[; ;Model.h: 46: const uint8_t SequenceReset = 0;
+[; ;Model.h: 48: void InitKeys( void );
+[; ;Model.h: 50: t_Sequences GetSequence( uint8_t theKeyId );
+[; ;Model.h: 51: volatile uint8_t* GetSequenceState( uint8_t theKeyId );
+[; ;Model.h: 52: volatile t_ATime* GetKeyTimer( uint8_t theKeyId );
+[; ;Model.h: 53: volatile t_ATime* GetKeyInputTimer( uint8_t theKeyId );
+[; ;Model.h: 55: void SetKeyState( uint8_t theKeyId, t_ButtonState theState );
+[; ;Model.h: 56: t_ButtonState GetKeyState( uint8_t theKeyId );
+[; ;Model.h: 57: uint8_t GetHeadOfQueue( void );
+[; ;DataCommsSend.h: 11: void CustomerWating( uint8_t theKeyId );
+[; ;DataCommsSend.h: 12: void CustomerBeingServed( uint8_t theKeyId );
+"5 source/Model.c
+[v _m_Keys `S6 ~T0 @X0 -> 5 `i e ]
+[; ;Model.c: 5: AKey m_Keys[ 5 ];
+"7
+[v _m_HeadOfQueue `Vuc ~T0 @X0 1 e ]
+[; ;Model.c: 7: volatile uint8_t m_HeadOfQueue;
+"10
+[v _SetKeyState `(v ~T0 @X0 1 ef2`uc`E208 ]
 {
-[; ;Model.c: 15: ATimer* GetKeyTimer( int theKeyId )
-[; ;Model.c: 16: {
-[e :U _GetKeyTimer ]
-[v _theKeyId `i ~T0 @X0 1 r1 ]
+[; ;Model.c: 9: void SetKeyState( uint8_t theKeyId, t_ButtonState theState )
+[; ;Model.c: 10: {
+[e :U _SetKeyState ]
+[v _theKeyId `uc ~T0 @X0 1 r1 ]
+[v _theState `E208 ~T0 @X0 1 r2 ]
 [f ]
-[; ;Model.c: 17: return m_Keys[ theKeyId ].Timer;
+[; ;Model.c: 14: if( theState == e_BeingServedNo )
+"14
+[e $ ! == -> _theState `i -> . `E208 3 `i 8  ]
+[; ;Model.c: 15: {
+"15
+{
+[; ;Model.c: 16: if( m_HeadOfQueue == KeyCount )
+"16
+[e $ ! == -> _m_HeadOfQueue `i -> _KeyCount `i 9  ]
+[; ;Model.c: 17: {
 "17
-[e ) . *U + &U _m_Keys * -> -> _theKeyId `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 ]
-[e $UE 7  ]
-[; ;Model.c: 18: }
+{
+[; ;Model.c: 18: m_HeadOfQueue = theKeyId;
 "18
+[e = _m_HeadOfQueue _theKeyId ]
+"19
+}
+[; ;Model.c: 19: }
+[e $U 10  ]
+"20
+[e :U 9 ]
+[; ;Model.c: 20: else
+[; ;Model.c: 21: {
+"21
+{
+"22
+[v _LoopKeyId `Vuc ~T0 @X0 1 a ]
+[; ;Model.c: 22: volatile uint8_t LoopKeyId = m_HeadOfQueue;
+[e = _LoopKeyId _m_HeadOfQueue ]
+[; ;Model.c: 24: while( m_Keys[ LoopKeyId ].NextInQueue != KeyCount )
+"24
+[e $U 11  ]
+[e :U 12 ]
+[; ;Model.c: 25: {
+"25
+{
+[; ;Model.c: 26: LoopKeyId = m_Keys[ LoopKeyId ].NextInQueue;
+"26
+[e = _LoopKeyId . *U + &U _m_Keys * -> _LoopKeyId `ux -> -> # *U &U _m_Keys `ui `ux 8 ]
+"27
+}
+[e :U 11 ]
+"24
+[e $ != -> . *U + &U _m_Keys * -> _LoopKeyId `ux -> -> # *U &U _m_Keys `ui `ux 8 `i -> _KeyCount `i 12  ]
+[e :U 13 ]
+[; ;Model.c: 27: }
+[; ;Model.c: 29: m_Keys[ LoopKeyId ].NextInQueue = theKeyId;
+"29
+[e = . *U + &U _m_Keys * -> _LoopKeyId `ux -> -> # *U &U _m_Keys `ui `ux 8 _theKeyId ]
+"30
+}
+[e :U 10 ]
+[; ;Model.c: 30: }
+[; ;Model.c: 32: CustomerWating( theKeyId );
+"32
+[e ( _CustomerWating (1 _theKeyId ]
+"33
+}
+[e :U 8 ]
+[; ;Model.c: 33: }
+[; ;Model.c: 35: if( theState == e_BeingServedYes )
+"35
+[e $ ! == -> _theState `i -> . `E208 4 `i 14  ]
+[; ;Model.c: 36: {
+"36
+{
+[; ;Model.c: 37: CustomerBeingServed( theKeyId );
+"37
+[e ( _CustomerBeingServed (1 _theKeyId ]
+"38
+}
+[e :U 14 ]
+[; ;Model.c: 38: }
+[; ;Model.c: 41: if( ( theState == e_PressedNo ) && ( m_Keys[ theKeyId ].ButtonState == e_BeingServedYes ) )
+"41
+[e $ ! && == -> _theState `i -> . `E208 1 `i == -> . *U + &U _m_Keys * -> _theKeyId `ux -> -> # *U &U _m_Keys `ui `ux 0 `i -> . `E208 4 `i 15  ]
+[; ;Model.c: 42: {
+"42
+{
+"43
+[v _OldHeadOfQueue `Vuc ~T0 @X0 1 a ]
+[; ;Model.c: 43: volatile uint8_t OldHeadOfQueue = m_HeadOfQueue;
+[e = _OldHeadOfQueue _m_HeadOfQueue ]
+[; ;Model.c: 44: m_HeadOfQueue = m_Keys[ m_HeadOfQueue ].NextInQueue;
+"44
+[e = _m_HeadOfQueue . *U + &U _m_Keys * -> _m_HeadOfQueue `ux -> -> # *U &U _m_Keys `ui `ux 8 ]
+[; ;Model.c: 45: m_Keys[ OldHeadOfQueue ].NextInQueue = KeyCount;
+"45
+[e = . *U + &U _m_Keys * -> _OldHeadOfQueue `ux -> -> # *U &U _m_Keys `ui `ux 8 _KeyCount ]
+"46
+}
+[e :U 15 ]
+[; ;Model.c: 46: }
+[; ;Model.c: 48: m_Keys[ theKeyId ].ButtonState = theState;
+"48
+[e = . *U + &U _m_Keys * -> _theKeyId `ux -> -> # *U &U _m_Keys `ui `ux 0 _theState ]
+[; ;Model.c: 49: m_Keys[ theKeyId ].SequenceState = 0;
+"49
+[e = . *U + &U _m_Keys * -> _theKeyId `ux -> -> # *U &U _m_Keys `ui `ux 7 -> -> 0 `i `uc ]
+[; ;Model.c: 50: }
+"50
 [e :UE 7 ]
 }
-"21
+"53
+[v _GetHeadOfQueue `(uc ~T0 @X0 1 ef ]
+{
+[; ;Model.c: 52: uint8_t GetHeadOfQueue( void )
+[; ;Model.c: 53: {
+[e :U _GetHeadOfQueue ]
+[f ]
+[; ;Model.c: 54: return m_HeadOfQueue;
+"54
+[e ) _m_HeadOfQueue ]
+[e $UE 16  ]
+[; ;Model.c: 55: }
+"55
+[e :UE 16 ]
+}
+"58
+[v _GetKeyState `(E208 ~T0 @X0 1 ef1`uc ]
+{
+[; ;Model.c: 57: t_ButtonState GetKeyState( uint8_t theKeyId )
+[; ;Model.c: 58: {
+[e :U _GetKeyState ]
+[v _theKeyId `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;Model.c: 59: return m_Keys[ theKeyId ].ButtonState;
+"59
+[e ) . *U + &U _m_Keys * -> _theKeyId `ux -> -> # *U &U _m_Keys `ui `ux 0 ]
+[e $UE 17  ]
+[; ;Model.c: 60: }
+"60
+[e :UE 17 ]
+}
+"63
+[v _GetKeyTimer `(*VS5 ~T0 @X0 1 ef1`uc ]
+{
+[; ;Model.c: 62: volatile t_ATime* GetKeyTimer( uint8_t theKeyId )
+[; ;Model.c: 63: {
+[e :U _GetKeyTimer ]
+[v _theKeyId `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;Model.c: 64: return &m_Keys[ theKeyId ].NextActionTimer;
+"64
+[e ) &U . *U + &U _m_Keys * -> _theKeyId `ux -> -> # *U &U _m_Keys `ui `ux 2 ]
+[e $UE 18  ]
+[; ;Model.c: 65: }
+"65
+[e :UE 18 ]
+}
+"68
+[v _GetKeyInputTimer `(*VS5 ~T0 @X0 1 ef1`uc ]
+{
+[; ;Model.c: 67: volatile t_ATime* GetKeyInputTimer( uint8_t theKeyId )
+[; ;Model.c: 68: {
+[e :U _GetKeyInputTimer ]
+[v _theKeyId `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;Model.c: 69: return &m_Keys[ theKeyId ].InputTimer;
+"69
+[e ) &U . *U + &U _m_Keys * -> _theKeyId `ux -> -> # *U &U _m_Keys `ui `ux 1 ]
+[e $UE 19  ]
+[; ;Model.c: 70: }
+"70
+[e :UE 19 ]
+}
+"73
+[v _GetSequenceState `(*Vuc ~T0 @X0 1 ef1`uc ]
+{
+[; ;Model.c: 72: volatile uint8_t* GetSequenceState( uint8_t theKeyId )
+[; ;Model.c: 73: {
+[e :U _GetSequenceState ]
+[v _theKeyId `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;Model.c: 74: return &m_Keys[ theKeyId ].SequenceState;
+"74
+[e ) &U . *U + &U _m_Keys * -> _theKeyId `ux -> -> # *U &U _m_Keys `ui `ux 7 ]
+[e $UE 20  ]
+[; ;Model.c: 75: }
+"75
+[e :UE 20 ]
+}
+"84
+[v _GetSequence `(E180 ~T0 @X0 1 ef1`uc ]
+{
+[; ;Model.c: 83: t_Sequences GetSequence( uint8_t theKeyId )
+[; ;Model.c: 84: {
+[e :U _GetSequence ]
+[v _theKeyId `uc ~T0 @X0 1 r1 ]
+[f ]
+"85
+[v _ReturnedSequence `VE180 ~T0 @X0 1 a ]
+[; ;Model.c: 85: volatile t_Sequences ReturnedSequence = 1;
+[e = _ReturnedSequence -> -> 1 `i `VE180 ]
+[; ;Model.c: 87: switch ( m_Keys[ theKeyId ].ButtonState )
+"87
+[e $U 23  ]
+[; ;Model.c: 88: {
+"88
+{
+[; ;Model.c: 89: case e_PressedNo:
+"89
+[e :U 24 ]
+[; ;Model.c: 90: ReturnedSequence = m_Keys[ theKeyId ].SequenceIdPressedNo;
+"90
+[e = _ReturnedSequence . *U + &U _m_Keys * -> _theKeyId `ux -> -> # *U &U _m_Keys `ui `ux 3 ]
+[; ;Model.c: 91: break;
+"91
+[e $U 22  ]
+[; ;Model.c: 92: case e_PressedYes:
+"92
+[e :U 25 ]
+[; ;Model.c: 93: ReturnedSequence = m_Keys[ theKeyId ].SequenceIdPressedYes;
+"93
+[e = _ReturnedSequence . *U + &U _m_Keys * -> _theKeyId `ux -> -> # *U &U _m_Keys `ui `ux 4 ]
+[; ;Model.c: 94: break;
+"94
+[e $U 22  ]
+[; ;Model.c: 95: case e_BeingServedNo:
+"95
+[e :U 26 ]
+[; ;Model.c: 96: ReturnedSequence = m_Keys[ theKeyId ].SequenceIdBeingServedNo;
+"96
+[e = _ReturnedSequence . *U + &U _m_Keys * -> _theKeyId `ux -> -> # *U &U _m_Keys `ui `ux 5 ]
+[; ;Model.c: 97: break;
+"97
+[e $U 22  ]
+[; ;Model.c: 98: case e_BeingServedYes:
+"98
+[e :U 27 ]
+[; ;Model.c: 99: ReturnedSequence = m_Keys[ theKeyId ].SequenceIdBeingServedYes;
+"99
+[e = _ReturnedSequence . *U + &U _m_Keys * -> _theKeyId `ux -> -> # *U &U _m_Keys `ui `ux 6 ]
+[; ;Model.c: 100: break;
+"100
+[e $U 22  ]
+"101
+}
+[; ;Model.c: 101: }
+[e $U 22  ]
+"87
+[e :U 23 ]
+[e [\ . *U + &U _m_Keys * -> _theKeyId `ux -> -> # *U &U _m_Keys `ui `ux 0 , $ -> . `E208 1 `VE208 24
+ , $ -> . `E208 2 `VE208 25
+ , $ -> . `E208 3 `VE208 26
+ , $ -> . `E208 4 `VE208 27
+ 22 ]
+"101
+[e :U 22 ]
+[; ;Model.c: 103: return ReturnedSequence;
+"103
+[e ) _ReturnedSequence ]
+[e $UE 21  ]
+[; ;Model.c: 104: }
+"104
+[e :UE 21 ]
+}
+"107
 [v _InitKeys `(v ~T0 @X0 1 ef ]
 {
-[; ;Model.c: 20: void InitKeys()
-[; ;Model.c: 21: {
+[; ;Model.c: 106: void InitKeys()
+[; ;Model.c: 107: {
 [e :U _InitKeys ]
 [f ]
-[; ;Model.c: 22: InitSequences();
-"22
-[e ( _InitSequences ..  ]
-"24
-[v _SequencePointer `*S2 ~T0 @X0 1 a ]
-[; ;Model.c: 24: ASequence *SequencePointer = GetSequencePointer( 0 );
-[e = _SequencePointer ( _GetSequencePointer (1 -> 0 `i ]
-[; ;Model.c: 26: for( int i = 0; i < KeyCount; i++ )
-"26
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i _KeyCount 9  ]
-[e $U 10  ]
-"27
-[e :U 9 ]
-[; ;Model.c: 27: {
-{
-[; ;Model.c: 29: m_Keys[ i ].State = e_PressedNo;
-"29
-[e = . *U + &U _m_Keys * -> -> _i `ui `ux -> -> # *U &U _m_Keys `ui `ux 1 -> . `E36 0 `E36 ]
-"30
-}
-"26
-[e ++ _i -> 1 `i ]
-[e $ < _i _KeyCount 9  ]
-[e :U 10 ]
-"30
-}
-[; ;Model.c: 30: }
-[; ;Model.c: 32: m_Keys [ 0 ].Timer = GetNewTimerPointer();
-"32
-[e = . *U + &U _m_Keys * -> -> -> 0 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 ( _GetNewTimerPointer ..  ]
-[; ;Model.c: 33: m_Keys [ 1 ].Timer = GetNewTimerPointer();
-"33
-[e = . *U + &U _m_Keys * -> -> -> 1 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 ( _GetNewTimerPointer ..  ]
-[; ;Model.c: 34: m_Keys [ 2 ].Timer = GetNewTimerPointer();
-"34
-[e = . *U + &U _m_Keys * -> -> -> 2 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 ( _GetNewTimerPointer ..  ]
-[; ;Model.c: 35: m_Keys [ 3 ].Timer = GetNewTimerPointer();
-"35
-[e = . *U + &U _m_Keys * -> -> -> 3 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 ( _GetNewTimerPointer ..  ]
-[; ;Model.c: 36: m_Keys [ 4 ].Timer = GetNewTimerPointer();
-"36
-[e = . *U + &U _m_Keys * -> -> -> 4 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 ( _GetNewTimerPointer ..  ]
-[; ;Model.c: 37: }
-"37
-[e :UE 8 ]
+[; ;Model.c: 108: m_HeadOfQueue = KeyCount;
+"108
+[e = _m_HeadOfQueue _KeyCount ]
+"110
+[v _KeyTimer `S5 ~T0 @X0 1 a ]
+[; ;Model.c: 110: t_ATime KeyTimer;
+[; ;Model.c: 111: KeyTimer.Millisecond = 0;
+"111
+[e = . _KeyTimer 0 -> -> 0 `i `uc ]
+[; ;Model.c: 112: KeyTimer.Second = 0;
+"112
+[e = . _KeyTimer 1 -> -> 0 `i `uc ]
+[; ;Model.c: 113: KeyTimer.Minute = 0;
+"113
+[e = . _KeyTimer 2 -> -> 0 `i `uc ]
+[; ;Model.c: 114: KeyTimer.Hour = 0;
+"114
+[e = . _KeyTimer 3 -> -> 0 `i `uc ]
+[; ;Model.c: 115: KeyTimer.Day = 0;
+"115
+[e = . _KeyTimer 4 -> -> 0 `i `uc ]
+[; ;Model.c: 117: m_Keys[ 0 ].ButtonState = e_PressedNo;
+"117
+[e = . *U + &U _m_Keys * -> -> -> 0 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 0 -> . `E208 1 `VE208 ]
+[; ;Model.c: 118: m_Keys[ 0 ].SequenceIdPressedNo = e_AllOff;
+"118
+[e = . *U + &U _m_Keys * -> -> -> 0 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 -> . `E180 1 `VE180 ]
+[; ;Model.c: 119: m_Keys[ 0 ].SequenceIdPressedYes = e_RapidFlashColourB;
+"119
+[e = . *U + &U _m_Keys * -> -> -> 0 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 4 -> . `E180 6 `VE180 ]
+[; ;Model.c: 120: m_Keys[ 0 ].SequenceIdBeingServedNo = e_SteadyColourB;
+"120
+[e = . *U + &U _m_Keys * -> -> -> 0 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 5 -> . `E180 3 `VE180 ]
+[; ;Model.c: 121: m_Keys[ 0 ].SequenceIdBeingServedYes = e_RedGreenFlash;
+"121
+[e = . *U + &U _m_Keys * -> -> -> 0 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 6 -> . `E180 4 `VE180 ]
+[; ;Model.c: 122: m_Keys[ 0 ].SequenceState = 0;
+"122
+[e = . *U + &U _m_Keys * -> -> -> 0 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 7 -> -> 0 `i `uc ]
+[; ;Model.c: 123: m_Keys[ 0 ].NextActionTimer = KeyTimer;
+"123
+[e = . *U + &U _m_Keys * -> -> -> 0 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 2 _KeyTimer ]
+[; ;Model.c: 124: m_Keys[ 0 ].InputTimer = KeyTimer;
+"124
+[e = . *U + &U _m_Keys * -> -> -> 0 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 1 _KeyTimer ]
+[; ;Model.c: 125: m_Keys[ 0 ].NextInQueue = KeyCount;
+"125
+[e = . *U + &U _m_Keys * -> -> -> 0 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 8 _KeyCount ]
+[; ;Model.c: 127: m_Keys[ 1 ].ButtonState = e_PressedNo;
+"127
+[e = . *U + &U _m_Keys * -> -> -> 1 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 0 -> . `E208 1 `VE208 ]
+[; ;Model.c: 128: m_Keys[ 1 ].SequenceIdPressedNo = e_AllOff;
+"128
+[e = . *U + &U _m_Keys * -> -> -> 1 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 -> . `E180 1 `VE180 ]
+[; ;Model.c: 129: m_Keys[ 1 ].SequenceIdPressedYes = e_RapidFlashColourB;
+"129
+[e = . *U + &U _m_Keys * -> -> -> 1 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 4 -> . `E180 6 `VE180 ]
+[; ;Model.c: 130: m_Keys[ 1 ].SequenceIdBeingServedNo = e_SteadyColourB;
+"130
+[e = . *U + &U _m_Keys * -> -> -> 1 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 5 -> . `E180 3 `VE180 ]
+[; ;Model.c: 131: m_Keys[ 1 ].SequenceIdBeingServedYes = e_RedGreenFlash;
+"131
+[e = . *U + &U _m_Keys * -> -> -> 1 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 6 -> . `E180 4 `VE180 ]
+[; ;Model.c: 132: m_Keys[ 1 ].SequenceState = 0;
+"132
+[e = . *U + &U _m_Keys * -> -> -> 1 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 7 -> -> 0 `i `uc ]
+[; ;Model.c: 133: m_Keys[ 1 ].NextActionTimer = KeyTimer;
+"133
+[e = . *U + &U _m_Keys * -> -> -> 1 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 2 _KeyTimer ]
+[; ;Model.c: 134: m_Keys[ 1 ].InputTimer = KeyTimer;
+"134
+[e = . *U + &U _m_Keys * -> -> -> 1 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 1 _KeyTimer ]
+[; ;Model.c: 135: m_Keys[ 1 ].NextInQueue = KeyCount;
+"135
+[e = . *U + &U _m_Keys * -> -> -> 1 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 8 _KeyCount ]
+[; ;Model.c: 137: m_Keys[ 2 ].ButtonState = e_PressedNo;
+"137
+[e = . *U + &U _m_Keys * -> -> -> 2 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 0 -> . `E208 1 `VE208 ]
+[; ;Model.c: 138: m_Keys[ 2 ].SequenceIdPressedNo = e_AllOff;
+"138
+[e = . *U + &U _m_Keys * -> -> -> 2 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 -> . `E180 1 `VE180 ]
+[; ;Model.c: 139: m_Keys[ 2 ].SequenceIdPressedYes = e_RapidFlashColourB;
+"139
+[e = . *U + &U _m_Keys * -> -> -> 2 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 4 -> . `E180 6 `VE180 ]
+[; ;Model.c: 140: m_Keys[ 2 ].SequenceIdBeingServedNo = e_SteadyColourB;
+"140
+[e = . *U + &U _m_Keys * -> -> -> 2 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 5 -> . `E180 3 `VE180 ]
+[; ;Model.c: 141: m_Keys[ 2 ].SequenceIdBeingServedYes = e_RedGreenFlash;
+"141
+[e = . *U + &U _m_Keys * -> -> -> 2 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 6 -> . `E180 4 `VE180 ]
+[; ;Model.c: 142: m_Keys[ 2 ].SequenceState = 0;
+"142
+[e = . *U + &U _m_Keys * -> -> -> 2 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 7 -> -> 0 `i `uc ]
+[; ;Model.c: 143: m_Keys[ 2 ].NextActionTimer = KeyTimer;
+"143
+[e = . *U + &U _m_Keys * -> -> -> 2 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 2 _KeyTimer ]
+[; ;Model.c: 144: m_Keys[ 2 ].InputTimer = KeyTimer;
+"144
+[e = . *U + &U _m_Keys * -> -> -> 2 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 1 _KeyTimer ]
+[; ;Model.c: 145: m_Keys[ 2 ].NextInQueue = KeyCount;
+"145
+[e = . *U + &U _m_Keys * -> -> -> 2 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 8 _KeyCount ]
+[; ;Model.c: 147: m_Keys[ 3 ].ButtonState = e_PressedNo;
+"147
+[e = . *U + &U _m_Keys * -> -> -> 3 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 0 -> . `E208 1 `VE208 ]
+[; ;Model.c: 148: m_Keys[ 3 ].SequenceIdPressedNo = e_AllOff;
+"148
+[e = . *U + &U _m_Keys * -> -> -> 3 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 -> . `E180 1 `VE180 ]
+[; ;Model.c: 149: m_Keys[ 3 ].SequenceIdPressedYes = e_RapidFlashColourB;
+"149
+[e = . *U + &U _m_Keys * -> -> -> 3 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 4 -> . `E180 6 `VE180 ]
+[; ;Model.c: 150: m_Keys[ 3 ].SequenceIdBeingServedNo = e_SteadyColourB;
+"150
+[e = . *U + &U _m_Keys * -> -> -> 3 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 5 -> . `E180 3 `VE180 ]
+[; ;Model.c: 151: m_Keys[ 3 ].SequenceIdBeingServedYes = e_RedGreenFlash;
+"151
+[e = . *U + &U _m_Keys * -> -> -> 3 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 6 -> . `E180 4 `VE180 ]
+[; ;Model.c: 152: m_Keys[ 3 ].SequenceState = 0;
+"152
+[e = . *U + &U _m_Keys * -> -> -> 3 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 7 -> -> 0 `i `uc ]
+[; ;Model.c: 153: m_Keys[ 3 ].NextActionTimer = KeyTimer;
+"153
+[e = . *U + &U _m_Keys * -> -> -> 3 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 2 _KeyTimer ]
+[; ;Model.c: 154: m_Keys[ 3 ].InputTimer = KeyTimer;
+"154
+[e = . *U + &U _m_Keys * -> -> -> 3 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 1 _KeyTimer ]
+[; ;Model.c: 155: m_Keys[ 3 ].NextInQueue = KeyCount;
+"155
+[e = . *U + &U _m_Keys * -> -> -> 3 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 8 _KeyCount ]
+[; ;Model.c: 157: m_Keys[ 4 ].ButtonState = e_PressedNo;
+"157
+[e = . *U + &U _m_Keys * -> -> -> 4 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 0 -> . `E208 1 `VE208 ]
+[; ;Model.c: 158: m_Keys[ 4 ].SequenceIdPressedNo = e_AllOff;
+"158
+[e = . *U + &U _m_Keys * -> -> -> 4 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 3 -> . `E180 1 `VE180 ]
+[; ;Model.c: 159: m_Keys[ 4 ].SequenceIdPressedYes = e_RapidFlashColourB;
+"159
+[e = . *U + &U _m_Keys * -> -> -> 4 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 4 -> . `E180 6 `VE180 ]
+[; ;Model.c: 160: m_Keys[ 4 ].SequenceIdBeingServedNo = e_SteadyColourB;
+"160
+[e = . *U + &U _m_Keys * -> -> -> 4 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 5 -> . `E180 3 `VE180 ]
+[; ;Model.c: 161: m_Keys[ 4 ].SequenceIdBeingServedYes = e_RedGreenFlash;
+"161
+[e = . *U + &U _m_Keys * -> -> -> 4 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 6 -> . `E180 4 `VE180 ]
+[; ;Model.c: 162: m_Keys[ 4 ].SequenceState = 0;
+"162
+[e = . *U + &U _m_Keys * -> -> -> 4 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 7 -> -> 0 `i `uc ]
+[; ;Model.c: 163: m_Keys[ 4 ].NextActionTimer = KeyTimer;
+"163
+[e = . *U + &U _m_Keys * -> -> -> 4 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 2 _KeyTimer ]
+[; ;Model.c: 164: m_Keys[ 4 ].InputTimer = KeyTimer;
+"164
+[e = . *U + &U _m_Keys * -> -> -> 4 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 1 _KeyTimer ]
+[; ;Model.c: 165: m_Keys[ 4 ].NextInQueue = KeyCount;
+"165
+[e = . *U + &U _m_Keys * -> -> -> 4 `i `ui `ux -> -> # *U &U _m_Keys `ui `ux 8 _KeyCount ]
+[; ;Model.c: 166: }
+"166
+[e :UE 28 ]
 }

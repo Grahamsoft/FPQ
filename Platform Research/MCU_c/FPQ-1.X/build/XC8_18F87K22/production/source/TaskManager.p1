@@ -1,11 +1,15 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"39 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+"25 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h
+[v _InitTime `(v ~T0 @X0 0 ef ]
+"48 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
 [v _InitKeys `(v ~T0 @X0 0 ef ]
-"11 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/DataCommsTask.h
+"28 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h
+[v _Increment_Timer `(v ~T0 @X0 0 ef ]
+"15 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/DataCommsTask.h
 [v _DataCommsTask `(i ~T0 @X0 0 ef ]
-"13 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/InputTask.h
+"14 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/InputTask.h
 [v _InputTask `(v ~T0 @X0 0 ef ]
-"22 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputTask.h
+"11 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputTask.h
 [v _OutputTask `(v ~T0 @X0 0 ef ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
@@ -91,69 +95,125 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
-[; ;TaskManager.h: 24: void TaskManager( void );
-[; ;DataCommsTask.h: 11: int DataCommsTask( void );
+[; ;TaskManager.h: 11: void TaskManager( void );
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;InputTask.h: 13: void InputTask( void );
-[; ;InputTask.h: 14: void MonitorButton( int theId );
-[; ;InputTask.h: 15: bool ButtonBeingPressed( int theId );
-[; ;OutputTask.h: 22: void OutputTask( void );
-[; ;OutputTask.h: 23: void IlluminateButton( int theId );
-[; ;OutputTask.h: 24: void ColourA( int theId );
-[; ;OutputTask.h: 25: void ColourB( int theId );
-[; ;OutputTask.h: 26: void ColourNone( int theId );
-[; ;OutputSequences.h: 11: typedef enum
-[; ;OutputSequences.h: 12: {
-[; ;OutputSequences.h: 13: e_Off,
-[; ;OutputSequences.h: 14: e_ColourA,
-[; ;OutputSequences.h: 15: e_ColourB
-[; ;OutputSequences.h: 16: }t_ButtonColour;
-[; ;OutputSequences.h: 18: typedef struct SequencePhaseStruct
-[; ;OutputSequences.h: 19: {
-[; ;OutputSequences.h: 20: int NextActionTime;
-[; ;OutputSequences.h: 21: t_ButtonColour CurrentColour;
-[; ;OutputSequences.h: 22: }SequencePhase;
-[; ;OutputSequences.h: 24: typedef struct ASequenceStruct
-[; ;OutputSequences.h: 25: {
-[; ;OutputSequences.h: 26: SequencePhase *Sequence;
-[; ;OutputSequences.h: 27: int Size;
-[; ;OutputSequences.h: 28: int Current;
-[; ;OutputSequences.h: 29: }ASequence;
-[; ;OutputSequences.h: 31: void InitSequences( void );
-[; ;OutputSequences.h: 32: ASequence* GetSequencePointer( int theId );
-[; ;TimerTask.h: 13: typedef struct ATimerStruct
-[; ;TimerTask.h: 14: {
-[; ;TimerTask.h: 15: int Matured;
-[; ;TimerTask.h: 16: int FutureTime;
-[; ;TimerTask.h: 18: }ATimer;
-[; ;TimerTask.h: 20: int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
-[; ;TimerTask.h: 21: void ClearTimer( ATimer *theTimer );
-[; ;TimerTask.h: 22: bool MaturedTimer( ATimer *theTimer );
-[; ;TimerTask.h: 23: ATimer* GetNewTimerPointer( void );
-[; ;Model.h: 14: typedef enum
-[; ;Model.h: 15: {
-[; ;Model.h: 16: e_PressedNo,
-[; ;Model.h: 17: e_PressedYes,
-[; ;Model.h: 18: e_BeingServedNo,
-[; ;Model.h: 19: e_BeingServedYes
-[; ;Model.h: 20: }t_ButtonState;
-[; ;Model.h: 22: typedef struct AKeyStruct
-[; ;Model.h: 23: {
-[; ;Model.h: 24: int Id;
-[; ;Model.h: 25: t_ButtonState State;
-[; ;Model.h: 26: ASequence* Sequence;
-[; ;Model.h: 27: ATimer* Timer;
-[; ;Model.h: 35: }AKey;
-"37 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
-[v _KeyCount `Ci ~T0 @X0 1 e ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;DataCommsTask.h: 14: void ConfigureUsart( void );
+[; ;DataCommsTask.h: 15: int DataCommsTask( void );
+[; ;DataCommsTask.h: 16: void CustomerWating( uint8_t theKeyId );
+[; ;DataCommsTask.h: 17: void CustomerBeingServed( uint8_t theKeyId );
+[; ;InputTask.h: 14: void InputTask( void );
+[; ;OutputTask.h: 11: void OutputTask( void );
+[; ;OutputTask.h: 12: void ColourATest( void );
+[; ;OutputTask.h: 13: void ColourBTest( void );
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;TimerTask.h: 16: typedef struct ATimeStruct
+[; ;TimerTask.h: 17: {
+[; ;TimerTask.h: 18: volatile uint8_t Millisecond;
+[; ;TimerTask.h: 19: volatile uint8_t Second;
+[; ;TimerTask.h: 20: volatile uint8_t Minute;
+[; ;TimerTask.h: 21: volatile uint8_t Hour;
+[; ;TimerTask.h: 22: volatile uint8_t Day;
+[; ;TimerTask.h: 23: }t_ATime;
+[; ;TimerTask.h: 25: void InitTime( void );
+[; ;TimerTask.h: 26: bool MaturedTimer( volatile t_ATime *theTimer );
+[; ;TimerTask.h: 27: void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
+[; ;TimerTask.h: 28: void Increment_Timer( void );
+[; ;OutputSequences.h: 14: typedef enum
+[; ;OutputSequences.h: 15: {
+[; ;OutputSequences.h: 16: e_Unknown,
+[; ;OutputSequences.h: 17: e_Off,
+[; ;OutputSequences.h: 18: e_ColourA,
+[; ;OutputSequences.h: 19: e_ColourB
+[; ;OutputSequences.h: 20: }t_ButtonColour;
+[; ;OutputSequences.h: 22: typedef enum
+[; ;OutputSequences.h: 23: {
+[; ;OutputSequences.h: 24: e_NotSet,
+[; ;OutputSequences.h: 25: e_AllOff,
+[; ;OutputSequences.h: 26: e_SteadyColourA,
+[; ;OutputSequences.h: 27: e_SteadyColourB,
+[; ;OutputSequences.h: 28: e_RedGreenFlash,
+[; ;OutputSequences.h: 29: e_DimmedColourA,
+[; ;OutputSequences.h: 30: e_RapidFlashColourB,
+[; ;OutputSequences.h: 31: e_ColourMix
+[; ;OutputSequences.h: 32: }t_Sequences;
+[; ;OutputSequences.h: 34: t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;Model.h: 15: typedef enum
+[; ;Model.h: 16: {
+[; ;Model.h: 17: e_Error,
+[; ;Model.h: 18: e_PressedNo,
+[; ;Model.h: 19: e_PressedYes,
+[; ;Model.h: 20: e_BeingServedNo,
+[; ;Model.h: 21: e_BeingServedYes
+[; ;Model.h: 22: }t_ButtonState;
+[; ;Model.h: 24: typedef struct AKeyStruct
+[; ;Model.h: 25: {
+[; ;Model.h: 26: volatile t_ButtonState ButtonState;
+[; ;Model.h: 27: volatile t_ATime InputTimer;
+[; ;Model.h: 28: volatile t_ATime NextActionTimer;
+[; ;Model.h: 29: volatile t_Sequences SequenceIdPressedNo;
+[; ;Model.h: 30: volatile t_Sequences SequenceIdPressedYes;
+[; ;Model.h: 31: volatile t_Sequences SequenceIdBeingServedNo;
+[; ;Model.h: 32: volatile t_Sequences SequenceIdBeingServedYes;
+[; ;Model.h: 33: volatile uint8_t SequenceState;
+[; ;Model.h: 34: volatile uint8_t NextInQueue;
+[; ;Model.h: 42: }AKey;
+"44 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+[v _KeyCount `Cuc ~T0 @X0 1 e ]
 [i _KeyCount
--> 5 `i
+-> -> 5 `i `uc
 ]
-[; ;Model.h: 37: const int KeyCount = 5;
-[; ;Model.h: 39: void InitKeys( void );
-[; ;Model.h: 40: void SetKeyState( int theKeyId, t_ButtonState theState );
-[; ;Model.h: 41: t_ButtonState GetKeyState( int theKeyId );
-[; ;Model.h: 42: ATimer* GetKeyTimer( int theKeyId );
+[; ;Model.h: 44: const uint8_t KeyCount = 5;
+"46
+[v _SequenceReset `Cuc ~T0 @X0 1 e ]
+[i _SequenceReset
+-> -> 0 `i `uc
+]
+[; ;Model.h: 46: const uint8_t SequenceReset = 0;
+[; ;Model.h: 48: void InitKeys( void );
+[; ;Model.h: 50: t_Sequences GetSequence( uint8_t theKeyId );
+[; ;Model.h: 51: volatile uint8_t* GetSequenceState( uint8_t theKeyId );
+[; ;Model.h: 52: volatile t_ATime* GetKeyTimer( uint8_t theKeyId );
+[; ;Model.h: 53: volatile t_ATime* GetKeyInputTimer( uint8_t theKeyId );
+[; ;Model.h: 55: void SetKeyState( uint8_t theKeyId, t_ButtonState theState );
+[; ;Model.h: 56: t_ButtonState GetKeyState( uint8_t theKeyId );
+[; ;Model.h: 57: uint8_t GetHeadOfQueue( void );
 "17 source/TaskManager.c
 [v _TaskManager `(v ~T0 @X0 1 ef ]
 {
@@ -162,56 +222,65 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _TaskManager ]
 [f ]
 "18
-[v F264 `i ~T0 @X0 1 s Operation ]
-[i F264
--> 0 `i
+[v F337 `uc ~T0 @X0 1 s Operation ]
+[i F337
+-> -> 1 `i `uc
 ]
-[; ;TaskManager.c: 18: static int Operation = 0;
+[; ;TaskManager.c: 18: static uint8_t Operation = 1;
 [; ;TaskManager.c: 20: switch( Operation )
 "20
-[e $U 12  ]
+[e $U 10  ]
 [; ;TaskManager.c: 21: {
 "21
 {
-[; ;TaskManager.c: 22: case 0:
+[; ;TaskManager.c: 22: case 1:
 "22
-[e :U 13 ]
-[; ;TaskManager.c: 23: InitKeys();
-"23
-[e ( _InitKeys ..  ]
-[; ;TaskManager.c: 24: Operation = 1;
-"24
-[e = F264 -> 1 `i ]
-[; ;TaskManager.c: 25: break;
-"25
-[e $U 11  ]
-[; ;TaskManager.c: 27: case 1:
-"27
-[e :U 14 ]
-[; ;TaskManager.c: 28: DataCommsTask();
-"28
-[e ( _DataCommsTask ..  ]
-[; ;TaskManager.c: 29: InputTask();
-"29
-[e ( _InputTask ..  ]
-[; ;TaskManager.c: 30: OutputTask();
-"30
-[e ( _OutputTask ..  ]
-[; ;TaskManager.c: 31: break;
-"31
-[e $U 11  ]
-"32
-}
-[; ;TaskManager.c: 32: }
-[e $U 11  ]
-"20
-[e :U 12 ]
-[e [\ F264 , $ -> 0 `i 13
- , $ -> 1 `i 14
- 11 ]
-"32
 [e :U 11 ]
-[; ;TaskManager.c: 33: }
+[; ;TaskManager.c: 23: InitTime();
+"23
+[e ( _InitTime ..  ]
+[; ;TaskManager.c: 24: InitKeys();
+"24
+[e ( _InitKeys ..  ]
+[; ;TaskManager.c: 25: Operation = 2;
+"25
+[e = F337 -> -> 2 `i `uc ]
+[; ;TaskManager.c: 26: break;
+"26
+[e $U 9  ]
+[; ;TaskManager.c: 28: case 2:
+"28
+[e :U 12 ]
+[; ;TaskManager.c: 29: Increment_Timer();
+"29
+[e ( _Increment_Timer ..  ]
+[; ;TaskManager.c: 30: DataCommsTask();
+"30
+[e ( _DataCommsTask ..  ]
+[; ;TaskManager.c: 31: InputTask();
+"31
+[e ( _InputTask ..  ]
+[; ;TaskManager.c: 32: Increment_Timer();
+"32
+[e ( _Increment_Timer ..  ]
+[; ;TaskManager.c: 33: OutputTask();
 "33
-[e :UE 10 ]
+[e ( _OutputTask ..  ]
+[; ;TaskManager.c: 34: break;
+"34
+[e $U 9  ]
+"35
+}
+[; ;TaskManager.c: 35: }
+[e $U 9  ]
+"20
+[e :U 10 ]
+[e [\ F337 , $ -> -> 1 `i `uc 11
+ , $ -> -> 2 `i `uc 12
+ 9 ]
+"35
+[e :U 9 ]
+[; ;TaskManager.c: 36: }
+"36
+[e :UE 8 ]
 }

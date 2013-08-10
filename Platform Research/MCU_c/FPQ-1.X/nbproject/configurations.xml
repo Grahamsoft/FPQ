@@ -5,7 +5,6 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>source/headers/TaskManager.h</itemPath>
-      <itemPath>source/headers/user.h</itemPath>
       <itemPath>source/headers/DataCommsTask.h</itemPath>
       <itemPath>source/headers/TimerTask.h</itemPath>
       <itemPath>source/headers/SystemSetup.h</itemPath>
@@ -13,6 +12,9 @@
       <itemPath>source/headers/OutputTask.h</itemPath>
       <itemPath>source/headers/Model.h</itemPath>
       <itemPath>source/headers/OutputSequences.h</itemPath>
+      <itemPath>source/headers/DataCommsSend.h</itemPath>
+      <itemPath>source/headers/ECAN.def</itemPath>
+      <itemPath>source/headers/ECAN.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -29,7 +31,6 @@
       <itemPath>source/ConfigurationBits.c</itemPath>
       <itemPath>source/Interrupts.c</itemPath>
       <itemPath>source/Main.c</itemPath>
-      <itemPath>source/User.c</itemPath>
       <itemPath>source/DataCommsTask.c</itemPath>
       <itemPath>source/TimerTask.c</itemPath>
       <itemPath>source/SystemSetup.c</itemPath>
@@ -37,6 +38,7 @@
       <itemPath>source/OutputTask.c</itemPath>
       <itemPath>source/Model.c</itemPath>
       <itemPath>source/OutputSequences.c</itemPath>
+      <itemPath>source/ECAN.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -139,6 +141,7 @@
         <property key="program-the-device-with-default-config-words" value="true"/>
       </HI-TECH-LINK>
       <PICkit2PlatformTool>
+        <property key="pk2settings.setvddvoltage" value="5.00"/>
       </PICkit2PlatformTool>
       <XC8-config-global>
       </XC8-config-global>

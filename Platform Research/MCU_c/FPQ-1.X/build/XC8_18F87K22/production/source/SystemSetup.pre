@@ -18693,37 +18693,44 @@ typedef uint16_t uintptr_t;
 # 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
 typedef unsigned char bool;
 
-# 15 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/SystemSetup.h"
-void ConfigureOscillator( void );
-void ConfigureTimer( void );
-void ConfigurePorts( void );
+# 13 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/SystemSetup.h"
+void ConfigureHardware( void );
 
-# 44 "source/SystemSetup.c"
-void ConfigureOscillator()
+# 34 "source/SystemSetup.c"
+void ConfigureHardware()
 {
+
+
 OSCCON = 0b01111110;
-}
 
-void ConfigureTimer( void )
-{
-IPEN = 1;
 
-OpenTimer0( 0b11111111 &
-0b11111111 &
-0b11011111 &
-0b11110111 );
 
-(INTCONbits.GIE = 1);
-}
-
-void ConfigurePorts( void )
-{
 ADCON1 = 0b00001111;
 TRISA = 0b10001001;
-TRISB = 0b00000000;
+TRISB = 0b00001000;
 TRISC = 0b00000010;
 
 PORTA = 0;
 PORTB = 0;
 PORTC = 0;
+
+# 55
+(INTCONbits.GIE = 1);
+
+OpenTimer0( 0b11111111 &
+0b11111111 &
+0b11011111 &
+0b11110101 );
+
+INTCONbits.TMR0IE = 0;
+
+
+
+OpenUSART( 0b01111111 &
+0b10111111 &
+0b11111110 &
+0b11111101 &
+0b11111111 &
+0b11101111,
+12 );
 }

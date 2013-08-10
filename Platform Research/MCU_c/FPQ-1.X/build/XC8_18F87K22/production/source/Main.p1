@@ -1,12 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"15 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/SystemSetup.h
-[v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
-"17
-[v _ConfigurePorts `(v ~T0 @X0 0 ef ]
-"13 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/User.h
-[v _InitApp `(v ~T0 @X0 0 ef ]
-"24 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TaskManager.h
+"13 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/SystemSetup.h
+[v _ConfigureHardware `(v ~T0 @X0 0 ef ]
+"11 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TaskManager.h
 [v _TaskManager `(v ~T0 @X0 0 ef ]
 [; ;pic18f2585.h: 44: extern volatile unsigned char RXF6SIDH @ 0xD60;
 "46 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
@@ -14723,48 +14719,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;SystemSetup.h: 15: void ConfigureOscillator( void );
-[; ;SystemSetup.h: 16: void ConfigureTimer( void );
-[; ;SystemSetup.h: 17: void ConfigurePorts( void );
-[; ;User.h: 13: void InitApp(void);
-[; ;TaskManager.h: 24: void TaskManager( void );
-[; ;delays.h: 18: void Delay10TCYx(unsigned char);
-[; ;delays.h: 24: void Delay100TCYx(unsigned char);
-[; ;delays.h: 30: void Delay1KTCYx(unsigned char);
-[; ;delays.h: 36: void Delay10KTCYx(unsigned char);
-"30 source/Main.c
+[; ;SystemSetup.h: 13: void ConfigureHardware( void );
+[; ;TaskManager.h: 11: void TaskManager( void );
+"17 source/Main.c
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;Main.c: 29: void main()
-[; ;Main.c: 30: {
+[; ;Main.c: 16: void main()
+[; ;Main.c: 17: {
 [e :U _main ]
 [f ]
-[; ;Main.c: 31: ConfigureOscillator();
-"31
-[e ( _ConfigureOscillator ..  ]
-[; ;Main.c: 33: ConfigurePorts();
-"33
-[e ( _ConfigurePorts ..  ]
-[; ;Main.c: 35: InitApp();
-"35
-[e ( _InitApp ..  ]
-[; ;Main.c: 37: while( 1 )
-"37
+[; ;Main.c: 18: ConfigureHardware();
+"18
+[e ( _ConfigureHardware ..  ]
+[; ;Main.c: 20: while( 1 )
+"20
 [e :U 2084 ]
-[; ;Main.c: 38: {
-"38
+[; ;Main.c: 21: {
+"21
 {
-[; ;Main.c: 39: TaskManager();
-"39
+[; ;Main.c: 22: TaskManager();
+"22
 [e ( _TaskManager ..  ]
-"40
+"23
 }
 [e :U 2083 ]
-"37
+"20
 [e $U 2084  ]
 [e :U 2085 ]
-[; ;Main.c: 40: }
-[; ;Main.c: 42: }
-"42
+[; ;Main.c: 23: }
+[; ;Main.c: 24: }
+"24
 [e :UE 2082 ]
 }

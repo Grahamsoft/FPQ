@@ -18601,7 +18601,7 @@ extern void _delaywdt(unsigned long);
 extern void _delay3(unsigned char);
 
 
-# 55 "source/ConfigurationBits.c"
+# 21 "source/ConfigurationBits.c"
 #pragma config OSC = IRCIO67
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF

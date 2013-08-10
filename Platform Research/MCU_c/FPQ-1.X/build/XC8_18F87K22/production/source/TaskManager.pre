@@ -137,67 +137,182 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 24 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TaskManager.h"
+# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TaskManager.h"
 void TaskManager( void );
-
-# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/DataCommsTask.h"
-int DataCommsTask( void );
 
 # 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
 typedef unsigned char bool;
 
-# 13 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/InputTask.h"
+# 13 "/Applications/microchip/xc8/v1.12/include/stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 14 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/DataCommsTask.h"
+void ConfigureUsart( void );
+int DataCommsTask( void );
+void CustomerWating( uint8_t theKeyId );
+void CustomerBeingServed( uint8_t theKeyId );
+
+# 14 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/InputTask.h"
 void InputTask( void );
-void MonitorButton( int theId );
-bool ButtonBeingPressed( int theId );
 
-# 22 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputTask.h"
+# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputTask.h"
 void OutputTask( void );
-void IlluminateButton( int theId );
-void ColourA( int theId );
-void ColourB( int theId );
-void ColourNone( int theId );
+void ColourATest( void );
+void ColourBTest( void );
 
-# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputSequences.h"
+# 103 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+
+# 16 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h"
+typedef struct ATimeStruct
+{
+volatile uint8_t Millisecond;
+volatile uint8_t Second;
+volatile uint8_t Minute;
+volatile uint8_t Hour;
+volatile uint8_t Day;
+}t_ATime;
+
+void InitTime( void );
+bool MaturedTimer( volatile t_ATime *theTimer );
+void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
+void Increment_Timer( void );
+
+# 14 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputSequences.h"
 typedef enum
 {
+e_Unknown,
 e_Off,
 e_ColourA,
 e_ColourB
 }t_ButtonColour;
 
-typedef struct SequencePhaseStruct
-{
-int NextActionTime;
-t_ButtonColour CurrentColour;
-}SequencePhase;
-
-typedef struct ASequenceStruct
-{
-SequencePhase *Sequence;
-int Size;
-int Current;
-}ASequence;
-
-void InitSequences( void );
-ASequence* GetSequencePointer( int theId );
-
-# 13 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h"
-typedef struct ATimerStruct
-{
-int Matured;
-int FutureTime;
-
-}ATimer;
-
-int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
-void ClearTimer( ATimer *theTimer );
-bool MaturedTimer( ATimer *theTimer );
-ATimer* GetNewTimerPointer( void );
-
-# 14 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h"
 typedef enum
 {
+e_NotSet,
+e_AllOff,
+e_SteadyColourA,
+e_SteadyColourB,
+e_RedGreenFlash,
+e_DimmedColourA,
+e_RapidFlashColourB,
+e_ColourMix
+}t_Sequences;
+
+t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );
+
+# 103 "/Applications/microchip/xc8/v1.12/include/stdlib.h"
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+
+# 15 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h"
+typedef enum
+{
+e_Error,
 e_PressedNo,
 e_PressedYes,
 e_BeingServedNo,
@@ -206,36 +321,52 @@ e_BeingServedYes
 
 typedef struct AKeyStruct
 {
-int Id;
-t_ButtonState State;
-ASequence* Sequence;
-ATimer* Timer;
+volatile t_ButtonState ButtonState;
+volatile t_ATime InputTimer;
+volatile t_ATime NextActionTimer;
+volatile t_Sequences SequenceIdPressedNo;
+volatile t_Sequences SequenceIdPressedYes;
+volatile t_Sequences SequenceIdBeingServedNo;
+volatile t_Sequences SequenceIdBeingServedYes;
+volatile uint8_t SequenceState;
+volatile uint8_t NextInQueue;
 
-# 35
+# 42
 }AKey;
 
-const int KeyCount = 5;
+const uint8_t KeyCount = 5;
+
+const uint8_t SequenceReset = 0;
 
 void InitKeys( void );
-void SetKeyState( int theKeyId, t_ButtonState theState );
-t_ButtonState GetKeyState( int theKeyId );
-ATimer* GetKeyTimer( int theKeyId );
+
+t_Sequences GetSequence( uint8_t theKeyId );
+volatile uint8_t* GetSequenceState( uint8_t theKeyId );
+volatile t_ATime* GetKeyTimer( uint8_t theKeyId );
+volatile t_ATime* GetKeyInputTimer( uint8_t theKeyId );
+
+void SetKeyState( uint8_t theKeyId, t_ButtonState theState );
+t_ButtonState GetKeyState( uint8_t theKeyId );
+uint8_t GetHeadOfQueue( void );
 
 # 16 "source/TaskManager.c"
 void TaskManager()
 {
-static int Operation = 0;
+static uint8_t Operation = 1;
 
 switch( Operation )
 {
-case 0:
+case 1:
+InitTime();
 InitKeys();
-Operation = 1;
+Operation = 2;
 break;
 
-case 1:
+case 2:
+Increment_Timer();
 DataCommsTask();
 InputTask();
+Increment_Timer();
 OutputTask();
 break;
 }

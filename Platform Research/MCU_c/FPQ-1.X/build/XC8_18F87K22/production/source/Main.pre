@@ -18693,41 +18693,19 @@ typedef uint16_t uintptr_t;
 # 12 "/Applications/microchip/xc8/v1.12/include/stdbool.h"
 typedef unsigned char bool;
 
-# 15 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/SystemSetup.h"
-void ConfigureOscillator( void );
-void ConfigureTimer( void );
-void ConfigurePorts( void );
+# 13 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/SystemSetup.h"
+void ConfigureHardware( void );
 
-# 13 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/User.h"
-void InitApp(void);
-
-# 24 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TaskManager.h"
+# 11 "/Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TaskManager.h"
 void TaskManager( void );
 
-# 18 "/Applications/microchip/xc8/v1.12/include/delays.h"
-void Delay10TCYx(unsigned char);
-
-# 24
-void Delay100TCYx(unsigned char);
-
-# 30
-void Delay1KTCYx(unsigned char);
-
-# 36
-void Delay10KTCYx(unsigned char);
-
-# 29 "source/Main.c"
+# 16 "source/Main.c"
 void main()
 {
-ConfigureOscillator();
-
-ConfigurePorts();
-
-InitApp();
+ConfigureHardware();
 
 while( 1 )
 {
 TaskManager();
 }
-
 }

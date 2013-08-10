@@ -14685,63 +14685,63 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 144: extern void _delay(unsigned long);
 [; ;pic18.h: 146: extern void _delaywdt(unsigned long);
 [; ;pic18.h: 148: extern void _delay3(unsigned char);
-"55 source/ConfigurationBits.c
+"21 source/ConfigurationBits.c
 [p x OSC=IRCIO67 ]
-"56
+"22
 [p x FCMEN=OFF ]
-"57
+"23
 [p x IESO=OFF ]
-"60
+"26
 [p x PWRT=OFF ]
-"61
+"27
 [p x BOREN=BOHW ]
-"62
+"28
 [p x BORV=3 ]
-"65
+"31
 [p x WDT=OFF ]
-"66
+"32
 [p x WDTPS=32768 ]
-"69
+"35
 [p x PBADEN=OFF ]
-"70
+"36
 [p x LPT1OSC=OFF ]
-"71
+"37
 [p x MCLRE=OFF ]
-"74
+"40
 [p x STVREN=OFF ]
-"75
+"41
 [p x LVP=OFF ]
-"76
+"42
 [p x BBSIZ=1024 ]
-"77
+"43
 [p x XINST=OFF ]
-"80
+"46
 [p x CP0=OFF ]
-"81
+"47
 [p x CP1=OFF ]
-"82
+"48
 [p x CP2=OFF ]
-"85
+"51
 [p x CPB=OFF ]
-"86
+"52
 [p x CPD=OFF ]
-"89
+"55
 [p x WRT0=OFF ]
-"90
+"56
 [p x WRT1=OFF ]
-"91
+"57
 [p x WRT2=OFF ]
-"94
+"60
 [p x WRTC=OFF ]
-"95
+"61
 [p x WRTB=OFF ]
-"96
+"62
 [p x WRTD=OFF ]
-"99
+"65
 [p x EBTR0=OFF ]
-"100
+"66
 [p x EBTR1=OFF ]
-"101
+"67
 [p x EBTR2=OFF ]
-"104
+"70
 [p x EBTRB=OFF ]

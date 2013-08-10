@@ -1,24 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "32938 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"35854
-[v _IPEN `Vb ~T0 @X0 0 e@32391 ]
-"118 /Applications/microchip/xc8/v1.12/include/plib/timers.h
-[v _OpenTimer0 `(v ~T0 @X0 0 ef1`uc ]
-[s S2038 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2038 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-[s S2039 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2039 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
-[s S2040 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2040 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE GIEL GIEH ]
-[s S2041 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2041 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-[s S2042 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2042 . . GIEL GIEH ]
-[u S2037 `S2038 1 `S2039 1 `S2040 1 `S2041 1 `S2042 1 ]
-[n S2037 . . . . . . ]
-"33560 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
-[v _INTCONbits `VS2037 ~T0 @X0 0 e@4082 ]
 "31618
 [v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
 "29176
@@ -33,6 +15,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
 "28375
 [v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
+[s S2038 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2038 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+[s S2039 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2039 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
+[s S2040 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2040 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE GIEL GIEH ]
+[s S2041 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2041 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+[s S2042 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2042 . . GIEL GIEH ]
+[u S2037 `S2038 1 `S2039 1 `S2040 1 `S2041 1 `S2042 1 ]
+[n S2037 . . . . . . ]
+"33560
+[v _INTCONbits `VS2037 ~T0 @X0 0 e@4082 ]
+"118 /Applications/microchip/xc8/v1.12/include/plib/timers.h
+[v _OpenTimer0 `(v ~T0 @X0 0 ef1`uc ]
+"581 /Applications/microchip/xc8/v1.12/include/plib/usart.h
+[v _OpenUSART `(v ~T0 @X0 0 ef2`uc`ui ]
 [; ;pic18f2585.h: 44: extern volatile unsigned char RXF6SIDH @ 0xD60;
 "46 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
 [; ;pic18f2585.h: 46: asm("RXF6SIDH equ 0D60h");
@@ -14748,75 +14748,60 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;SystemSetup.h: 15: void ConfigureOscillator( void );
-[; ;SystemSetup.h: 16: void ConfigureTimer( void );
-[; ;SystemSetup.h: 17: void ConfigurePorts( void );
-"45 source/SystemSetup.c
-[v _ConfigureOscillator `(v ~T0 @X0 1 ef ]
+[; ;SystemSetup.h: 13: void ConfigureHardware( void );
+"35 source/SystemSetup.c
+[v _ConfigureHardware `(v ~T0 @X0 1 ef ]
 {
-[; ;SystemSetup.c: 44: void ConfigureOscillator()
-[; ;SystemSetup.c: 45: {
-[e :U _ConfigureOscillator ]
+[; ;SystemSetup.c: 34: void ConfigureHardware()
+[; ;SystemSetup.c: 35: {
+[e :U _ConfigureHardware ]
 [f ]
-[; ;SystemSetup.c: 46: OSCCON = 0b01111110;
-"46
+[; ;SystemSetup.c: 38: OSCCON = 0b01111110;
+"38
 [e = _OSCCON -> -> 126 `i `uc ]
-[; ;SystemSetup.c: 47: }
-"47
-[e :UE 2082 ]
-}
-"50
-[v _ConfigureTimer `(v ~T0 @X0 1 ef ]
-{
-[; ;SystemSetup.c: 49: void ConfigureTimer( void )
-[; ;SystemSetup.c: 50: {
-[e :U _ConfigureTimer ]
-[f ]
-[; ;SystemSetup.c: 51: IPEN = 1;
-"51
-[e = _IPEN -> -> 1 `i `b ]
-[; ;SystemSetup.c: 53: OpenTimer0( 0b11111111 &
-[; ;SystemSetup.c: 54: 0b11111111 &
-[; ;SystemSetup.c: 55: 0b11011111 &
-[; ;SystemSetup.c: 56: 0b11110111 );
-"56
-[e ( _OpenTimer0 (1 -> & & & -> 255 `i -> 255 `i -> 223 `i -> 247 `i `uc ]
-[; ;SystemSetup.c: 58: (INTCONbits.GIE = 1);
-"58
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;SystemSetup.c: 59: }
-"59
-[e :UE 2083 ]
-}
-"62
-[v _ConfigurePorts `(v ~T0 @X0 1 ef ]
-{
-[; ;SystemSetup.c: 61: void ConfigurePorts( void )
-[; ;SystemSetup.c: 62: {
-[e :U _ConfigurePorts ]
-[f ]
-[; ;SystemSetup.c: 63: ADCON1 = 0b00001111;
-"63
+[; ;SystemSetup.c: 42: ADCON1 = 0b00001111;
+"42
 [e = _ADCON1 -> -> 15 `i `uc ]
-[; ;SystemSetup.c: 64: TRISA = 0b10001001;
-"64
+[; ;SystemSetup.c: 43: TRISA = 0b10001001;
+"43
 [e = _TRISA -> -> 137 `i `uc ]
-[; ;SystemSetup.c: 65: TRISB = 0b00000000;
-"65
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;SystemSetup.c: 66: TRISC = 0b00000010;
-"66
+[; ;SystemSetup.c: 44: TRISB = 0b00001000;
+"44
+[e = _TRISB -> -> 8 `i `uc ]
+[; ;SystemSetup.c: 45: TRISC = 0b00000010;
+"45
 [e = _TRISC -> -> 2 `i `uc ]
-[; ;SystemSetup.c: 68: PORTA = 0;
-"68
+[; ;SystemSetup.c: 47: PORTA = 0;
+"47
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;SystemSetup.c: 69: PORTB = 0;
-"69
+[; ;SystemSetup.c: 48: PORTB = 0;
+"48
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;SystemSetup.c: 70: PORTC = 0;
-"70
+[; ;SystemSetup.c: 49: PORTC = 0;
+"49
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;SystemSetup.c: 71: }
-"71
-[e :UE 2084 ]
+[; ;SystemSetup.c: 55: (INTCONbits.GIE = 1);
+"55
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;SystemSetup.c: 57: OpenTimer0( 0b11111111 &
+[; ;SystemSetup.c: 58: 0b11111111 &
+[; ;SystemSetup.c: 59: 0b11011111 &
+[; ;SystemSetup.c: 60: 0b11110101 );
+"60
+[e ( _OpenTimer0 (1 -> & & & -> 255 `i -> 255 `i -> 223 `i -> 245 `i `uc ]
+[; ;SystemSetup.c: 62: INTCONbits.TMR0IE = 0;
+"62
+[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
+[; ;SystemSetup.c: 66: OpenUSART( 0b01111111 &
+[; ;SystemSetup.c: 67: 0b10111111 &
+[; ;SystemSetup.c: 68: 0b11111110 &
+[; ;SystemSetup.c: 69: 0b11111101 &
+[; ;SystemSetup.c: 70: 0b11111111 &
+[; ;SystemSetup.c: 71: 0b11101111,
+[; ;SystemSetup.c: 72: 12 );
+"72
+[e ( _OpenUSART (2 , -> & & & & & -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 239 `i `uc -> -> 12 `i `ui ]
+[; ;SystemSetup.c: 73: }
+"73
+[e :UE 2082 ]
 }

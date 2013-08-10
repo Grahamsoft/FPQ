@@ -1,57 +1,233 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"23 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputTask.h
-[v _IlluminateButton `(v ~T0 @X0 0 ef1`i ]
-"24
-[v _ColourA `(v ~T0 @X0 0 ef1`i ]
-"25
-[v _ColourB `(v ~T0 @X0 0 ef1`i ]
-[c E16242 0 1 2 3 .. ]
-[n E16242 . e_PressedNo e_PressedYes e_BeingServedNo e_BeingServedYes  ]
-"41 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
-[v _GetKeyState `(E16242 ~T0 @X0 0 ef1`i ]
-[s S1752 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1752 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-[s S1753 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1753 . AN0 AN1 AN2 AN3 T0CKI AN4 OSC2 OSC1 ]
-[s S1754 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1754 . CVREF . VREFM VREFP . HLVDIN CLKO CLKI ]
-[s S1755 :5 `uc 1 :1 `uc 1 ]
-[n S1755 . . LVDIN ]
-[s S1756 :5 `uc 1 :1 `uc 1 ]
-[n S1756 . . SS ]
-[s S1757 :5 `uc 1 :1 `uc 1 ]
-[n S1757 . . NOT_SS ]
-[s S1758 :5 `uc 1 :1 `uc 1 ]
-[n S1758 . . nSS ]
-[s S1759 :7 `uc 1 :1 `uc 1 ]
-[n S1759 . . RJPU ]
-[s S1760 :1 `uc 1 ]
-[n S1760 . ULPWUIN ]
-[u S1751 `S1752 1 `S1753 1 `S1754 1 `S1755 1 `S1756 1 `S1757 1 `S1758 1 `S1759 1 `S1760 1 ]
-[n S1751 . . . . . . . . . . ]
+"9 source/OutputTask.c
+[v _IlluminateButton `(v ~T0 @X0 0 ef1`uc ]
+[s S5 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 `Vuc 1 ]
+[n S5 ATimeStruct Millisecond Second Minute Hour Day ]
+"52 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+[v _GetKeyTimer `(*VS5 ~T0 @X0 0 ef1`uc ]
+"51
+[v _GetSequenceState `(*Vuc ~T0 @X0 0 ef1`uc ]
+"26 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/TimerTask.h
+[v _MaturedTimer `(uc ~T0 @X0 0 ef1`*VS5 ]
+[c E194 0 1 2 3 4 5 6 7 .. ]
+[n E194 . e_NotSet e_AllOff e_SteadyColourA e_SteadyColourB e_RedGreenFlash e_DimmedColourA e_RapidFlashColourB e_ColourMix  ]
+"50 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+[v _GetSequence `(E194 ~T0 @X0 0 ef1`uc ]
+"12 source/OutputTask.c
+[v _ColourNone `(v ~T0 @X0 0 ef1`uc ]
+"10
+[v _ColourA `(v ~T0 @X0 0 ef1`uc ]
+"11
+[v _ColourB `(v ~T0 @X0 0 ef1`uc ]
+[c E188 0 1 2 3 .. ]
+[n E188 . e_Unknown e_Off e_ColourA e_ColourB  ]
+"34 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/OutputSequences.h
+[v _GetColour `(E188 ~T0 @X0 0 ef3`E194`*Vuc`*VS5 ]
+[s S1758 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1758 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+[s S1759 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1759 . AN0 AN1 AN2 AN3 T0CKI AN4 OSC2 OSC1 ]
+[s S1760 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1760 . CVREF . VREFM VREFP . HLVDIN CLKO CLKI ]
+[s S1761 :5 `uc 1 :1 `uc 1 ]
+[n S1761 . . LVDIN ]
+[s S1762 :5 `uc 1 :1 `uc 1 ]
+[n S1762 . . SS ]
+[s S1763 :5 `uc 1 :1 `uc 1 ]
+[n S1763 . . NOT_SS ]
+[s S1764 :5 `uc 1 :1 `uc 1 ]
+[n S1764 . . nSS ]
+[s S1765 :7 `uc 1 :1 `uc 1 ]
+[n S1765 . . RJPU ]
+[s S1766 :1 `uc 1 ]
+[n S1766 . ULPWUIN ]
+[u S1757 `S1758 1 `S1759 1 `S1760 1 `S1761 1 `S1762 1 `S1763 1 `S1764 1 `S1765 1 `S1766 1 ]
+[n S1757 . . . . . . . . . . ]
 "28058 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
-[v _PORTAbits `VS1751 ~T0 @X0 0 e@3968 ]
-[s S1768 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1768 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-[s S1769 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1769 . T1OSO T1OSI CCP1 SCK SDI SDO TX RX ]
-[s S1770 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1770 . T13CKI . SCL SDA . CK DT ]
-[s S1771 :1 `uc 1 :1 `uc 1 ]
-[n S1771 . . CCP2 ]
-[s S1772 :2 `uc 1 :1 `uc 1 ]
-[n S1772 . . PA1 ]
-[s S1773 :1 `uc 1 :1 `uc 1 ]
-[n S1773 . . PA2 ]
-[u S1767 `S1768 1 `S1769 1 `S1770 1 `S1771 1 `S1772 1 `S1773 1 ]
-[n S1767 . . . . . . . ]
+[v _PORTAbits `VS1757 ~T0 @X0 0 e@3968 ]
+[s S1774 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1774 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+[s S1775 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1775 . T1OSO T1OSI CCP1 SCK SDI SDO TX RX ]
+[s S1776 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1776 . T13CKI . SCL SDA . CK DT ]
+[s S1777 :1 `uc 1 :1 `uc 1 ]
+[n S1777 . . CCP2 ]
+[s S1778 :2 `uc 1 :1 `uc 1 ]
+[n S1778 . . PA1 ]
+[s S1779 :1 `uc 1 :1 `uc 1 ]
+[n S1779 . . PA2 ]
+[u S1773 `S1774 1 `S1775 1 `S1776 1 `S1777 1 `S1778 1 `S1779 1 ]
+[n S1773 . . . . . . . ]
 "28423
-[v _PORTCbits `VS1767 ~T0 @X0 0 e@3970 ]
-[; ;OutputTask.h: 22: void OutputTask( void );
-[; ;OutputTask.h: 23: void IlluminateButton( int theId );
-[; ;OutputTask.h: 24: void ColourA( int theId );
-[; ;OutputTask.h: 25: void ColourB( int theId );
-[; ;OutputTask.h: 26: void ColourNone( int theId );
+[v _PORTCbits `VS1773 ~T0 @X0 0 e@3970 ]
+[; ;OutputTask.h: 11: void OutputTask( void );
+[; ;OutputTask.h: 12: void ColourATest( void );
+[; ;OutputTask.h: 13: void ColourBTest( void );
+[; ;delays.h: 18: void Delay10TCYx(unsigned char);
+[; ;delays.h: 24: void Delay100TCYx(unsigned char);
+[; ;delays.h: 30: void Delay1KTCYx(unsigned char);
+[; ;delays.h: 36: void Delay10KTCYx(unsigned char);
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdlib.h: 4: typedef int ptrdiff_t;
+[; ;stdlib.h: 5: typedef unsigned size_t;
+[; ;stdlib.h: 6: typedef unsigned short wchar_t;
+[; ;stdlib.h: 16: extern int errno;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: int rem;
+[; ;stdlib.h: 29: int quot;
+[; ;stdlib.h: 30: } div_t;
+[; ;stdlib.h: 31: typedef struct {
+[; ;stdlib.h: 32: unsigned rem;
+[; ;stdlib.h: 33: unsigned quot;
+[; ;stdlib.h: 34: } udiv_t;
+[; ;stdlib.h: 35: typedef struct {
+[; ;stdlib.h: 36: long quot;
+[; ;stdlib.h: 37: long rem;
+[; ;stdlib.h: 38: } ldiv_t;
+[; ;stdlib.h: 39: typedef struct {
+[; ;stdlib.h: 40: unsigned long quot;
+[; ;stdlib.h: 41: unsigned long rem;
+[; ;stdlib.h: 42: } uldiv_t;
+[; ;stdlib.h: 65: extern double atof(const char *);
+[; ;stdlib.h: 66: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 67: extern int atoi(const char *);
+[; ;stdlib.h: 68: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 69: extern long atol(const char *);
+[; ;stdlib.h: 70: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 72: extern int rand(void);
+[; ;stdlib.h: 73: extern void srand(unsigned int);
+[; ;stdlib.h: 74: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 75: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 76: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 77: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 78: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 79: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 80: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 81: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 82: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 87: extern void * malloc(size_t);
+[; ;stdlib.h: 88: extern void free(void *);
+[; ;stdlib.h: 89: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 91: extern void abort(void);
+[; ;stdlib.h: 92: extern void exit(int);
+[; ;stdlib.h: 93: extern int atexit(void (*)(void));
+[; ;stdlib.h: 94: extern char * getenv(const char *);
+[; ;stdlib.h: 95: extern char ** environ;
+[; ;stdlib.h: 96: extern int system(char *);
+[; ;stdlib.h: 97: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 98: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 99: extern int abs(int);
+[; ;stdlib.h: 100: extern long labs(long);
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;TimerTask.h: 16: typedef struct ATimeStruct
+[; ;TimerTask.h: 17: {
+[; ;TimerTask.h: 18: volatile uint8_t Millisecond;
+[; ;TimerTask.h: 19: volatile uint8_t Second;
+[; ;TimerTask.h: 20: volatile uint8_t Minute;
+[; ;TimerTask.h: 21: volatile uint8_t Hour;
+[; ;TimerTask.h: 22: volatile uint8_t Day;
+[; ;TimerTask.h: 23: }t_ATime;
+[; ;TimerTask.h: 25: void InitTime( void );
+[; ;TimerTask.h: 26: bool MaturedTimer( volatile t_ATime *theTimer );
+[; ;TimerTask.h: 27: void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
+[; ;TimerTask.h: 28: void Increment_Timer( void );
+[; ;OutputSequences.h: 14: typedef enum
+[; ;OutputSequences.h: 15: {
+[; ;OutputSequences.h: 16: e_Unknown,
+[; ;OutputSequences.h: 17: e_Off,
+[; ;OutputSequences.h: 18: e_ColourA,
+[; ;OutputSequences.h: 19: e_ColourB
+[; ;OutputSequences.h: 20: }t_ButtonColour;
+[; ;OutputSequences.h: 22: typedef enum
+[; ;OutputSequences.h: 23: {
+[; ;OutputSequences.h: 24: e_NotSet,
+[; ;OutputSequences.h: 25: e_AllOff,
+[; ;OutputSequences.h: 26: e_SteadyColourA,
+[; ;OutputSequences.h: 27: e_SteadyColourB,
+[; ;OutputSequences.h: 28: e_RedGreenFlash,
+[; ;OutputSequences.h: 29: e_DimmedColourA,
+[; ;OutputSequences.h: 30: e_RapidFlashColourB,
+[; ;OutputSequences.h: 31: e_ColourMix
+[; ;OutputSequences.h: 32: }t_Sequences;
+[; ;OutputSequences.h: 34: t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, volatile t_ATime *theTimer );
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;Model.h: 15: typedef enum
+[; ;Model.h: 16: {
+[; ;Model.h: 17: e_Error,
+[; ;Model.h: 18: e_PressedNo,
+[; ;Model.h: 19: e_PressedYes,
+[; ;Model.h: 20: e_BeingServedNo,
+[; ;Model.h: 21: e_BeingServedYes
+[; ;Model.h: 22: }t_ButtonState;
+[; ;Model.h: 24: typedef struct AKeyStruct
+[; ;Model.h: 25: {
+[; ;Model.h: 26: volatile t_ButtonState ButtonState;
+[; ;Model.h: 27: volatile t_ATime InputTimer;
+[; ;Model.h: 28: volatile t_ATime NextActionTimer;
+[; ;Model.h: 29: volatile t_Sequences SequenceIdPressedNo;
+[; ;Model.h: 30: volatile t_Sequences SequenceIdPressedYes;
+[; ;Model.h: 31: volatile t_Sequences SequenceIdBeingServedNo;
+[; ;Model.h: 32: volatile t_Sequences SequenceIdBeingServedYes;
+[; ;Model.h: 33: volatile uint8_t SequenceState;
+[; ;Model.h: 34: volatile uint8_t NextInQueue;
+[; ;Model.h: 42: }AKey;
+"44 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
+[v _KeyCount `Cuc ~T0 @X0 1 e ]
+[i _KeyCount
+-> -> 5 `i `uc
+]
+[; ;Model.h: 44: const uint8_t KeyCount = 5;
+"46
+[v _SequenceReset `Cuc ~T0 @X0 1 e ]
+[i _SequenceReset
+-> -> 0 `i `uc
+]
+[; ;Model.h: 46: const uint8_t SequenceReset = 0;
+[; ;Model.h: 48: void InitKeys( void );
+[; ;Model.h: 50: t_Sequences GetSequence( uint8_t theKeyId );
+[; ;Model.h: 51: volatile uint8_t* GetSequenceState( uint8_t theKeyId );
+[; ;Model.h: 52: volatile t_ATime* GetKeyTimer( uint8_t theKeyId );
+[; ;Model.h: 53: volatile t_ATime* GetKeyInputTimer( uint8_t theKeyId );
+[; ;Model.h: 55: void SetKeyState( uint8_t theKeyId, t_ButtonState theState );
+[; ;Model.h: 56: t_ButtonState GetKeyState( uint8_t theKeyId );
+[; ;Model.h: 57: uint8_t GetHeadOfQueue( void );
 [; ;pic18f2585.h: 44: extern volatile unsigned char RXF6SIDH @ 0xD60;
 "46 /Applications/microchip/xc8/v1.12/include/pic18f2585.h
 [; ;pic18f2585.h: 46: asm("RXF6SIDH equ 0D60h");
@@ -14203,9 +14379,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;EEP.h: 36: void Busy_eep ( void );
 [; ;EEP.h: 37: unsigned char Read_b_eep( unsigned int badd );
 [; ;EEP.h: 38: void Write_b_eep( unsigned int badd, unsigned char bdata );
-[; ;stddef.h: 2: typedef int ptrdiff_t;
-[; ;stddef.h: 3: typedef unsigned size_t;
-[; ;stddef.h: 4: typedef unsigned short wchar_t;
 [; ;stddef.h: 13: extern int errno;
 [; ;GenericTypeDefs.h: 65: typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
 [; ;GenericTypeDefs.h: 68: typedef enum _BIT { CLEAR = 0, SET } BIT;
@@ -14738,398 +14911,448 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 144: extern void _delay(unsigned long);
 [; ;pic18.h: 146: extern void _delaywdt(unsigned long);
 [; ;pic18.h: 148: extern void _delay3(unsigned char);
-[; ;delays.h: 18: void Delay10TCYx(unsigned char);
-[; ;delays.h: 24: void Delay100TCYx(unsigned char);
-[; ;delays.h: 30: void Delay1KTCYx(unsigned char);
-[; ;delays.h: 36: void Delay10KTCYx(unsigned char);
-[; ;OutputSequences.h: 11: typedef enum
-[; ;OutputSequences.h: 12: {
-[; ;OutputSequences.h: 13: e_Off,
-[; ;OutputSequences.h: 14: e_ColourA,
-[; ;OutputSequences.h: 15: e_ColourB
-[; ;OutputSequences.h: 16: }t_ButtonColour;
-[; ;OutputSequences.h: 18: typedef struct SequencePhaseStruct
-[; ;OutputSequences.h: 19: {
-[; ;OutputSequences.h: 20: int NextActionTime;
-[; ;OutputSequences.h: 21: t_ButtonColour CurrentColour;
-[; ;OutputSequences.h: 22: }SequencePhase;
-[; ;OutputSequences.h: 24: typedef struct ASequenceStruct
-[; ;OutputSequences.h: 25: {
-[; ;OutputSequences.h: 26: SequencePhase *Sequence;
-[; ;OutputSequences.h: 27: int Size;
-[; ;OutputSequences.h: 28: int Current;
-[; ;OutputSequences.h: 29: }ASequence;
-[; ;OutputSequences.h: 31: void InitSequences( void );
-[; ;OutputSequences.h: 32: ASequence* GetSequencePointer( int theId );
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;TimerTask.h: 13: typedef struct ATimerStruct
-[; ;TimerTask.h: 14: {
-[; ;TimerTask.h: 15: int Matured;
-[; ;TimerTask.h: 16: int FutureTime;
-[; ;TimerTask.h: 18: }ATimer;
-[; ;TimerTask.h: 20: int SetTimer( ATimer *theTimer, int theHours, int theMinutes, int theSeconds, int theHalfSeconds );
-[; ;TimerTask.h: 21: void ClearTimer( ATimer *theTimer );
-[; ;TimerTask.h: 22: bool MaturedTimer( ATimer *theTimer );
-[; ;TimerTask.h: 23: ATimer* GetNewTimerPointer( void );
-[; ;Model.h: 14: typedef enum
-[; ;Model.h: 15: {
-[; ;Model.h: 16: e_PressedNo,
-[; ;Model.h: 17: e_PressedYes,
-[; ;Model.h: 18: e_BeingServedNo,
-[; ;Model.h: 19: e_BeingServedYes
-[; ;Model.h: 20: }t_ButtonState;
-[; ;Model.h: 22: typedef struct AKeyStruct
-[; ;Model.h: 23: {
-[; ;Model.h: 24: int Id;
-[; ;Model.h: 25: t_ButtonState State;
-[; ;Model.h: 26: ASequence* Sequence;
-[; ;Model.h: 27: ATimer* Timer;
-[; ;Model.h: 35: }AKey;
-"37 /Users/David/Projects/FPQ-OnGitHub/Platform Research/MCU_c/FPQ-1.X/source/headers/Model.h
-[v _KeyCount `Ci ~T0 @X0 1 e ]
-[i _KeyCount
--> 5 `i
-]
-[; ;Model.h: 37: const int KeyCount = 5;
-[; ;Model.h: 39: void InitKeys( void );
-[; ;Model.h: 40: void SetKeyState( int theKeyId, t_ButtonState theState );
-[; ;Model.h: 41: t_ButtonState GetKeyState( int theKeyId );
-[; ;Model.h: 42: ATimer* GetKeyTimer( int theKeyId );
-"15 source/OutputTask.c
+[; ;OutputTask.c: 9: void IlluminateButton( uint8_t theId );
+[; ;OutputTask.c: 10: void ColourA( uint8_t theId );
+[; ;OutputTask.c: 11: void ColourB( uint8_t theId );
+[; ;OutputTask.c: 12: void ColourNone( uint8_t theId );
+"16 source/OutputTask.c
 [v _OutputTask `(v ~T0 @X0 1 ef ]
 {
-[; ;OutputTask.c: 14: void OutputTask()
-[; ;OutputTask.c: 15: {
+[; ;OutputTask.c: 15: void OutputTask()
+[; ;OutputTask.c: 16: {
 [e :U _OutputTask ]
 [f ]
-[; ;OutputTask.c: 16: for( int i = 0; i < KeyCount; i++ )
-"16
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i _KeyCount 2087  ]
-[e $U 2088  ]
+[; ;OutputTask.c: 17: for( uint8_t i = 0; i < KeyCount; i++ )
 "17
-[e :U 2087 ]
-[; ;OutputTask.c: 17: {
 {
-[; ;OutputTask.c: 18: IlluminateButton( i );
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> _KeyCount `i 2089  ]
+[e $U 2090  ]
 "18
+[e :U 2089 ]
+[; ;OutputTask.c: 18: {
+{
+[; ;OutputTask.c: 19: IlluminateButton( i );
+"19
 [e ( _IlluminateButton (1 _i ]
-"19
-}
-"16
-[e ++ _i -> 1 `i ]
-[e $ < _i _KeyCount 2087  ]
-[e :U 2088 ]
-"19
-}
-[; ;OutputTask.c: 19: }
-[; ;OutputTask.c: 20: }
 "20
-[e :UE 2086 ]
 }
-"23
-[v _IlluminateButton `(v ~T0 @X0 1 ef1`i ]
-{
-[; ;OutputTask.c: 22: void IlluminateButton( int theId )
-[; ;OutputTask.c: 23: {
-[e :U _IlluminateButton ]
-[v _theId `i ~T0 @X0 1 r1 ]
-[f ]
-[; ;OutputTask.c: 24: switch ( GetKeyState( theId ) )
+"17
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> _KeyCount `i 2089  ]
+[e :U 2090 ]
+"20
+}
+[; ;OutputTask.c: 20: }
+[; ;OutputTask.c: 21: }
+"21
+[e :UE 2088 ]
+}
 "24
-[e $U 2092  ]
-[; ;OutputTask.c: 25: {
-"25
+[v _IlluminateButton `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;OutputTask.c: 26: case e_PressedNo:
+[; ;OutputTask.c: 23: void IlluminateButton( uint8_t theId )
+[; ;OutputTask.c: 24: {
+[e :U _IlluminateButton ]
+[v _theId `uc ~T0 @X0 1 r1 ]
+[f ]
+"25
+[v _KeyTimer `*VS5 ~T0 @X0 1 a ]
+[; ;OutputTask.c: 25: volatile t_ATime* KeyTimer = GetKeyTimer( theId );
+[e = _KeyTimer ( _GetKeyTimer (1 _theId ]
 "26
-[e :U 2093 ]
-[; ;OutputTask.c: 27: ColourA( theId );
-"27
-[e ( _ColourA (1 _theId ]
-[; ;OutputTask.c: 28: break;
+[v _SequenceState `*Vuc ~T0 @X0 1 a ]
+[; ;OutputTask.c: 26: volatile uint8_t* SequenceState = GetSequenceState( theId );
+[e = _SequenceState ( _GetSequenceState (1 _theId ]
+[; ;OutputTask.c: 28: if ( ( MaturedTimer( KeyTimer ) ) || ( SequenceState == 0 ) )
 "28
-[e $U 2091  ]
-[; ;OutputTask.c: 30: case e_PressedYes:
+[e $ ! || != -> ( _MaturedTimer (1 _KeyTimer `i -> -> -> 0 `i `uc `i == _SequenceState -> -> 0 `i `*Vuc 2093  ]
+[; ;OutputTask.c: 29: {
+"29
+{
 "30
-[e :U 2094 ]
-[; ;OutputTask.c: 31: ColourB( theId );
-"31
-[e ( _ColourB (1 _theId ]
-[; ;OutputTask.c: 32: break;
+[v _Sequence `VE194 ~T0 @X0 1 a ]
+[; ;OutputTask.c: 30: volatile t_Sequences Sequence = GetSequence( theId );
+[e = _Sequence ( _GetSequence (1 _theId ]
+[; ;OutputTask.c: 32: switch ( GetColour( Sequence, SequenceState, KeyTimer ) )
 "32
-[e $U 2091  ]
-[; ;OutputTask.c: 34: case e_BeingServedNo:
+[e $U 2095  ]
+[; ;OutputTask.c: 33: {
+"33
+{
+[; ;OutputTask.c: 34: case e_Off:
 "34
-[e :U 2095 ]
-[; ;OutputTask.c: 35: ColourB( theId );
+[e :U 2096 ]
+[; ;OutputTask.c: 35: ColourNone( theId );
 "35
-[e ( _ColourB (1 _theId ]
+[e ( _ColourNone (1 _theId ]
 [; ;OutputTask.c: 36: break;
 "36
-[e $U 2091  ]
-[; ;OutputTask.c: 38: case e_BeingServedYes:
+[e $U 2094  ]
+[; ;OutputTask.c: 38: case e_ColourA:
 "38
-[e :U 2096 ]
-[; ;OutputTask.c: 39: break;
+[e :U 2097 ]
+[; ;OutputTask.c: 39: ColourA( theId );
 "39
-[e $U 2091  ]
+[e ( _ColourA (1 _theId ]
+[; ;OutputTask.c: 40: break;
 "40
-}
-[; ;OutputTask.c: 40: }
-[e $U 2091  ]
-"24
-[e :U 2092 ]
-[e [\ ( _GetKeyState (1 _theId , $ -> . `E16242 0 `E16242 2093
- , $ -> . `E16242 1 `E16242 2094
- , $ -> . `E16242 2 `E16242 2095
- , $ -> . `E16242 3 `E16242 2096
- 2091 ]
-"40
-[e :U 2091 ]
-[; ;OutputTask.c: 41: }
-"41
-[e :UE 2090 ]
-}
-"44
-[v _ColourA `(v ~T0 @X0 1 ef1`i ]
-{
-[; ;OutputTask.c: 43: void ColourA( int theId )
-[; ;OutputTask.c: 44: {
-[e :U _ColourA ]
-[v _theId `i ~T0 @X0 1 r1 ]
-[f ]
-[; ;OutputTask.c: 45: switch ( theId )
-"45
-[e $U 2099  ]
-[; ;OutputTask.c: 46: {
-"46
-{
-[; ;OutputTask.c: 47: case 0:
-"47
-[e :U 2100 ]
-[; ;OutputTask.c: 48: PORTAbits.RA1 = 0;
-"48
-[e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
-[; ;OutputTask.c: 49: PORTAbits.RA2 = 1;
-"49
-[e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
-[; ;OutputTask.c: 50: break;
-"50
-[e $U 2098  ]
-[; ;OutputTask.c: 52: case 1:
-"52
-[e :U 2101 ]
-[; ;OutputTask.c: 53: PORTAbits.RA4 = 0;
-"53
-[e = . . _PORTAbits 0 4 -> -> 0 `i `uc ]
-[; ;OutputTask.c: 54: PORTAbits.RA5 = 1;
-"54
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-[; ;OutputTask.c: 55: break;
-"55
-[e $U 2098  ]
-[; ;OutputTask.c: 57: case 2:
-"57
-[e :U 2102 ]
-[; ;OutputTask.c: 58: PORTAbits.RA6 = 0;
-"58
-[e = . . _PORTAbits 0 6 -> -> 0 `i `uc ]
-[; ;OutputTask.c: 59: PORTCbits.RC0 = 1;
-"59
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-[; ;OutputTask.c: 60: break;
-"60
-[e $U 2098  ]
-[; ;OutputTask.c: 62: case 3:
-"62
-[e :U 2103 ]
-[; ;OutputTask.c: 63: break;
-"63
-[e $U 2098  ]
-[; ;OutputTask.c: 65: case 4:
-"65
-[e :U 2104 ]
-[; ;OutputTask.c: 66: break;
-"66
-[e $U 2098  ]
-"67
-}
-[; ;OutputTask.c: 67: }
-[e $U 2098  ]
-"45
-[e :U 2099 ]
-[e [\ _theId , $ -> 0 `i 2100
- , $ -> 1 `i 2101
- , $ -> 2 `i 2102
- , $ -> 3 `i 2103
- , $ -> 4 `i 2104
- 2098 ]
-"67
+[e $U 2094  ]
+[; ;OutputTask.c: 42: case e_ColourB:
+"42
 [e :U 2098 ]
-[; ;OutputTask.c: 68: }
+[; ;OutputTask.c: 43: ColourB( theId );
+"43
+[e ( _ColourB (1 _theId ]
+[; ;OutputTask.c: 44: break;
+"44
+[e $U 2094  ]
+"45
+}
+[; ;OutputTask.c: 45: }
+[e $U 2094  ]
+"32
+[e :U 2095 ]
+[e [\ ( _GetColour (3 , , _Sequence _SequenceState _KeyTimer , $ -> . `E188 1 `E188 2096
+ , $ -> . `E188 2 `E188 2097
+ , $ -> . `E188 3 `E188 2098
+ 2094 ]
+"45
+[e :U 2094 ]
+"46
+}
+[e :U 2093 ]
+[; ;OutputTask.c: 46: }
+[; ;OutputTask.c: 47: }
+"47
+[e :UE 2092 ]
+}
+"50
+[v _ColourATest `(v ~T0 @X0 1 ef ]
+{
+[; ;OutputTask.c: 49: void ColourATest( void )
+[; ;OutputTask.c: 50: {
+[e :U _ColourATest ]
+[f ]
+[; ;OutputTask.c: 51: ColourA( 0 );
+"51
+[e ( _ColourA (1 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 52: ColourA( 1 );
+"52
+[e ( _ColourA (1 -> -> 1 `i `uc ]
+[; ;OutputTask.c: 53: ColourA( 2 );
+"53
+[e ( _ColourA (1 -> -> 2 `i `uc ]
+[; ;OutputTask.c: 54: ColourA( 3 );
+"54
+[e ( _ColourA (1 -> -> 3 `i `uc ]
+[; ;OutputTask.c: 55: ColourA( 4 );
+"55
+[e ( _ColourA (1 -> -> 4 `i `uc ]
+[; ;OutputTask.c: 56: }
+"56
+[e :UE 2099 ]
+}
+"59
+[v _ColourBTest `(v ~T0 @X0 1 ef ]
+{
+[; ;OutputTask.c: 58: void ColourBTest( void )
+[; ;OutputTask.c: 59: {
+[e :U _ColourBTest ]
+[f ]
+[; ;OutputTask.c: 60: ColourB( 0 );
+"60
+[e ( _ColourB (1 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 61: ColourB( 1 );
+"61
+[e ( _ColourB (1 -> -> 1 `i `uc ]
+[; ;OutputTask.c: 62: ColourB( 2 );
+"62
+[e ( _ColourB (1 -> -> 2 `i `uc ]
+[; ;OutputTask.c: 63: ColourB( 3 );
+"63
+[e ( _ColourB (1 -> -> 3 `i `uc ]
+[; ;OutputTask.c: 64: ColourB( 4 );
+"64
+[e ( _ColourB (1 -> -> 4 `i `uc ]
+[; ;OutputTask.c: 65: }
+"65
+[e :UE 2100 ]
+}
 "68
-[e :UE 2097 ]
-}
+[v _ColourA `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;OutputTask.c: 67: void ColourA( uint8_t theId )
+[; ;OutputTask.c: 68: {
+[e :U _ColourA ]
+[v _theId `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;OutputTask.c: 69: switch ( theId )
+"69
+[e $U 2103  ]
+[; ;OutputTask.c: 70: {
+"70
+{
+[; ;OutputTask.c: 71: case 0:
 "71
-[v _ColourB `(v ~T0 @X0 1 ef1`i ]
-{
-[; ;OutputTask.c: 70: void ColourB( int theId )
-[; ;OutputTask.c: 71: {
-[e :U _ColourB ]
-[v _theId `i ~T0 @X0 1 r1 ]
-[f ]
-[; ;OutputTask.c: 72: switch ( theId )
+[e :U 2104 ]
+[; ;OutputTask.c: 72: PORTAbits.RA1 = 0;
 "72
-[e $U 2107  ]
-[; ;OutputTask.c: 73: {
-"73
-{
-[; ;OutputTask.c: 74: case 0:
-"74
-[e :U 2108 ]
-[; ;OutputTask.c: 75: PORTAbits.RA1 = 1;
-"75
-[e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
-[; ;OutputTask.c: 76: PORTAbits.RA2 = 0;
-"76
-[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
-[; ;OutputTask.c: 77: break;
-"77
-[e $U 2106  ]
-[; ;OutputTask.c: 79: case 1:
-"79
-[e :U 2109 ]
-[; ;OutputTask.c: 80: PORTAbits.RA4 = 1;
-"80
-[e = . . _PORTAbits 0 4 -> -> 1 `i `uc ]
-[; ;OutputTask.c: 81: PORTAbits.RA5 = 0;
-"81
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-[; ;OutputTask.c: 82: break;
-"82
-[e $U 2106  ]
-[; ;OutputTask.c: 84: case 2:
-"84
-[e :U 2110 ]
-[; ;OutputTask.c: 85: PORTAbits.RA6 = 1;
-"85
-[e = . . _PORTAbits 0 6 -> -> 1 `i `uc ]
-[; ;OutputTask.c: 86: PORTCbits.RC0 = 0;
-"86
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-[; ;OutputTask.c: 87: break;
-"87
-[e $U 2106  ]
-[; ;OutputTask.c: 89: case 3:
-"89
-[e :U 2111 ]
-[; ;OutputTask.c: 90: break;
-"90
-[e $U 2106  ]
-[; ;OutputTask.c: 92: case 4:
-"92
-[e :U 2112 ]
-[; ;OutputTask.c: 93: break;
-"93
-[e $U 2106  ]
-"94
-}
-[; ;OutputTask.c: 94: }
-[e $U 2106  ]
-"72
-[e :U 2107 ]
-[e [\ _theId , $ -> 0 `i 2108
- , $ -> 1 `i 2109
- , $ -> 2 `i 2110
- , $ -> 3 `i 2111
- , $ -> 4 `i 2112
- 2106 ]
-"94
-[e :U 2106 ]
-[; ;OutputTask.c: 95: }
-"95
-[e :UE 2105 ]
-}
-"98
-[v _ColourNone `(v ~T0 @X0 1 ef1`i ]
-{
-[; ;OutputTask.c: 97: void ColourNone( int theId )
-[; ;OutputTask.c: 98: {
-[e :U _ColourNone ]
-[v _theId `i ~T0 @X0 1 r1 ]
-[f ]
-[; ;OutputTask.c: 99: switch ( theId )
-"99
-[e $U 2115  ]
-[; ;OutputTask.c: 100: {
-"100
-{
-[; ;OutputTask.c: 101: case 0:
-"101
-[e :U 2116 ]
-[; ;OutputTask.c: 102: PORTAbits.RA1 = 0;
-"102
 [e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
-[; ;OutputTask.c: 103: PORTAbits.RA2 = 0;
-"103
-[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
-[; ;OutputTask.c: 104: break;
-"104
-[e $U 2114  ]
-[; ;OutputTask.c: 106: case 1:
-"106
-[e :U 2117 ]
-[; ;OutputTask.c: 107: PORTAbits.RA4 = 0;
-"107
+[; ;OutputTask.c: 73: PORTAbits.RA2 = 1;
+"73
+[e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
+[; ;OutputTask.c: 74: break;
+"74
+[e $U 2102  ]
+[; ;OutputTask.c: 76: case 1:
+"76
+[e :U 2105 ]
+[; ;OutputTask.c: 77: PORTAbits.RA4 = 0;
+"77
 [e = . . _PORTAbits 0 4 -> -> 0 `i `uc ]
-[; ;OutputTask.c: 108: PORTAbits.RA5 = 0;
-"108
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-[; ;OutputTask.c: 109: break;
-"109
-[e $U 2114  ]
-[; ;OutputTask.c: 111: case 2:
-"111
-[e :U 2118 ]
-[; ;OutputTask.c: 112: PORTAbits.RA6 = 0;
-"112
+[; ;OutputTask.c: 78: PORTAbits.RA5 = 1;
+"78
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+[; ;OutputTask.c: 79: break;
+"79
+[e $U 2102  ]
+[; ;OutputTask.c: 81: case 2:
+"81
+[e :U 2106 ]
+[; ;OutputTask.c: 82: PORTAbits.RA6 = 0;
+"82
 [e = . . _PORTAbits 0 6 -> -> 0 `i `uc ]
-[; ;OutputTask.c: 113: PORTCbits.RC0 = 0;
+[; ;OutputTask.c: 83: PORTCbits.RC0 = 1;
+"83
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+[; ;OutputTask.c: 84: break;
+"84
+[e $U 2102  ]
+[; ;OutputTask.c: 86: case 3:
+"86
+[e :U 2107 ]
+[; ;OutputTask.c: 87: PORTCbits.RC2 = 0;
+"87
+[e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 88: PORTCbits.RC3 = 1;
+"88
+[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
+[; ;OutputTask.c: 89: break;
+"89
+[e $U 2102  ]
+[; ;OutputTask.c: 91: case 4:
+"91
+[e :U 2108 ]
+[; ;OutputTask.c: 92: PORTCbits.RC4 = 1;
+"92
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+[; ;OutputTask.c: 93: PORTCbits.RC5 = 0;
+"93
+[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 94: break;
+"94
+[e $U 2102  ]
+"95
+}
+[; ;OutputTask.c: 95: }
+[e $U 2102  ]
+"69
+[e :U 2103 ]
+[e [\ _theId , $ -> -> 0 `i `uc 2104
+ , $ -> -> 1 `i `uc 2105
+ , $ -> -> 2 `i `uc 2106
+ , $ -> -> 3 `i `uc 2107
+ , $ -> -> 4 `i `uc 2108
+ 2102 ]
+"95
+[e :U 2102 ]
+[; ;OutputTask.c: 96: }
+"96
+[e :UE 2101 ]
+}
+"99
+[v _ColourB `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;OutputTask.c: 98: void ColourB( uint8_t theId )
+[; ;OutputTask.c: 99: {
+[e :U _ColourB ]
+[v _theId `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;OutputTask.c: 100: switch ( theId )
+"100
+[e $U 2111  ]
+[; ;OutputTask.c: 101: {
+"101
+{
+[; ;OutputTask.c: 102: case 0:
+"102
+[e :U 2112 ]
+[; ;OutputTask.c: 103: PORTAbits.RA1 = 1;
+"103
+[e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
+[; ;OutputTask.c: 104: PORTAbits.RA2 = 0;
+"104
+[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 105: break;
+"105
+[e $U 2110  ]
+[; ;OutputTask.c: 107: case 1:
+"107
+[e :U 2113 ]
+[; ;OutputTask.c: 108: PORTAbits.RA4 = 1;
+"108
+[e = . . _PORTAbits 0 4 -> -> 1 `i `uc ]
+[; ;OutputTask.c: 109: PORTAbits.RA5 = 0;
+"109
+[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 110: break;
+"110
+[e $U 2110  ]
+[; ;OutputTask.c: 112: case 2:
+"112
+[e :U 2114 ]
+[; ;OutputTask.c: 113: PORTAbits.RA6 = 1;
 "113
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-[; ;OutputTask.c: 114: break;
+[e = . . _PORTAbits 0 6 -> -> 1 `i `uc ]
+[; ;OutputTask.c: 114: PORTCbits.RC0 = 0;
 "114
-[e $U 2114  ]
-[; ;OutputTask.c: 116: case 3:
-"116
-[e :U 2119 ]
-[; ;OutputTask.c: 117: break;
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 115: break;
+"115
+[e $U 2110  ]
+[; ;OutputTask.c: 117: case 3:
 "117
-[e $U 2114  ]
-[; ;OutputTask.c: 119: case 4:
+[e :U 2115 ]
+[; ;OutputTask.c: 118: PORTCbits.RC2 = 1;
+"118
+[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
+[; ;OutputTask.c: 119: PORTCbits.RC3 = 0;
 "119
-[e :U 2120 ]
+[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
 [; ;OutputTask.c: 120: break;
 "120
-[e $U 2114  ]
-"121
-}
-[; ;OutputTask.c: 121: }
-[e $U 2114  ]
-"99
-[e :U 2115 ]
-[e [\ _theId , $ -> 0 `i 2116
- , $ -> 1 `i 2117
- , $ -> 2 `i 2118
- , $ -> 3 `i 2119
- , $ -> 4 `i 2120
- 2114 ]
-"121
-[e :U 2114 ]
-[; ;OutputTask.c: 122: }
+[e $U 2110  ]
+[; ;OutputTask.c: 122: case 4:
 "122
-[e :UE 2113 ]
+[e :U 2116 ]
+[; ;OutputTask.c: 123: PORTCbits.RC4 = 0;
+"123
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 124: PORTCbits.RC5 = 1;
+"124
+[e = . . _PORTCbits 0 5 -> -> 1 `i `uc ]
+[; ;OutputTask.c: 125: break;
+"125
+[e $U 2110  ]
+"126
+}
+[; ;OutputTask.c: 126: }
+[e $U 2110  ]
+"100
+[e :U 2111 ]
+[e [\ _theId , $ -> -> 0 `i `uc 2112
+ , $ -> -> 1 `i `uc 2113
+ , $ -> -> 2 `i `uc 2114
+ , $ -> -> 3 `i `uc 2115
+ , $ -> -> 4 `i `uc 2116
+ 2110 ]
+"126
+[e :U 2110 ]
+[; ;OutputTask.c: 127: }
+"127
+[e :UE 2109 ]
+}
+"130
+[v _ColourNone `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;OutputTask.c: 129: void ColourNone( uint8_t theId )
+[; ;OutputTask.c: 130: {
+[e :U _ColourNone ]
+[v _theId `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;OutputTask.c: 131: switch ( theId )
+"131
+[e $U 2119  ]
+[; ;OutputTask.c: 132: {
+"132
+{
+[; ;OutputTask.c: 133: case 0:
+"133
+[e :U 2120 ]
+[; ;OutputTask.c: 134: PORTAbits.RA1 = 0;
+"134
+[e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 135: PORTAbits.RA2 = 0;
+"135
+[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 136: break;
+"136
+[e $U 2118  ]
+[; ;OutputTask.c: 138: case 1:
+"138
+[e :U 2121 ]
+[; ;OutputTask.c: 139: PORTAbits.RA4 = 0;
+"139
+[e = . . _PORTAbits 0 4 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 140: PORTAbits.RA5 = 0;
+"140
+[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 141: break;
+"141
+[e $U 2118  ]
+[; ;OutputTask.c: 143: case 2:
+"143
+[e :U 2122 ]
+[; ;OutputTask.c: 144: PORTAbits.RA6 = 0;
+"144
+[e = . . _PORTAbits 0 6 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 145: PORTCbits.RC0 = 0;
+"145
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 146: break;
+"146
+[e $U 2118  ]
+[; ;OutputTask.c: 148: case 3:
+"148
+[e :U 2123 ]
+[; ;OutputTask.c: 149: PORTCbits.RC2 = 0;
+"149
+[e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 150: PORTCbits.RC3 = 0;
+"150
+[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 151: break;
+"151
+[e $U 2118  ]
+[; ;OutputTask.c: 153: case 4:
+"153
+[e :U 2124 ]
+[; ;OutputTask.c: 154: PORTCbits.RC4 = 0;
+"154
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 155: PORTCbits.RC5 = 0;
+"155
+[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
+[; ;OutputTask.c: 156: break;
+"156
+[e $U 2118  ]
+"157
+}
+[; ;OutputTask.c: 157: }
+[e $U 2118  ]
+"131
+[e :U 2119 ]
+[e [\ _theId , $ -> -> 0 `i `uc 2120
+ , $ -> -> 1 `i `uc 2121
+ , $ -> -> 2 `i `uc 2122
+ , $ -> -> 3 `i `uc 2123
+ , $ -> -> 4 `i `uc 2124
+ 2118 ]
+"157
+[e :U 2118 ]
+[; ;OutputTask.c: 158: }
+"158
+[e :UE 2117 ]
 }
