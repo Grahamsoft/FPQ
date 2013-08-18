@@ -19,6 +19,12 @@
 // 13 RC2           Button 4 Colour A   16 RC5           Button 5 Colour A
 // 14 RC3           Button 4 Colour B   15 RC4           Button 5 Colour B
 //
+// MCP2551
+//
+// 1  Txd           CAN Tx              8  Rs            Slope-Control Input
+// 2  Vss           5v Power            7  CANH          CAN High-Level Volt I/O
+// 3  Vdd           Earth               6  CANL          CAN Low-Level Volt I/O
+// 4  Rxd           CAN Rx              5  Vref          Reference Output Voltage
 /******************************************************************************/
 /*Files to Include                                                            */
 /******************************************************************************/
