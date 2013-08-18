@@ -22,8 +22,8 @@
 // MCP2551
 //
 // 1  Txd           CAN Tx              8  Rs            Slope-Control Input
-// 2  Vss           5v Power            7  CANH          CAN High-Level Volt I/O
-// 3  Vdd           Earth               6  CANL          CAN Low-Level Volt I/O
+// 2  Vss           Earth               7  CANH          CAN High-Level Volt I/O
+// 3  Vdd           5v Power            6  CANL          CAN Low-Level Volt I/O
 // 4  Rxd           CAN Rx              5  Vref          Reference Output Voltage
 /******************************************************************************/
 /*Files to Include                                                            */
