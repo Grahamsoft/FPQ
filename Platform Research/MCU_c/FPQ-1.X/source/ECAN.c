@@ -823,13 +823,16 @@ bool ECANReceiveMessage(unsigned long *id,
         // Find which buffer is ready.
         if ( RXB0CON_RXFUL )
         {
-            // Start Debug
-            putsUSART( "Line: "     );
-            putsUSART( __LINE__     );
-            putsUSART( " File: "    );
-            putsUSART( __FILE__     );
-            putsUSART( "\r\n"       );
-            // End Debug
+                // Start Debug
+                putsUSART( "Line: "     );
+                char str[5];
+                str[0] = 0;
+                sprintf(str, "%d", __LINE__);
+                putsUSART( str );
+                putsUSART( " File: "    );
+                putsUSART( __FILE__     );
+                putsUSART( "\r\n"       );
+                // End Debug
 
             // Clear the received flag.
             PIR3_RXB0IF = 0;
@@ -848,13 +851,16 @@ bool ECANReceiveMessage(unsigned long *id,
         }
         else if ( RXB1CON_RXFUL )
         {
-            // Start Debug
-            putsUSART( "Line: "     );
-            putsUSART( __LINE__     );
-            putsUSART( " File: "    );
-            putsUSART( __FILE__     );
-            putsUSART( "\r\n"       );
-            // End Debug
+                // Start Debug
+                putsUSART( "Line: "     );
+                char str[5];
+                str[0] = 0;
+                sprintf(str, "%d", __LINE__);
+                putsUSART( str );
+                putsUSART( " File: "    );
+                putsUSART( __FILE__     );
+                putsUSART( "\r\n"       );
+                // End Debug
 
             // Clear the received flag.
             PIR3_RXB1IF = 0;
@@ -870,13 +876,16 @@ bool ECANReceiveMessage(unsigned long *id,
 
             if ( _ECANRxFilterHitInfo.Val < 0x02 )
             {
-            // Start Debug
-            putsUSART( "Line: "     );
-            putsUSART( __LINE__     );
-            putsUSART( " File: "    );
-            putsUSART( __FILE__     );
-            putsUSART( "\r\n"       );
-            // End Debug
+                // Start Debug
+                putsUSART( "Line: "     );
+                char str[5];
+                str[0] = 0;
+                sprintf(str, "%d", __LINE__);
+                putsUSART( str );
+                putsUSART( " File: "    );
+                putsUSART( __FILE__     );
+                putsUSART( "\r\n"       );
+                // End Debug
             
                 *msgFlags |= ECAN_RX_DBL_BUFFERED;
             }
@@ -886,16 +895,16 @@ bool ECANReceiveMessage(unsigned long *id,
         }
         else
         {
-            // Start Debug
-            putsUSART( "Line: "     );
-            char str[5];
-            str[0] = 0;
-            sprintf(str, "%d", __LINE__);
-            putsUSART( str );
-            putsUSART( " File: "    );
-            putsUSART( __FILE__     );
-            putsUSART( "\r\n"       );
-            // End Debug
+//            // Start Debug
+//            putsUSART( "Line: "     );
+//            char str[5];
+//            str[0] = 0;
+//            sprintf(str, "%d", __LINE__);
+//            putsUSART( str );
+//            putsUSART( " File: "    );
+//            putsUSART( __FILE__     );
+//            putsUSART( "\r\n"       );
+//            // End Debug
             
             return false;
         }
@@ -979,13 +988,16 @@ _SaveMode12Message:
 
 _SaveMessage:
 
-    // Start Debug
-    putsUSART( "Line: "     );
-    putsUSART( __LINE__     );
-    putsUSART( " File: "    );
-    putsUSART( __FILE__     );
-    putsUSART( "\r\n"       );
-    // End Debug
+                // Start Debug
+                putsUSART( "Line: "     );
+                char str[5];
+                str[0] = 0;
+                sprintf(str, "%d", __LINE__);
+                putsUSART( str );
+                putsUSART( " File: "    );
+                putsUSART( __FILE__     );
+                putsUSART( "\r\n"       );
+                // End Debug
 
     savedPtr = ptr;
     *msgFlags = 0;
@@ -1035,16 +1047,16 @@ _SaveMessage:
     COMSTAT_FIFOEMPTY = 0;
 #endif
 
-    // Start Debug
-    putsUSART( "Line: "     );
-    char str[5];
-    str[0] = 0;
-    sprintf(str, "%d", __LINE__);
-    putsUSART( str );
-    putsUSART( " File: "    );
-    putsUSART( __FILE__     );
-    putsUSART( "\r\n"       );
-    // End Debug
+                // Start Debug
+                putsUSART( "Line: "     );
+                char str[5];
+                str[0] = 0;
+                sprintf(str, "%d", __LINE__);
+                putsUSART( str );
+                putsUSART( " File: "    );
+                putsUSART( __FILE__     );
+                putsUSART( "\r\n"       );
+                // End Debug
 
     return true;
 }

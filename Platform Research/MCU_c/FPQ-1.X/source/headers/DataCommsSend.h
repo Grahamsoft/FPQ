@@ -8,8 +8,5 @@
 #ifndef DATACOMMSSEND_H
 #define	DATACOMMSSEND_H
 
-void CustomerWating( uint8_t theKeyId );
-void CustomerBeingServed( uint8_t theKeyId );
-
 #endif	/* DATACOMMSSEND_H */
 

@@ -24,6 +24,7 @@
 
 #include <timers.h>
 #include "headers/TimerTask.h"
+#include "headers/ConsoleTask.h"
 
 // Private Signatures ----
 //void Increment_Timer( void );
@@ -31,7 +32,7 @@
 static const uint8_t TimersCount = 10;
 static volatile uint24_t m_HalfSeconds = 0;
 
-const uint8_t c_NoMsecInSec         = 15; //Should be 100, was 15
+const uint8_t c_NoMsecInSec         = 100; //Should be 100, was 15
 const uint8_t c_NoSecInMinOrMinInHr = 60;
 const uint8_t c_NoHrInDay           = 24;
 
@@ -46,6 +47,11 @@ void InitTime( void )
     m_CurrentTime.Millisecond   = 0;
     m_CurrentTime.Minute        = 0;
     m_CurrentTime.Second        = 0;
+}
+
+t_ATime * GetTime( void )
+{
+    return &m_CurrentTime;
 }
 
 void Increment_Timer( void )
@@ -76,6 +82,7 @@ void Increment_Timer( void )
                     }
                 }
             }
+            UpdateConsole();
         }
     WriteTimer0( 0 );
     T0IF = 0;

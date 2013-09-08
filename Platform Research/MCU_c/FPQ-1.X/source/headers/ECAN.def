@@ -21,19 +21,19 @@
 #define ECAN_INIT_MODE ECAN_INIT_NORMAL
 //
 // SJW value - Value must be between 1-4 inclusive.
-#define ECAN_SJW_VAL 2
+#define ECAN_SJW_VAL 3
 //
 // BRP value - Value must be between 1-64 inclusive.
-#define ECAN_BRP_VAL 4
+#define ECAN_BRP_VAL 7
 //
 // PHSEG1 value - Value must be between 1-8 inclusive.
-#define ECAN_PHSEG1_VAL 8
+#define ECAN_PHSEG1_VAL 7
 //
 // PHSEG2 value - Value must be between 1-8 inclusive.
 #define ECAN_PHSEG2_VAL 8
 //
 // PROPSEG value - Value must be between 1-8 inclusive.
-#define ECAN_PROPSEG_VAL 8
+#define ECAN_PROPSEG_VAL 1
 //
 // Use freely progrmable PHSEG2 or calculated value.
 #define ECAN_PHSEG2_MODE_VAL ECAN_PHSEG2_MODE_PROGRAMMABLE
@@ -81,7 +81,7 @@
 #define ECAN_B1_TXRX_MODE_VAL ECAN_BUFFER_TX
 //
 // B1 Recieve Mode
-#define ECAN_B1_MODE_VAL ECAN_RECEIVE_ALL_VALID
+#define ECAN_B1_MODE_VAL ECAN_RECEIVE_ALL
 //
 // B1 Auto RTR Mode
 #define ECAN_B1_AUTORTR_MODE ECAN_AUTORTR_MODE_DISABLE
@@ -90,7 +90,7 @@
 #define ECAN_B2_TXRX_MODE_VAL ECAN_BUFFER_TX
 //
 // B2 Recieve Mode
-#define ECAN_B2_MODE_VAL ECAN_RECEIVE_ALL_VALID
+#define ECAN_B2_MODE_VAL ECAN_RECEIVE_ALL
 //
 // B2 Auto RTR Mode
 #define ECAN_B2_AUTORTR_MODE ECAN_AUTORTR_MODE_DISABLE
@@ -99,7 +99,7 @@
 #define ECAN_B3_TXRX_MODE_VAL ECAN_BUFFER_TX
 //
 // B3 Recieve Mode
-#define ECAN_B3_MODE_VAL ECAN_RECEIVE_ALL_VALID
+#define ECAN_B3_MODE_VAL ECAN_RECEIVE_ALL
 //
 // B3 Auto RTR Mode
 #define ECAN_B3_AUTORTR_MODE ECAN_AUTORTR_MODE_DISABLE
@@ -108,7 +108,7 @@
 #define ECAN_B4_TXRX_MODE_VAL ECAN_BUFFER_TX
 //
 // B4 Recieve Mode
-#define ECAN_B4_MODE_VAL ECAN_RECEIVE_ALL_VALID
+#define ECAN_B4_MODE_VAL ECAN_RECEIVE_ALL
 //
 // B4 Auto RTR Mode
 #define ECAN_B4_AUTORTR_MODE ECAN_AUTORTR_MODE_DISABLE
@@ -117,7 +117,7 @@
 #define ECAN_B5_TXRX_MODE_VAL ECAN_BUFFER_TX
 //
 // B5 Recieve Mode
-#define ECAN_B5_MODE_VAL ECAN_RECEIVE_ALL_VALID
+#define ECAN_B5_MODE_VAL ECAN_RECEIVE_ALL
 //
 // B5 Auto RTR Mode
 #define ECAN_B5_AUTORTR_MODE ECAN_AUTORTR_MODE_DISABLE

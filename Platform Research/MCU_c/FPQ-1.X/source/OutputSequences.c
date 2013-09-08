@@ -16,17 +16,14 @@ t_ButtonColour GetColour( t_Sequences theSequences, volatile uint8_t *theState, 
     {
         case e_AllOff:
             ReturnColour    = e_Off;
-            CalculateFutureTime( theTimer, 0, 0, 0 );
             break;
 
         case e_SteadyColourA:
             ReturnColour    = e_ColourA;
-            CalculateFutureTime( theTimer, 0, 0, 0 );
             break;
 
         case e_SteadyColourB:
             ReturnColour    = e_ColourB;
-            CalculateFutureTime( theTimer, 0, 0, 0 );
             break;
 
         case e_RedGreenFlash:

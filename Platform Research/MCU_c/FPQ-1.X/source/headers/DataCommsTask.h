@@ -11,9 +11,19 @@
 #include <stdbool.h>       /* For true/false definition */
 #include <stdint.h>        /* For uint8_t definition */
 
+typedef enum
+{
+        e_CommsInit,
+        e_CommsOK,
+        e_CommsError
+} CommsStatus;
+
 void ConfigureUsart( void );
 int DataCommsTask( void );
-void CustomerWating( uint8_t theKeyId );
-void CustomerBeingServed( uint8_t theKeyId );
+
+CommsStatus GetCANTxStatus( void );
+CommsStatus GetCANRxStatus( void );
+CommsStatus GetUARTTxStatus( void );
+CommsStatus GetUARTRxStatus( void );
 
 #endif	/* DATACOMMSTASK_H */

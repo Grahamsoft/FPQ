@@ -3,23 +3,18 @@
  * Author: David Graham
  * 
  */
-
-#define EAUSART_V5
-
-
+#include <xc.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <usart.h>
-//#include "headers/J1939.H"
+#include <string.h>
+
+#include "../include/plib/usart.h"
+
 #include "headers/ECAN.h"
-
 #include "headers/DataCommsTask.h"
-#include "headers/DataCommsSend.h"
 #include "headers/Model.h"
-
 #include "headers/OutputTask.h"
-
 
 // Private Function Signatures ---
 char GetSerialChar( void );
@@ -28,7 +23,6 @@ void UartCommsTask( void );
 // -------------------------------
 
 static volatile t_ATime     m_DataWriteTimer;
-static volatile bool        m_Toggle;
 
 typedef enum
 {
@@ -50,32 +44,38 @@ static const char StartChar = 2;
 static const char EndChar = 3;
 static const char NoRead = 0;
 
-static char InitText[] = "Hello World. Data Comms Init.... Done\n";
+BYTE m_LastCANRead[ 4 ];
 
-static char c_CustomerWating[]          = "Customer Wating: \r\n";
-static char c_CustomerBeingServed[]     = "Customer Being Served: \r\n";
-
-static char c_CanCommandOn[]                = "CAN Command: ON \r\n";
-static char c_CanCommandOff[]               = "CAN Command: OFF \r\n";
-static char c_CanMessageSentOn[]            = "CAN Message Sent: ON \r\n";
-static char c_CanMessageSentOff[]           = "CAN Message Sent: OFF \r\n";
-
-//J1939_MESSAGE CanMessage;
-
-#define OTHER_NODE      129
-#define TURN_ON_LED     92
-#define TURN_OFF_LED    94
-
-    unsigned long id;
-    BYTE data[4];
-    BYTE dataLen;
-    ECAN_RX_MSG_FLAGS flags;
+static CommsStatus m_CANTxStatus = e_CommsInit;
+static CommsStatus m_CANRxStatus = e_CommsInit;
+static CommsStatus m_UARTTxStatus = e_CommsInit;
+static CommsStatus m_UARTRxStatus = e_CommsInit;
 
 int DataCommsTask( void )
 {
     CanCommsTask();
     UartCommsTask();
     return EXIT_SUCCESS;
+}
+
+CommsStatus GetCANTxStatus( void )
+{
+    return m_CANTxStatus;
+}
+
+CommsStatus GetCANRxStatus( void )
+{
+    return m_CANRxStatus;
+}
+
+CommsStatus GetUARTTxStatus( void )
+{
+    return m_UARTTxStatus;
+}
+
+CommsStatus GetUARTRxStatus( void )
+{
+    return m_UARTRxStatus;
 }
 
 char GetSerialChar( void )
@@ -94,112 +94,77 @@ void CanCommsTask( void )
 {
     static CanCommsStateMachine DataCommsReadState = e_CANInit;
 
+    unsigned long NodeId;
+    BYTE ReadMessage[ 4 ];
+    BYTE ReadMessageLength;
+
     switch( DataCommsReadState )
     {
         case e_CANInit:
         {
-
-            // Start Debug
-            putsUSART( "Line: "     );
-            putsUSART( __LINE__     );
-            putsUSART( " File: "    );
-            putsUSART( __FILE__     );
-            putsUSART( "\r\n"       );
-            // End Debug
-
             ECANInitialize();
 
-            // Start Debug
-            putsUSART( "Line: "     );
-            putsUSART( __LINE__     );
-            putsUSART( " File: "    );
-            putsUSART( __FILE__     );
-            putsUSART( "\r\n"       );
-            // End Debug
-
-            m_Toggle = false;
             m_DataWriteTimer.Day            = 0;
             m_DataWriteTimer.Hour           = 0;
             m_DataWriteTimer.Millisecond    = 0;
             m_DataWriteTimer.Minute         = 0;
             m_DataWriteTimer.Second         = 0;
 
-            DataCommsReadState = e_CANRead;
+            m_LastCANRead[ 0 ] = 0; // Null the first char
 
-            }
-            break;
-
-        case e_CANRead:
-           // putsUSART( "Started ECANReceiveMessage()\r\n" );
-            ECANReceiveMessage(&id, &data[0], &dataLen, &flags);
-
-            if ( dataLen > 0 )
-            {
-                // Start Debug
-                putsUSART( "Line: "     );
-                char str[5];
-                str[0] = 0;
-                sprintf(str, "%d", __LINE__);
-                putsUSART( str );
-                putsUSART( " File: "    );
-                putsUSART( __FILE__     );
-                putsUSART( "\r\n"       );
-                // End Debug
-            }
-
-            data[0] = 0;
+            //ECANSetOperationMode(ECAN_OP_MODE_LOOP);
+            m_CANRxStatus = e_CommsOK;
+            m_CANTxStatus = e_CommsOK;
 
             DataCommsReadState = e_CANWrite;
-            break;
+        }
+        break;
+
+        case e_CANRead:
+        {
+            NodeId = 0;
+            ReadMessage[ 0 ] = 0;
+            ReadMessageLength = 0;
+
+            ECAN_RX_MSG_FLAGS flags = 0;
+
+            if ( ECANReceiveMessage( &NodeId ,&ReadMessage[ 0 ], &ReadMessageLength, &flags) )
+            {
+                if ( ReadMessageLength > 0 )
+                {
+                    strcpy( m_LastCANRead, &ReadMessage[ 0 ] );
+                }
+            }
+
+            DataCommsReadState = e_CANWrite;
+        }
+        break;
 
         case e_CANWrite:
+        {
+            DataCommsReadState = e_CANRead;
+
             if ( MaturedTimer( &m_DataWriteTimer ) )
             {
+                unsigned long NodeId = 0x128;
+                ReadMessage[ 0 ] = 'G';
+                ReadMessage[ 1 ] = 0;
+                ReadMessageLength = sizeof( ReadMessage[ 0 ] );
 
-                // Start Debug
-                putsUSART( "Line: "     );
-                char str[5];
-                str[0] = 0;
-                sprintf(str, "%d", __LINE__);
-                putsUSART( str );
-                putsUSART( " File: "    );
-                putsUSART( __FILE__     );
-                putsUSART( "\r\n"       );
-                // End Debug
-
-                data[0] = 'c';
-
-                ECANSendMessage(0x123, &data[0], sizeof( data[0] ), ECAN_TX_STD_FRAME);
-
-                // Start Debug
-                putsUSART( "Line: "     );
-                str[0] = 0;
-                sprintf(str, "%d", __LINE__);
-                putsUSART( str );
-                putsUSART( " File: "    );
-                putsUSART( __FILE__     );
-                putsUSART( "\r\n"       );
-                // End Debug
-
-//                if( m_Toggle )
-//                {
-//                    m_Toggle = false;
-//                    CanMessage.PDUFormat            = TURN_ON_LED;
-//                    putsUSART( c_CanMessageSentOn );
-//                    ColourATest(); // Just for debug
-//                }
-//                else
-//                {
-//                    m_Toggle = true;
-//                    CanMessage.PDUFormat            = TURN_OFF_LED;
-//                    putsUSART( c_CanMessageSentOff );
-//                    ColourBTest(); // Just for debug
-//                }
+                if ( ! ECANSendMessage( NodeId, &ReadMessage[0], ReadMessageLength, ECAN_TX_STD_FRAME) )
+                {
+                    m_CANTxStatus = e_CommsError;
+                    DataCommsReadState = e_CANWrite;
+                }
+                else
+                {
+                    m_CANTxStatus = e_CommsOK;
+                }
 
                 CalculateFutureTime( &m_DataWriteTimer, 0, 3, 0 );
             }
-            DataCommsReadState = e_CANRead;
-            break;
+        }
+        break;
     }
 }
 
@@ -214,20 +179,20 @@ void UartCommsTask( void )
     switch ( DataCommsReadState )
     {
         case e_DataComsInit:
-            
-            putsUSART( InitText );
+
             DataCommsReadState = e_ReadMsg;
             break;
             
         case e_ReadStartChar:
+
             if( GetSerialChar() == StartChar )
             {
                 DataCommsReadState = e_ReadMsg;
             }
-
             break;
 
         case e_ReadMsg:
+            
             Msg = GetSerialChar();
 
             switch( Msg )
@@ -246,6 +211,7 @@ void UartCommsTask( void )
                    // DataCommsReadState = e_ReadEndChar;
                    DataCommsReadState = e_DoMsgCommand;
             }
+            m_UARTRxStatus = e_CommsOK;
             break;
 
         case e_ReadEndChar:
@@ -290,13 +256,4 @@ void UartCommsTask( void )
             DataCommsReadState = e_ReadMsg;
             break;
     }
-}
-
-void CustomerWating( uint8_t theKeyId )
-{
-    putsUSART( c_CustomerWating );
-}
-void CustomerBeingServed( uint8_t theKeyId )
-{
-    putsUSART( c_CustomerBeingServed );
 }

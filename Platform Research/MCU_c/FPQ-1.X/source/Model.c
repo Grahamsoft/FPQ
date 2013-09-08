@@ -28,13 +28,6 @@ void SetKeyState( uint8_t theKeyId, t_ButtonState theState  )
 
             m_Keys[ LoopKeyId ].NextInQueue = theKeyId;
         }
-
-        CustomerWating( theKeyId );
-    }
-
-    if( theState == e_BeingServedYes )
-    {
-        CustomerBeingServed( theKeyId );
     }
 
     // No Longer in Q
