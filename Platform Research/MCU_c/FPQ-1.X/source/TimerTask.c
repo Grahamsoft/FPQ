@@ -23,6 +23,7 @@
 #endif
 
 #include <timers.h>
+#include "headers/TimerExternal.h"
 #include "headers/TimerTask.h"
 #include "headers/ConsoleTask.h"
 

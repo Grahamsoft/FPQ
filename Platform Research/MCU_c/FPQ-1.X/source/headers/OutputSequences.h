@@ -9,7 +9,7 @@
 #define	OUTPUTSEQUENCES_H
 
 #include <stdint.h>        /* For uint8_t definition */
-#include "TimerTask.h"
+#include "TimerExternal.h"
 
 typedef enum
 {

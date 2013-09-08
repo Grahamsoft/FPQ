@@ -5,10 +5,10 @@
  * Created on September 8, 2013, 2:28 PM
  */
 
-#include "TimerTask.h"
-
 #ifndef DATACOMMSEXTERNAL_H
 #define	DATACOMMSEXTERNAL_H
+
+#include "TimerExternal.h"
 
 typedef enum
 {

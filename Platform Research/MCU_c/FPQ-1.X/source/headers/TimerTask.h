@@ -13,20 +13,8 @@
 #ifndef TIMERTASK_H
 #define	TIMERTASK_H
 
-typedef struct ATimeStruct
-{
-    volatile uint8_t Millisecond;
-    volatile uint8_t Second;
-    volatile uint8_t Minute;
-    volatile uint8_t Hour;
-    volatile uint8_t Day;
-}t_ATime;
-
 void InitTime( void );
-bool MaturedTimer( volatile t_ATime *theTimer );
-void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
 void Increment_Timer( void );
 
-void GetTime( volatile t_ATime * theTimePointer );
 
 #endif	/* TIMERTASK_H */

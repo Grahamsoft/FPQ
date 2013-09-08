@@ -16,6 +16,7 @@
       <itemPath>source/headers/ECAN.h</itemPath>
       <itemPath>source/headers/ConsoleTask.h</itemPath>
       <itemPath>source/headers/DataCommsExternal.h</itemPath>
+      <itemPath>source/headers/TimerExternal.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -61,7 +62,7 @@
         <platformTool>PICkit2PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.12</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>4</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
