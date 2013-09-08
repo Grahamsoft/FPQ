@@ -12,10 +12,10 @@
       <itemPath>source/headers/OutputTask.h</itemPath>
       <itemPath>source/headers/Model.h</itemPath>
       <itemPath>source/headers/OutputSequences.h</itemPath>
-      <itemPath>source/headers/DataCommsSend.h</itemPath>
       <itemPath>source/headers/ECAN.def</itemPath>
       <itemPath>source/headers/ECAN.h</itemPath>
       <itemPath>source/headers/ConsoleTask.h</itemPath>
+      <itemPath>source/headers/DataCommsExternal.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -60,7 +60,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit2PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.20</languageToolchainVersion>
+        <languageToolchainVersion>1.12</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
