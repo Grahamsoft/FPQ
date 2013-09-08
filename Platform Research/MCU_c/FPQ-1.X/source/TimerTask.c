@@ -36,7 +36,7 @@ const uint8_t c_NoMsecInSec         = 100; //Should be 100, was 15
 const uint8_t c_NoSecInMinOrMinInHr = 60;
 const uint8_t c_NoHrInDay           = 24;
 
-static t_ATime m_CurrentTime;
+static volatile t_ATime m_CurrentTime;
 
 static volatile uint8_t m_Ticks = 0;
 
@@ -49,9 +49,9 @@ void InitTime( void )
     m_CurrentTime.Second        = 0;
 }
 
-t_ATime * GetTime( void )
+void GetTime( volatile t_ATime * theTimePointer )
 {
-    return &m_CurrentTime;
+    *theTimePointer = m_CurrentTime;
 }
 
 void Increment_Timer( void )

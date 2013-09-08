@@ -1,17 +1,15 @@
 #include <xc.h>
 #include <stdio.h>
 
-#include "../include/plib/usart.h"
-
 #include "headers/TimerTask.h"
 #include "headers/Model.h"
-#include "headers/DataCommsTask.h"
+#include "headers/DataCommsExternal.h"
 
 // Private Function Signatures ---
 void ClearTerminal( void );
 void EchoTime( t_ATime * TheTime );
 void EchokeyState( uint8_t theKeyId );
-void EchoCommsStatus( CommsStatus theStatus );
+void EchoCommsStatus( t_CommsState theState );
 // -------------------------------
 
 void UpdateConsole( void )
@@ -21,90 +19,110 @@ void UpdateConsole( void )
     char TabText[] = "\t";
 
     ClearTerminal();
-    putsUSART( "System Time: " );
-    EchoTime( GetTime() );
-    putsUSART( NewLineText );
-    putsUSART( NewLineText );
+    UartStringWrite( "System Time: " );
 
-    putsUSART( CustomerText );
-    putsUSART( TabText );
-    putsUSART( "Status" );
-    putsUSART( TabText );
-    putsUSART( "Action @" );
-    putsUSART( TabText );
-    putsUSART( "|" );
-    putsUSART( TabText );
-    putsUSART( "Device" );
-    putsUSART( NewLineText );
-    putsUSART( NewLineText );
+    volatile t_ATime theTime;
+    GetTime( &theTime );
+    EchoTime( &theTime );
+    UartStringWrite( NewLineText );
+    UartStringWrite( NewLineText );
 
-    putsUSART( "1" );
-    putsUSART( TabText );
+    UartStringWrite( CustomerText );
+        UartStringWrite( TabText );
+    UartStringWrite( "Status" );
+        UartStringWrite( TabText );
+    UartStringWrite( "@ Time" );
+        UartStringWrite( TabText );
+    UartStringWrite( "|" );
+        UartStringWrite( TabText );
+    UartStringWrite( "Device" );
+        UartStringWrite( TabText );
+    UartStringWrite( "@ Time" );
+        UartStringWrite( NewLineText );
+        UartStringWrite( NewLineText );
+
+    UartStringWrite( "1" );
+        UartStringWrite( TabText );
     EchokeyState( 0 );
-    putsUSART( TabText );
+        UartStringWrite( TabText );
     EchoTime( GetKeyTimer( 0 ) );
-    putsUSART( TabText );
-    putsUSART( "|" );
-    putsUSART( TabText );
-    putsUSART( "UART Rx" );
-    putsUSART( TabText );
-    EchoCommsStatus( GetUARTRxStatus() );
-    putsUSART( NewLineText );
+        UartStringWrite( TabText );
+    UartStringWrite( "|" );
+        UartStringWrite( TabText );
+    UartStringWrite( "UART Rx" );
+        UartStringWrite( TabText );
 
-    putsUSART( "2" );
-    putsUSART( TabText );
+    s_CommsStatus CommsStatus = GetUARTRxStatus();
+    EchoCommsStatus( CommsStatus.CommsState );
+        UartStringWrite( TabText );
+    EchoTime( &CommsStatus.LastUpdate );
+        UartStringWrite( NewLineText );
+
+    UartStringWrite( "2" );
+        UartStringWrite( TabText );
     EchokeyState( 1 );
-    putsUSART( TabText );
+        UartStringWrite( TabText );
     EchoTime( GetKeyTimer( 1 ) );
-    putsUSART( TabText );
-    putsUSART( "|" );
-    putsUSART( TabText );
-    putsUSART( "UART Tx" );
-    putsUSART( TabText );
-    EchoCommsStatus( GetUARTTxStatus() );
-    putsUSART( NewLineText );
+        UartStringWrite( TabText );
+    UartStringWrite( "|" );
+        UartStringWrite( TabText );
+    UartStringWrite( "UART Tx" );
+        UartStringWrite( TabText );
+    CommsStatus = GetUARTTxStatus();
+    EchoCommsStatus( CommsStatus.CommsState );
+        UartStringWrite( TabText );
+    EchoTime( &CommsStatus.LastUpdate );
+        UartStringWrite( NewLineText );
 
-    putsUSART( "3" );
-    putsUSART( TabText );
+    UartStringWrite( "3" );
+        UartStringWrite( TabText );
     EchokeyState( 2 );
-    putsUSART( TabText );
+        UartStringWrite( TabText );
     EchoTime( GetKeyTimer( 2 ) );
-    putsUSART( TabText );
-    putsUSART( "|" );
-    putsUSART( TabText );
-    putsUSART( "CAN Rx" );
-    putsUSART( TabText );
-    EchoCommsStatus( GetCANRxStatus() );
-    putsUSART( NewLineText );
+        UartStringWrite( TabText );
+    UartStringWrite( "|" );
+        UartStringWrite( TabText );
+    UartStringWrite( "CAN Rx" );
+        UartStringWrite( TabText );
+    CommsStatus = GetCANRxStatus();
+    EchoCommsStatus( CommsStatus.CommsState );
+        UartStringWrite( TabText );
+    EchoTime( &CommsStatus.LastUpdate );
+        UartStringWrite( NewLineText );
 
-    putsUSART( "4" );
-    putsUSART( TabText );
+    UartStringWrite( "4" );
+        UartStringWrite( TabText );
     EchokeyState( 3 );
-    putsUSART( TabText );
+        UartStringWrite( TabText );
     EchoTime( GetKeyTimer( 3 ) );
-    putsUSART( TabText );
-    putsUSART( "|" );
-    putsUSART( TabText );
-    putsUSART( "CAN Tx" );
-    putsUSART( TabText );
-    EchoCommsStatus( GetCANTxStatus() );
-    putsUSART( NewLineText );
+        UartStringWrite( TabText );
+    UartStringWrite( "|" );
+        UartStringWrite( TabText );
+    UartStringWrite( "CAN Tx" );
+        UartStringWrite( TabText );
+    CommsStatus = GetCANTxStatus();
+    EchoCommsStatus( CommsStatus.CommsState );
+        UartStringWrite( TabText );
+    EchoTime( &CommsStatus.LastUpdate );
+        UartStringWrite( NewLineText );
 
-    putsUSART( "5" );
-    putsUSART( TabText );
+    UartStringWrite( "5" );
+    UartStringWrite( TabText );
     EchokeyState( 4 );
-    putsUSART( TabText );
+    UartStringWrite( TabText );
     EchoTime( GetKeyTimer( 4 ) );
-    putsUSART( TabText );
-    putsUSART( "|" );
-    putsUSART( TabText );
-    putsUSART( "-" );
-    putsUSART( NewLineText );
+    UartStringWrite( TabText );
+    UartStringWrite( "|" );
+    UartStringWrite( TabText );
+    UartStringWrite( "-" );
+    UartStringWrite( TabText );
+    UartStringWrite( "-" );
+    UartStringWrite( NewLineText );
 }
 
 void ClearTerminal( void )
 {
-    putsUSART( "\033[2J" );
+    UartStringWrite( "\033[2J" );
 }
 
 
@@ -115,16 +133,16 @@ void EchoTime( t_ATime * TheTime )
 
     str[ 0 ] = 0;
     sprintf( str, "%2.2d", TheTime->Hour );
-    putsUSART( str );
+    UartStringWrite( str );
 
-    putsUSART( ":" );
+    UartStringWrite( ":" );
     str[ 0 ] = 0;
     sprintf( str, "%2.2d", TheTime->Minute );
-    putsUSART( str );
-    putsUSART( ":" );
+    UartStringWrite( str );
+    UartStringWrite( *":" );
     str[ 0 ] = 0;
     sprintf( str, "%2.2d", TheTime->Second );
-    putsUSART( str );  
+    UartStringWrite( str );
 }
 
 void EchokeyState( uint8_t theKeyId )
@@ -132,38 +150,38 @@ void EchokeyState( uint8_t theKeyId )
    switch ( GetKeyState( theKeyId ) )
    {
         case e_Error:
-            putsUSART( "Error" );
+            UartStringWrite( "Error" );
             break;
         case e_PressedNo:
-            putsUSART( "Idle" );
+            UartStringWrite( "Idle" );
             break;
         case e_PressedYes:
-            putsUSART( "Pressed" );
+            UartStringWrite( "Pressed" );
             break;
         case e_BeingServedNo:
-            putsUSART( "Waiting" );
+            UartStringWrite( "Waiting" );
             break;
         case e_BeingServedYes:
-            putsUSART( "Serving" );
+            UartStringWrite( "Serving" );
             break;
    }
 }
 
-void EchoCommsStatus( CommsStatus theStatus )
+void EchoCommsStatus( t_CommsState theState )
 {
-    switch( theStatus )
+    switch( theState )
     {
         case e_CommsInit:
-            putsUSART( "Init" );
+            UartStringWrite( "Init" );
             break;
         case e_CommsOK:
-            putsUSART( "OK" );
+            UartStringWrite( "OK" );
             break;
         case e_CommsError:
-            putsUSART( "Error" );
+            UartStringWrite( "Error" );
             break;
         default:
-            putsUSART( "Unknown" );
+            UartStringWrite( "Unknown" );
             break;
     }
 }

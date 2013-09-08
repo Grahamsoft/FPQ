@@ -27,6 +27,6 @@ bool MaturedTimer( volatile t_ATime *theTimer );
 void CalculateFutureTime( volatile t_ATime *theTimer, uint8_t theMinutes, uint8_t theSeconds, uint8_t theHalfSeconds );
 void Increment_Timer( void );
 
-t_ATime * GetTime( void );
+void GetTime( volatile t_ATime * theTimePointer );
 
 #endif	/* TIMERTASK_H */

@@ -13,6 +13,7 @@
 
 #include "headers/ECAN.h"
 #include "headers/DataCommsTask.h"
+#include "headers/DataCommsExternal.h"
 #include "headers/Model.h"
 #include "headers/OutputTask.h"
 
@@ -20,6 +21,7 @@
 char GetSerialChar( void );
 void CanCommsTask( void );
 void UartCommsTask( void );
+void UpdateStatus( s_CommsStatus * theCommsStatusStruct, t_CommsState theNewCommsState );
 // -------------------------------
 
 static volatile t_ATime     m_DataWriteTimer;
@@ -46,48 +48,104 @@ static const char NoRead = 0;
 
 BYTE m_LastCANRead[ 4 ];
 
-static CommsStatus m_CANTxStatus = e_CommsInit;
-static CommsStatus m_CANRxStatus = e_CommsInit;
-static CommsStatus m_UARTTxStatus = e_CommsInit;
-static CommsStatus m_UARTRxStatus = e_CommsInit;
+static s_CommsStatus m_CANTxStatus;
+static s_CommsStatus m_CANRxStatus;
+static s_CommsStatus m_UARTTxStatus;
+static s_CommsStatus m_UARTRxStatus;
+
+// -----------------------
+//
+// For DataCommsExternal.h
+//
+// -----------------------
+
+s_CommsStatus GetCANTxStatus( void )
+{
+    return m_CANTxStatus;
+}
+
+s_CommsStatus GetCANRxStatus( void )
+{
+    return m_CANRxStatus;
+}
+
+s_CommsStatus GetUARTTxStatus( void )
+{
+    return m_UARTTxStatus;
+}
+
+s_CommsStatus GetUARTRxStatus( void )
+{
+    return m_UARTRxStatus;
+}
+
+char UartCharRead ( void )
+{
+    char ReceivedChar = NoRead;
+
+    if ( ( DataRdyUSART() == 1 ) && ( BusyUSART() == 0 ) )
+    {
+        GetTime( &m_UARTRxStatus.LastUpdate );
+        ReceivedChar = getcUSART();
+    }
+
+    return ReceivedChar;
+}
+
+void UartCharWrite ( char theChar )
+{
+    if ( BusyUSART() == 0 )
+    {
+        GetTime( &m_UARTTxStatus.LastUpdate );
+        WriteUSART ( theChar );
+    }
+    else
+    {
+        UpdateStatus( &m_UARTTxStatus, e_CommsBusy );
+    }
+}
+
+void UartStringRead ( char *theStringBuffer,  unsigned char theLength )
+{
+    *theStringBuffer = NoRead;
+    
+    if ( ( DataRdyUSART() == 1 ) && ( BusyUSART() == 0 ) )
+    {
+        GetTime( &m_UARTRxStatus.LastUpdate );
+        getsUSART ( theStringBuffer, theLength );
+    }
+}
+
+void UartStringWrite ( char *theString )
+{
+    if ( BusyUSART() == 0 )
+    {
+        GetTime( &m_UARTTxStatus.LastUpdate );
+        putsUSART ( theString );
+    }
+    else
+    {
+        UpdateStatus( &m_UARTTxStatus, e_CommsBusy );
+    }
+}
+
+// -----------------------
+//
+// For DataCommsTask.h
+//
+// -----------------------
+
+void UpdateStatus( s_CommsStatus * theCommsStatusStruct, t_CommsState theNewCommsState )
+{
+    theCommsStatusStruct->CommsState = theNewCommsState;
+    GetTime( &theCommsStatusStruct->LastUpdate );
+}
 
 int DataCommsTask( void )
 {
     CanCommsTask();
     UartCommsTask();
     return EXIT_SUCCESS;
-}
-
-CommsStatus GetCANTxStatus( void )
-{
-    return m_CANTxStatus;
-}
-
-CommsStatus GetCANRxStatus( void )
-{
-    return m_CANRxStatus;
-}
-
-CommsStatus GetUARTTxStatus( void )
-{
-    return m_UARTTxStatus;
-}
-
-CommsStatus GetUARTRxStatus( void )
-{
-    return m_UARTRxStatus;
-}
-
-char GetSerialChar( void )
-{
-    char ReceivedChar = NoRead;
-    
-    if ( ( DataRdyUSART() == 1 ) && ( BusyUSART() == 0 ) )
-    {
-        ReceivedChar = getcUSART();
-    }
-
-    return ReceivedChar;
 }
 
 void CanCommsTask( void )
@@ -102,6 +160,9 @@ void CanCommsTask( void )
     {
         case e_CANInit:
         {
+            UpdateStatus( &m_CANTxStatus, e_CommsInit );
+            UpdateStatus( &m_CANRxStatus, e_CommsInit );
+
             ECANInitialize();
 
             m_DataWriteTimer.Day            = 0;
@@ -113,8 +174,9 @@ void CanCommsTask( void )
             m_LastCANRead[ 0 ] = 0; // Null the first char
 
             //ECANSetOperationMode(ECAN_OP_MODE_LOOP);
-            m_CANRxStatus = e_CommsOK;
-            m_CANTxStatus = e_CommsOK;
+
+            UpdateStatus( &m_CANTxStatus, e_CommsOK );
+            UpdateStatus( &m_CANRxStatus, e_CommsOK );
 
             DataCommsReadState = e_CANWrite;
         }
@@ -153,12 +215,12 @@ void CanCommsTask( void )
 
                 if ( ! ECANSendMessage( NodeId, &ReadMessage[0], ReadMessageLength, ECAN_TX_STD_FRAME) )
                 {
-                    m_CANTxStatus = e_CommsError;
+                    UpdateStatus( &m_CANTxStatus, e_CommsError );
                     DataCommsReadState = e_CANWrite;
                 }
                 else
                 {
-                    m_CANTxStatus = e_CommsOK;
+                    UpdateStatus( &m_CANTxStatus, e_CommsOK );
                 }
 
                 CalculateFutureTime( &m_DataWriteTimer, 0, 3, 0 );
@@ -185,7 +247,7 @@ void UartCommsTask( void )
             
         case e_ReadStartChar:
 
-            if( GetSerialChar() == StartChar )
+            if( UartCharRead() == StartChar )
             {
                 DataCommsReadState = e_ReadMsg;
             }
@@ -193,7 +255,7 @@ void UartCommsTask( void )
 
         case e_ReadMsg:
             
-            Msg = GetSerialChar();
+            Msg = UartCharRead();
 
             switch( Msg )
             {
@@ -211,12 +273,13 @@ void UartCommsTask( void )
                    // DataCommsReadState = e_ReadEndChar;
                    DataCommsReadState = e_DoMsgCommand;
             }
-            m_UARTRxStatus = e_CommsOK;
+
+            UpdateStatus( &m_UARTRxStatus, e_CommsOK );    
             break;
 
         case e_ReadEndChar:
 
-            switch( GetSerialChar() )
+            switch( UartCharRead() )
             {
 
                 default:
