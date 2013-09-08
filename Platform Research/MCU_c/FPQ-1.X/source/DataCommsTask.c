@@ -94,15 +94,8 @@ char UartCharRead ( void )
 
 void UartCharWrite ( char theChar )
 {
-    if ( BusyUSART() == 0 )
-    {
-        GetTime( &m_UARTTxStatus.LastUpdate );
-        WriteUSART ( theChar );
-    }
-    else
-    {
-        UpdateStatus( &m_UARTTxStatus, e_CommsBusy );
-    }
+    GetTime( &m_UARTTxStatus.LastUpdate );
+    WriteUSART ( theChar );
 }
 
 void UartStringRead ( char *theStringBuffer,  unsigned char theLength )
@@ -118,15 +111,8 @@ void UartStringRead ( char *theStringBuffer,  unsigned char theLength )
 
 void UartStringWrite ( char *theString )
 {
-    if ( BusyUSART() == 0 )
-    {
-        GetTime( &m_UARTTxStatus.LastUpdate );
-        putsUSART ( theString );
-    }
-    else
-    {
-        UpdateStatus( &m_UARTTxStatus, e_CommsBusy );
-    }
+    UpdateStatus( &m_UARTTxStatus, e_CommsOK );
+    putsUSART ( theString );//
 }
 
 // -----------------------
@@ -137,8 +123,11 @@ void UartStringWrite ( char *theString )
 
 void UpdateStatus( s_CommsStatus * theCommsStatusStruct, t_CommsState theNewCommsState )
 {
-    theCommsStatusStruct->CommsState = theNewCommsState;
-    GetTime( &theCommsStatusStruct->LastUpdate );
+  //  if( theCommsStatusStruct->CommsState != theNewCommsState )
+  //  {
+        theCommsStatusStruct->CommsState = theNewCommsState;
+        GetTime( &theCommsStatusStruct->LastUpdate );
+  //  }
 }
 
 int DataCommsTask( void )
@@ -173,7 +162,7 @@ void CanCommsTask( void )
 
             m_LastCANRead[ 0 ] = 0; // Null the first char
 
-            //ECANSetOperationMode(ECAN_OP_MODE_LOOP);
+         //   ECANSetOperationMode(ECAN_OP_MODE_LOOP);
 
             UpdateStatus( &m_CANTxStatus, e_CommsOK );
             UpdateStatus( &m_CANRxStatus, e_CommsOK );
@@ -195,6 +184,7 @@ void CanCommsTask( void )
                 if ( ReadMessageLength > 0 )
                 {
                     strcpy( m_LastCANRead, &ReadMessage[ 0 ] );
+                    UpdateStatus( &m_CANRxStatus, e_CommsOK );
                 }
             }
 
@@ -241,7 +231,7 @@ void UartCommsTask( void )
     switch ( DataCommsReadState )
     {
         case e_DataComsInit:
-
+            UpdateStatus( &m_UARTRxStatus, e_CommsOK );
             DataCommsReadState = e_ReadMsg;
             break;
             
@@ -271,10 +261,10 @@ void UartCommsTask( void )
 
                 default:
                    // DataCommsReadState = e_ReadEndChar;
+                    UpdateStatus( &m_UARTRxStatus, e_CommsOK );
                    DataCommsReadState = e_DoMsgCommand;
+                   break;
             }
-
-            UpdateStatus( &m_UARTRxStatus, e_CommsOK );    
             break;
 
         case e_ReadEndChar:

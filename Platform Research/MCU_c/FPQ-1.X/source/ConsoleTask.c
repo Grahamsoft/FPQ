@@ -139,7 +139,7 @@ void EchoTime( t_ATime * TheTime )
     str[ 0 ] = 0;
     sprintf( str, "%2.2d", TheTime->Minute );
     UartStringWrite( str );
-    UartStringWrite( *":" );
+    UartStringWrite( ":" );
     str[ 0 ] = 0;
     sprintf( str, "%2.2d", TheTime->Second );
     UartStringWrite( str );
