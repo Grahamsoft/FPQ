@@ -2,7 +2,13 @@
 #include "headers/OutputSequences.h"
 //#include "headers/DataCommsSend.h"
 
+// Private Function Signatures ---
+bool ValidateKeyCountBounds( uint8_t theKeyId );
+// -------------------------------
+
 AKey m_Keys[ /*KeyCount*/ 5 ];
+
+s_CommsStatus m_CommsDeviceStatus[ e_CommsDeviceCount ];
 
 volatile uint8_t    m_HeadOfQueue;
 
@@ -96,6 +102,26 @@ t_Sequences GetSequence( uint8_t theKeyId )
     return ReturnedSequence;
 }
 
+uint8_t GetQueuePosition( uint8_t theKeyId )
+{
+    uint8_t QueuePosition = -1;
+
+    if ( ValidateKeyCountBounds( theKeyId ) )
+    {
+        QueuePosition = m_Keys[ theKeyId ].QueuePosition;
+    }
+    
+    return QueuePosition;
+}
+
+void SetQueuePosition( uint8_t theKeyId, uint8_t thePostion )
+{
+    if ( ValidateKeyCountBounds( theKeyId ) )
+    {
+        m_Keys[ theKeyId ].QueuePosition = thePostion;
+    }
+}
+
 void InitKeys()
 {
     m_HeadOfQueue = KeyCount;
@@ -116,6 +142,7 @@ void InitKeys()
     m_Keys[ 0 ].NextActionTimer             = KeyTimer;
     m_Keys[ 0 ].InputTimer                  = KeyTimer;
     m_Keys[ 0 ].NextInQueue                 = KeyCount;
+    m_Keys[ 0 ].QueuePosition               = e_QPUnassigned;
 
     m_Keys[ 1 ].ButtonState                 = e_PressedNo;
     m_Keys[ 1 ].SequenceIdPressedNo         = e_AllOff;
@@ -126,6 +153,7 @@ void InitKeys()
     m_Keys[ 1 ].NextActionTimer             = KeyTimer;
     m_Keys[ 1 ].InputTimer                  = KeyTimer;
     m_Keys[ 1 ].NextInQueue                 = KeyCount;
+    m_Keys[ 1 ].QueuePosition               = e_QPUnassigned;
 
     m_Keys[ 2 ].ButtonState                 = e_PressedNo;
     m_Keys[ 2 ].SequenceIdPressedNo         = e_AllOff;
@@ -136,6 +164,7 @@ void InitKeys()
     m_Keys[ 2 ].NextActionTimer             = KeyTimer;
     m_Keys[ 2 ].InputTimer                  = KeyTimer;
     m_Keys[ 2 ].NextInQueue                 = KeyCount;
+    m_Keys[ 2 ].QueuePosition               = e_QPUnassigned;
 
     m_Keys[ 3 ].ButtonState                 = e_PressedNo;
     m_Keys[ 3 ].SequenceIdPressedNo         = e_AllOff;
@@ -146,6 +175,7 @@ void InitKeys()
     m_Keys[ 3 ].NextActionTimer             = KeyTimer;
     m_Keys[ 3 ].InputTimer                  = KeyTimer;
     m_Keys[ 3 ].NextInQueue                 = KeyCount;
+    m_Keys[ 3 ].QueuePosition               = e_QPUnassigned;
     
     m_Keys[ 4 ].ButtonState                 = e_PressedNo;
     m_Keys[ 4 ].SequenceIdPressedNo         = e_AllOff;
@@ -156,4 +186,43 @@ void InitKeys()
     m_Keys[ 4 ].NextActionTimer             = KeyTimer;
     m_Keys[ 4 ].InputTimer                  = KeyTimer;
     m_Keys[ 4 ].NextInQueue                 = KeyCount;
+    m_Keys[ 4 ].QueuePosition               = e_QPUnassigned;
+
+    m_CommsDeviceStatus[ e_CommsDeviceCanTx ].CommsState = e_CommsInit;
+    m_CommsDeviceStatus[ e_CommsDeviceCanTx ].LastUpdate = KeyTimer;
+
+    m_CommsDeviceStatus[ e_CommsDeviceCanRx ].CommsState = e_CommsInit;
+    m_CommsDeviceStatus[ e_CommsDeviceCanRx ].LastUpdate = KeyTimer;
+
+    m_CommsDeviceStatus[ e_CommsDeviceUartTx ].CommsState = e_CommsInit;
+    m_CommsDeviceStatus[ e_CommsDeviceUartTx ].LastUpdate = KeyTimer;
+
+    m_CommsDeviceStatus[ e_CommsDeviceUartRx ].CommsState = e_CommsInit;
+    m_CommsDeviceStatus[ e_CommsDeviceUartRx ].LastUpdate = KeyTimer;
+
+}
+
+bool ValidateKeyCountBounds( uint8_t theKeyId )
+{
+    const uint8_t zero = 0;
+
+    if ( ( theKeyId >= zero ) && ( theKeyId < KeyCount ) )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+s_CommsStatus GetCommsDeviceStatus( uint8_t theCommsDevice )
+{
+    return m_CommsDeviceStatus[ theCommsDevice ];
+}
+
+void SetCommsDeviceState( uint8_t theCommsDevice, t_CommsState theState )
+{
+    m_CommsDeviceStatus[ theCommsDevice ].CommsState = theState;
+    GetTime( &m_CommsDeviceStatus[ theCommsDevice ].LastUpdate );
 }

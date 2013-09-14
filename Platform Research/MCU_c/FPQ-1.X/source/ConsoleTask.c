@@ -51,8 +51,7 @@ void UpdateConsole( void )
         UartStringWrite( TabText );
     UartStringWrite( "UART Rx" );
         UartStringWrite( TabText );
-
-    s_CommsStatus CommsStatus = GetUARTRxStatus();
+    s_CommsStatus CommsStatus = GetCommsDeviceStatus( e_CommsDeviceUartRx );
     EchoCommsStatus( CommsStatus.CommsState );
         UartStringWrite( TabText );
     EchoTime( &CommsStatus.LastUpdate );
@@ -68,7 +67,7 @@ void UpdateConsole( void )
         UartStringWrite( TabText );
     UartStringWrite( "UART Tx" );
         UartStringWrite( TabText );
-    CommsStatus = GetUARTTxStatus();
+    CommsStatus = GetCommsDeviceStatus( e_CommsDeviceUartTx );
     EchoCommsStatus( CommsStatus.CommsState );
         UartStringWrite( TabText );
     EchoTime( &CommsStatus.LastUpdate );
@@ -84,7 +83,7 @@ void UpdateConsole( void )
         UartStringWrite( TabText );
     UartStringWrite( "CAN Rx" );
         UartStringWrite( TabText );
-    CommsStatus = GetCANRxStatus();
+    CommsStatus = GetCommsDeviceStatus( e_CommsDeviceCanRx );
     EchoCommsStatus( CommsStatus.CommsState );
         UartStringWrite( TabText );
     EchoTime( &CommsStatus.LastUpdate );
@@ -100,7 +99,7 @@ void UpdateConsole( void )
         UartStringWrite( TabText );
     UartStringWrite( "CAN Tx" );
         UartStringWrite( TabText );
-    CommsStatus = GetCANTxStatus();
+    CommsStatus = GetCommsDeviceStatus( e_CommsDeviceCanTx );
     EchoCommsStatus( CommsStatus.CommsState );
         UartStringWrite( TabText );
     EchoTime( &CommsStatus.LastUpdate );

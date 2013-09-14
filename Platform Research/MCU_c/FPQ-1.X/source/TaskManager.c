@@ -22,6 +22,7 @@ void TaskManager()
         case 1:
             InitTime();
             InitKeys();
+            InitDataComms();
             Operation = 2;
             break;
         

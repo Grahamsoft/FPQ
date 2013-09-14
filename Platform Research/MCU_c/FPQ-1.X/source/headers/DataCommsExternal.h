@@ -10,7 +10,7 @@
 
 #include "TimerExternal.h"
 
-typedef enum
+typedef enum 
 {
         e_CommsInit,
         e_CommsOK,
@@ -24,10 +24,16 @@ typedef struct ACommsStatusStruct
     volatile t_ATime        LastUpdate;
 }s_CommsStatus;
 
-s_CommsStatus GetCANTxStatus( void );
-s_CommsStatus GetCANRxStatus( void );
-s_CommsStatus GetUARTTxStatus( void );
-s_CommsStatus GetUARTRxStatus( void );
+// typedef enum
+enum t_CommsDevice
+{
+    e_CommsDeviceCanTx  = 0,
+    e_CommsDeviceCanRx  = 1,
+    e_CommsDeviceUartTx = 2,
+    e_CommsDeviceUartRx = 3,
+    e_CommsDeviceCount  = 4     // Always keep last
+};
+//} t_CommsDevice;
 
 char UartCharRead ( void );
 void UartCharWrite ( char theChar );

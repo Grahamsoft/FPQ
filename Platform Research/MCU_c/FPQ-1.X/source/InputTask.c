@@ -1,6 +1,6 @@
 #include "headers/InputTask.h"
 #include "headers/Model.h"
-#include "headers/TimerTask.h"
+#include "headers/TimerExternal.h"
 
 #if defined(__XC)
     #include <xc.h>        /* XC8 General Include File */

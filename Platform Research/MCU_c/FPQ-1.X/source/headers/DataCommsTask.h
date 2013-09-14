@@ -11,6 +11,7 @@
 #include <stdbool.h>       /* For true/false definition */
 #include <stdint.h>        /* For uint8_t definition */
 
+void InitDataComms( void );
 void ConfigureUsart( void );
 int DataCommsTask( void );
 

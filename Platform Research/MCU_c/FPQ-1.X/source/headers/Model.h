@@ -6,6 +6,7 @@
  */
 #include "OutputSequences.h"
 #include "TimerTask.h"
+#include "DataCommsExternal.h"
 
 #include <stdint.h>        /* For uint8_t definition */
 
@@ -32,6 +33,7 @@ typedef struct AKeyStruct
     volatile t_Sequences    SequenceIdBeingServedYes;
     volatile uint8_t        SequenceState;
     volatile uint8_t        NextInQueue;
+    volatile uint8_t        QueuePosition;
 //  char                Displaying;
 //  time_t              NextAction;
 //  time_t              TimeInState;
@@ -45,15 +47,29 @@ const uint8_t KeyCount = 5;
 
 const uint8_t SequenceReset = 0;
 
-void InitKeys( void );
+typedef enum
+{
+    e_QPUnassigned  = -2,       // Unassigned from server
+    e_QPRequestSent = -1,       // Request sent to server
+}t_QPosition;
 
-t_Sequences GetSequence( uint8_t theKeyId );
-volatile uint8_t* GetSequenceState( uint8_t theKeyId );
-volatile t_ATime* GetKeyTimer( uint8_t theKeyId );
-volatile t_ATime* GetKeyInputTimer( uint8_t theKeyId );
+//QueuePosition.e_QPRequestSent
 
-void SetKeyState( uint8_t theKeyId, t_ButtonState theState );
-t_ButtonState GetKeyState( uint8_t theKeyId );
-uint8_t GetHeadOfQueue( void );
+void                InitKeys( void );
+
+t_Sequences         GetSequence( uint8_t theKeyId );
+volatile uint8_t*   GetSequenceState( uint8_t theKeyId );
+volatile t_ATime*   GetKeyTimer( uint8_t theKeyId );
+volatile t_ATime*   GetKeyInputTimer( uint8_t theKeyId );
+
+void                SetKeyState( uint8_t theKeyId, t_ButtonState theState );
+t_ButtonState       GetKeyState( uint8_t theKeyId );
+uint8_t             GetHeadOfQueue( void );
+
+uint8_t             GetQueuePosition( uint8_t theKeyId );
+void                SetQueuePosition( uint8_t theKeyId, uint8_t thePostion );
+
+s_CommsStatus       GetCommsDeviceStatus( uint8_t theCommsDevice );
+void                SetCommsDeviceState( uint8_t theCommsDevice, t_CommsState theState );
 
 #endif	/* MODEL_H */

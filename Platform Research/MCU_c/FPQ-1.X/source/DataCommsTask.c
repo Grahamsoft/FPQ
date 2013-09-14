@@ -22,6 +22,7 @@ char GetSerialChar( void );
 void CanCommsTask( void );
 void UartCommsTask( void );
 void UpdateStatus( s_CommsStatus * theCommsStatusStruct, t_CommsState theNewCommsState );
+void LoadNextMessage( void );
 // -------------------------------
 
 static volatile t_ATime     m_DataWriteTimer;
@@ -42,11 +43,25 @@ typedef enum
         e_CANWrite
 } CanCommsStateMachine;
 
+enum DataCommsMessages
+{
+    e_NullCharacter         = 0,
+    e_StartOfHeader         = 1,
+    e_StartOfText           = 2,
+    e_EndOfText             = 3,
+    // 4 to 31 Reserved
+    e_AssignQueuePosition   = 32,
+    e_GetTime               = 33,
+    e_SetTime               = 34
+    // 127 Reserved
+};
+
 static const char StartChar = 2;
 static const char EndChar = 3;
 static const char NoRead = 0;
 
 BYTE m_LastCANRead[ 4 ];
+BYTE m_NextSendMessage[ 4 ];
 
 static s_CommsStatus m_CANTxStatus;
 static s_CommsStatus m_CANRxStatus;
@@ -58,26 +73,6 @@ static s_CommsStatus m_UARTRxStatus;
 // For DataCommsExternal.h
 //
 // -----------------------
-
-s_CommsStatus GetCANTxStatus( void )
-{
-    return m_CANTxStatus;
-}
-
-s_CommsStatus GetCANRxStatus( void )
-{
-    return m_CANRxStatus;
-}
-
-s_CommsStatus GetUARTTxStatus( void )
-{
-    return m_UARTTxStatus;
-}
-
-s_CommsStatus GetUARTRxStatus( void )
-{
-    return m_UARTRxStatus;
-}
 
 char UartCharRead ( void )
 {
@@ -121,6 +116,16 @@ void UartStringWrite ( char *theString )
 //
 // -----------------------
 
+
+void InitDataComms( void )
+{
+    m_NextSendMessage[ 0 ] = e_NullCharacter;
+    m_NextSendMessage[ 0 ] = e_NullCharacter;
+    m_NextSendMessage[ 0 ] = e_NullCharacter;
+    m_NextSendMessage[ 0 ] = e_NullCharacter;
+}
+
+
 void UpdateStatus( s_CommsStatus * theCommsStatusStruct, t_CommsState theNewCommsState )
 {
   //  if( theCommsStatusStruct->CommsState != theNewCommsState )
@@ -130,8 +135,29 @@ void UpdateStatus( s_CommsStatus * theCommsStatusStruct, t_CommsState theNewComm
   //  }
 }
 
+void LoadNextMessage( void )
+{
+    if ( m_NextSendMessage[ 0 ] == e_NullCharacter )
+    {
+        for( uint8_t i = 0; i < KeyCount; i++ )
+        {
+            if ( GetQueuePosition( i ) == ( uint8_t )e_QPUnassigned )
+            {
+                m_NextSendMessage[ 0 ] = e_StartOfText;
+                m_NextSendMessage[ 1 ] = e_AssignQueuePosition;
+                m_NextSendMessage[ 2 ] = i + 1;
+                m_NextSendMessage[ 3 ] = e_EndOfText;
+
+                SetQueuePosition( i, e_QPRequestSent );
+                break;
+            }
+        }
+    }
+}
+
 int DataCommsTask( void )
 {
+    LoadNextMessage();
     CanCommsTask();
     UartCommsTask();
     return EXIT_SUCCESS;
@@ -149,8 +175,6 @@ void CanCommsTask( void )
     {
         case e_CANInit:
         {
-            UpdateStatus( &m_CANTxStatus, e_CommsInit );
-            UpdateStatus( &m_CANRxStatus, e_CommsInit );
 
             ECANInitialize();
 
@@ -163,9 +187,9 @@ void CanCommsTask( void )
             m_LastCANRead[ 0 ] = 0; // Null the first char
 
          //   ECANSetOperationMode(ECAN_OP_MODE_LOOP);
-
-            UpdateStatus( &m_CANTxStatus, e_CommsOK );
-            UpdateStatus( &m_CANRxStatus, e_CommsOK );
+            
+            SetCommsDeviceState( e_CommsDeviceCanTx, e_CommsOK );
+            SetCommsDeviceState( e_CommsDeviceCanRx, e_CommsOK );
 
             DataCommsReadState = e_CANWrite;
         }
@@ -173,9 +197,9 @@ void CanCommsTask( void )
 
         case e_CANRead:
         {
-            NodeId = 0;
-            ReadMessage[ 0 ] = 0;
-            ReadMessageLength = 0;
+            NodeId              = 0;
+            ReadMessage[ 0 ]    = 0;
+            ReadMessageLength   = 0;
 
             ECAN_RX_MSG_FLAGS flags = 0;
 
@@ -184,7 +208,7 @@ void CanCommsTask( void )
                 if ( ReadMessageLength > 0 )
                 {
                     strcpy( m_LastCANRead, &ReadMessage[ 0 ] );
-                    UpdateStatus( &m_CANRxStatus, e_CommsOK );
+                    SetCommsDeviceState( e_CommsDeviceCanRx, e_CommsOK );
                 }
             }
 
@@ -198,19 +222,19 @@ void CanCommsTask( void )
 
             if ( MaturedTimer( &m_DataWriteTimer ) )
             {
-                unsigned long NodeId = 0x128;
-                ReadMessage[ 0 ] = 'G';
-                ReadMessage[ 1 ] = 0;
-                ReadMessageLength = sizeof( ReadMessage[ 0 ] );
+                if ( m_NextSendMessage[ 0 ] != e_NullCharacter )
+                {
+                    unsigned long NodeId = 0x128;
 
-                if ( ! ECANSendMessage( NodeId, &ReadMessage[0], ReadMessageLength, ECAN_TX_STD_FRAME) )
-                {
-                    UpdateStatus( &m_CANTxStatus, e_CommsError );
-                    DataCommsReadState = e_CANWrite;
-                }
-                else
-                {
-                    UpdateStatus( &m_CANTxStatus, e_CommsOK );
+                    if ( ! ECANSendMessage( NodeId, &m_NextSendMessage[0], sizeof( m_NextSendMessage[ 0 ] ), ECAN_TX_STD_FRAME) )
+                    {
+                        SetCommsDeviceState( e_CommsDeviceCanTx, e_CommsError );
+                        DataCommsReadState = e_CANWrite;
+                    }
+                    else
+                    {
+                        SetCommsDeviceState( e_CommsDeviceCanTx, e_CommsOK );
+                    }
                 }
 
                 CalculateFutureTime( &m_DataWriteTimer, 0, 3, 0 );
@@ -231,7 +255,7 @@ void UartCommsTask( void )
     switch ( DataCommsReadState )
     {
         case e_DataComsInit:
-            UpdateStatus( &m_UARTRxStatus, e_CommsOK );
+            SetCommsDeviceState( e_CommsDeviceUartRx, e_CommsOK );
             DataCommsReadState = e_ReadMsg;
             break;
             
@@ -261,8 +285,8 @@ void UartCommsTask( void )
 
                 default:
                    // DataCommsReadState = e_ReadEndChar;
-                    UpdateStatus( &m_UARTRxStatus, e_CommsOK );
-                   DataCommsReadState = e_DoMsgCommand;
+                    SetCommsDeviceState( e_CommsDeviceUartRx, e_CommsOK );
+                    DataCommsReadState = e_DoMsgCommand;
                    break;
             }
             break;
