@@ -33,6 +33,7 @@ typedef struct AKeyStruct
     volatile t_Sequences    SequenceIdBeingServedYes;
     volatile uint8_t        SequenceState;
     volatile uint8_t        NextInQueue;
+    volatile uint8_t        QueueGroupId;
     volatile uint8_t        QueuePosition;
 //  char                Displaying;
 //  time_t              NextAction;

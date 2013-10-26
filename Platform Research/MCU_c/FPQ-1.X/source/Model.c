@@ -142,6 +142,7 @@ void InitKeys()
     m_Keys[ 0 ].NextActionTimer             = KeyTimer;
     m_Keys[ 0 ].InputTimer                  = KeyTimer;
     m_Keys[ 0 ].NextInQueue                 = KeyCount;
+    m_Keys[ 0 ].QueueGroupId                 = 0;
     m_Keys[ 0 ].QueuePosition               = e_QPUnassigned;
 
     m_Keys[ 1 ].ButtonState                 = e_PressedNo;
@@ -153,6 +154,7 @@ void InitKeys()
     m_Keys[ 1 ].NextActionTimer             = KeyTimer;
     m_Keys[ 1 ].InputTimer                  = KeyTimer;
     m_Keys[ 1 ].NextInQueue                 = KeyCount;
+    m_Keys[ 1 ].QueueGroupId                 = 0;
     m_Keys[ 1 ].QueuePosition               = e_QPUnassigned;
 
     m_Keys[ 2 ].ButtonState                 = e_PressedNo;
@@ -164,6 +166,7 @@ void InitKeys()
     m_Keys[ 2 ].NextActionTimer             = KeyTimer;
     m_Keys[ 2 ].InputTimer                  = KeyTimer;
     m_Keys[ 2 ].NextInQueue                 = KeyCount;
+    m_Keys[ 2 ].QueueGroupId                = 0;
     m_Keys[ 2 ].QueuePosition               = e_QPUnassigned;
 
     m_Keys[ 3 ].ButtonState                 = e_PressedNo;
@@ -175,6 +178,7 @@ void InitKeys()
     m_Keys[ 3 ].NextActionTimer             = KeyTimer;
     m_Keys[ 3 ].InputTimer                  = KeyTimer;
     m_Keys[ 3 ].NextInQueue                 = KeyCount;
+    m_Keys[ 3 ].QueueGroupId                = 0;
     m_Keys[ 3 ].QueuePosition               = e_QPUnassigned;
     
     m_Keys[ 4 ].ButtonState                 = e_PressedNo;
@@ -186,6 +190,7 @@ void InitKeys()
     m_Keys[ 4 ].NextActionTimer             = KeyTimer;
     m_Keys[ 4 ].InputTimer                  = KeyTimer;
     m_Keys[ 4 ].NextInQueue                 = KeyCount;
+    m_Keys[ 4 ].QueueGroupId                = 0;
     m_Keys[ 4 ].QueuePosition               = e_QPUnassigned;
 
     m_CommsDeviceStatus[ e_CommsDeviceCanTx ].CommsState = e_CommsInit;
