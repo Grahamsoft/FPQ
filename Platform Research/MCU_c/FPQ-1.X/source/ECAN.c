@@ -754,6 +754,18 @@ bool ECANSendMessage( unsigned long id,
 
             return true;
         }
+        else
+        {
+            // Start Debug
+            putsUSART( "Buffer: "     );
+            char str[ 5 ];
+            str[ 0 ] = 0;
+            sprintf(str, "%d", i);
+            putsUSART( str );
+            putsUSART( " full."    );
+            putsUSART( "\r\n"       );
+            // End Debug
+        }
     }
 
     // There were no empty buffers.
